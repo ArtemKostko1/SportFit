@@ -1,0 +1,50 @@
+﻿.btn-outline-primary{
+  color: #000000;
+  
+  &:hover{
+    color: #ffffff;
+  }
+}
+
+.authorization_wrapper {
+  .row {
+    height: calc(100vh - 60px);
+    
+    .left {
+      
+    }
+    .right {
+      .authorization_form_wrapper {
+        width: 550px;
+        
+        .title{
+          margin-bottom: 15px !important;
+        }
+        
+        .separator{
+          margin-bottom: 30px !important;
+          
+          span{
+            line-height: 1rem;
+          }
+        }
+        
+        .input_wrapper{
+          margin-bottom: 15px !important;
+          
+          .form-label{
+            color: #d3d3d3;
+          }
+          
+          .form-control{
+            color: #000000;
+          }
+        }
+        
+        .button_wrapper{
+          margin-bottom: 30px !important;
+        }
+      }
+    }
+  }
+}

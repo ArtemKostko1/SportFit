@@ -1,0 +1,44 @@
+﻿.banner {
+  border-radius: 25px;
+  height: 400px;
+
+  background-image: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  .banner_blackout{
+    border-radius: 25px;
+    height: 400px;
+
+    padding: 75px;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .content {
+      margin-bottom: 65px;
+
+      .title {
+        margin-bottom: 20px;
+
+        color: white;
+      }
+
+      span {
+        color: lightgrey;
+      }
+    }
+
+    .button_wrapper {
+      .btn{
+        width: 170px;
+
+        color: white;
+
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+}

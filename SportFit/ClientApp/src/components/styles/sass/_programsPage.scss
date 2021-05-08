@@ -1,0 +1,15 @@
+﻿.programsPage_wrapper{
+  padding: 50px;
+  
+  .banner{
+    background-image: url("https://images.unsplash.com/photo-1579126038374-6064e9370f0f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1317&q=80");
+  }
+
+  .programItem_wrapper {
+    margin-bottom: 50px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

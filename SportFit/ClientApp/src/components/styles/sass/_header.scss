@@ -1,0 +1,26 @@
+﻿.header {
+  height: 60px;
+  
+  .navbar {    
+    .navbar_wrapper {
+      height: 60px;
+      
+      .brand{
+        height: 60px;
+        
+        .navbar-brand {
+          font-size: 24pt;
+          line-height: 1em;
+        }
+      }
+      
+      .navbar-nav {
+        .nav-item {
+          .nav-link {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
