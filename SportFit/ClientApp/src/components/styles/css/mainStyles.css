@@ -260,6 +260,7 @@ a:hover {
 .programIdPage_wrapper .programId_content {
   height: auto;
   padding: 50px;
+  margin-bottom: 50px;
   border-radius: 25px;
   border: 2px solid #ceecff;
 }
@@ -345,4 +346,27 @@ a:hover {
   border-radius: 5px;
   text-align: justify;
   font-size: 14pt;
+}
+
+.commentsBlock_wrapper {
+  height: 880px;
+  border-radius: 25px;
+  border: 2px solid #ceecff;
+}
+.commentsBlock_wrapper .myComment_wrapper {
+  padding: 50px;
+}
+.commentsBlock_wrapper .myComment_wrapper .commentInput_wrapper {
+  margin-bottom: 25px;
+}
+.commentsBlock_wrapper .myComment_wrapper .commentInput_wrapper .commentText_wrapper .commentText {
+  height: 150px;
+}
+.commentsBlock_wrapper .myComment_wrapper .button_wrapper .btn {
+  width: 300px;
+  height: 55px;
+}
+.commentsBlock_wrapper hr {
+  color: #CEECFF;
+  height: 2px;
 }

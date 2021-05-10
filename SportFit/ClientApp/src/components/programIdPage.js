@@ -4,6 +4,7 @@ import profile from "./images/profile.svg";
 import dumbbell from "./images/dumbbell.svg";
 import muscles_hard from "./images/muscles_hard.png";
 import camera from "./images/camera.svg";
+import CommentsBlock from "./commentsBlock";
 
 const ProgramIdPage = () => {
     return (
@@ -78,6 +79,8 @@ const ProgramIdPage = () => {
                     </div>
                 </div>
             </div>
+            
+            <CommentsBlock/>
         </div>
     );
 };
