@@ -31,14 +31,14 @@ namespace SportFit.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<SportFit.Data.Models.Program>> GetProgram(Guid id)
         {
-            var program = await _context.Programs.FindAsync(id);
+            var program = await _context.Programs.FindAsync(id); //вместо этого делаю LINQ запрос с JOIN
 
             if (program == null)
             {
                 return NotFound();
             }
 
-            return program;
+            return program; //здесь уже будет сущность нормализованная, без айдишников
         }
 
         // PUT: api/Programs/5

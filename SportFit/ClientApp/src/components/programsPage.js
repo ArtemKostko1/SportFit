@@ -24,6 +24,7 @@ const ProgramsPage = (props) => {
                     return (
                         <ProgramItem 
                             key={index}
+                            id={record.id}
                             user={record.userId}
                             avatar={record.avatar}
                             name={record.name}
