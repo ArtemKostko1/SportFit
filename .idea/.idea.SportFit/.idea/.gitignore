@@ -11,6 +11,3 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
-
-encodings.xml
-riderModule.iml
