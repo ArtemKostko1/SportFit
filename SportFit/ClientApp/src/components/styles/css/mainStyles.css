@@ -210,13 +210,13 @@ a:hover {
 .programItem_wrapper .programItem_content .right_block .actions_block .likes_wrapper .likeProgram:active {
   background-color: #ceecff;
 }
-.programItem_wrapper .programItem_content .right_block .actions_block .openProgram {
+.programItem_wrapper .programItem_content .right_block .actions_block .button_wrapper .openProgram {
   width: 100px;
 }
-.programItem_wrapper .programItem_content .right_block .actions_block .openProgram .bi {
+.programItem_wrapper .programItem_content .right_block .actions_block .button_wrapper .openProgram .bi {
   color: #0d6efd;
 }
-.programItem_wrapper .programItem_content .right_block .actions_block .openProgram:hover .bi {
+.programItem_wrapper .programItem_content .right_block .actions_block .button_wrapper .openProgram:hover .bi {
   color: white;
 }
 
@@ -269,7 +269,6 @@ a:hover {
 }
 .programIdPage_wrapper .programId_content .topInfo_wrapper .user_wrapper span {
   font-size: 14pt;
-  color: black;
 }
 .programIdPage_wrapper .programId_content .topInfo_wrapper .user_wrapper span:hover {
   color: #555555;
@@ -349,24 +348,44 @@ a:hover {
 }
 
 .commentsBlock_wrapper {
-  height: 880px;
+  height: auto;
   border-radius: 25px;
   border: 2px solid #ceecff;
-}
-.commentsBlock_wrapper .myComment_wrapper {
-  padding: 50px;
-}
-.commentsBlock_wrapper .myComment_wrapper .commentInput_wrapper {
-  margin-bottom: 25px;
-}
-.commentsBlock_wrapper .myComment_wrapper .commentInput_wrapper .commentText_wrapper .commentText {
-  height: 150px;
-}
-.commentsBlock_wrapper .myComment_wrapper .button_wrapper .btn {
-  width: 300px;
-  height: 55px;
 }
 .commentsBlock_wrapper hr {
   color: #CEECFF;
   height: 2px;
+}
+.commentsBlock_wrapper .commentsList_wrapper {
+  padding: 50px;
+}
+
+.commentItem_wrapper {
+  margin-bottom: 50px;
+}
+.commentItem_wrapper:last-child {
+  margin-bottom: 0;
+}
+.commentItem_wrapper .commentItem_content .userNickname span {
+  font-size: 14pt;
+}
+.commentItem_wrapper .commentItem_content .userNickname span:hover {
+  color: #555555;
+  cursor: pointer;
+}
+.commentItem_wrapper .commentItem_content .commentText {
+  color: #808080;
+}
+
+.userComment_wrapper {
+  padding: 50px;
+}
+.userComment_wrapper .userCommentInput_wrapper .comment_form .input_wrapper {
+  margin-bottom: 25px;
+}
+.userComment_wrapper .userCommentInput_wrapper .comment_form .input_wrapper .commentText {
+  height: 150px;
+}
+.userComment_wrapper .userCommentInput_wrapper .comment_form .button_wrapper .btn {
+  width: 300px;
 }

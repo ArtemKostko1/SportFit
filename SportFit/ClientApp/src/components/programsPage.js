@@ -1,5 +1,5 @@
-﻿import React, { useState, useEffect } from 'react';
-import { connect } from "react-redux";
+﻿import React, {useState, useEffect} from 'react';
+import {connect} from "react-redux";
 import * as programActions from '../actions/program';
 
 import meditation from "./images/meditation.svg";
@@ -13,7 +13,7 @@ const ProgramsPage = (props) => {
     useEffect(() => {
         props.fetchAllPrograms()
     }, []);
-    
+
     return (
         <div className="programsPage_wrapper container-xxl">
             <Banner/>
@@ -22,14 +22,14 @@ const ProgramsPage = (props) => {
             {
                 props.programList.map((record, index) => {
                     return (
-                        <ProgramItem 
+                        <ProgramItem
                             key={index}
                             id={record.id}
-                            user={record.userId}
-                            avatar={record.avatar}
+                            user={record.pUser}
+                            avatar={record.uAvatar}
                             name={record.name}
-                            programType={record.programTypeId}
-                            complexityLevel={record.complexityLevelId}
+                            programType={record.pType}
+                            complexityLevel={record.cLevel}
                             description={record.description}
                         />
                     );

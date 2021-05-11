@@ -1,48 +1,48 @@
-﻿import React,{ Component } from 'react';
+﻿import React, {Component} from 'react';
 import camera from "./images/camera.svg";
 import {Link} from "react-router-dom";
 import {PROGRAM_ID_ROUTE} from "../routing/routerConsts";
 import Spinner from "./special-components/spinner/spinner";
+
 export default class ProgramItem extends Component {
     state = {
         loading: true
     };
-    
+
     constructor() {
         super();
         this.updateProgram();
     }
 
     onProgramLoaded = () => {
-        debugger
         this.setState({
             loading: false
         });
     }
 
-    updateProgram () {
+    updateProgram() {
         this.onProgramLoaded()
     }
-    
+
     render() {
         const data = this.props;
-        const { loading } = this.state;
-        
+        const {loading} = this.state;
+
         const spinner = loading && data === {} ? <Spinner/> : null;
-        const content = loading ? <ProgramItemContent data={ this.props }/> : null;
-        
+        const content = loading ? <ProgramItemContent data={this.props}/> : null;
+
         return (
             <div className="programItem_wrapper container-xxl d-flex justify-content-center align-items-center">
-                { spinner }
-                { content }
+                {spinner}
+                {content}
             </div>
         );
     }
 }
 
-const ProgramItemContent = ({ data }) => {
-    const {  id, avatar, user, name, programType, complexityLevel, description } = data;
-    
+const ProgramItemContent = ({data}) => {
+    const {id, avatar, user, name, programType, complexityLevel, description} = data;
+
     return (
         <div className="programItem_content container-xxl row">
             <div className="left_block col-4">
@@ -98,13 +98,15 @@ const ProgramItemContent = ({ data }) => {
                     </div>
 
                     <Link to={PROGRAM_ID_ROUTE}>
-                        <button type="button" className="openProgram btn btn-outline-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="25" fill="currentColor" className="bi bi-arrow-right"
-                                 viewBox="0 0 16 16">
-                                <path fillRule="evenodd"
-                                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-                            </svg>
-                        </button>
+                        <div className="button_wrapper">
+                            <button type="button" className="openProgram btn btn-outline-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="20" fill="currentColor" className="bi bi-arrow-right"
+                                     viewBox="0 0 16 16">
+                                    <path fillRule="evenodd"
+                                          d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </button>
+                        </div>
                     </Link>
                 </div>
             </div>

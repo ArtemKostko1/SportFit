@@ -1,32 +1,15 @@
 ﻿.commentsBlock_wrapper {
-  height: 880px;
+  height: auto;
 
   border-radius: 25px;
   border: 2px solid #ceecff;
   
-  .myComment_wrapper {
-    padding: 50px;
-    
-    .commentInput_wrapper {
-      margin-bottom: 25px;
-      
-      .commentText_wrapper {
-        .commentText {
-          height: 150px;
-        }
-      }
-    }
-
-    .button_wrapper {
-      .btn {
-        width: 300px;
-        height: 55px;
-      }
-    }
-  }
-  
   hr {
     color: #CEECFF;
     height: 2px;
+  }
+  
+  .commentsList_wrapper {
+    padding: 50px;
   }
 }

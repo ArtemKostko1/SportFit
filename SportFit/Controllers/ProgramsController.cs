@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SportFit.Data.Models;
+using SportFit.Data.ModelTypes;
 
 namespace SportFit.Controllers
 {
@@ -22,23 +23,49 @@ namespace SportFit.Controllers
 
         // GET: api/Programs
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SportFit.Data.Models.Program>>> GetPrograms()
+        public async Task<ActionResult<IEnumerable<TProgram>>> GetPrograms()
         {
-            return await _context.Programs.ToListAsync();
+            return await (from program in _context.Programs
+                join programType in _context.ProgramTypes on program.ProgramTypeId equals programType.Id
+                join complexityLevel in _context.ComplexityLevels on program.ComplexityLevelId equals complexityLevel.Id
+                join user in _context.Users on program.UserId equals user.Id
+                select new TProgram()
+                {
+                    Id = program.Id,
+                    PUser = user.Nickname,
+                    UAvatar = user.Avatar,
+                    Name = program.Name,
+                    PType = programType.Name,
+                    CLevel = complexityLevel.Name,
+                    Description = program.Description,
+                    ProgramContent = program.ProgramContent,
+                    CreationDate = program.CreationDate,
+                    ModificationDate = program.ModificationDate
+                }).ToListAsync();
         }
 
         // GET: api/Programs/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<SportFit.Data.Models.Program>> GetProgram(Guid id)
+        public TProgram GetProgram(Guid id)
         {
-            var program = await _context.Programs.FindAsync(id); //вместо этого делаю LINQ запрос с JOIN
-
-            if (program == null)
-            {
-                return NotFound();
-            }
-
-            return program; //здесь уже будет сущность нормализованная, без айдишников
+            return (from program in _context.Programs
+                join programType in _context.ProgramTypes on program.ProgramTypeId equals programType.Id
+                join complexityLevel in _context.ComplexityLevels on program.ComplexityLevelId equals complexityLevel.Id
+                join user in _context.Users on program.UserId equals user.Id
+                where program.Id == id
+                select new TProgram()
+                {
+                    Id = program.Id,
+                    PUser = user.Nickname,
+                    UAvatar = user.Avatar,
+                    Name = program.Name,
+                    PType = programType.Name,
+                    CLevel = complexityLevel.Name,
+                    Description = program.Description,
+                    ProgramContent = program.ProgramContent,
+                    CreationDate = program.CreationDate,
+                    ModificationDate = program.ModificationDate
+                }).FirstOrDefault();
         }
 
         // PUT: api/Programs/5

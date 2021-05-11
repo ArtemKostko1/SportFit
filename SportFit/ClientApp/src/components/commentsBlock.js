@@ -1,31 +1,21 @@
 ﻿import React from 'react';
+import CommentItem from "./commentItem";
+import UserComment from "./userComment";
+
 import profile from "./images/profile.svg";
-import {Link} from "react-router-dom";
 
 const CommentsBlock = () => {
     return (
-        <div className="commentsBlock_wrapper container-xxl p-0">
-            <div className="myComment_wrapper">
-                <div className="commentInput_wrapper row">
-                    <div className="user_wrapper col-1">
-                        <img className="rounded-circle" src={profile} alt="ava" width="75" height="75"/>
-                    </div>
-    
-                    <div className="commentText_wrapper form-floating col-11">
-                        <textarea className="commentText form-control" placeholder="Leave a comment here" id="floatingTextarea"/>
-                        <label htmlFor="floatingTextarea2">Input program content</label>
-                    </div>
-                </div>
-    
-                <div className="button_wrapper row d-flex justify-content-end">
-                    <button type="#" className="btn btn-outline-dark rounded-pill fw-bold">CREATE</button>
-                </div>
-            </div>
+        <div className="commentsBlock_wrapper">
+            <UserComment avatar={ profile }/>
             
-            <hr className="w-100"/>
+            <hr className="w-100 m-0"/>
             
-            <div className="usersComments_wrapper">
-                
+            <div className="commentsList_wrapper">
+                <CommentItem avatar={ profile } nickname="Floyd Miles" comment="Great choice of Acronym AF1’s 👌🏼"/>
+                <CommentItem avatar={ profile } nickname="Savannah Nguyen" comment="Flipping the cassette while reading/examining the fold-out cover 😁"/>
+                <CommentItem avatar={ profile } nickname="Marvin McKinney" comment="Everyday I “just” listen to music 👌🏿"/>
+                <CommentItem avatar={ profile } nickname="Courtney Henry" comment="Soo great!!!"/>
             </div>
         </div>
     );

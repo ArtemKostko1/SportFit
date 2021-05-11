@@ -34,6 +34,7 @@ namespace SportFit.Data.Models
         public DateTime ModificationDate { get; set; }
         
 
+        public User User { get; set; }
         public ProgramType ProgramType { get; set; }
         public ComplexityLevel ComplexityLevel { get; set; }
 

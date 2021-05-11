@@ -78,16 +78,18 @@
           }
         }
         
-        .openProgram {
-          width: 100px;
-          
-          .bi {
-            color: #0d6efd;
-          }
-          
-          &:hover {
+        .button_wrapper {
+          .openProgram {
+            width: 100px;
+
             .bi {
-              color: white;
+              color: #0d6efd;
+            }
+
+            &:hover {
+              .bi {
+                color: white;
+              }
             }
           }
         }

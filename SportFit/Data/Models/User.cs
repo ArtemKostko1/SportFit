@@ -31,6 +31,7 @@ namespace SportFit.Data.Models
         public UserProfile UserProfile { get; set; }
         
         
+        public ICollection<Program> Programs { get; set; }
         public ICollection<Like> Likes { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<SelectedProgram> SelectedPrograms { get; set; }

@@ -1,0 +1,21 @@
+﻿.userComment_wrapper {
+  padding: 50px;
+
+  .userCommentInput_wrapper {
+    .comment_form {
+      .input_wrapper {
+        margin-bottom: 25px;
+
+        .commentText {
+          height: 150px;
+        }
+      }
+
+      .button_wrapper {
+        .btn {
+          width: 300px;
+        }
+      }
+    }
+  }
+}
