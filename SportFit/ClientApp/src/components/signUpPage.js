@@ -1,15 +1,8 @@
-﻿import React, { useState, useEffect } from 'react';
+﻿import React from 'react';
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import Required from "./utils/validators/validators";
-import * as userActions from '../actions/user';
 import {MAIN_ROUTE, SIGNIN_ROUTE} from "../routing/routerConsts";
 
-const SignUpPage = (props) => {
-    useEffect(() => {
-        props.fetchAllUsers()
-    }, []);
-    
+const SignUpPage = (props) => {    
     return (
         <div>
             <div className="authorization_wrapper container-fluid p-0">
@@ -70,12 +63,4 @@ const SignUpPage = (props) => {
     );
 }
 
-const mapStateToProps = userState => ({
-    userList: userState.user.list,
-});
-
-const mapActionToProps = {
-    fetchAllUsers: userActions.fetchAllUsers,
-}
-
-export default connect(mapStateToProps, mapActionToProps)(SignUpPage);
+export default SignUpPage;

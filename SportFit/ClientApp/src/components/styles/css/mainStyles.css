@@ -257,96 +257,6 @@ a:hover {
   --bs-gutter-x: 0;
 }
 
-.programIdPage_wrapper .programId_content {
-  height: auto;
-  padding: 50px;
-  margin-bottom: 50px;
-  border-radius: 25px;
-  border: 2px solid #ceecff;
-}
-.programIdPage_wrapper .programId_content .topInfo_wrapper {
-  margin-bottom: 25px;
-}
-.programIdPage_wrapper .programId_content .topInfo_wrapper .user_wrapper span {
-  font-size: 14pt;
-}
-.programIdPage_wrapper .programId_content .topInfo_wrapper .user_wrapper span:hover {
-  color: #555555;
-  cursor: pointer;
-}
-.programIdPage_wrapper .programId_content .topInfo_wrapper .likes_wrapper .likesCount {
-  font-size: 14pt;
-  color: #0d6efd;
-}
-.programIdPage_wrapper .programId_content .topInfo_wrapper .likes_wrapper .likeProgram {
-  height: 45px;
-  width: 45px;
-  background-color: #F2FDFF;
-  border: transparent;
-}
-.programIdPage_wrapper .programId_content .topInfo_wrapper .likes_wrapper .likeProgram .bi {
-  font-weight: bold;
-  font-size: 24px;
-  color: #0d6efd;
-}
-.programIdPage_wrapper .programId_content .topInfo_wrapper .likes_wrapper .likeProgram:hover {
-  background-color: #C8F8FF;
-}
-.programIdPage_wrapper .programId_content .topInfo_wrapper .likes_wrapper .likeProgram:active {
-  background-color: #ceecff;
-}
-.programIdPage_wrapper .programId_content .mainContent_wrapper .typesCharacterization_wrapper {
-  margin-bottom: 25px;
-}
-.programIdPage_wrapper .programId_content .mainContent_wrapper .typesCharacterization_wrapper .programType_wrapper .badge {
-  width: 200px;
-  height: 42px;
-  font-size: 14pt;
-  background-color: #0D6EFD;
-}
-.programIdPage_wrapper .programId_content .mainContent_wrapper .typesCharacterization_wrapper .complexityLevel_wrapper .badge {
-  width: 200px;
-  height: 42px;
-  font-size: 14pt;
-  background-color: #FF5247;
-}
-.programIdPage_wrapper .programId_content .mainContent_wrapper .gallery_wrapper {
-  height: 400px;
-  margin-bottom: 25px;
-}
-.programIdPage_wrapper .programId_content .mainContent_wrapper .gallery_wrapper .photosGallery_wrapper {
-  height: 350px;
-}
-.programIdPage_wrapper .programId_content .mainContent_wrapper .name_wrapper {
-  margin-bottom: 10px;
-  font-size: 18pt;
-  color: #008CFF;
-}
-.programIdPage_wrapper .programId_content .mainContent_wrapper .description_wrapper {
-  margin-bottom: 15px;
-}
-.programIdPage_wrapper .programId_content .mainContent_wrapper .description_wrapper .title {
-  font-size: 14pt;
-}
-.programIdPage_wrapper .programId_content .mainContent_wrapper .description_wrapper .content {
-  text-align: justify;
-  font-size: 14pt;
-}
-.programIdPage_wrapper .programId_content .mainContent_wrapper .programText_wrapper {
-  margin-bottom: 15px;
-}
-.programIdPage_wrapper .programId_content .mainContent_wrapper .programText_wrapper .title {
-  font-size: 14pt;
-}
-.programIdPage_wrapper .programId_content .mainContent_wrapper .programText_wrapper .content_text {
-  min-height: 250px;
-  padding: 15px;
-  border: 1px solid #808080;
-  border-radius: 5px;
-  text-align: justify;
-  font-size: 14pt;
-}
-
 .commentsBlock_wrapper {
   height: auto;
   border-radius: 25px;
@@ -388,4 +298,94 @@ a:hover {
 }
 .userComment_wrapper .userCommentInput_wrapper .comment_form .button_wrapper .btn {
   width: 300px;
+}
+
+.programId_content {
+  height: auto;
+  padding: 50px;
+  margin-bottom: 50px;
+  border-radius: 25px;
+  border: 2px solid #ceecff;
+}
+.programId_content .topInfo_wrapper {
+  margin-bottom: 25px;
+}
+.programId_content .topInfo_wrapper .user_wrapper span {
+  font-size: 14pt;
+}
+.programId_content .topInfo_wrapper .user_wrapper span:hover {
+  color: #555555;
+  cursor: pointer;
+}
+.programId_content .topInfo_wrapper .likes_wrapper .likesCount {
+  font-size: 14pt;
+  color: #0d6efd;
+}
+.programId_content .topInfo_wrapper .likes_wrapper .likeProgram {
+  height: 45px;
+  width: 45px;
+  background-color: #F2FDFF;
+  border: transparent;
+}
+.programId_content .topInfo_wrapper .likes_wrapper .likeProgram .bi {
+  font-weight: bold;
+  font-size: 24px;
+  color: #0d6efd;
+}
+.programId_content .topInfo_wrapper .likes_wrapper .likeProgram:hover {
+  background-color: #C8F8FF;
+}
+.programId_content .topInfo_wrapper .likes_wrapper .likeProgram:active {
+  background-color: #ceecff;
+}
+.programId_content .mainContent_wrapper .typesCharacterization_wrapper {
+  margin-bottom: 25px;
+}
+.programId_content .mainContent_wrapper .typesCharacterization_wrapper .programType_wrapper .badge {
+  width: 200px;
+  height: 42px;
+  font-size: 14pt;
+  background-color: #0D6EFD;
+}
+.programId_content .mainContent_wrapper .typesCharacterization_wrapper .complexityLevel_wrapper .badge {
+  width: 200px;
+  height: 42px;
+  font-size: 14pt;
+  background-color: #FF5247;
+}
+.programId_content .mainContent_wrapper .gallery_wrapper {
+  height: 400px;
+  margin-bottom: 25px;
+}
+.programId_content .mainContent_wrapper .gallery_wrapper .photosGallery_wrapper {
+  height: 350px;
+}
+.programId_content .mainContent_wrapper .name_wrapper {
+  margin-bottom: 10px;
+  font-size: 18pt;
+  color: #008CFF;
+}
+.programId_content .mainContent_wrapper .description_wrapper {
+  margin-bottom: 15px;
+}
+.programId_content .mainContent_wrapper .description_wrapper .title {
+  font-size: 14pt;
+}
+.programId_content .mainContent_wrapper .description_wrapper .content {
+  text-align: justify;
+  font-size: 14pt;
+}
+.programId_content .mainContent_wrapper .programText_wrapper {
+  margin-bottom: 15px;
+}
+.programId_content .mainContent_wrapper .programText_wrapper .title {
+  font-size: 14pt;
+}
+.programId_content .mainContent_wrapper .programText_wrapper .content_text {
+  min-height: 250px;
+  padding: 15px;
+  border: 1px solid #808080;
+  border-radius: 5px;
+  text-align: justify;
+  font-size: 14pt;
 }

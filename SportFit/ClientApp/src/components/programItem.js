@@ -3,45 +3,24 @@ import camera from "./images/camera.svg";
 import {Link} from "react-router-dom";
 import {PROGRAM_ID_ROUTE} from "../routing/routerConsts";
 import Spinner from "./special-components/spinner/spinner";
+import ProgramById from "./programById";
 
-export default class ProgramItem extends Component {
-    state = {
-        loading: true
-    };
-
-    constructor() {
-        super();
-        this.updateProgram();
-    }
-
-    onProgramLoaded = () => {
-        this.setState({
-            loading: false
-        });
-    }
-
-    updateProgram() {
-        this.onProgramLoaded()
-    }
-
-    render() {
-        const data = this.props;
-        const {loading} = this.state;
-
-        const spinner = loading && data === {} ? <Spinner/> : null;
-        const content = loading ? <ProgramItemContent data={this.props}/> : null;
-
-        return (
-            <div className="programItem_wrapper container-xxl d-flex justify-content-center align-items-center">
-                {spinner}
-                {content}
-            </div>
-        );
-    }
+const ProgramItem = (props) => {
+    const spinner = props.loading ? <Spinner/> : null;
+    const content = !props.loading ? <ProgramItemContent data={props}/> : null;
+    
+    return (
+        <div className="programItem_wrapper container-xxl d-flex justify-content-center align-items-center">
+            {spinner}
+            {content}
+        </div>
+    );
 }
 
-const ProgramItemContent = ({data}) => {
-    const {id, avatar, user, name, programType, complexityLevel, description} = data;
+export default ProgramItem;
+
+const ProgramItemContent = ({ data }) => {
+    const { user, avatar, name, programType, complexityLevel, description } = data;
 
     return (
         <div className="programItem_content container-xxl row">

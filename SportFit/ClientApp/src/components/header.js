@@ -14,7 +14,7 @@ const Header = () => {
                     <div className="brand d-flex align-items-center">
                         <NavLink to={MAIN_ROUTE}>
                             <img src={logo} alt="" width="50" height="50"/>
-                            <a className="navbar-brand fw-bold ms-2 p-0" href="#">SportFit</a>
+                            <span className="navbar-brand fw-bold ms-2 p-0" href="#">SportFit</span>
                         </NavLink>
                         
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
