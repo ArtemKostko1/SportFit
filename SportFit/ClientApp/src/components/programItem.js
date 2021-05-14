@@ -5,9 +5,9 @@ import {PROGRAM_ID_ROUTE} from "../routing/routerConsts";
 import Spinner from "./special-components/spinner/spinner";
 import ProgramById from "./programById";
 
-const ProgramItem = (props) => {
-    const spinner = props.loading ? <Spinner/> : null;
-    const content = !props.loading ? <ProgramItemContent data={props}/> : null;
+const ProgramItem = (props, {loading}) => {
+    const spinner = loading ? <Spinner/> : null;
+    const content = !loading ? <ProgramItemContent data={props}/> : null;
     
     return (
         <div className="programItem_wrapper container-xxl d-flex justify-content-center align-items-center">
