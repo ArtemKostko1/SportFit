@@ -11,28 +11,24 @@ export const ACTION_TYPES = {
 
 export const fetchAllPrograms = () => dispatch => {
     api.program().fetchAll()
-        .then(response => {
-            dispatch({
-                type: ACTION_TYPES.FETCH_ALL,
-                payload: response.data
-            });
-        }
-        )
-        .catch(err => console.log(err));
+    .then(response => {
+        dispatch({
+            type: ACTION_TYPES.FETCH_ALL,
+            payload: response.data
+        });
+    })
+    .catch(err => console.log(err));
 }
 
 export const fetchProgramById = (id) => dispatch => {
-    debugger
     api.program().fetchById(id)
-        .then(response => {
-            debugger
-                dispatch({
-                    type: ACTION_TYPES.FETCH_BYID,
-                    payload: response.data
-                });
-            }
-        )
-        .catch(err => console.log(err));
+    .then(response => {
+        dispatch({
+            type: ACTION_TYPES.FETCH_BYID,
+            payload: response.data
+        });
+    })
+    .catch(err => console.log(err));
 }
 
 export const programsRequested = () => dispatch => {

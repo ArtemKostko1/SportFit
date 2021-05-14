@@ -69,7 +69,7 @@ const ProgramItemContent = ({ data }) => {
 
                 <div className="actions_block d-flex justify-content-end">
                     <div className="likes_wrapper d-flex align-items-center me-5">
-                        <span className="likesCount fw-bold">610</span>
+                        <span className="likesCount fw-bold">0  </span>
 
                         <button className="likeProgram rounded-circle shadow-sm rounded ms-2">
                             <i className="bi bi-suit-heart"></i>

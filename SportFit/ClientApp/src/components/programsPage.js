@@ -14,10 +14,6 @@ const ProgramsPage = (props) => {
     useEffect(() => {
         props.fetchAllPrograms()
     }, []);
-    
-    if (props.loading) {
-        return <Spinner/>
-    }
 
     return (
         <div className="programsPage_wrapper container-xxl">

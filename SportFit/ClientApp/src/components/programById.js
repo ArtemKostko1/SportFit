@@ -16,7 +16,7 @@ const ProgramById = () => {
                     </div>
     
                     <div className="likes_wrapper col-1 d-flex align-items-center">
-                        <span className="likesCount fw-bold">610</span>
+                        <span className="likesCount fw-bold">0</span>
     
                         <button className="likeProgram rounded-circle shadow-sm rounded ms-2">
                             <i className="bi bi-suit-heart"></i>
