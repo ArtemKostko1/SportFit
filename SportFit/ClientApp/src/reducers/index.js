@@ -1,8 +1,8 @@
 ﻿import { combineReducers } from 'redux';
 import { user } from './user';
-import { program } from "./program";
+import { programReducer } from "./program";
 
 export const reducers = combineReducers({
     user,
-    program
+    programReducer,
 });

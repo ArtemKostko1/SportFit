@@ -2,9 +2,9 @@
 import HomePage from "../components/homePage";
 import SignInPage from "../components/signInPage";
 import SignUpPage from "../components/signUpPage";
-import ProgramsPage from "../components/programsPage";
+import ProgramsListingPage from "../components/programsListingPage";
 import CreateProgramPage from "../components/createProgramPage";
-import ProgramIdPage from "../components/programIdPage";
+import ProgramDetailPage from "../components/programDetailPage";
 
 export const routerComponents = [
     {
@@ -21,14 +21,14 @@ export const routerComponents = [
     },
     {
         path: PROGRAMS_ROUTE,
-        Component: ProgramsPage
+        Component: ProgramsListingPage
     },
     {
         path: CREATE_PROGRAM_ROUTE,
         Component: CreateProgramPage
     },
     {
-        path: PROGRAM_ID_ROUTE,
-        Component: ProgramIdPage
+        path: PROGRAM_ID_ROUTE + '/:id',
+        Component: ProgramDetailPage
     },
 ]

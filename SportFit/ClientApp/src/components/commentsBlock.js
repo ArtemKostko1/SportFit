@@ -6,7 +6,7 @@ import profile from "./images/profile.svg";
 
 const CommentsBlock = () => {
     return (
-        <div className="commentsBlock_wrapper">
+        <div className="commentsBlock_wrapper container-xxl">
             <UserComment avatar={ profile }/>
             
             <hr className="w-100 m-0"/>

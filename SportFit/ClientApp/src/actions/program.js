@@ -5,7 +5,7 @@ export const ACTION_TYPES = {
     UPDATE: 'UPDATE',
     DELETE: 'DELETE',
     FETCH_ALL: 'FETCH_ALL',
-    FETCH_BYID: 'FETCH_BYID',
+    FETCH_PROGRAM: 'FETCH_PROGRAM',
     PROGRAMS_REQUESTED: 'PROGRAMS_REQUESTED'
 };
 
@@ -24,7 +24,7 @@ export const fetchProgramById = (id) => dispatch => {
     api.program().fetchById(id)
     .then(response => {
         dispatch({
-            type: ACTION_TYPES.FETCH_BYID,
+            type: ACTION_TYPES.FETCH_PROGRAM,
             payload: response.data
         });
     })

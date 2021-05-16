@@ -1,13 +1,15 @@
 ﻿import React from 'react';
+
+import CommentsBlock from "./commentsBlock";
 import dumbbell from "./images/dumbbell.svg";
 import muscles_hard from "./images/muscles_hard.png";
 import camera from "./images/camera.svg";
-import CommentsBlock from "./commentsBlock";
 
-const ProgramById = ({ id, user, avatar, name, programType, complexityLevel, description, programContent }) => {
+
+const ProgramDetailContent = ({ user, avatar, name, programType, complexityLevel, description, programContent }) => {
     return (
         <>
-            <div className="programId_content">
+            <div className="programDetail_content container-xxl">
                 <div className="topInfo_wrapper row w-100">
                     <div className="user_wrapper col-11 d-flex align-items-center">
                         <img className="rounded-circle" src={avatar} alt="ava" width="35" height="35"/>
@@ -83,4 +85,4 @@ const ProgramById = ({ id, user, avatar, name, programType, complexityLevel, des
     );
 };
 
-export default ProgramById;
+export default ProgramDetailContent;

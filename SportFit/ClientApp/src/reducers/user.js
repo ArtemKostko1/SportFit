@@ -1,22 +1,22 @@
 import { ACTION_TYPES } from '../actions/user'
 
-const initialState = {
+const userInitialState = {
     userList: [],
     userItem: {}
 }
 
-export const user = (state = initialState, action) => {
-    switch (action.type){
+export const user = (state = userInitialState, { type, payload }) => {
+    switch (type){
         case ACTION_TYPES.FETCH_ALL:
             return {
                 ...state,
-                userList: [...action.payload]
+                userList: payload
             }
 
-        case ACTION_TYPES.FETCH_BYID:
+        case ACTION_TYPES.FETCH_USER:
             return {
                 ...state,
-                userItem: [...action.payload]
+                userItem: payload
             }
             
         default:

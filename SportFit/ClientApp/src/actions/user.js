@@ -5,7 +5,7 @@ export const ACTION_TYPES = {
     UPDATE: 'UPDATE',
     DELETE: 'DELETE',
     FETCH_ALL: 'FETCH_ALL',
-    FETCH_BYID: 'FETCH_BYID'
+    FETCH_USER: 'FETCH_USER'
 };
 
 export const fetchAllUsers = () => dispatch => {
@@ -24,7 +24,7 @@ export const fetchUserById = (id) => dispatch => {
     api.user().fetchById(id)
         .then(response => {
                 dispatch({
-                    type: ACTION_TYPES.FETCH_BYID,
+                    type: ACTION_TYPES.FETCH_USER,
                     payload: response.data
                 });
             }

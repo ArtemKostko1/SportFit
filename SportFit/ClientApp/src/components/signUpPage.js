@@ -21,7 +21,7 @@ const SignUpPage = (props) => {
                                 
                                 <div className="separator d-flex justify-content-center align-items-center p-0">
                                     <hr className="w-100 m-0"/>
-                                    <span className="mx-4">or</span>
+                                    <span className="fw-bold mx-4">or</span>
                                     <hr className="w-100 m-0"/>
                                 </div>
                                 
