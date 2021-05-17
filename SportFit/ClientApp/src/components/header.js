@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, NavLink} from "react-router-dom";
 
-import {MAIN_ROUTE, PROGRAMS_ROUTE, SIGNIN_ROUTE} from "../routing/routerConsts";
+import {MAIN_ROUTE, PROGRAMS_LISTENING_ROUTE, SIGNIN_ROUTE} from "../routing/routerConsts";
 
 import profiler from './images/profile.svg';
 import logo from "./images/Logo.svg";
@@ -26,7 +26,7 @@ const Header = () => {
                     <div id="navbarNavDropdown">
                         <ul className="navbar-nav">
                             <li className="nav-item d-flex align-items-center">
-                                <NavLink to={PROGRAMS_ROUTE} className="nav-link fw-bold active" aria-current="page">Programs</NavLink>
+                                <NavLink to={PROGRAMS_LISTENING_ROUTE} className="nav-link fw-bold active" aria-current="page">Programs</NavLink>
                             </li>
                             
                             <li className="nav-item dropdown ms-5">

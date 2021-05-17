@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import {Link} from "react-router-dom";
-import {PROGRAM_ID_ROUTE} from "../routing/routerConsts";
+import {PROGRAM_DETAIL_ROUTE, USER_PROFILE_ROUTE} from "../routing/routerConsts";
 
 import camera from "./images/camera.svg";
 
@@ -10,7 +10,7 @@ const ProgramItem = ({ id, user, avatar, name, programType, complexityLevel, des
         <div className="programItem_wrapper container-xxl">
             <div className="programItem_content container-xxl row">
                 <div className="left_block col-4">
-                    <a href="#" className="user_wrapper d-flex align-items-center w-100">
+                    <a href={`${USER_PROFILE_ROUTE}/${id}`} className="user_wrapper d-flex align-items-center w-100">
                         <img className="rounded-circle" src={avatar} alt="ava" width="35" height="35"/>
                         <span className="fw-bold ms-2">{user}</span>
                     </a>
@@ -61,7 +61,7 @@ const ProgramItem = ({ id, user, avatar, name, programType, complexityLevel, des
                             </button>
                         </div>
 
-                        <Link to={`${PROGRAM_ID_ROUTE}/${id}`}>
+                        <Link to={`${PROGRAM_DETAIL_ROUTE}/${id}`}>
                             <div className="button_wrapper">
                                 <button type="button" className="openProgram btn btn-outline-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="20" fill="currentColor" className="bi bi-arrow-right"
