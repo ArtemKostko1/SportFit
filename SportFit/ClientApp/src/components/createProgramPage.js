@@ -1,4 +1,5 @@
 ﻿import React, { useState } from 'react';
+import UseForm from "./utils/useForm";
 import camera from "./images/camera.svg";
 
 const initialInputValues = {
@@ -10,15 +11,11 @@ const initialInputValues = {
 }
 
 const CreateProgramPage = (props) => {
-    const [values, setValues] = useState(initialInputValues);    
-    
-    const handleInputChange = e => {
-        const {name, value} = e.target;
-        setValues({
-            ...values,
-            [name]: value
-        });
-    }
+    const {
+        values,
+        setValues,
+        handleInputChange
+    } = UseForm(initialInputValues);
     
     return (
         <div className="createProgramPage_wrapper container-xxl">
