@@ -227,13 +227,13 @@ a:hover {
   border: 2px solid #ceecff;
 }
 .createProgramPage_wrapper .createProgram_content .top_block .left_block .input_wrapper {
-  margin-bottom: 40px !important;
+  margin-bottom: 25px !important;
 }
 .createProgramPage_wrapper .createProgram_content .top_block .right_block {
   padding: 0;
 }
 .createProgramPage_wrapper .createProgram_content .top_block .right_block .content_block .photo_wrapper {
-  height: 435px;
+  height: 350px;
   background-color: #e0e0e0;
   border-radius: 15px 15px 0 0;
 }
