@@ -1,34 +1,34 @@
-﻿import api from './api';
+﻿import * as api from './api';
 
 export const ACTION_TYPES = {
-    CREATE: 'CREATE',
-    UPDATE: 'UPDATE',
-    DELETE: 'DELETE',
-    FETCH_ALL: 'FETCH_ALL',
+    CREATE_PROGRAM: 'CREATE_PROGRAM',
+    UPDATE_PROGRAM: 'UPDATE_PROGRAM',
+    DELETE_PROGRAM: 'DELETE_PROGRAM',
+    FETCH_ALL_PROGRAMS: 'FETCH_ALL_PROGRAMS',
     FETCH_PROGRAM: 'FETCH_PROGRAM',
     PROGRAMS_REQUESTED: 'PROGRAMS_REQUESTED'
 };
 
 export const fetchAllPrograms = () => dispatch => {
-    api.program().fetchAll()
-    .then(response => {
-        dispatch({
-            type: ACTION_TYPES.FETCH_ALL,
-            payload: response.data
-        });
-    })
-    .catch(err => console.log(err));
+    api.program().fetchAllPrograms()
+        .then(response => {
+            dispatch({
+                type: ACTION_TYPES.FETCH_ALL_PROGRAMS,
+                payload: response.data
+            });
+        })
+        .catch(err => console.log(err));
 }
 
 export const fetchProgramById = (id) => dispatch => {
-    api.program().fetchById(id)
-    .then(response => {
-        dispatch({
-            type: ACTION_TYPES.FETCH_PROGRAM,
-            payload: response.data
-        });
-    })
-    .catch(err => console.log(err));
+    api.program().fetchProgramById(id)
+        .then(response => {
+            dispatch({
+                type: ACTION_TYPES.FETCH_PROGRAM,
+                payload: response.data
+            });
+        })
+        .catch(err => console.log(err));
 }
 
 export const programsRequested = () => dispatch => {
@@ -37,11 +37,11 @@ export const programsRequested = () => dispatch => {
     })
 }
 
-export const create = (data, onSuccess) => dispatch => {
-    api.program().create(data)
+export const createProgram = (data, onSuccess) => dispatch => {
+    api.program().createProgram(data)
         .then(response => {
             dispatch({
-                type: ACTION_TYPES.CREATE,
+                type: ACTION_TYPES.CREATE_PROGRAM,
                 payload: response.data
             });
             onSuccess();
@@ -50,10 +50,10 @@ export const create = (data, onSuccess) => dispatch => {
 }
 
 export const update = (id, data, onSuccess) => dispatch => {
-    api.program().update(id. data)
+    api.program().updateProgram(id. data)
         .then(response => {
             dispatch({
-                type: ACTION_TYPES.UPDATE,
+                type: ACTION_TYPES.UPDATE_PROGRAM,
                 payload: {id, ...data}
             });
             onSuccess();
@@ -62,10 +62,10 @@ export const update = (id, data, onSuccess) => dispatch => {
 }
 
 export const Delete = (id, onSuccess) => dispatch => {
-    api.program().delete(id)
+    api.program().deleteProgram(id)
         .then(response => {
             dispatch({
-                type: ACTION_TYPES.DELETE,
+                type: ACTION_TYPES.DELETE_PROGRAM,
                 payload: id
             });
             onSuccess();

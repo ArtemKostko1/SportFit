@@ -1,15 +1,15 @@
-﻿import api from './api';
+﻿import * as api from './api';
 
 export const ACTION_TYPES = {
-    FETCH_ALL: 'FETCH_ALL',
+    FETCH_ALL_COMPLEXITY_LEVELS: 'FETCH_ALL_COMPLEXITY_LEVELS',
     FETCH_COMPLEXITY_LEVEL: 'FETCH_COMPLEXITY_LEVEL',
 };
 
 export const fetchAllComplexityLevels = () => dispatch => {
-    api.complexityLevel().fetchAll()
+    api.complexityLevel().fetchAllComplexityLevels()
         .then(response => {
             dispatch({
-                type: ACTION_TYPES.FETCH_ALL,
+                type: ACTION_TYPES.FETCH_ALL_COMPLEXITY_LEVELS,
                 payload: response.data
             });
         })
@@ -17,7 +17,7 @@ export const fetchAllComplexityLevels = () => dispatch => {
 }
 
 export const fetchComplexityLevelById = (id) => dispatch => {
-    api.complexityLevel().fetchById(id)
+    api.complexityLevel().fetchComplexityLevelById(id)
         .then(response => {
             dispatch({
                 type: ACTION_TYPES.FETCH_COMPLEXITY_LEVEL,

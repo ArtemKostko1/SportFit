@@ -1,21 +1,22 @@
 ﻿import { ACTION_TYPES } from '../actions/complexityLevel'
 
 const programInitialState = {
-    programList: [],
+    complexityLevelsList: [],
+    complexityLevelItem: {},
 }
 
 export const complexityLevelReducer = (state = programInitialState, {type, payload}) => {
     switch (type){
-        case ACTION_TYPES.FETCH_ALL:
+        case ACTION_TYPES.FETCH_ALL_COMPLEXITY_LEVELS:
             return {
                 ...state,
-                programList: payload,
+                complexityLevelsList: payload,
             }
 
         case ACTION_TYPES.FETCH_COMPLEXITY_LEVEL:
             return {
                 ...state,
-                programItem: payload,
+                complexityLevelItem: payload,
             }
 
         default:

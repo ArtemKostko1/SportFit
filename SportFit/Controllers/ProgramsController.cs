@@ -101,6 +101,9 @@ namespace SportFit.Controllers
         [HttpPost]
         public async Task<ActionResult<SportFit.Data.Models.Program>> PostProgram(SportFit.Data.Models.Program program)
         {
+            program.Id = Guid.NewGuid();
+            program.CreationDate = DateTime.Now;
+            
             _context.Programs.Add(program);
             try
             {

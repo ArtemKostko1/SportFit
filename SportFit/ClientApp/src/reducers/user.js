@@ -7,7 +7,7 @@ const userInitialState = {
 
 export const user = (state = userInitialState, { type, payload }) => {
     switch (type){
-        case ACTION_TYPES.FETCH_ALL:
+        case ACTION_TYPES.FETCH_ALL_USERS:
             return {
                 ...state,
                 userList: payload

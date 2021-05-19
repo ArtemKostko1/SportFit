@@ -1,10 +1,10 @@
-import api from './api';
+import * as api from './api';
 
 export const ACTION_TYPES = {
-    CREATE: 'CREATE',
-    UPDATE: 'UPDATE',
-    DELETE: 'DELETE',
-    FETCH_ALL: 'FETCH_ALL',
+    CREATE_USER: 'CREATE_USER',
+    UPDATE_USER: 'UPDATE_USER',
+    DELETE_USER: 'DELETE_USER',
+    FETCH_ALL_USERS: 'FETCH_ALL_USERS',
     FETCH_USER: 'FETCH_USER'
 };
 
@@ -12,7 +12,7 @@ export const fetchAllUsers = () => dispatch => {
     api.user().fetchAll()
         .then(response => {
             dispatch({
-                type: ACTION_TYPES.FETCH_ALL,
+                type: ACTION_TYPES.FETCH_ALL_USERS,
                 payload: response.data
             });
         }

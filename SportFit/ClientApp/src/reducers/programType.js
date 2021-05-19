@@ -2,12 +2,12 @@
 
 const programInitialState = {
     programTypesList: [],
-    programTypesItem: [],
+    programTypeItem: {},
 }
 
 export const programTypeReducer = (state = programInitialState, {type, payload}) => {
     switch (type){
-        case ACTION_TYPES.FETCH_ALL:
+        case ACTION_TYPES.FETCH_ALL_PROGRAM_TYPES:
             return {
                 ...state,
                 programTypesList: payload,
