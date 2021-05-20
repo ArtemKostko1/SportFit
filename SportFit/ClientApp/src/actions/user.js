@@ -9,25 +9,35 @@ export const ACTION_TYPES = {
 };
 
 export const fetchAllUsers = () => dispatch => {
-    api.user().fetchAll()
+    api.user().fetchAllUsers()
         .then(response => {
             dispatch({
                 type: ACTION_TYPES.FETCH_ALL_USERS,
                 payload: response.data
             });
-        }
-        )
+        })
         .catch(err => console.log(err));
 }
 
 export const fetchUserById = (id) => dispatch => {
-    api.user().fetchById(id)
+    api.user().fetchUserById(id)
         .then(response => {
-                dispatch({
-                    type: ACTION_TYPES.FETCH_USER,
-                    payload: response.data
-                });
-            }
-        )
+            dispatch({
+                type: ACTION_TYPES.FETCH_USER,
+                payload: response.data
+            });
+        })
+        .catch(err => console.log(err));
+}
+
+export const createUser = (data, onSuccess) => dispatch => {
+    api.user().createUser(data)
+        .then(response => {
+            dispatch({
+                type: ACTION_TYPES.CREATE_USER,
+                payload: response.data
+            });
+            onSuccess();
+        })
         .catch(err => console.log(err));
 }

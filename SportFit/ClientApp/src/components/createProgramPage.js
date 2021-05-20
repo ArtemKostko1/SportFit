@@ -57,15 +57,10 @@ const CreateProgramPage = ({...props}) => {
         }
     }
 
-    useEffect(() => {
-        props.fetchAllProgramTypes();
-        props.fetchAllComplexityLevels();
-    }, []);
-
     function checkValidation() {
         'use strict'
         let forms = document.querySelectorAll('.createProgram_form')
-        
+
         Array.prototype.slice.call(forms)
             .forEach(function (form) {
                 form.addEventListener('submit', function (event) {
@@ -78,6 +73,11 @@ const CreateProgramPage = ({...props}) => {
                 }, false)
             })
     }
+    
+    useEffect(() => {
+        props.fetchAllProgramTypes();
+        props.fetchAllComplexityLevels();
+    }, []);
 
     return (
         <div className="createProgramPage_wrapper container-xxl">

@@ -1,11 +1,11 @@
 ﻿import { combineReducers } from 'redux';
-import { user } from './user';
+import { userReducer } from './user';
 import { programReducer } from "./program";
 import { programTypeReducer } from "./programType";
 import { complexityLevelReducer } from "./complexityLevel";
 
 export const reducers = combineReducers({
-    user,
+    userReducer,
     programReducer,
     programTypeReducer,
     complexityLevelReducer

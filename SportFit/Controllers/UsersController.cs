@@ -74,6 +74,9 @@ namespace SportFit.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
+            user.Id = Guid.NewGuid();
+            user.CreationDate = DateTime.Now;
+            
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 

@@ -5,7 +5,7 @@ const userInitialState = {
     userItem: {}
 }
 
-export const user = (state = userInitialState, { type, payload }) => {
+export const userReducer = (state = userInitialState, { type, payload }) => {
     switch (type){
         case ACTION_TYPES.FETCH_ALL_USERS:
             return {
@@ -17,6 +17,12 @@ export const user = (state = userInitialState, { type, payload }) => {
             return {
                 ...state,
                 userItem: payload
+            }
+
+        case ACTION_TYPES.CREATE_USER:
+            return {
+                ...state,
+                userItem: [...state.userItem, payload]
             }
             
         default:
