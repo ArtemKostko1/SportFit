@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SportFit.Data.Entities;
 using SportFit.Data.Models;
-using SportFit.Data.ModelTypes;
 
 namespace SportFit.Controllers
 {
@@ -23,13 +23,13 @@ namespace SportFit.Controllers
 
         // GET: api/Programs
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TProgram>>> GetPrograms()
+        public async Task<ActionResult<IEnumerable<ProgramModel>>> GetPrograms()
         {
             return await (from program in _context.Programs
                 join programType in _context.ProgramTypes on program.ProgramTypeId equals programType.Id
                 join complexityLevel in _context.ComplexityLevels on program.ComplexityLevelId equals complexityLevel.Id
                 join user in _context.Users on program.UserId equals user.Id
-                select new TProgram()
+                select new ProgramModel()
                 {
                     Id = program.Id,
                     PUser = user.Nickname,
@@ -38,7 +38,8 @@ namespace SportFit.Controllers
                     PType = programType.Name,
                     CLevel = complexityLevel.Name,
                     Description = program.Description,
-                    ProgramContent = program.ProgramContent,
+                    Content = program.Content,
+                    PreView = program.PreView,
                     CreationDate = program.CreationDate,
                     ModificationDate = program.ModificationDate
                 }).ToListAsync();
@@ -46,14 +47,14 @@ namespace SportFit.Controllers
 
         // GET: api/Programs/5
         [HttpGet("{id}")]
-        public TProgram GetProgram(Guid id)
+        public ProgramModel GetProgram(Guid id)
         {
             return (from program in _context.Programs
                 join programType in _context.ProgramTypes on program.ProgramTypeId equals programType.Id
                 join complexityLevel in _context.ComplexityLevels on program.ComplexityLevelId equals complexityLevel.Id
                 join user in _context.Users on program.UserId equals user.Id
                 where program.Id == id
-                select new TProgram()
+                select new ProgramModel()
                 {
                     Id = program.Id,
                     PUser = user.Nickname,
@@ -62,7 +63,8 @@ namespace SportFit.Controllers
                     PType = programType.Name,
                     CLevel = complexityLevel.Name,
                     Description = program.Description,
-                    ProgramContent = program.ProgramContent,
+                    Content = program.Content,
+                    PreView = program.PreView,
                     CreationDate = program.CreationDate,
                     ModificationDate = program.ModificationDate
                 }).FirstOrDefault();
@@ -71,7 +73,7 @@ namespace SportFit.Controllers
         // PUT: api/Programs/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProgram(Guid id, SportFit.Data.Models.Program program)
+        public async Task<IActionResult> PutProgram(Guid id, SportFit.Data.Entities.Program program)
         {
             program.Id = id;
 
@@ -99,7 +101,7 @@ namespace SportFit.Controllers
         // POST: api/Programs
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<SportFit.Data.Models.Program>> PostProgram(SportFit.Data.Models.Program program)
+        public async Task<ActionResult<SportFit.Data.Entities.Program>> PostProgram(SportFit.Data.Entities.Program program)
         {
             program.Id = Guid.NewGuid();
             program.CreationDate = DateTime.Now;

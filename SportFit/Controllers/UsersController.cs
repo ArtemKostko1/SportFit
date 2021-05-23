@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SportFit.Data.Entities;
 using SportFit.Data.Models;
+using SportFit.Helpers;
+using SportFit.Services;
 
 namespace SportFit.Controllers
 {
@@ -13,36 +16,55 @@ namespace SportFit.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly SportFitContext _context;
-
-        public UsersController(SportFitContext context)
+        private readonly IUserService _userService;
+        public UsersController(IUserService userService)
         {
-            _context = context;
+            _userService = userService;
         }
 
         // GET: api/Users
+        [Authorize]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public IActionResult GetAll()
         {
-            return await _context.Users.ToListAsync();
+            var users = _userService.GetAll();
+            return Ok(users);
         }
 
-        // GET: api/Users/5
+        // GET: api/Users/id
+        [Authorize]
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(Guid id)
+        public IActionResult GetById(Guid id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = _userService.GetById(id);
+            return Ok(user);
+        }
 
-            if (user == null)
+        [HttpPost("authenticate")]
+        public IActionResult Authenticate(AuthenticateRequest model)
+        {
+            var response = _userService.Authenticate(model);
+
+            if (response == null)
+                return BadRequest(new { message = "Username or password is incorrect" });
+
+            return Ok(response);
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(UserModel userModel)
+        {
+            var response = await _userService.Register(userModel);
+
+            if (response == null)
             {
-                return NotFound();
+                return BadRequest(new {message = "Didn't register!"});
             }
 
-            return user;
+            return Ok(response);
         }
-
-        // PUT: api/Users/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        
+        /*// PUT: api/Users/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(Guid id, User user)
         {
@@ -67,23 +89,9 @@ namespace SportFit.Controllers
             }
 
             return NoContent();
-        }
+        }*/
 
-        // POST: api/Users
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
-        {
-            user.Id = Guid.NewGuid();
-            user.CreationDate = DateTime.Now;
-            
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
-        }
-
-        // DELETE: api/Users/5
+        /*// DELETE: api/Users/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(Guid id)
         {
@@ -102,6 +110,6 @@ namespace SportFit.Controllers
         private bool UserExists(Guid id)
         {
             return _context.Users.Any(e => e.Id == id);
-        }
+        }*/
     }
 }

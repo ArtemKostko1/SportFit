@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SportFit.Data.Models;
+using SportFit.Data.Entities;
 
 namespace SportFit.Migrations
 {
@@ -19,7 +19,7 @@ namespace SportFit.Migrations
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SportFit.Data.Models.Comment", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.Comment", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -29,7 +29,10 @@ namespace SportFit.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreationDate")
+                    b.Property<DateTime?>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModificationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("ProgramId")
@@ -47,11 +50,17 @@ namespace SportFit.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.ComplexityLevel", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.ComplexityLevel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModificationDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -62,11 +71,17 @@ namespace SportFit.Migrations
                     b.ToTable("ComplexityLevels");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.Like", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.Like", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModificationDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("ProgramId")
                         .HasColumnType("uniqueidentifier");
@@ -83,7 +98,7 @@ namespace SportFit.Migrations
                     b.ToTable("Likes");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.Program", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.Program", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -92,20 +107,23 @@ namespace SportFit.Migrations
                     b.Property<Guid>("ComplexityLevelId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreationDate")
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(300)");
 
-                    b.Property<DateTime>("ModificationDate")
+                    b.Property<DateTime?>("ModificationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("ProgramContent")
+                    b.Property<string>("PreView")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("ProgramTypeId")
@@ -120,14 +138,22 @@ namespace SportFit.Migrations
 
                     b.HasIndex("ProgramTypeId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Programs");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.ProgramTag", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.ProgramTag", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModificationDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("ProgramId")
                         .HasColumnType("uniqueidentifier");
@@ -144,11 +170,17 @@ namespace SportFit.Migrations
                     b.ToTable("ProgramTags");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.ProgramType", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.ProgramType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModificationDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -159,11 +191,17 @@ namespace SportFit.Migrations
                     b.ToTable("ProgramTypes");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.SelectedProgram", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.SelectedProgram", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModificationDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("ProgramId")
                         .HasColumnType("uniqueidentifier");
@@ -180,7 +218,7 @@ namespace SportFit.Migrations
                     b.ToTable("SelectedPrograms");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.Tag", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.Tag", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -189,6 +227,12 @@ namespace SportFit.Migrations
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModificationDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid?>("ProgramId")
                         .HasColumnType("uniqueidentifier");
@@ -200,7 +244,7 @@ namespace SportFit.Migrations
                     b.ToTable("Tags");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.User", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -209,14 +253,29 @@ namespace SportFit.Migrations
                     b.Property<string>("Avatar")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreationDate")
+                    b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Instagram")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Login")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<DateTime>("ModificationDate")
+                    b.Property<string>("MobilePhone")
+                        .HasColumnType("nvarchar(16)");
+
+                    b.Property<DateTime?>("ModificationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Nickname")
@@ -227,69 +286,26 @@ namespace SportFit.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<Guid?>("UserProfileId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Vk")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserProfileId");
 
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.UserProfile", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.Comment", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Facebook")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Instagram")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MobilePhone")
-                        .HasColumnType("nvarchar(16)");
-
-                    b.Property<DateTime>("ModificationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Twitter")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VK")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UserProfiles");
-                });
-
-            modelBuilder.Entity("SportFit.Data.Models.Comment", b =>
-                {
-                    b.HasOne("SportFit.Data.Models.Program", "Program")
+                    b.HasOne("SportFit.Data.Entities.Program", "Program")
                         .WithMany("Comments")
                         .HasForeignKey("ProgramId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("SportFit.Data.Models.User", "User")
+                    b.HasOne("SportFit.Data.Entities.User", "User")
                         .WithMany("Comments")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Program");
@@ -297,18 +313,18 @@ namespace SportFit.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.Like", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.Like", b =>
                 {
-                    b.HasOne("SportFit.Data.Models.Program", "Program")
+                    b.HasOne("SportFit.Data.Entities.Program", "Program")
                         .WithMany("Likes")
                         .HasForeignKey("ProgramId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("SportFit.Data.Models.User", "User")
+                    b.HasOne("SportFit.Data.Entities.User", "User")
                         .WithMany("Likes")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Program");
@@ -316,34 +332,42 @@ namespace SportFit.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.Program", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.Program", b =>
                 {
-                    b.HasOne("SportFit.Data.Models.ComplexityLevel", "ComplexityLevel")
+                    b.HasOne("SportFit.Data.Entities.ComplexityLevel", "ComplexityLevel")
                         .WithMany("Programs")
                         .HasForeignKey("ComplexityLevelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SportFit.Data.Models.ProgramType", "ProgramType")
+                    b.HasOne("SportFit.Data.Entities.ProgramType", "ProgramType")
                         .WithMany("Programs")
                         .HasForeignKey("ProgramTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SportFit.Data.Entities.User", "User")
+                        .WithMany("Programs")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("ComplexityLevel");
 
                     b.Navigation("ProgramType");
+
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.ProgramTag", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.ProgramTag", b =>
                 {
-                    b.HasOne("SportFit.Data.Models.Program", "Program")
+                    b.HasOne("SportFit.Data.Entities.Program", "Program")
                         .WithMany()
                         .HasForeignKey("ProgramId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SportFit.Data.Models.Tag", "Tag")
+                    b.HasOne("SportFit.Data.Entities.Tag", "Tag")
                         .WithMany("ProgramTags")
                         .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -354,18 +378,18 @@ namespace SportFit.Migrations
                     b.Navigation("Tag");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.SelectedProgram", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.SelectedProgram", b =>
                 {
-                    b.HasOne("SportFit.Data.Models.Program", "Program")
-                        .WithMany("SelectedProgram")
+                    b.HasOne("SportFit.Data.Entities.Program", "Program")
+                        .WithMany("SelectedPrograms")
                         .HasForeignKey("ProgramId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("SportFit.Data.Models.User", "User")
+                    b.HasOne("SportFit.Data.Entities.User", "User")
                         .WithMany("SelectedPrograms")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Program");
@@ -373,53 +397,46 @@ namespace SportFit.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.Tag", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.Tag", b =>
                 {
-                    b.HasOne("SportFit.Data.Models.Program", null)
+                    b.HasOne("SportFit.Data.Entities.Program", null)
                         .WithMany("Tags")
                         .HasForeignKey("ProgramId");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.User", b =>
-                {
-                    b.HasOne("SportFit.Data.Models.UserProfile", "UserProfile")
-                        .WithMany()
-                        .HasForeignKey("UserProfileId");
-
-                    b.Navigation("UserProfile");
-                });
-
-            modelBuilder.Entity("SportFit.Data.Models.ComplexityLevel", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.ComplexityLevel", b =>
                 {
                     b.Navigation("Programs");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.Program", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.Program", b =>
                 {
                     b.Navigation("Comments");
 
                     b.Navigation("Likes");
 
-                    b.Navigation("SelectedProgram");
+                    b.Navigation("SelectedPrograms");
 
                     b.Navigation("Tags");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.ProgramType", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.ProgramType", b =>
                 {
                     b.Navigation("Programs");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.Tag", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.Tag", b =>
                 {
                     b.Navigation("ProgramTags");
                 });
 
-            modelBuilder.Entity("SportFit.Data.Models.User", b =>
+            modelBuilder.Entity("SportFit.Data.Entities.User", b =>
                 {
                     b.Navigation("Comments");
 
                     b.Navigation("Likes");
+
+                    b.Navigation("Programs");
 
                     b.Navigation("SelectedPrograms");
                 });

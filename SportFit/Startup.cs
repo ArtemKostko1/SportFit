@@ -5,7 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SportFit.Data.Models;
+using SportFit.Data.Entities;
+using SportFit.Helpers;
+using SportFit.Services;
 
 namespace SportFit
 {
@@ -15,18 +17,23 @@ namespace SportFit
 		{
 			Configuration = configuration;
 		}
-
-		public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get; }
 
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddMvc();
-			services.AddControllers();
-			services.AddCors();
-
 			services.AddDbContext<SportFitContext>(options =>
 				options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+            
+            services.AddScoped(typeof(IEfRepository<>), typeof(UserRepository<>));
+            
+            services.AddAutoMapper(typeof(UserProfile));
+            services.AddControllers();
+			services.AddCors();
+            
+            services.AddScoped<IUserService, UserService>();
 
 			// In production, the React files will be served from this directory
 			services.AddSpaStaticFiles(configuration =>
@@ -38,19 +45,21 @@ namespace SportFit
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
+            app.UseRouting();
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            app.UseSpaStaticFiles();
+            app.UseDeveloperExceptionPage();
+            app.UseStatusCodePages();
+            
 			app.UseCors(options =>
 				options.WithOrigins("http://localhost:5000")
 					.AllowAnyHeader()
 					.AllowAnyMethod());
+            
+            app.UseMiddleware<JwtMiddleware>();
 
-			app.UseDeveloperExceptionPage();
-			app.UseStatusCodePages();
-			app.UseStaticFiles();
-			app.UseHttpsRedirection();
-			app.UseSpaStaticFiles();
-			app.UseRouting();
-
-			if (env.IsDevelopment())
+            if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
 			}
@@ -59,12 +68,7 @@ namespace SportFit
 				app.UseExceptionHandler("/Error");
 			}
 
-            app.UseEndpoints(endpoints =>
-			{
-				endpoints.MapControllerRoute(
-					name: "default",
-					pattern: "{controller}/{action=Index}/{id?}");
-			});
+            app.UseEndpoints(x => x.MapControllers());
 
 			app.UseSpa(spa =>
 			{
