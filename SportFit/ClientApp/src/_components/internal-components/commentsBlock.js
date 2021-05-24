@@ -2,7 +2,7 @@
 import CommentItem from "./commentItem";
 import UserComment from "./userComment";
 
-import profile from "./images/profile.svg";
+import profile from "../images/profile.svg";
 
 const CommentsBlock = () => {
     return (

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from "react-redux";
 import * as programActions from '../_actions/program-actions';
 
-import ProgramDetailContent from "./programDetailContent";
+import ProgramDetailContent from "./internal-components/programDetailContent";
 import Spinner from "./special-components/spinner/spinner";
 
 

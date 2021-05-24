@@ -1,15 +1,15 @@
 ﻿import React, { useEffect } from 'react';
-import { connect } from "react-redux";
-import * as programActions from '../_actions/program-actions';
-
-import logo from "./images/Logo.svg";
-import facebook from "./images/facebook.svg";
-import vk from "./images/vk.svg";
-import twitter from "./images/twitter.svg";
-import telegram from "./images/telegram.svg";
-import instagram from "./images/instagram.svg";
 import {Link} from "react-router-dom";
-import {MAIN_ROUTE} from "../_routing/routerConsts";
+import { connect } from "react-redux";
+import {MAIN_ROUTE} from "../../_routing/routerConsts";
+import * as programActions from '../../_actions/program-actions';
+
+import logo from "../images/Logo.svg";
+import facebook from "../images/facebook.svg";
+import vk from "../images/vk.svg";
+import twitter from "../images/twitter.svg";
+import telegram from "../images/telegram.svg";
+import instagram from "../images/instagram.svg";
 
 const Footer = ({fetchAllPrograms, programList}) => {
     useEffect(() => {

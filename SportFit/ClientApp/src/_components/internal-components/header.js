@@ -1,10 +1,13 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 
-import {MAIN_ROUTE, PROGRAMS_LISTENING_ROUTE, LOGIN_ROUTE} from "../_routing/routerConsts";
+import {
+    MAIN_ROUTE, PROGRAMS_LISTENING_ROUTE, LOGIN_ROUTE, USER_ACCOUNT_ROUTE,
+    USER_PROGRAMS_ROUTE, USER_SELECTED_ROUTE, SUPPORT_ROUTE, SETTINGS_ROUTE
+} from "../../_routing/routerConsts";
 
-import profiler from './images/profile.svg';
-import logo from "./images/Logo.svg";
+import profiler from '../images/profile.svg';
+import logo from "../images/Logo.svg";
 
 const Header = () => {
     return (
@@ -35,19 +38,19 @@ const Header = () => {
                                 </a>
                                 
                                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a className="dropdown-item" href="#">Yuor Profile</a></li>
-                                    <li><a className="dropdown-item" href="#">Yuor Programs</a></li>
-                                    <li><a className="dropdown-item" href="#">Your Selected</a></li>
+                                    <li><NavLink to={USER_ACCOUNT_ROUTE} className="dropdown-item">Yuor Profile</NavLink></li>
+                                    
+                                    <li><NavLink to={USER_PROGRAMS_ROUTE} className="dropdown-item">Yuor Programs</NavLink></li>
+                                    
+                                    <li><NavLink to={USER_SELECTED_ROUTE} className="dropdown-item">Your Selected</NavLink></li>
+                                    
                                     <li><hr className="dropdown-divider"/></li>
-                                    <li><a className="dropdown-item" href="#">Support</a></li>
-                                    <li><a className="dropdown-item" href="#">Settings</a></li>
-                                    <li>
-                                        <NavLink
-                                            to={ LOGIN_ROUTE }
-                                            className="dropdown-item">
-                                            Exit
-                                        </NavLink>
-                                    </li>
+                                    
+                                    <li><NavLink to={SUPPORT_ROUTE} className="dropdown-item">Support</NavLink></li>
+                                    
+                                    <li><NavLink to={SETTINGS_ROUTE} className="dropdown-item">Settings</NavLink></li>
+                                    
+                                    <li><NavLink to={LOGIN_ROUTE} className="dropdown-item"> Exit</NavLink></li>
                                 </ul>
                             </li>
                         </ul>

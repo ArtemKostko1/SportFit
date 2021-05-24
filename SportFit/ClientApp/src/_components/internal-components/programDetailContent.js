@@ -1,9 +1,9 @@
 ﻿import React from 'react';
 
 import CommentsBlock from "./commentsBlock";
-import dumbbell from "./images/dumbbell.svg";
-import muscles_hard from "./images/muscles_hard.png";
-import camera from "./images/camera.svg";
+import dumbbell from "../images/dumbbell.svg";
+import muscles_hard from "../images/muscles_hard.png";
+import camera from "../images/camera.svg";
 
 
 const ProgramDetailContent = ({ user, avatar, name, programType, complexityLevel, description, programContent }) => {

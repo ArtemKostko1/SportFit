@@ -4,9 +4,9 @@ import * as programActions from '../_actions/program-actions';
 
 import meditation from "./images/meditation.svg";
 
-import Banner from "./banner";
-import Separator from "./separator";
-import ProgramItem from "./programItem";
+import Banner from "./internal-components/banner";
+import Separator from "./internal-components/separator";
+import ProgramItem from "./internal-components/programItem";
 import Spinner from "./special-components/spinner/spinner";
 
 

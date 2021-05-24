@@ -1,9 +1,9 @@
 ﻿import React from 'react';
 import {Link} from "react-router-dom";
-import {PROGRAM_DETAIL_ROUTE, USER_PROFILE_ROUTE} from "../_routing/routerConsts";
+import {PROGRAM_DETAIL_ROUTE, USER_PROFILE_ROUTE} from "../../_routing/routerConsts";
 
-import camera from "./images/camera.svg";
-import profile from "./images/profile.svg";
+import camera from "../images/camera.svg";
+import profile from "../images/profile.svg";
 
 
 const ProgramItem = ({ id, user, avatar, name, programType, complexityLevel, description, preView }) => {
