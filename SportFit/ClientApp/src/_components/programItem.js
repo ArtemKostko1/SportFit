@@ -23,7 +23,7 @@ const ProgramItem = ({ id, user, avatar, name, programType, complexityLevel, des
                     <div className="photo_wrapper d-flex justify-content-center align-items-center rounded-3 w-100">
                         {
                             preView === null  ? <img src={camera} alt="preView" width="187" height="141"/>
-                                            : <img className="rounded-3" src={preView} alt="preView" width="100%" height="100%"/>
+                                            : <img className="rounded-3" src={preView} alt="preView" height="100%"/>
                         }
                     </div>
                 </div>

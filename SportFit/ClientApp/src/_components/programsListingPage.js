@@ -10,12 +10,9 @@ import ProgramItem from "./programItem";
 import Spinner from "./special-components/spinner/spinner";
 
 
-const ProgramsListingPage = ({fetchAllPrograms, programsRequested, programList}) => {
+const ProgramsListingPage = ({fetchAllPrograms, programList}) => {
     useEffect(() => {
         fetchAllPrograms();
-        return () => {
-            programsRequested();
-        }
     }, []);
     
     return (
@@ -53,7 +50,6 @@ const mapStateToProps = programState => ({
 });
 
 const mapActionToProps = {
-    fetchAllPrograms: programActions.fetchAllPrograms,
-    programsRequested: programActions.programsRequested
+    fetchAllPrograms: programActions.fetchAllPrograms
 }
 export default connect(mapStateToProps, mapActionToProps)(ProgramsListingPage);

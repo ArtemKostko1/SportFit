@@ -1,12 +1,21 @@
-﻿import React from 'react';
+﻿import React, { useEffect } from 'react';
+import { connect } from "react-redux";
+import * as programActions from '../_actions/program-actions';
+
 import logo from "./images/Logo.svg";
 import facebook from "./images/facebook.svg";
 import vk from "./images/vk.svg";
 import twitter from "./images/twitter.svg";
 import telegram from "./images/telegram.svg";
 import instagram from "./images/instagram.svg";
+import {Link} from "react-router-dom";
+import {MAIN_ROUTE} from "../_routing/routerConsts";
 
-const Footer = () => {
+const Footer = ({fetchAllPrograms, programList}) => {
+    useEffect(() => {
+        fetchAllPrograms();
+    }, []);
+    
     return (
         <div className="footer_wrapper bg-dark mt-auto">
             <div className="footer_content container-xxl p-0">
@@ -35,20 +44,20 @@ const Footer = () => {
                     <div className="center_block col-5 d-flex justify-content-center">
                         <div className="links_content col-4 d-flex flex-column">
                             <h6 className="title fw-bold">Company</h6>
-                            <a href="">About Us</a>
-                            <a href="">Support</a>
-                            <a href="">Profile</a>
-                            <a href="">Home</a>
+                            <Link to="">About Us</Link>
+                            <Link to="">Support</Link>
+                            <Link to="">Profile</Link>
+                            <Link to={MAIN_ROUTE}>Home</Link>
                         </div>
                         
                         <div className="links_content col-4 d-flex flex-column">
                             <h6 className="title fw-bold">Contacts</h6>
-                            <a href="">
+                            <a href="tel: +375296354820">
                                 <i className="bi bi-telephone me-2"/>
                                 +375(29)635-48-20
                             </a>
                             
-                            <a href="">
+                            <a href="mailto: artem.kostko@mail.ru">
                                 <i className="bi bi-envelope me-2"/>
                                 artem.kostko@mail.ru
                             </a>
@@ -67,11 +76,19 @@ const Footer = () => {
                 
                 <div className="bottom row-12 d-flex justify-content-between">
                     <span>© 2021 SportFit. All rights reserved.</span>
-                    <span>0 programs on SportFit.</span>
+                    <span>{programList.length} programs on SportFit.</span>
                 </div>
             </div>
         </div>
     );
 }
 
-export default Footer;
+const mapStateToProps = programState => ({
+    programList: programState.programReducer.programList
+});
+
+const mapActionToProps = {
+    fetchAllPrograms: programActions.fetchAllPrograms
+}
+
+export default connect(mapStateToProps, mapActionToProps)(Footer);

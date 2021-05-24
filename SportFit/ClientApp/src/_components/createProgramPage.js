@@ -8,7 +8,7 @@ import * as complexityLevelActions from "../_actions/complexityLevel-actions";
 
 const initialInputValues = {
     Name: '',
-    UserId: '051262e3-0d27-4168-bbc1-83b353d4c795',
+    UserId: 'eeef31a8-09cd-470b-c33c-08d91ea90cec',
     ProgramTypeId: '',
     ComplexityLevelId: '',
     Description: '',
