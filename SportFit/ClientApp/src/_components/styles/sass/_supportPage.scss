@@ -1,0 +1,18 @@
+.supportPage_wrapper {
+  height: 100vh;
+  
+  padding: 50px;
+  
+  .supportPage_content {
+    position: relative;
+    top: -30px;
+    
+    height: 400px;
+    width: 600px;
+
+    padding: 25px;
+
+    border-radius: 25px;
+    border: 2px solid #ceecff;
+  }
+}

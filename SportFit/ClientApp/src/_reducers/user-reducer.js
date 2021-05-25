@@ -1,6 +1,6 @@
 ﻿import { userActionTypes } from '../_actions/_constants/userActionTypes';
 
-export function userReducer(state = {}, {type, users, error}) {
+export function userReducer(state = {}, {type, payload, error}) {
     switch (type) {
         case userActionTypes.USERS_GETALL_REQUEST:
             return {
@@ -9,12 +9,36 @@ export function userReducer(state = {}, {type, users, error}) {
             
         case userActionTypes.USERS_GETALL_SUCCESS:
             return {
-                items: users
+                usersList: payload
             };
             
         case userActionTypes.USERS_GETALL_FAILURE:
             return {
                 error: error
+            };
+            
+
+        case userActionTypes.USERS_GETBYID_REQUEST:
+            return {
+                loading: true
+            };
+
+        case userActionTypes.USERS_GETBYID_SUCCESS:
+            return {
+                ...state,
+                userItem: payload
+            };
+
+        case userActionTypes.USERS_GETBYID_FAILURE:
+            return {
+                error: error
+            };
+            
+            
+        case userActionTypes.USERS_REGISTER_SUCCESS:
+            return {
+                ...state,
+                usersList: [...state.usersList, payload]
             };
             
         default:

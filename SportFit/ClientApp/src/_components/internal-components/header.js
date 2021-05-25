@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 
 import {
     MAIN_ROUTE, PROGRAMS_LISTENING_ROUTE, LOGIN_ROUTE, USER_ACCOUNT_ROUTE,
-    USER_PROGRAMS_ROUTE, USER_SELECTED_ROUTE, SUPPORT_ROUTE, SETTINGS_ROUTE
+    USER_PROGRAMS_ROUTE, USER_SELECTED_ROUTE, SUPPORT_ROUTE, SETTINGS_ROUTE, REGISTER_ROUTE
 } from "../../_routing/routerConsts";
 
 import profiler from '../images/profile.svg';
@@ -50,7 +50,9 @@ const Header = () => {
                                     
                                     <li><NavLink to={SETTINGS_ROUTE} className="dropdown-item">Settings</NavLink></li>
                                     
-                                    <li><NavLink to={LOGIN_ROUTE} className="dropdown-item">Exit</NavLink></li>
+                                    <li><NavLink to={LOGIN_ROUTE} className="dropdown-item">Login</NavLink></li>
+                                    
+                                    <li><NavLink to={REGISTER_ROUTE} className="dropdown-item">Registration</NavLink></li>
                                 </ul>
                             </li>
                         </ul>
