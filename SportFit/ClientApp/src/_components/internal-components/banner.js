@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import {Link} from "react-router-dom";
+import {CREATE_PROGRAM_ROUTE} from "../../_routing/routerConsts";
 
 const Banner = () => {
     return (
@@ -11,7 +12,7 @@ const Banner = () => {
                 </div>
 
                 <div className="button_wrapper">
-                    <Link to="/createProgramPage">
+                    <Link to={CREATE_PROGRAM_ROUTE}>
                         <button type="#" className="btn btn-outline-light rounded-pill fw-bold">CREATE</button>
                     </Link>
                 </div>

@@ -16,7 +16,7 @@ const ProgramsListingPage = ({fetchAllPrograms, programList}) => {
     }, []);
     
     return (
-        <div className="programsPage_wrapper container-xxl">
+        <div className="programsListingPage_wrapper container-xxl">
             <Banner/>
             <Separator image={meditation}/>
             
@@ -24,7 +24,7 @@ const ProgramsListingPage = ({fetchAllPrograms, programList}) => {
                 {Object.keys(programList).length === 0 ? (<Spinner/>) : (
                     
                     programList.map((program, index) => {
-                        const { id, pUser, uAvatar, name, pType, cLevel, description, preView } = program;
+                        const { id, pUser, uAvatar, name, pType, cLevel, description, preView, creationDate } = program;
                         return (
                             <ProgramItem
                                 id={id}
@@ -36,6 +36,7 @@ const ProgramsListingPage = ({fetchAllPrograms, programList}) => {
                                 complexityLevel={cLevel}
                                 description={description}
                                 preView={preView}
+                                creationDate={creationDate}
                             />
                         );
                     })

@@ -1,15 +1,11 @@
-﻿import * as api from './api';
-
-export const ACTION_TYPES = {
-    FETCH_ALL_PROGRAM_TYPES: 'FETCH_ALL_PROGRAM_TYPES',
-    FETCH_PROGRAM_TYPE: 'FETCH_PROGRAM_TYPE',
-};
+﻿import * as api from '../_services/api';
+import {programTypeActionTypes} from "./_constants/programTypeActionTypes";
 
 export const fetchAllProgramTypes = () => dispatch => {
     api.programType().fetchAlProgramTypes()
         .then(response => {
             dispatch({
-                type: ACTION_TYPES.FETCH_ALL_PROGRAM_TYPES,
+                type: programTypeActionTypes.FETCH_ALL_PROGRAM_TYPES,
                 payload: response.data
             });
         })
@@ -20,7 +16,7 @@ export const fetchProgramTypeById = (id) => dispatch => {
     api.programType().fetchProgramTypeById(id)
         .then(response => {
             dispatch({
-                type: ACTION_TYPES.FETCH_PROGRAM_TYPE,
+                type: programTypeActionTypes.FETCH_PROGRAM_TYPE,
                 payload: response.data
             });
         })

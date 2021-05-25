@@ -3,12 +3,11 @@
 const baseUrl = "http://localhost:5000/api/";
 
 export const user = (url = baseUrl + 'users') => {
-    return{
+    return {
         fetchAllUsers: async () => await axios.get(url),
         fetchUserById: async id => await axios.get(`${url}/${id}`),
-        createUser: async newRecord => await axios.post(url, newRecord),
-        updateUser: async (id, updatedRecord) => await axios.put(url + id, updatedRecord),
-        deleteUser: async id => await axios.delete(url + id)
+        register: async newRecord => await axios.post(`${url}/register`, newRecord),
+        updateUser: async (id, updatedRecord) => await axios.put(url + id, updatedRecord)
     }
 }
 

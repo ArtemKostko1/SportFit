@@ -1,4 +1,4 @@
-﻿import { alertConstants } from '../_constants/alert-constants';
+﻿import { alertActionTypes } from '/_constants/alertActionTypes';
 
 export const alertActions = {
     success,
@@ -7,13 +7,13 @@ export const alertActions = {
 };
 
 function success(message) {
-    return { type: alertConstants.ALERT_SUCCESS, message };
+    return { type: alertActionTypes.ALERT_SUCCESS, message };
 }
 
 function error(message) {
-    return { type: alertConstants.ALERT_ERROR, message };
+    return { type: alertActionTypes.ALERT_ERROR, message };
 }
 
 function clear() {
-    return { type: alertConstants.ALERT_CLEAR };
+    return { type: alertActionTypes.ALERT_CLEAR };
 }

@@ -1,0 +1,78 @@
+.userAccountPage_wrapper {
+  padding: 50px 0;
+  
+  .userAccount_content {
+    height: auto;
+    
+    padding: 50px;
+
+    border-radius: 25px;
+    border: 2px solid #ceecff;
+    
+    .avatarAndSocialLinks_block {      
+      .avatar_wrapper {
+        margin-bottom: 50px;
+        
+        height: 300px;
+        width: 300px;
+        
+        img {
+          height: 100%;
+          width: auto;
+        }
+      }
+
+      .socialLinks_wrapper {
+        height: auto;
+        
+        .email_wrapper {
+          margin-bottom: 15px;
+          
+          .email_icon {
+            i {
+              font-size: 30px;
+            }
+          }
+        }
+      }
+    }
+
+    .userInfoAndPrograms {
+      .userInfo_wrapper {
+        height: 300px;
+        
+        .nickName {
+          height: 42px;
+
+          font-size: 20pt;
+        }
+
+        .info_wrapper {
+          .info_text {
+            height: 42px;
+
+            background-color: #e0e0e0;
+            border-radius: 10px;
+          }
+
+          .info_text_link {
+            height: 42px;
+
+            background-color: #e0e0e0;
+            border-radius: 10px;
+
+            color: #000000;
+
+            &:hover {
+              color: #777777;
+            }
+          }
+        }
+      }
+      
+      .programs_wrapper {
+        height: 500px;
+      }
+    }
+  }
+}

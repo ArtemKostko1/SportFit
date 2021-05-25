@@ -1,19 +1,11 @@
-﻿import * as api from './api';
-
-export const PROGRAM_ACTION_TYPES = {
-    CREATE_PROGRAM: 'CREATE_PROGRAM',
-    UPDATE_PROGRAM: 'UPDATE_PROGRAM',
-    DELETE_PROGRAM: 'DELETE_PROGRAM',
-    FETCH_ALL_PROGRAMS: 'FETCH_ALL_PROGRAMS',
-    FETCH_PROGRAM: 'FETCH_PROGRAM',
-    PROGRAMS_REQUESTED: 'PROGRAMS_REQUESTED'
-};
+﻿import * as api from '../_services/api';
+import {programActionTypes} from './_constants/programActionTypes';
 
 export const fetchAllPrograms = () => dispatch => {
     api.program().fetchAllPrograms()
         .then(response => {
             dispatch({
-                type: PROGRAM_ACTION_TYPES.FETCH_ALL_PROGRAMS,
+                type: programActionTypes.FETCH_ALL_PROGRAMS,
                 payload: response.data
             });
         })
@@ -24,7 +16,7 @@ export const fetchProgramById = (id) => dispatch => {
     api.program().fetchProgramById(id)
         .then(response => {
             dispatch({
-                type: PROGRAM_ACTION_TYPES.FETCH_PROGRAM,
+                type: programActionTypes.FETCH_PROGRAM,
                 payload: response.data
             });
         })
@@ -33,7 +25,7 @@ export const fetchProgramById = (id) => dispatch => {
 
 export const programsRequested = () => dispatch => {
     dispatch({
-        type: PROGRAM_ACTION_TYPES.PROGRAMS_REQUESTED
+        type: programActionTypes.PROGRAMS_REQUESTED
     })
 }
 
@@ -41,7 +33,7 @@ export const createProgram = (data, onSuccess) => dispatch => {
     api.program().createProgram(data)
         .then(response => {
             dispatch({
-                type: PROGRAM_ACTION_TYPES.CREATE_PROGRAM,
+                type: programActionTypes.CREATE_PROGRAM,
                 payload: response.data
             });
             onSuccess();
@@ -53,7 +45,7 @@ export const update = (id, data, onSuccess) => dispatch => {
     api.program().updateProgram(id. data)
         .then(response => {
             dispatch({
-                type: PROGRAM_ACTION_TYPES.UPDATE_PROGRAM,
+                type: programActionTypes.UPDATE_PROGRAM,
                 payload: {id, ...data}
             });
             onSuccess();
@@ -65,7 +57,7 @@ export const Delete = (id, onSuccess) => dispatch => {
     api.program().deleteProgram(id)
         .then(response => {
             dispatch({
-                type: PROGRAM_ACTION_TYPES.DELETE_PROGRAM,
+                type: programActionTypes.DELETE_PROGRAM,
                 payload: id
             });
             onSuccess();

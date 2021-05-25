@@ -1,4 +1,5 @@
 ﻿import { ACTION_TYPES } from '../_actions/programType-actions'
+import {programTypeActionTypes} from "../_actions/_constants/programTypeActionTypes";
 
 const programInitialState = {
     programTypesList: [],
@@ -7,13 +8,13 @@ const programInitialState = {
 
 export const programTypeReducer = (state = programInitialState, {type, payload}) => {
     switch (type){
-        case ACTION_TYPES.FETCH_ALL_PROGRAM_TYPES:
+        case programTypeActionTypes.FETCH_ALL_PROGRAM_TYPES:
             return {
                 ...state,
                 programTypesList: payload,
             }
 
-        case ACTION_TYPES.FETCH_PROGRAM_TYPE:
+        case programTypeActionTypes.FETCH_PROGRAM_TYPE:
             return {
                 ...state,
                 programTypesItem: payload,

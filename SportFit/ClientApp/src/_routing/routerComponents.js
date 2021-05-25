@@ -11,6 +11,10 @@ import CreateProgramPage from "../_components/createProgramPage";
 import ProgramDetailPage from "../_components/programDetailPage";
 import UserProfilePage from "../_components/userProfilePage";
 import UserAccountPage from "../_components/userAccountPage";
+import UserSelectedPage from "../_components/userSelectedPage";
+import UserProgramsPage from "../_components/userProgramsPage";
+import SupportPage from "../_components/supportPage";
+import SettingsPage from "../_components/settingsPage";
 
 export const routerComponents = [
     {
@@ -42,23 +46,23 @@ export const routerComponents = [
         Component: UserProfilePage
     },
     {
-        path: USER_ACCOUNT_ROUTE + '/:id',
+        path: USER_ACCOUNT_ROUTE/* + '/:id'*/,
         Component: UserAccountPage
     },
     {
-        path: USER_SELECTED_ROUTE + '/:id',
-        Component: UserAccountPage
+        path: USER_SELECTED_ROUTE/* + '/:id'*/,
+        Component: UserSelectedPage
     },
     {
-        path: USER_PROGRAMS_ROUTE + '/:id',
-        Component: UserAccountPage
+        path: USER_PROGRAMS_ROUTE/* + '/:id'*/,
+        Component: UserProgramsPage
     },
     {
         path: SUPPORT_ROUTE,
-        Component: UserAccountPage
+        Component: SupportPage
     },
     {
         path: SETTINGS_ROUTE,
-        Component: UserAccountPage
+        Component: SettingsPage
     }
 ]

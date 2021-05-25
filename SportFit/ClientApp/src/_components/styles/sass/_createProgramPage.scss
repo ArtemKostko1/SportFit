@@ -1,4 +1,6 @@
 ﻿.createProgramPage_wrapper {
+  padding: 50px 0;
+  
   .createProgram_content {
     padding: 25px;
 
@@ -15,9 +17,9 @@
       .right_block {
         padding: 0;
 
-        .content_block {
-          .photo_wrapper {
-            height: 350px;
+        .preViewDownloadPhoto_block {
+          .preView_wrapper {
+            height: 320px;
 
             background-color: #e0e0e0;
             border-radius: 15px 15px 0 0;

@@ -4,7 +4,9 @@ const UserComment = ({ avatar }) => {
     return (
         <div className="userComment_wrapper row">
             <div className="userAvatar_wrapper col-1">
-                <img className="avatar rounded-circle" src={ avatar } alt="ava" width="75" height="75"/>
+                <picture>
+                    <img className="avatar rounded-circle" src={ avatar } alt="ava" width="75" height="75"/>
+                </picture>
             </div>
             <div className="userCommentInput_wrapper col-11">
                 <form className="comment_form" action="">

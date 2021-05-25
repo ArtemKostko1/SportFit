@@ -1,4 +1,4 @@
-﻿import { PROGRAM_ACTION_TYPES } from '../_actions/program-actions'
+﻿import {programActionTypes} from '../_actions/_constants/programActionTypes';
 
 const programInitialState = {
     programList: [],
@@ -7,37 +7,37 @@ const programInitialState = {
 
 export const programReducer = (state = programInitialState, {type, payload}) => {
     switch (type){
-        case PROGRAM_ACTION_TYPES.PROGRAMS_REQUESTED:
+        case programActionTypes.PROGRAMS_REQUESTED:
             return {
                 programList: [],
                 programItem: {}
             }
         
-        case PROGRAM_ACTION_TYPES.FETCH_ALL_PROGRAMS:
+        case programActionTypes.FETCH_ALL_PROGRAMS:
             return {
                 ...state,
                 programList: payload
             }
 
-        case PROGRAM_ACTION_TYPES.FETCH_PROGRAM:
+        case programActionTypes.FETCH_PROGRAM:
             return {
                 ...state,
                 programItem: payload
             }
 
-        case PROGRAM_ACTION_TYPES.CREATE_PROGRAM:
+        case programActionTypes.CREATE_PROGRAM:
             return {
                 ...state,
                 programList: [...state.programList, payload]
             }
 
-        case PROGRAM_ACTION_TYPES.UPDATE_PROGRAM:
+        case programActionTypes.UPDATE_PROGRAM:
             return {
                 ...state,
                 programList: state.programList.map(x => x.id === payload.id ? payload: x)
             }
 
-        case PROGRAM_ACTION_TYPES.DELETE_PROGRAM:
+        case programActionTypes.DELETE_PROGRAM:
             return {
                 ...state,
                 programList: state.programList.filter(x => x.id !== payload)

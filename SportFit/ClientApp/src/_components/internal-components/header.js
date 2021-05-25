@@ -50,7 +50,7 @@ const Header = () => {
                                     
                                     <li><NavLink to={SETTINGS_ROUTE} className="dropdown-item">Settings</NavLink></li>
                                     
-                                    <li><NavLink to={LOGIN_ROUTE} className="dropdown-item"> Exit</NavLink></li>
+                                    <li><NavLink to={LOGIN_ROUTE} className="dropdown-item">Exit</NavLink></li>
                                 </ul>
                             </li>
                         </ul>

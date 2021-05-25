@@ -1,4 +1,4 @@
-import * as api from './api';
+import * as api from '../_services/api';
 
 export const ACTION_TYPES = {
     CREATE_USER: 'CREATE_USER',

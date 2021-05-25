@@ -4,7 +4,9 @@ const CommentItem = ({ avatar, nickname, comment }) => {
     return (
         <div className="commentItem_wrapper row">
             <div className="userAvatar_wrapper col-1">
-                <img className="avatar rounded-circle" src={ avatar } alt="ava" width="75" height="75"/>
+                <picture>
+                    <img className="avatar rounded-circle" src={ avatar } alt="ava" width="75" height="75"/>
+                </picture>
             </div>
 
             <div className="commentItem_content col-11">

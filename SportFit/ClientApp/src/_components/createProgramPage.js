@@ -12,7 +12,7 @@ const initialInputValues = {
     ProgramTypeId: '',
     ComplexityLevelId: '',
     Description: '',
-    ProgramContent: ''
+    Content: ''
 }
 
 const CreateProgramPage = ({...props}) => {
@@ -27,10 +27,10 @@ const CreateProgramPage = ({...props}) => {
             temp.ComplexityLevelId = fieldValues.ComplexityLevelId ? "" : "Complexity level not selected";
         if('Description' in fieldValues)    
             temp.Description = fieldValues.Description ? "" : "Please enter a program description";
-        if('ProgramContent' in fieldValues)    
-            temp.ProgramContent = fieldValues.ProgramContent ? "" : "Please enter a program content";
-        if('ProgramPreview' in fieldValues)    
-            temp.ProgramPreview = fieldValues.ProgramPreview ? "" : "Please select the preview of the program";
+        if('Content' in fieldValues)    
+            temp.Content = fieldValues.Content ? "" : "Please enter a program content";
+        if('PreView' in fieldValues)    
+            temp.PreView = fieldValues.PreView ? "" : "Please select the preview of the program";
 
         setErrors({
             ...temp
@@ -184,22 +184,22 @@ const CreateProgramPage = ({...props}) => {
                             </div>
                         </div>
 
-                        <div className="right_block col-5 ps-4">
-                            <div className="content_block">
-                                <div className="photo_wrapper d-flex justify-content-center align-items-center w-100">
+                        <div className="right_block col-5 ps-5">
+                            <div className="preViewDownloadPhoto_block d-flex flex-column align-items-end">
+                                <div className="preView_wrapper d-flex justify-content-center align-items-center w-100">
                                     <img src={camera} alt="" width="187" height="141"/>
                                 </div>
 
                                 <input
-                                    name="ProgramPreview"
+                                    name="preView"
                                     className="downloadPhoto form-control" 
                                     type="file" 
-                                    id="validationCustomPhoto"
+                                    id="validationCustomPreview"
                                     onChange={handleInputChange}
                                     required
-                                    {...(errors.ProgramPreview && { error: "true" })}/>
+                                    {...(errors.PreView && { error: "true" })}/>
                                     
-                                <div className="invalid-feedback">{errors.ProgramPreview}</div>
+                                <div className="invalid-feedback">{errors.PreView}</div>
                             </div>
                         </div>
                     </div>
@@ -209,17 +209,17 @@ const CreateProgramPage = ({...props}) => {
                             <label htmlFor="validationCustomProgramContent" className="form-label fw-bold">Program:</label>
                             <div className="form-floating">
                                 <textarea
-                                    name="ProgramContent"
+                                    name="Content"
                                     className="form-control"
-                                    id="validationCustomProgramContent"
+                                    id="validationCustomContent"
                                     placeholder="Leave a comment here"
-                                    value={values.programContent}
+                                    value={values.Content}
                                     onChange={handleInputChange}
                                     required
-                                    {...(errors.ProgramContent && { error: "true" })}/>
+                                    {...(errors.Content && { error: "true" })}/>
                                     
                                 <label htmlFor="floatingTextarea2">Input program content</label>
-                                <div className="invalid-feedback">{errors.ProgramContent}</div>
+                                <div className="invalid-feedback">{errors.Content}</div>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 ﻿.programItem_wrapper {
-  height: 404px;
+  height: auto;
 
   padding: 25px;
   
@@ -14,6 +14,10 @@
         .avatar {
           width: 40px;
           height: 40px;
+          
+          img{
+            border-radius: 50px;
+          }
         }
         
         span {
@@ -38,7 +42,6 @@
       
       .content_block {
         .title {
-          display: inline-block;
           margin-bottom: 15px;
           
           font-size: 16pt;
@@ -47,10 +50,22 @@
         
         .line{
           margin-bottom: 5px;
+          
+          .characteristic{
+            font-size: 12pt;
+          }
+          
+          .description {
+            font-size: 12pt;
+          }
         }
       }
       
       .actions_block {
+        .creationDate {
+          font-size: 12pt;  
+        }
+        
         .likes_wrapper {
           .likesCount {
             font-size: 16pt;

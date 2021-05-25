@@ -1,15 +1,15 @@
-﻿import { userConstants } from '../_constants/user-constants';
-import { userService } from '../_services/user-service';
-import { alertActions } from './alert-actions';
+﻿import * as api from '../_services/api';
+import { userActionTypes } from './_constants/userActionTypes';
+import { alertActionTypes } from './_constants/alertActionTypes';
 import { history } from '../_helpers/history';
 
-export const userActions = {
+/*export const userActions = {
     login,
     logout,
     getAll
-};
+};*/
 
-function login(login, password) {
+/*function login(login, password) {
     return dispatch => {
         dispatch(request({ login }));
 
@@ -29,11 +29,20 @@ function login(login, password) {
     function request(user) { return { type: userConstants.USERS_LOGIN_REQUEST, user } }
     function success(user) { return { type: userConstants.USERS_LOGIN_SUCCESS, user } }
     function failure(error) { return { type: userConstants.USERS_LOGIN_FAILURE, error } }
-}
+}*/
 
-export const register = (data) => {
-    return dispatch => {
-        dispatch(request({ login }));
+export const register = (data) => dispatch => {
+    api.user().register(data)
+        .then(response => {
+            dispatch({
+                type: userActionTypes.USERS_REGISTER_SUCCESS,
+                payload: response.data
+            });
+        })
+        .catch(err => console.log(err));
+    
+    /*return dispatch => {
+        dispatch(request({ data }));
 
         userService.register(data)
             .then(
@@ -50,14 +59,15 @@ export const register = (data) => {
 
     function request(user) { return { type: userConstants.USERS_LOGIN_REQUEST, user } }
     function success(user) { return { type: userConstants.USERS_LOGIN_SUCCESS, user } }
-    function failure(error) { return { type: userConstants.USERS_LOGIN_FAILURE, error } }
+    function failure(error) { return { type: userConstants.USERS_LOGIN_FAILURE, error } }*/
 }
 
-function logout() {
+/*function logout() {
     userService.logout();
     return { type: userConstants.USERS_LOGOUT };
-}
+}*/
 
+/*
 function getAll() {
     return dispatch => {
         dispatch(request());
@@ -72,4 +82,4 @@ function getAll() {
     function request() { return { type: userConstants.USERS_GETALL_REQUEST } }
     function success(users) { return { type: userConstants.USERS_GETALL_SUCCESS, users } }
     function failure(error) { return { type: userConstants.USERS_GETALL_FAILURE, error } }
-}
+}*/

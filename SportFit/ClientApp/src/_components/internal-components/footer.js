@@ -21,11 +21,9 @@ const Footer = ({fetchAllPrograms, programList}) => {
             <div className="footer_content container-xxl p-0">
                 <div className="top row-12 d-flex">
                     <div className="left_block col-5">
-                        <div className="brand">
-                            <a className="d-flex align-items-center" href="#">
-                                <img src={logo} alt="" width="50" height="50"/>
-                                <h2 className="brandName fw-bold ms-3 mb-0">SportFit</h2>
-                            </a>
+                        <div className="brand d-flex align-items-center">
+                            <img src={logo} alt="" width="50" height="50"/>
+                            <h2 className="brandName fw-bold ms-3 mb-0">SportFit</h2>
                         </div>
                         
                         <div className="text">

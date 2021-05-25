@@ -1,31 +1,23 @@
-import { ACTION_TYPES } from '../_actions/user'
+﻿import { userActionTypes } from '../_actions/_constants/userActionTypes';
 
-const userInitialState = {
-    userList: [],
-    userItem: {}
-}
-
-export const userReducer = (state = userInitialState, { type, payload }) => {
-    switch (type){
-        case ACTION_TYPES.FETCH_ALL_USERS:
+export function userReducer(state = {}, {type, users, error}) {
+    switch (type) {
+        case userActionTypes.USERS_GETALL_REQUEST:
             return {
-                ...state,
-                userList: payload
-            }
-
-        case ACTION_TYPES.FETCH_USER:
+                loading: true
+            };
+            
+        case userActionTypes.USERS_GETALL_SUCCESS:
             return {
-                ...state,
-                userItem: payload
-            }
-
-        case ACTION_TYPES.CREATE_USER:
+                items: users
+            };
+            
+        case userActionTypes.USERS_GETALL_FAILURE:
             return {
-                ...state,
-                userItem: [...state.userItem, payload]
-            }
+                error: error
+            };
             
         default:
-            return state;
+            return state
     }
 }
