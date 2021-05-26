@@ -3,6 +3,7 @@
 const baseUrl = "http://localhost:5000/api/";
 
 export const user = (url = baseUrl + 'users') => {
+    debugger
     return {
         fetchAllUsers: async () => await axios.get(url),
         fetchUserById: async id => await axios.get(`${url}/${id}`),

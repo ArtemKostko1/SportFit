@@ -42,6 +42,7 @@ const SignUpPage = ({...props}) => {
         e.preventDefault();
         checkValidation();
         
+        debugger
         if (validate()) {
             props.register(values);
         }
@@ -65,89 +66,86 @@ const SignUpPage = ({...props}) => {
     }
     
     return (
-        <div>
-            <div className="authorization_wrapper container-fluid p-0">
-                <div className="row">
-                    <div className="left col-6 bg-dark">
-                        
-                    </div>
-                    <div className="right col-6 d-flex justify-content-center align-items-center">
-                        <div className="authorization_form_wrapper">
-                            <form className="signUpUser_form needs-validation" autoComplete="off" noValidate onSubmit={handleSubmit}>
-                                <h3 className="title fw-bold p-0">Sign Up</h3>
+        <div className="authorization_wrapper container-fluid p-0">
+            <div className="row">
+                <div className="left col-6 bg-dark">
+                    
+                </div>
+                <div className="right col-6 d-flex justify-content-center align-items-center">
+                    <div className="authorization_form_wrapper">
+                        <form className="signUpUser_form needs-validation" autoComplete="off" noValidate onSubmit={handleSubmit}>
+                            <h3 className="title fw-bold p-0">Sign Up</h3>
 
-                                <div className="button_wrapper p-0">
-                                    <button type="#" className="btn btn-outline-primary w-100 fw-bold">Sign up with Google</button>
-                                </div>
-                                
-                                <div className="separator d-flex justify-content-center align-items-center p-0">
-                                    <hr className="w-100 m-0"/>
-                                    <span className="fw-bold mx-4">or</span>
-                                    <hr className="w-100 m-0"/>
-                                </div>
-                                
-                                <div className="input_wrapper p-0">
-                                    <label htmlFor="formGroupExampleInput" className="form-label fw-bold">User name</label>
-                                    <input
-                                        name="Nickname"
-                                        type="text" 
-                                        className="form-control" 
-                                        id="validationCustomUsername" 
-                                        placeholder="Enter your a nickname"
-                                        value={values.Nickname}
-                                        onChange={handleInputChange}
-                                        required
-                                        {...(errors.Nickname && { error: "true" })}/>
-                                        
-                                    <div className="invalid-feedback">{errors.Nickname}</div>
-                                </div>
-                                
-                                <div className="input_wrapper p-0">
-                                    <label htmlFor="formGroupExampleInput2" className="form-label fw-bold">Login</label>
-                                    <input
-                                        name="Login"
-                                        type="text" 
-                                        className="form-control" 
-                                        id="validationCustomLogin" 
-                                        placeholder="Input login"
-                                        value={values.Login}
-                                        onChange={handleInputChange}
-                                        required
-                                        {...(errors.Login && { error: "true" })}/>
-                                        
-                                    <div className="invalid-feedback">{errors.Login}</div>
-                                </div>
-                                
-                                <div className="input_wrapper p-0">
-                                    <label htmlFor="formGroupExampleInput2" className="form-label fw-bold">Password</label>
-                                    <input
-                                        name="Password"
-                                        type="password" 
-                                        className="form-control" 
-                                        id="validationCustomPassword" 
-                                        placeholder="Input password"
-                                        value={values.Password}
-                                        onChange={handleInputChange}
-                                        required
-                                        {...(errors.Password && { error: "true" })}/>
-                                        
-                                    <div className="invalid-feedback">{errors.Password}</div>
-                                </div>
-                                
-                                <div className="button_wrapper p-0">
-                                    <button 
-                                        type="submit" 
-                                        className="btn btn-primary w-100 fw-bold">
-                                        Create account
-                                    </button>
-                                </div>
+                            <div className="button_wrapper p-0">
+                                <button type="#" className="btn btn-outline-primary w-100 fw-bold">Sign up with Google</button>
+                            </div>
+                            
+                            <div className="separator d-flex justify-content-center align-items-center p-0">
+                                <hr className="w-100 m-0"/>
+                                <span className="fw-bold mx-4">or</span>
+                                <hr className="w-100 m-0"/>
+                            </div>
+                            
+                            <div className="input_wrapper p-0">
+                                <label htmlFor="formGroupExampleInput" className="form-label fw-bold">User name</label>
+                                <input
+                                    name="Nickname"
+                                    type="text" 
+                                    className="form-control" 
+                                    id="validationCustomUsername" 
+                                    placeholder="Enter your a nickname"
+                                    value={values.Nickname}
+                                    onChange={handleInputChange}
+                                    required
+                                    {...(errors.Nickname && { error: "true" })}/>
+                                    
+                                <div className="invalid-feedback">{errors.Nickname}</div>
+                            </div>
+                            
+                            <div className="input_wrapper p-0">
+                                <label htmlFor="formGroupExampleInput2" className="form-label fw-bold">Login</label>
+                                <input
+                                    name="Login"
+                                    type="text" 
+                                    className="form-control" 
+                                    id="validationCustomLogin" 
+                                    placeholder="Input login"
+                                    value={values.Login}
+                                    onChange={handleInputChange}
+                                    required
+                                    {...(errors.Login && { error: "true" })}/>
+                                    
+                                <div className="invalid-feedback">{errors.Login}</div>
+                            </div>
+                            
+                            <div className="input_wrapper p-0">
+                                <label htmlFor="formGroupExampleInput2" className="form-label fw-bold">Password</label>
+                                <input
+                                    name="Password"
+                                    type="password" 
+                                    className="form-control" 
+                                    id="validationCustomPassword" 
+                                    placeholder="Input password"
+                                    value={values.Password}
+                                    onChange={handleInputChange}
+                                    required
+                                    {...(errors.Password && { error: "true" })}/>
+                                    
+                                <div className="invalid-feedback">{errors.Password}</div>
+                            </div>
+                            
+                            <div className="button_wrapper p-0">
+                                <button 
+                                    type="submit" 
+                                    className="btn btn-primary w-100 fw-bold">
+                                    Create account
+                                </button>
+                            </div>
 
-                                <div className="link_wrapper d-flex justify-content-center align-items-center p-0">
-                                    <span className="fw-bold me-1">Already have an account?</span>
-                                    <Link to={LOGIN_ROUTE} className="link-primary fw-bold">Sign In</Link>
-                                </div>
-                            </form>
-                        </div>
+                            <div className="link_wrapper d-flex justify-content-center align-items-center p-0">
+                                <Link to={LOGIN_ROUTE} className="link-primary fw-bold">Sign In</Link>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

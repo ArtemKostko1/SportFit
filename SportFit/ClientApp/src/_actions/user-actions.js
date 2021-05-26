@@ -34,6 +34,7 @@ import { history } from '../_helpers/history';
 export const register = (data) => dispatch => {
     api.user().register(data)
         .then(response => {
+            debugger
             dispatch({
                 type: userActionTypes.USERS_REGISTER_SUCCESS,
                 payload: response.data

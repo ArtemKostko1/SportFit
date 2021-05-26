@@ -36,6 +36,7 @@ export function userReducer(state = {}, {type, payload, error}) {
             
             
         case userActionTypes.USERS_REGISTER_SUCCESS:
+            debugger
             return {
                 ...state,
                 usersList: [...state.usersList, payload]
