@@ -8,18 +8,23 @@
     border: 2px solid #ceecff;
     
     .top_block{
+      padding-bottom: 50px;
+      
       .left_block {
         .input_wrapper {
-          margin-bottom: 25px !important;
+          margin-bottom: 30px;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
         }
       }
 
       .right_block {
-        padding: 0;
-
         .preViewDownloadPhoto_block {
           .preView_wrapper {
-            height: 320px;
+            height: 307.5px;
+            
 
             background-color: #e0e0e0;
             border-radius: 15px 15px 0 0;
@@ -36,9 +41,9 @@
       margin-bottom: 25px;
       
       .programContent_block {
-        .form-floating {
+        div {
           .form-control {
-            height: 150px;
+            min-height: 150px;
           }
         }
       }

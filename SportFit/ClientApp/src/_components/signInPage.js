@@ -124,7 +124,7 @@ const SignInPage = ({...props}) => {
                                 </div>
 
                                 <div className="link_wrapper d-flex justify-content-center align-items-center p-0">
-                                    <span className="fw-bold me-1">Have an account?</span>
+                                    <span className="fw-bold me-1">Don't have an account?</span>
                                     <Link to={REGISTER_ROUTE} className="link-primary fw-bold">Sign Up</Link>
                                 </div>
                             </form>

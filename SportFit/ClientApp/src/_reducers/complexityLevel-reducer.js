@@ -8,6 +8,7 @@ const programInitialState = {
 export const complexityLevelReducer = (state = programInitialState, {type, payload}) => {
     switch (type){
         case complexityLevelActionTypes.FETCH_ALL_COMPLEXITY_LEVELS:
+            debugger
             return {
                 ...state,
                 complexityLevelsList: payload,

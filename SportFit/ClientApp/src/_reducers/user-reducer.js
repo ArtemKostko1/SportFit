@@ -1,6 +1,6 @@
 ﻿import { userActionTypes } from '../_actions/_constants/userActionTypes';
 
-export function userReducer(state = {}, {type, payload, error}) {
+export const userReducer = (state = {}, {type, payload, error}) => {
     switch (type) {
         case userActionTypes.USERS_GETALL_REQUEST:
             return {
@@ -35,11 +35,11 @@ export function userReducer(state = {}, {type, payload, error}) {
             };
             
             
-        case userActionTypes.USERS_REGISTER_SUCCESS:
+        case userActionTypes.USERS_REGISTRATION:
             debugger
             return {
                 ...state,
-                usersList: [...state.usersList, payload]
+                userItem: [...state.userItem, payload]
             };
             
         default:

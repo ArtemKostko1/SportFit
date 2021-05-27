@@ -42,7 +42,7 @@ export const createProgram = (data, onSuccess) => dispatch => {
 }
 
 export const update = (id, data, onSuccess) => dispatch => {
-    api.program().updateProgram(id. data)
+    api.program().updateProgram(id, data)
         .then(response => {
             dispatch({
                 type: programActionTypes.UPDATE_PROGRAM,

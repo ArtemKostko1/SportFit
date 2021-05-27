@@ -24,7 +24,7 @@ namespace SportFit.Data.Entities
         [Column(TypeName = "nvarchar(100)")] 
         public string FullName { get; set; }
         
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
         
         [Column(TypeName = "nvarchar(16)")] 
         public string MobilePhone { get; set; }

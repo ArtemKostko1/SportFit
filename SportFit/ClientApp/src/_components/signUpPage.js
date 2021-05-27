@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, {useEffect} from 'react';
 import useForm from "./utils/useForm";
 import {Link, Redirect} from "react-router-dom";
 import {MAIN_ROUTE, LOGIN_ROUTE} from "../_routing/routerConsts";
@@ -38,13 +38,13 @@ const SignUpPage = ({...props}) => {
         handleInputChange
     } = useForm(initialInputValues, validate);
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
-        checkValidation();
         
-        debugger
         if (validate()) {
-            props.register(values);
+            debugger
+            await props.userRegistration(values, () => {window.alert('User registered')});
+            resetValues();
         }
     }
 
@@ -63,6 +63,12 @@ const SignUpPage = ({...props}) => {
                     form.classList.add('was-validated')
                 }, false)
             })
+    }
+
+    const resetValues = () => {
+        values.Nickname = '';
+        values.Login = '';
+        values.Password = '';
     }
     
     return (
@@ -119,7 +125,7 @@ const SignUpPage = ({...props}) => {
                             </div>
                             
                             <div className="input_wrapper p-0">
-                                <label htmlFor="formGroupExampleInput2" className="form-label fw-bold">Password</label>
+                                <label htmlFor="validationCustomPassword" className="form-label fw-bold">Password</label>
                                 <input
                                     name="Password"
                                     type="password" 
@@ -137,12 +143,14 @@ const SignUpPage = ({...props}) => {
                             <div className="button_wrapper p-0">
                                 <button 
                                     type="submit" 
-                                    className="btn btn-primary w-100 fw-bold">
+                                    className="btn btn-primary w-100 fw-bold"
+                                    onClick={checkValidation}>
                                     Create account
                                 </button>
                             </div>
 
                             <div className="link_wrapper d-flex justify-content-center align-items-center p-0">
+                                <span className="fw-bold me-1">Already have an account?</span>
                                 <Link to={LOGIN_ROUTE} className="link-primary fw-bold">Sign In</Link>
                             </div>
                         </form>
@@ -154,11 +162,12 @@ const SignUpPage = ({...props}) => {
 }
 
 const mapStateToProps = userState => ({
-    userList: userState.userReducer.userList
+    userItem: userState.userReducer.userItem
 });
 
 const mapActionToProps = {
-    register: userActions.register
+    userRegistration: userActions.userRegistration,
+    fetchAllUsers: userActions.fetchAllUsers
 }
 
 export default connect(mapStateToProps, mapActionToProps)(SignUpPage);

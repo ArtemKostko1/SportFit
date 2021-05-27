@@ -235,14 +235,17 @@ a:hover {
   border-radius: 25px;
   border: 2px solid #ceecff;
 }
-.createProgramPage_wrapper .createProgram_content .top_block .left_block .input_wrapper {
-  margin-bottom: 25px !important;
+.createProgramPage_wrapper .createProgram_content .top_block {
+  padding-bottom: 50px;
 }
-.createProgramPage_wrapper .createProgram_content .top_block .right_block {
-  padding: 0;
+.createProgramPage_wrapper .createProgram_content .top_block .left_block .input_wrapper {
+  margin-bottom: 30px;
+}
+.createProgramPage_wrapper .createProgram_content .top_block .left_block .input_wrapper:last-child {
+  margin-bottom: 0;
 }
 .createProgramPage_wrapper .createProgram_content .top_block .right_block .preViewDownloadPhoto_block .preView_wrapper {
-  height: 320px;
+  height: 307.5px;
   background-color: #e0e0e0;
   border-radius: 15px 15px 0 0;
 }
@@ -252,8 +255,8 @@ a:hover {
 .createProgramPage_wrapper .createProgram_content .bottom_block {
   margin-bottom: 25px;
 }
-.createProgramPage_wrapper .createProgram_content .bottom_block .programContent_block .form-floating .form-control {
-  height: 150px;
+.createProgramPage_wrapper .createProgram_content .bottom_block .programContent_block div .form-control {
+  min-height: 150px;
 }
 
 .separator_wrapper {

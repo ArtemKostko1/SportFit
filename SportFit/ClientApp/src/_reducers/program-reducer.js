@@ -26,6 +26,7 @@ export const programReducer = (state = programInitialState, {type, payload}) => 
             }
 
         case programActionTypes.CREATE_PROGRAM:
+            debugger
             return {
                 ...state,
                 programList: [...state.programList, payload]
