@@ -7,7 +7,7 @@ import Footer from "./_components/internal-components/footer";
 
 import AppRouter from "./_routing/appRouter";
 
-const App = () => {
+const App = () => {    
     return (
         <BrowserRouter>
             <Header/>

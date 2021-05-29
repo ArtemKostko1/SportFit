@@ -36,8 +36,7 @@ const ProgramDetailPage = ({match, fetchProgramById, programsRequested, programI
 }
 
 const mapStateToProps = programState => ({
-    programItem: programState.programReducer.programItem,
-    loading: programState.programReducer.loading
+    programItem: programState.programReducer.programItem
 });
 
 const mapActionToProps = {

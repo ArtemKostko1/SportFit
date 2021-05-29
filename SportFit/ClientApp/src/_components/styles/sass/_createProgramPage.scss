@@ -21,17 +21,31 @@
       }
 
       .right_block {
-        .preViewDownloadPhoto_block {
+        .preViewDownloadPhoto_block {          
           .preView_wrapper {
-            height: 307.5px;
+            overflow: hidden;
             
-
+            height: 284px;
+            max-width: 426px;
+            
             background-color: #e0e0e0;
             border-radius: 15px 15px 0 0;
+            
+            .preView_photo {
+              border-radius: 15px 15px 0 0;
+            }
           }
           
-          .downloadPhoto {
-            border-radius: 0 0 15px 15px;
+          .input-group {
+            max-width: 426px;
+            
+            .input-group-text{
+              border-radius: 0 0 0 15px; 
+            }
+            
+            .downloadPhoto {
+              border-radius: 0 0 15px 0;
+            }
           }
         }
       }

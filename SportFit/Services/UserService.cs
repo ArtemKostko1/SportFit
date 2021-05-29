@@ -40,8 +40,9 @@ namespace SportFit.Services
         
         public async Task<AuthenticateResponse> Register(UserModel userModel)
         {
+            userModel.CreationDate = DateTime.Now;
             var user = _mapper.Map<User>(userModel);
-
+            
             var addedUser = await _userRepository.Add(user);
 
             var response = Authenticate(new AuthenticateRequest

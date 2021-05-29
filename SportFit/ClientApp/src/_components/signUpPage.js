@@ -1,7 +1,7 @@
 ﻿import React, {useEffect} from 'react';
 import useForm from "./utils/useForm";
-import {Link, Redirect} from "react-router-dom";
-import {MAIN_ROUTE, LOGIN_ROUTE} from "../_routing/routerConsts";
+import {Link} from "react-router-dom";
+import {LOGIN_ROUTE} from "../_routing/routerConsts";
 import * as userActions from "../_actions/user-actions";
 import {connect} from "react-redux";
 
@@ -43,8 +43,8 @@ const SignUpPage = ({...props}) => {
         
         if (validate()) {
             debugger
-            await props.userRegistration(values, () => {window.alert('User registered')});
-            resetValues();
+            await props.register(values, () => {window.alert('User registered')});
+            document.getElementById('signUpUser_form').reset();
         }
     }
 
@@ -64,12 +64,6 @@ const SignUpPage = ({...props}) => {
                 }, false)
             })
     }
-
-    const resetValues = () => {
-        values.Nickname = '';
-        values.Login = '';
-        values.Password = '';
-    }
     
     return (
         <div className="authorization_wrapper container-fluid p-0">
@@ -79,7 +73,7 @@ const SignUpPage = ({...props}) => {
                 </div>
                 <div className="right col-6 d-flex justify-content-center align-items-center">
                     <div className="authorization_form_wrapper">
-                        <form className="signUpUser_form needs-validation" autoComplete="off" noValidate onSubmit={handleSubmit}>
+                        <form className="signUpUser_form needs-validation" id="signUpUser_form" autoComplete="off" noValidate onSubmit={handleSubmit}>
                             <h3 className="title fw-bold p-0">Sign Up</h3>
 
                             <div className="button_wrapper p-0">
@@ -100,7 +94,6 @@ const SignUpPage = ({...props}) => {
                                     className="form-control" 
                                     id="validationCustomUsername" 
                                     placeholder="Enter your a nickname"
-                                    value={values.Nickname}
                                     onChange={handleInputChange}
                                     required
                                     {...(errors.Nickname && { error: "true" })}/>
@@ -115,8 +108,7 @@ const SignUpPage = ({...props}) => {
                                     type="text" 
                                     className="form-control" 
                                     id="validationCustomLogin" 
-                                    placeholder="Input login"
-                                    value={values.Login}
+                                    placeholder="Enter login"
                                     onChange={handleInputChange}
                                     required
                                     {...(errors.Login && { error: "true" })}/>
@@ -131,8 +123,7 @@ const SignUpPage = ({...props}) => {
                                     type="password" 
                                     className="form-control" 
                                     id="validationCustomPassword" 
-                                    placeholder="Input password"
-                                    value={values.Password}
+                                    placeholder="Enter password"
                                     onChange={handleInputChange}
                                     required
                                     {...(errors.Password && { error: "true" })}/>
@@ -166,8 +157,7 @@ const mapStateToProps = userState => ({
 });
 
 const mapActionToProps = {
-    userRegistration: userActions.userRegistration,
-    fetchAllUsers: userActions.fetchAllUsers
+    register: userActions.register
 }
 
 export default connect(mapStateToProps, mapActionToProps)(SignUpPage);

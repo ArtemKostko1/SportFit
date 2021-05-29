@@ -2,35 +2,30 @@
 import { userActionTypes } from './_constants/userActionTypes';
 import { alertActionTypes } from './_constants/alertActionTypes';
 //import { history } from '../_helpers/history';
-import {programActionTypes} from "./_constants/programActionTypes";
 
-/*export const userActions = {
-    login,
-    logout,
-    getAll
-};*/
+export const authenticate = (data, onSuccess) => dispatch => {
+    api.user().authenticate(data)
+        .then(response => {
+            dispatch({
+                type: userActionTypes.USERS_LOGIN_SUCCESS,
+                payload: response.data
+            });
+            onSuccess();
+        })
+        .catch(err => console.log(err));
+}
 
-/*function login(login, password) {
-    return dispatch => {
-        dispatch(request({ login }));
-
-        userService.login(login, password)
-            .then(
-                user => {
-                    dispatch(success(user));
-                    history.push('/');
-                },
-                error => {
-                    dispatch(failure(error));
-                    dispatch(alertActions.error(error));
-                }
-            );
-    };
-
-    function request(user) { return { type: userConstants.USERS_LOGIN_REQUEST, user } }
-    function success(user) { return { type: userConstants.USERS_LOGIN_SUCCESS, user } }
-    function failure(error) { return { type: userConstants.USERS_LOGIN_FAILURE, error } }
-}*/
+export const register = (data, onSuccess) => dispatch => {
+    api.user().register(data)
+        .then(response => {
+            dispatch({
+                type: userActionTypes.USERS_REGISTRATION_SUCCESS,
+                payload: response.data
+            });
+            onSuccess();
+        })
+        .catch(err => console.log(err));
+}
 
 export const fetchAllUsers = () => dispatch => {
     api.user().fetchAllUsers()
@@ -41,20 +36,6 @@ export const fetchAllUsers = () => dispatch => {
             });
         })
         .catch(err => console.log(err));
-
-    /*return dispatch => {
-        dispatch(request());
-
-        userService.getAll()
-            .then(
-                users => dispatch(success(users)),
-                error => dispatch(failure(error))
-            );
-    };
-
-    function request() { return { type: userConstants.USERS_GETALL_REQUEST } }
-    function success(users) { return { type: userConstants.USERS_GETALL_SUCCESS, users } }
-    function failure(error) { return { type: userConstants.USERS_GETALL_FAILURE, error } }*/
 }
 
 export const fetchUserById = (id) => dispatch => {
@@ -68,40 +49,7 @@ export const fetchUserById = (id) => dispatch => {
         .catch(err => console.log(err));
 }
 
-export const userRegistration = (data, onSuccess) => dispatch => {
-    api.user().register(data)
-        .then(response => {
-            debugger
-            dispatch({
-                type: userActionTypes.USERS_REGISTRATION,
-                payload: response.data
-            });
-            onSuccess();
-        })
-        .catch(err => console.log(err));
-    
-    /*return dispatch => {
-        dispatch(request({ data }));
-
-        userService.register(data)
-            .then(
-                user => {
-                    dispatch(success(user));
-                    history.push('/');
-                },
-                error => {
-                    dispatch(failure(error));
-                    dispatch(alertActions.error(error));
-                }
-            );
-    };
-
-    function request(user) { return { type: userConstants.USERS_LOGIN_REQUEST, user } }
-    function success(user) { return { type: userConstants.USERS_LOGIN_SUCCESS, user } }
-    function failure(error) { return { type: userConstants.USERS_LOGIN_FAILURE, error } }*/
+function logout() {
+    localStorage.removeItem('user');
+    return { type: userActionTypes.USERS_LOGOUT };
 }
-
-/*function logout() {
-    userService.logout();
-    return { type: userConstants.USERS_LOGOUT };
-}*/

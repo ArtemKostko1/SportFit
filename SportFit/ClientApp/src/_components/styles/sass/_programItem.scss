@@ -31,11 +31,18 @@
           }
         }
       }
-      
-      .photo_wrapper {
-        height: 300px;
-        
+
+      .preView_wrapper {
+        overflow: hidden;
+
+        height: 284px;
+
         background-color: #e0e0e0;
+        border-radius: 15px;
+
+        .preView_photo {
+          border-radius: 15px;
+        }
       }
     }
     

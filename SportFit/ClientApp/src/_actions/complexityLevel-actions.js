@@ -4,7 +4,6 @@ import {complexityLevelActionTypes} from './_constants/complexityLevelActionType
 export const fetchAllComplexityLevels = () => dispatch => {
     api.complexityLevel().fetchAllComplexityLevels()
         .then(response => {
-            debugger
             dispatch({
                 type: complexityLevelActionTypes.FETCH_ALL_COMPLEXITY_LEVELS, 
                 payload: response.data

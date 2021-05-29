@@ -18,10 +18,11 @@ const ProgramItem = ({ id, user, avatar, name, programType, complexityLevel, des
                         <span className="fw-bold ms-2">{user}</span>
                     </a>
 
-                    <div className="photo_wrapper d-flex justify-content-center align-items-center rounded-3 w-100">
+                    <div className="preView_wrapper d-flex justify-content-center align-items-center">
                         {
-                            preView === null  ? <img src={camera} alt="preView" width="187" height="141"/>
-                                            : <img className="rounded-3" src={preView} alt="preView" width="auto" height="100%"/>
+                            preView === null || preView === ''  ?
+                                <img src={camera} alt="preView" width="187" height="141"/> :
+                                <img className="preView_photo" src={preView} alt="preView" width="auto" height="100%"/>
                         }
                     </div>
                 </div>

@@ -46,7 +46,7 @@ export const routerComponents = [
         Component: UserProfilePage
     },
     {
-        path: USER_ACCOUNT_ROUTE/* + '/:id'*/,
+        path: USER_ACCOUNT_ROUTE + '/:id',
         Component: UserAccountPage
     },
     {

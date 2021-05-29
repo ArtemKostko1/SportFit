@@ -9,30 +9,37 @@
     border-radius: 25px;
     border: 2px solid #ceecff;
     
-    .avatarAndSocialLinks_block {      
+    .avatarAndSocialLinks_block {
       .avatar_wrapper {
-        margin-bottom: 50px;
-        
         height: 300px;
-        width: 300px;
         
-        img {
-          height: 100%;
-          width: auto;
-        }
+        overflow: hidden;
+        margin-bottom: 50px;
       }
 
       .socialLinks_wrapper {
         height: auto;
         
         .email_wrapper {
-          margin-bottom: 15px;
           
           .email_icon {
             i {
               font-size: 30px;
             }
           }
+          
+          .email_link {
+            .email {
+              height: 42px;
+
+              background-color: #e0e0e0;
+              border-radius: 10px;
+            }
+          }
+        }
+        
+        .socialNetwork-link {
+          margin-top: 15px;
         }
       }
     }

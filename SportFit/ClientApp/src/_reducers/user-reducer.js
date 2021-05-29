@@ -1,6 +1,13 @@
 ﻿import { userActionTypes } from '../_actions/_constants/userActionTypes';
 
-export const userReducer = (state = {}, {type, payload, error}) => {
+const userInitialState = {
+    usersList: [],
+    userItem: {},
+    loading: true,
+    error: ''
+}
+
+export const userReducer = (state = userInitialState, {type, payload, error}) => {
     switch (type) {
         case userActionTypes.USERS_GETALL_REQUEST:
             return {
@@ -9,6 +16,7 @@ export const userReducer = (state = {}, {type, payload, error}) => {
             
         case userActionTypes.USERS_GETALL_SUCCESS:
             return {
+                ...state,
                 usersList: payload
             };
             
@@ -35,11 +43,22 @@ export const userReducer = (state = {}, {type, payload, error}) => {
             };
             
             
-        case userActionTypes.USERS_REGISTRATION:
-            debugger
+        case userActionTypes.USERS_REGISTRATION_SUCCESS:
             return {
                 ...state,
-                userItem: [...state.userItem, payload]
+                userItem: payload
+            };
+
+        case userActionTypes.USERS_LOGIN_SUCCESS:
+            return {
+                ...state,
+                userItem: payload
+            };
+
+        case userActionTypes.USERS_LOGOUT:
+            return {
+                usersList: [],
+                userItem: {}
             };
             
         default:

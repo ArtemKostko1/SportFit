@@ -7,6 +7,7 @@ export const user = (url = baseUrl + 'users') => {
         fetchAllUsers: async () => await axios.get(url),
         fetchUserById: async id => await axios.get(`${url}/${id}`),
         register: async newRecord => await axios.post(`${url}/register`, newRecord),
+        authenticate: async data => await axios.post(`${url}/authenticate`, data),
         updateUser: async (id, updatedRecord) => await axios.put(url + id, updatedRecord)
     }
 }

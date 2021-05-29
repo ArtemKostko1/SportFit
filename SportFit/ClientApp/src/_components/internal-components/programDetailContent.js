@@ -4,6 +4,7 @@ import CommentsBlock from "./commentsBlock";
 import dumbbell from "../images/dumbbell.svg";
 import muscles_hard from "../images/muscles_hard.png";
 import camera from "../images/camera.svg";
+import profile from "../images/profile.svg";
 
 
 const ProgramDetailContent = ({ user, avatar, name, programType, complexityLevel, description, programContent }) => {
@@ -12,7 +13,7 @@ const ProgramDetailContent = ({ user, avatar, name, programType, complexityLevel
             <div className="programDetail_content container-xxl">
                 <div className="topInfo_wrapper row w-100">
                     <div className="user_wrapper col-11 d-flex align-items-center">
-                        <img className="rounded-circle" src={avatar} alt="ava" width="35" height="35"/>
+                        <img className="rounded-circle" src={avatar === null ? profile : avatar} alt="ava" width="35" height="35"/>
                         <span className="fw-bold ms-2">{user}</span>
                     </div>
     

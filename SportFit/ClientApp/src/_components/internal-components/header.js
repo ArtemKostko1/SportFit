@@ -1,15 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {NavLink} from "react-router-dom";
 
 import {
     MAIN_ROUTE, PROGRAMS_LISTENING_ROUTE, LOGIN_ROUTE, USER_ACCOUNT_ROUTE,
-    USER_PROGRAMS_ROUTE, USER_SELECTED_ROUTE, SUPPORT_ROUTE, SETTINGS_ROUTE, REGISTER_ROUTE
+    USER_PROGRAMS_ROUTE, USER_SELECTED_ROUTE, SUPPORT_ROUTE, SETTINGS_ROUTE, REGISTER_ROUTE, PROGRAM_DETAIL_ROUTE
 } from "../../_routing/routerConsts";
 
 import profiler from '../images/profile.svg';
 import logo from "../images/Logo.svg";
+import * as userActions from "../../_actions/user-actions";
+import {connect} from "react-redux";
 
-const Header = () => {
+const Header = ({fetchUserById, userItem}) => {
+    useEffect(() => {
+        fetchUserById(id);
+    }, []);
+
+    const { id } = userItem;
+    
     return (
         <header className="header sticky-top bg-dark">
             <nav className="navbar navbar-expand-md container-xxl navbar-dark bg-dark p-0">
@@ -38,7 +46,7 @@ const Header = () => {
                                 </a>
                                 
                                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><NavLink to={USER_ACCOUNT_ROUTE} className="dropdown-item">Yuor Profile</NavLink></li>
+                                    <li><NavLink to={`${USER_ACCOUNT_ROUTE}/${id}`} className="dropdown-item">Yuor Profile</NavLink></li>
                                     
                                     <li><NavLink to={USER_PROGRAMS_ROUTE} className="dropdown-item">Yuor Programs</NavLink></li>
                                     
@@ -63,4 +71,12 @@ const Header = () => {
     );
 }
 
-export default Header;
+const mapStateToProps = state => ({
+    userItem: state.userReducer.userItem
+});
+
+const mapActionToProps = {
+    fetchUserById: userActions.fetchUserById
+}
+
+export default connect(mapStateToProps, mapActionToProps)(Header);
