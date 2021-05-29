@@ -34,13 +34,14 @@
 
       .preView_wrapper {
         overflow: hidden;
-
-        height: 284px;
+        height: 307.5px;
+        width: 426px;
 
         background-color: #e0e0e0;
         border-radius: 15px;
 
         .preView_photo {
+          max-width: 426px;
           border-radius: 15px;
         }
       }

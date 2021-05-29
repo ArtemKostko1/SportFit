@@ -53,10 +53,20 @@ const CreateProgramPage = ({...props}) => {
         e.preventDefault();
         
         if (validate()) {
+            debugger
             await props.createProgram(values, () => {window.alert('Inserted')});
             document.getElementById('createProgram_form').reset();
-            values.PreView = '';
+            resetValues();
         }
+    }
+    
+    const resetValues = () => {
+        values.Name = '';
+        values.ProgramTypeId = '';
+        values.ComplexityLevelId = '';
+        values.Description = '';
+        values.Content = '';
+        values.PreView = '';
     }
 
     function checkValidation() {
@@ -242,7 +252,8 @@ const CreateProgramPage = ({...props}) => {
                         <div className="col-1">
                             <button 
                                 type="reset" 
-                                className="createProgram btn btn-outline-secondary w-100 fw-bold">
+                                className="createProgram btn btn-outline-secondary w-100 fw-bold"
+                                onClick={resetValues}>
                                 CLEAR
                             </button>
                         </div>

@@ -8,7 +8,7 @@
     border: 2px solid #ceecff;
     
     .top_block{
-      padding-bottom: 50px;
+      margin-bottom: 30px;
       
       .left_block {
         .input_wrapper {
@@ -21,11 +21,12 @@
       }
 
       .right_block {
-        .preViewDownloadPhoto_block {          
+        .preViewDownloadPhoto_block {
+          max-height: 350px;
           .preView_wrapper {
             overflow: hidden;
             
-            height: 284px;
+            height: 100%;
             max-width: 426px;
             
             background-color: #e0e0e0;

@@ -10,7 +10,7 @@ const ProgramItem = ({ id, user, avatar, name, programType, complexityLevel, des
     return (
         <div className="programItem_wrapper container-xxl">
             <div className="programItem_content container-xxl row">
-                <div className="left_block col-4">
+                <div className="left_block col-4 h-100">
                     <a href={`${USER_PROFILE_ROUTE}/${id}`} className="user_wrapper d-flex align-items-center w-100">
                         <div className="avatar rounded-circle d-flex justify-content-center">
                             <img src={avatar === null ? profile : avatar} alt="preView" width="auto" height="100%"/>

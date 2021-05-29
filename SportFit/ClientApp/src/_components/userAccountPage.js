@@ -6,7 +6,6 @@ import profile from "./images/profile.svg";
 import vkIcon from "./images/vk.svg";
 import instagramIcon from "./images/instagram.svg";
 import emailIcon from "./images/email.svg";
-import {fetchUserById} from "../_actions/user-actions";
 
 
 const UserAccountPage = ({match, fetchUserById, userItem}) => {
