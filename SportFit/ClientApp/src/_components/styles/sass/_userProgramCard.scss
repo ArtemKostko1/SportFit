@@ -1,15 +1,45 @@
 ﻿.userProgramCard_wrapper {
-  height: 500px;
-  width: 400px;
+  height: auto;
+  width: 420px;
+
+  margin-bottom: 25px;
   
   border-radius: 15px;
+  
+  &:last-child{
+    margin-bottom: 0;
+  }
 
   .preView_wrapper {
     overflow: hidden;
 
-    height: 350px;
+    height: 325px;
+    width: 420px;
 
     border-radius: 15px;
     background-color: #e0e0e0;
+  }
+  
+  .programContent_wrapper {
+    padding: 15px;
+
+    .name_wrapper {
+      margin-bottom: 15px;
+      
+      font-size: 14pt;
+    }
+    
+    .actions_block {
+      .specialButtons_wrapper {
+        .btn{
+          width: 40px;
+          height: 100%;
+
+          .fa{
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
   }
 }

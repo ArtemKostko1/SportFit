@@ -1,8 +1,15 @@
-﻿import React from 'react';
+﻿import React, {useEffect} from 'react';
 import UserProgramCard from "./internal-components/userProgramCard";
 import ProgramsFilterPanel from "./internal-components/programsFilterPanel";
+import * as programActions from "../_actions/program-actions";
+import {connect} from "react-redux";
+import Spinner from "./special-components/spinner/spinner";
 
-const UserProgramsPage = ({...props}) => {
+const UserProgramsPage = ({fetchAllPrograms, programList}) => {
+    useEffect(() => {
+        fetchAllPrograms();
+    }, []);
+    
     return (
         <div className="userProgramsPage_wrapper container-xxl">
             <div className="userProgramsPage_content">
@@ -12,12 +19,33 @@ const UserProgramsPage = ({...props}) => {
                 
                 <ProgramsFilterPanel/>
                 
-                <div className="userProgramsListing_wrapper">
-                    <UserProgramCard/>
+                <div className="userProgramsListing_wrapper row d-flex justify-content-between">
+                    {Object.keys(programList).length === 0 ? (<Spinner/>) : (
+
+                        programList.map((program, index) => {
+                            const { id, name, preView } = program;
+                            return (
+                                <UserProgramCard
+                                    id={id}
+                                    key={index}
+                                    name={name}
+                                    preView={preView}
+                                />
+                            );
+                        })
+                    )}
                 </div>
             </div>
         </div>
     );
 };
 
-export default UserProgramsPage;
+const mapStateToProps = programState => ({
+    programList: programState.programReducer.programList
+});
+
+const mapActionToProps = {
+    fetchAllPrograms: programActions.fetchAllPrograms
+}
+
+export default connect(mapStateToProps, mapActionToProps)(UserProgramsPage);

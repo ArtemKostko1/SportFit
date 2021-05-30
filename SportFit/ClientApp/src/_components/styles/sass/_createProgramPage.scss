@@ -12,6 +12,8 @@
       
       .left_block {
         .input_wrapper {
+          height: 65px;
+          
           margin-bottom: 30px;
           
           &:last-child {
@@ -22,10 +24,11 @@
 
       .right_block {
         .preViewDownloadPhoto_block {
-          
+          height: 350px;
           .preView_wrapper {
             overflow: hidden;
-            height: 284px;
+            
+            height: 307.5px;
             width: auto;
             
             background-color: #e0e0e0;
