@@ -16,7 +16,6 @@ const UserAccountPage = ({match, fetchUserById, userItem}) => {
     }, []);
 
     const { avatar, nickname, fullName, birthDate, mobilePhone, email, vk, instagram  } = userItem;
-    debugger
     
     return (
         <div className="userAccountPage_wrapper container-xxl">

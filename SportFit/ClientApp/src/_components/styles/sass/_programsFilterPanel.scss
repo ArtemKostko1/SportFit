@@ -1,0 +1,24 @@
+﻿.programsFilterPanel_wrapper {
+  margin: 25px 0;
+  
+  .left_block {
+    .programSearch_wrapper {
+      max-width: 450px;
+    }
+  }
+  
+  .right_block {
+    .complexityLevelFilter_wrapper {      
+      margin-right: 50px;
+    }
+    
+    .programTypeFilter_wrapper {
+      button:nth-child(2){
+        width: 90px;
+      }
+      button:last-child{
+        width: 90px;
+      }
+    }
+  }
+}

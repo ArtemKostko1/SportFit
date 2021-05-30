@@ -496,3 +496,19 @@ a:hover {
   border-radius: 25px;
   border: 2px solid #ceecff;
 }
+
+.programsFilterPanel_wrapper {
+  margin: 25px 0;
+}
+.programsFilterPanel_wrapper .left_block .programSearch_wrapper {
+  max-width: 450px;
+}
+.programsFilterPanel_wrapper .right_block .complexityLevelFilter_wrapper {
+  margin-right: 50px;
+}
+.programsFilterPanel_wrapper .right_block .programTypeFilter_wrapper button:nth-child(2) {
+  width: 90px;
+}
+.programsFilterPanel_wrapper .right_block .programTypeFilter_wrapper button:last-child {
+  width: 90px;
+}

@@ -8,6 +8,7 @@ import Banner from "./internal-components/banner";
 import Separator from "./internal-components/separator";
 import ProgramItem from "./internal-components/programItem";
 import Spinner from "./special-components/spinner/spinner";
+import ProgramsFilterPanel from "./internal-components/programsFilterPanel";
 
 
 const ProgramsListingPage = ({fetchAllPrograms, programList}) => {
@@ -19,6 +20,7 @@ const ProgramsListingPage = ({fetchAllPrograms, programList}) => {
         <div className="programsListingPage_wrapper container-xxl">
             <Banner/>
             <Separator image={meditation}/>
+            <ProgramsFilterPanel/>
             
             <div className="programsListing_content d-flex flex-column align-items-center">
                 {Object.keys(programList).length === 0 ? (<Spinner/>) : (
