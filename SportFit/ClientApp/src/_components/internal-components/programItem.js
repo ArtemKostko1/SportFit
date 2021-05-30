@@ -23,7 +23,7 @@ const ProgramItem = ({ id, user, avatar, name, programType, complexityLevel, des
                         </Tippy>
                     </a>
 
-                    <div className="preView_wrapper d-flex justify-content-center align-items-center">
+                    <div className="preView_wrapper d-flex justify-content-center align-items-center shadow">
                         {
                             preView === null || preView === ''  ?
                                 <img src={camera} alt="preView" width="187" height="141"/> :
@@ -34,7 +34,9 @@ const ProgramItem = ({ id, user, avatar, name, programType, complexityLevel, des
 
                 <div className="right_block col-8 d-flex flex-column justify-content-between ps-5">
                     <div className="content_block">
-                        <div className="title fw-bold">{name}</div>
+                        <div className="name_wrapper fw-bold">
+                            <span>{name}</span>
+                        </div>
 
                         <div className="line row">
                             <div className="left_group col-10">

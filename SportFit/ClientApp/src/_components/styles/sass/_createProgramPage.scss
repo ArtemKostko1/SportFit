@@ -22,12 +22,11 @@
 
       .right_block {
         .preViewDownloadPhoto_block {
-          max-height: 350px;
+          
           .preView_wrapper {
             overflow: hidden;
-            
-            height: 100%;
-            max-width: 426px;
+            height: 284px;
+            width: auto;
             
             background-color: #e0e0e0;
             border-radius: 15px 15px 0 0;
@@ -37,9 +36,7 @@
             }
           }
           
-          .input-group {
-            max-width: 426px;
-            
+          .input-group {            
             .input-group-text{
               border-radius: 0 0 0 15px; 
             }

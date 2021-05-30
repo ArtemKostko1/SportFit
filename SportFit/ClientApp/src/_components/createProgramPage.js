@@ -96,7 +96,7 @@ const CreateProgramPage = ({...props}) => {
             <div className="createProgram_content">
                 <form className="createProgram_form needs-validation" id="createProgram_form" autoComplete="off" noValidate onSubmit={handleSubmit}>
                     <div className="top_block row">
-                        <div className="left_block col-7 pe-4">
+                        <div className="left_block col-8 pe-5">
                             <div className="input_wrapper p-0">
                                 <div className="form-floating">
                                     <input
@@ -198,13 +198,13 @@ const CreateProgramPage = ({...props}) => {
                             </div>
                         </div>
 
-                        <div className="right_block col-5 ps-5">
-                            <div className="preViewDownloadPhoto_block d-flex flex-column align-items-end justify-content-start w-100 h-100">
-                                <div className="preView_wrapper d-flex justify-content-center align-items-center w-100">
+                        <div className="right_block col-4">
+                            <div className="preViewDownloadPhoto_block w-100">
+                                <div className="preView_wrapper d-flex justify-content-center align-items-center">
                                     {
                                         values.PreView === null || values.PreView === '' ? 
                                             <img src={camera} alt="preView" width="187" height="141"/> : 
-                                            <img className="preView_photo" src={values.PreView} alt="preView" width="auto" height="100%"/>
+                                            <img className="preView_photo" src={values.PreView} alt="preView"/>
                                     }
                                 </div>
 
