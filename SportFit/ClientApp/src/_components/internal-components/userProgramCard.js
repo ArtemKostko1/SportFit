@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 
 const UserProgramCard = ({ id, name, preView }) => {
     return (
-        <div className="userProgramCard_wrapper col-4 shadow">
+        <div className="userProgramCard_wrapper shadow">
             <div className="preView_wrapper d-flex justify-content-center align-items-center w-100">
                 {
                     preView === null || preView === '' ?

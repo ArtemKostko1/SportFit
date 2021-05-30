@@ -19,7 +19,7 @@ const UserProgramsPage = ({fetchAllPrograms, programList}) => {
                 
                 <ProgramsFilterPanel/>
                 
-                <div className="userProgramsListing_wrapper row d-flex justify-content-between">
+                <div className="userProgramsListing_wrapper row d-flex">
                     {Object.keys(programList).length === 0 ? (<Spinner/>) : (
 
                         programList.map((program, index) => {

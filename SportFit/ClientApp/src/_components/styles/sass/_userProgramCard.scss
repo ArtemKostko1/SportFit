@@ -1,20 +1,16 @@
 ﻿.userProgramCard_wrapper {
   height: auto;
   width: 420px;
-
-  margin-bottom: 25px;
+  
+  margin: 0 10px 25px 10px;
   
   border-radius: 15px;
-  
-  &:last-child{
-    margin-bottom: 0;
-  }
 
   .preView_wrapper {
     overflow: hidden;
 
     height: 325px;
-    width: 420px;
+    width: 400px;
 
     border-radius: 15px;
     background-color: #e0e0e0;

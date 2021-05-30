@@ -19,6 +19,14 @@
           &:last-child {
             margin-bottom: 0;
           }
+          
+          .form-select {
+            height: 65px;
+          }
+
+          .form-select {
+            height: 65px;
+          }
         }
       }
 
@@ -36,6 +44,16 @@
             
             .preView_photo {
               border-radius: 15px 15px 0 0;
+            }
+            
+            .input-group {
+              
+              span {
+                height: 42.5px;
+              }
+              .downloadPhoto {
+                height: 42.5px !important;
+              }
             }
           }
           
