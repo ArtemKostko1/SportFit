@@ -1,9 +1,10 @@
 ﻿import React, {useEffect} from 'react';
+import { Redirect } from "react-router-dom";
 import {connect} from "react-redux";
 import useForm from "./utils/useForm";
 import {Link} from "react-router-dom";
 import * as userActions from "../_actions/user-actions";
-import {REGISTER_ROUTE} from "../_routing/routerConsts";
+import {REGISTER_ROUTE, MAIN_ROUTE} from "../_routing/routerConsts";
 
 const initialInputValues = {
     Login: '',
@@ -39,7 +40,7 @@ const SignInPage = ({...props}) => {
         e.preventDefault();
 
         if (validate()) {
-            await props.authenticate(values, () => {window.alert('User authenticated')})
+            props.authenticate(values, () => {window.alert('User authenticated')})
             document.getElementById('signInUser_form').reset();
         }
     }

@@ -1,4 +1,4 @@
-﻿import React, {useEffect} from 'react';
+﻿import React, { useState, useEffect} from 'react';
 import { connect } from "react-redux";
 import * as programActions from "../_actions/program-actions";
 import * as programTypeActions from "../_actions/programType-actions";
@@ -9,14 +9,16 @@ import camera from "./images/camera.svg";
 
 
 const CreateProgramPage = ({...props}) => {
+    const currentProgram = props.match.params;
+    
     const initialInputValues = {
         Name: '',
-        UserId: props.userItem.id,
         ProgramTypeId: '',
         ComplexityLevelId: '',
         Description: '',
         Content: '',
-        PreView: ''
+        PreView: '',
+        UserId: props.userItem.id
     }
     
     const validate = (fieldValues = values) => {
@@ -51,10 +53,14 @@ const CreateProgramPage = ({...props}) => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        
+
+        debugger
         if (validate()) {
-            debugger
-            await props.createProgram(values, () => {window.alert('Inserted')});
+            if (currentProgram.id === undefined) {
+                await props.createProgram(values, () => {window.alert('Inserted')});
+            } else {
+                await props.updateProgram(currentProgram.id, values, () => {window.alert('Updated')});
+            }
             document.getElementById('createProgram_form').reset();
             resetValues();
         }
@@ -89,11 +95,31 @@ const CreateProgramPage = ({...props}) => {
     useEffect(() => {
         props.fetchAllProgramTypes();
         props.fetchAllComplexityLevels();
-    }, []);
+        
+        debugger
+        if (currentProgram.id !== undefined) {
+            const editableProgram = props.programList.find(x => x.id === currentProgram.id);
+            const programType = props.programTypesList.find(x => x.name === editableProgram.programType);
+            const complexityLevel = props.complexityLevelsList.find(x => x.name === editableProgram.complexityLevel);
+            
+            const tempProgram = {
+                Name: editableProgram.name,
+                ProgramTypeId: programType.id,
+                ComplexityLevelId: complexityLevel.id,
+                Description: editableProgram.description,
+                Content: editableProgram.content,
+                PreView: editableProgram.preView
+            }
+            
+            setValues({
+                ...tempProgram
+            })
+        }
+    }, [currentProgram.id]);
 
     return (
         <div className="createProgramPage_wrapper container-xxl">
-            <div className="createProgram_content">
+            <div className="createProgram_content shadow">
                 <form className="createProgram_form needs-validation" id="createProgram_form" autoComplete="off" noValidate onSubmit={handleSubmit}>
                     <div className="top_block row">
                         <div className="left_block col-8 pe-5">
@@ -103,13 +129,14 @@ const CreateProgramPage = ({...props}) => {
                                         name="Name"
                                         type="text"
                                         className="form-control"
-                                        id="validationCustomName" 
+                                        id="validationCustomName"
                                         placeholder="Enter the name"
+                                        value={values.Name}
                                         onChange={handleInputChange}
                                         required
                                         {...(errors.Name && { error: "true" })}/>
 
-                                    <label htmlFor="validationCustomName" className="form-label fw-bold">Name</label>
+                                    <label htmlFor="validationCustomName" className="form-label fw-bold text-secondary">Name</label>
                                     <div className="invalid-feedback">{errors.Name}</div>
                                 </div>
                             </div>
@@ -120,8 +147,9 @@ const CreateProgramPage = ({...props}) => {
                                         name="ProgramTypeId"
                                         className="form-select"
                                         id="validationCustomProgramTypeId"
-                                        placeholder="Select program type"
                                         aria-label="select example"
+                                        placeholder="Select program type"
+                                        value={values.ProgramTypeId}
                                         onChange={handleInputChange}
                                         required
                                         {...(errors.ProgramTypeId && { error: "true" })}>
@@ -142,7 +170,7 @@ const CreateProgramPage = ({...props}) => {
                                         )}
                                     </select>
 
-                                    <label htmlFor="validationCustomProgramTypeId" className="form-label fw-bold">Type</label>
+                                    <label htmlFor="validationCustomProgramTypeId" className="form-label fw-bold text-secondary">Type</label>
                                     <div className="invalid-feedback">{errors.ProgramTypeId}</div>
                                 </div>
                             </div>
@@ -152,9 +180,10 @@ const CreateProgramPage = ({...props}) => {
                                     <select
                                         name="ComplexityLevelId"
                                         className="form-select"
+                                        aria-label="select example"
                                         id="validationCustomComplexityLevelId"
                                         placeholder="Select complexity level"
-                                        aria-label="select example"
+                                        value={values.ComplexityLevelId}
                                         onChange={handleInputChange}
                                         required
                                         {...(errors.ComplexityLevelId && { error: "true" })}>
@@ -175,7 +204,7 @@ const CreateProgramPage = ({...props}) => {
                                             )}
                                     </select>
 
-                                    <label htmlFor="validationCustomComplexityLevelId" className="form-label fw-bold">Complexity Level</label>
+                                    <label htmlFor="validationCustomComplexityLevelId" className="form-label fw-bold text-secondary">Complexity Level</label>
                                     <div className="invalid-feedback">{errors.ComplexityLevelId}</div>
                                 </div>
                             </div>
@@ -188,11 +217,12 @@ const CreateProgramPage = ({...props}) => {
                                         className="form-control"
                                         id="validationCustomDescription"
                                         placeholder="Enter description"
+                                        value={values.Description}
                                         onChange={handleInputChange}
                                         required
                                         {...(errors.Description && { error: "true" })}/>
     
-                                        <label htmlFor="validationCustomDescription" className="fw-bold">Description</label>
+                                        <label htmlFor="validationCustomDescription" className="fw-bold text-secondary">Description</label>
                                     <div className="invalid-feedback">{errors.Description}</div>
                                 </div>
                             </div>
@@ -202,7 +232,7 @@ const CreateProgramPage = ({...props}) => {
                             <div className="preViewDownloadPhoto_block w-100">
                                 <div className="preView_wrapper d-flex justify-content-center align-items-center">
                                     {
-                                        values.PreView === null || values.PreView === '' ? 
+                                        values.PreView === null || values.PreView === '' || values.PreView === undefined ? 
                                             <img src={camera} alt="preView" width="187" height="141"/> : 
                                             <img className="preView_photo" src={values.PreView} alt="preView"/>
                                     }
@@ -213,8 +243,9 @@ const CreateProgramPage = ({...props}) => {
                                     <input
                                         name="PreView"
                                         className="downloadPhoto form-control" 
-                                        type="text" 
+                                        type="text"
                                         id="validationCustomPreview"
+                                        value={values.PreView}
                                         onChange={handleInputChange}
                                         required/>
                                 </div>
@@ -230,11 +261,12 @@ const CreateProgramPage = ({...props}) => {
                                     className="form-control"
                                     id="validationCustomContent"
                                     placeholder="Enter program content"
+                                    value={values.Content}
                                     onChange={handleInputChange}
                                     required
                                     {...(errors.Content && { error: "true" })}/>
 
-                                <label htmlFor="validationCustomContent" className="form-label fw-bold">Program content</label>
+                                <label htmlFor="validationCustomContent" className="form-label fw-bold text-secondary">Program content</label>
                                 <div className="invalid-feedback">{errors.Content}</div>
                             </div>
                         </div>
@@ -266,14 +298,16 @@ const CreateProgramPage = ({...props}) => {
 
 const mapStateToProps = state => ({
     userItem: state.userReducer.userItem,
+    programList: state.programReducer.programList,
     programTypesList: state.programTypeReducer.programTypesList,
-    complexityLevelsList: state.complexityLevelReducer.complexityLevelsList,
+    complexityLevelsList: state.complexityLevelReducer.complexityLevelsList
 });
 
 const mapActionToProps = {
     createProgram: programActions.createProgram,
+    updateProgram: programActions.updateProgram,
     fetchAllProgramTypes: programTypeActions.fetchAllProgramTypes,
-    fetchAllComplexityLevels: complexityLevelActions.fetchAllComplexityLevels,
+    fetchAllComplexityLevels: complexityLevelActions.fetchAllComplexityLevels
 }
 
 export default connect(mapStateToProps, mapActionToProps)(CreateProgramPage);

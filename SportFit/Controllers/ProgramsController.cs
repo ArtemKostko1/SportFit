@@ -32,11 +32,11 @@ namespace SportFit.Controllers
                 select new ProgramModel()
                 {
                     Id = program.Id,
-                    PUser = user.Nickname,
-                    UAvatar = user.Avatar,
+                    UserNickname = user.Nickname,
+                    UserAvatar = user.Avatar,
                     Name = program.Name,
-                    PType = programType.Name,
-                    CLevel = complexityLevel.Name,
+                    ProgramType = programType.Name,
+                    ComplexityLevel = complexityLevel.Name,
                     Description = program.Description,
                     Content = program.Content,
                     PreView = program.PreView,
@@ -57,11 +57,11 @@ namespace SportFit.Controllers
                 select new ProgramModel()
                 {
                     Id = program.Id,
-                    PUser = user.Nickname,
-                    UAvatar = user.Avatar,
+                    UserNickname = user.Nickname,
+                    UserAvatar = user.Avatar,
                     Name = program.Name,
-                    PType = programType.Name,
-                    CLevel = complexityLevel.Name,
+                    ProgramType = programType.Name,
+                    ComplexityLevel = complexityLevel.Name,
                     Description = program.Description,
                     Content = program.Content,
                     PreView = program.PreView,

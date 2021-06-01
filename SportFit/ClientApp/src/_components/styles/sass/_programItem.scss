@@ -4,7 +4,6 @@
   padding: 25px;
   
   border-radius: 25px;
-  border: 2px solid #ceecff;
   
   .programItem_content {
     .left_block {
@@ -59,7 +58,7 @@
         }
         
         .line{
-          margin-bottom: 5px;
+          height: 40px;
           
           .characteristic{
             font-size: 12pt;
@@ -105,20 +104,8 @@
           }
         }
         
-        .button_wrapper {
-          .openProgram {
-            width: 100px;
-
-            .bi {
-              color: #0d6efd;
-            }
-
-            &:hover {
-              .bi {
-                color: white;
-              }
-            }
-          }
+        .btn {
+          width: 100px;
         }
       }
     }

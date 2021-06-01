@@ -1,6 +1,8 @@
 ﻿import React, { useEffect } from 'react';
 import { connect } from "react-redux";
 import * as programActions from '../_actions/program-actions';
+import * as programTypeActions from '../_actions/programType-actions';
+import * as complexityLevelActions from '../_actions/complexityLevel-actions';
 
 import meditation from "./images/meditation.svg";
 
@@ -11,9 +13,11 @@ import Spinner from "./special-components/spinner/spinner";
 import ProgramsFilterPanel from "./internal-components/programsFilterPanel";
 
 
-const ProgramsListingPage = ({fetchAllPrograms, programList}) => {
+const ProgramsListingPage = ({fetchAllPrograms, fetchAllProgramTypes, fetchAllComplexityLevels, programList}) => {
     useEffect(() => {
         fetchAllPrograms();
+        fetchAllProgramTypes();
+        fetchAllComplexityLevels();
     }, []);
     
     return (
@@ -26,16 +30,16 @@ const ProgramsListingPage = ({fetchAllPrograms, programList}) => {
                 {Object.keys(programList).length === 0 ? (<Spinner/>) : (
                     
                     programList.map((program, index) => {
-                        const { id, pUser, uAvatar, name, pType, cLevel, description, preView, creationDate } = program;
+                        const { id, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate } = program;
                         return (
                             <ProgramItem
                                 id={id}
                                 key={index}
-                                user={pUser}
-                                avatar={uAvatar}
+                                user={userNickname}
+                                avatar={userAvatar}
                                 name={name}
-                                programType={pType}
-                                complexityLevel={cLevel}
+                                programType={programType}
+                                complexityLevel={complexityLevel}
                                 description={description}
                                 preView={preView}
                                 creationDate={creationDate}
@@ -48,11 +52,13 @@ const ProgramsListingPage = ({fetchAllPrograms, programList}) => {
     );
 }
 
-const mapStateToProps = programState => ({
-    programList: programState.programReducer.programList
+const mapStateToProps = state => ({
+    programList: state.programReducer.programList
 });
 
 const mapActionToProps = {
-    fetchAllPrograms: programActions.fetchAllPrograms
+    fetchAllPrograms: programActions.fetchAllPrograms,
+    fetchAllProgramTypes: programTypeActions.fetchAllProgramTypes,
+    fetchAllComplexityLevels: complexityLevelActions.fetchAllComplexityLevels
 }
 export default connect(mapStateToProps, mapActionToProps)(ProgramsListingPage);

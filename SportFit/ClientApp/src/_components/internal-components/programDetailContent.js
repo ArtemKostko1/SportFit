@@ -2,7 +2,11 @@
 
 import CommentsBlock from "./commentsBlock";
 import dumbbell from "../images/dumbbell.svg";
+import meal from "../images/meal.svg";
 import muscles_hard from "../images/muscles_hard.png";
+import muscles_easy from "../images/muscles_easy.png";
+import muscles_medium from "../images/muscles_medium.png";
+import muscles_professional from "../images/muscles_professional.png";
 import camera from "../images/camera.svg";
 import profile from "../images/profile.svg";
 
@@ -30,12 +34,39 @@ const ProgramDetailContent = ({ user, avatar, name, programType, complexityLevel
                     <div className="typesCharacterization_wrapper row w-100">
                         <div className="programType_wrapper col-6 d-flex align-items-center justify-content-start">
                             <div className="badge d-flex align-items-center justify-content-center me-3">{programType}</div>
-                            <img src={dumbbell} alt="ava" width="42" height="42"/>
+                            <img src=
+                                 {
+                                    programType === 'Training program' || programType === 'Программа тренировки' ?
+                                        dumbbell :
+                                    (programType === 'Meal plan' || programType === 'План питания' ?
+                                        meal : null)
+                                 } 
+                                 alt="ava" width="42" height="42"/>
                         </div>
     
                         <div className="complexityLevel_wrapper col-6 d-flex align-items-center justify-content-end">
-                            <img src={muscles_hard} alt="ava"/>
-                            <div className="badge d-flex align-items-center justify-content-center ms-3">{complexityLevel}</div>
+                            {
+                                complexityLevel === 'Easy' || programType === 'Легко' ?
+                                    <>
+                                        <img src={muscles_easy} alt="ava"/>
+                                        <div className="badge d-flex align-items-center justify-content-center bg-primary ms-3">{complexityLevel}</div>
+                                    </> :
+                                (complexityLevel === 'Medium' || programType === 'Средне' ?
+                                    <>
+                                        <img src={muscles_medium} alt="ava"/>
+                                        <div className="badge d-flex align-items-center justify-content-center bg-warning ms-3">{complexityLevel}</div>
+                                    </> :
+                                (complexityLevel === 'Hard' || programType === 'Сложно' ?
+                                    <>
+                                        <img src={muscles_hard} alt="ava"/>
+                                        <div className="badge d-flex align-items-center justify-content-center bg-danger ms-3">{complexityLevel}</div>
+                                    </> :
+                                (complexityLevel === 'Professional' || programType === 'Професионально' ?
+                                    <>
+                                        <img src={muscles_professional} alt="ava"/>
+                                        <div className="badge d-flex align-items-center justify-content-center bg-dark ms-3">{complexityLevel}</div>
+                                    </> : null)))
+                            }
                         </div>
                     </div>
     

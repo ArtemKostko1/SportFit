@@ -3,6 +3,7 @@ export const LOGIN_ROUTE = '/login';
 export const REGISTER_ROUTE = '/register';
 export const PROGRAMS_LISTENING_ROUTE = '/programs';
 export const CREATE_PROGRAM_ROUTE = '/createProgram';
+export const EDIT_PROGRAM_ROUTE = '/editProgram';
 export const PROGRAM_DETAIL_ROUTE = '/programDetail';
 export const USER_ACCOUNT_ROUTE = '/userAccount';
 export const USER_PROFILE_ROUTE = '/userProfile';

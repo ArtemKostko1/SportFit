@@ -2,7 +2,7 @@
   height: auto;
   width: 420px;
   
-  margin: 0 10px 25px 10px;
+  margin: 0 15px 50px 15px;
   
   border-radius: 15px;
 
@@ -20,12 +20,18 @@
     padding: 15px;
 
     .name_wrapper {
+      height: 3.25rem;
+      
       margin-bottom: 15px;
       
       font-size: 14pt;
     }
     
     .actions_block {
+      .btn {
+        width: 88px;
+      }
+      
       .specialButtons_wrapper {
         .btn{
           width: 40px;

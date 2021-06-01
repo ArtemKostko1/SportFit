@@ -1,6 +1,7 @@
 ﻿import {
     MAIN_ROUTE, PROGRAMS_LISTENING_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE, CREATE_PROGRAM_ROUTE, PROGRAM_DETAIL_ROUTE, 
-    USER_ACCOUNT_ROUTE, USER_PROFILE_ROUTE, USER_SELECTED_ROUTE, USER_PROGRAMS_ROUTE, SUPPORT_ROUTE, SETTINGS_ROUTE
+    USER_ACCOUNT_ROUTE, USER_PROFILE_ROUTE, USER_SELECTED_ROUTE, USER_PROGRAMS_ROUTE, SUPPORT_ROUTE, SETTINGS_ROUTE,
+    EDIT_PROGRAM_ROUTE
 } from "./routerConsts";
 
 import HomePage from "../_components/homePage";
@@ -12,7 +13,7 @@ import ProgramDetailPage from "../_components/programDetailPage";
 import UserProfilePage from "../_components/userProfilePage";
 import UserAccountPage from "../_components/userAccountPage";
 import UserSelectedPage from "../_components/userSelectedPage";
-import UserProgramsPage from "../_components/userProgramsPage";
+import UserProgramsListingPage from "../_components/userProgramsListingPage";
 import SupportPage from "../_components/supportPage";
 import SettingsPage from "../_components/settingsPage";
 
@@ -38,6 +39,10 @@ export const routerComponents = [
         Component: CreateProgramPage
     },
     {
+        path: EDIT_PROGRAM_ROUTE + '/:id',
+        Component: CreateProgramPage
+    },
+    {
         path: PROGRAM_DETAIL_ROUTE + '/:id',
         Component: ProgramDetailPage
     },
@@ -55,7 +60,7 @@ export const routerComponents = [
     },
     {
         path: USER_PROGRAMS_ROUTE/* + '/:id'*/,
-        Component: UserProgramsPage
+        Component: UserProgramsListingPage
     },
     {
         path: SUPPORT_ROUTE,

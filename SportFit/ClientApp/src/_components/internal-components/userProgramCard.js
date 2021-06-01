@@ -1,10 +1,13 @@
 ﻿import React from 'react';
-import camera from "../images/camera.svg";
-import {PROGRAM_DETAIL_ROUTE} from "../../_routing/routerConsts";
-import Tippy from "@tippy.js/react";
 import {Link} from "react-router-dom";
+import Tippy from "@tippy.js/react";
+import 'tippy.js/dist/tippy.css';
+import {EDIT_PROGRAM_ROUTE, PROGRAM_DETAIL_ROUTE} from "../../_routing/routerConsts";
+import dateFormat from "../utils/dateFormat";
 
-const UserProgramCard = ({ id, name, preView }) => {
+import camera from "../images/camera.svg";
+
+const UserProgramCard = ({ id, name, preView, creationDate }) => {
     return (
         <div className="userProgramCard_wrapper shadow">
             <div className="preView_wrapper d-flex justify-content-center align-items-center w-100">
@@ -24,21 +27,23 @@ const UserProgramCard = ({ id, name, preView }) => {
                 
                 <div className="actions_block d-flex justify-content-between">
                     <Link to={`${PROGRAM_DETAIL_ROUTE}/${id}`}>
-                        <div className="button_wrapper">
-                            <Tippy content="Show full description">
-                                <button type="button" className="btn btn-outline-primary">
-                                    Open
-                                </button>
-                            </Tippy>
-                        </div>
-                    </Link>
-
-                    <div className="specialButtons_wrapper d-flex">
-                        <Tippy content="Edit">
-                            <button className="btn btn-outline-secondary d-flex justify-content-center align-items-center me-2 p-0" type="button">
-                                <i className="fa fa-pencil"/>
+                        <Tippy content="Show full description">
+                            <button type="button" className="btn btn-outline-primary">
+                                Open
                             </button>
                         </Tippy>
+                    </Link>
+                    
+                    <div className="d-flex align-items-center">{dateFormat(creationDate)}</div>
+
+                    <div className="specialButtons_wrapper d-flex">
+                        <Link to={`${EDIT_PROGRAM_ROUTE}/${id}`}>
+                            <Tippy content="Edit">
+                                <button className="btn btn-outline-secondary d-flex justify-content-center align-items-center me-2 p-0" type="button">
+                                    <i className="fa fa-pencil"/>
+                                </button>
+                            </Tippy>
+                        </Link>
 
                         <Tippy content="Delete">
                             <button className="btn btn-outline-danger d-flex justify-content-center align-items-center p-0" type="button">

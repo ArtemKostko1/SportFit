@@ -8,7 +8,7 @@ const ProgramsFilterPanel = () => {
             <div className="left_block col-6">
                 <div className="programSearch_wrapper">
                     <Tippy content="Search the program by name">
-                        <form className="programSearch_form">
+                        <form className="programSearch_form shadow">
                             <input
                                 className="form-control"
                                 type="search"
@@ -21,7 +21,7 @@ const ProgramsFilterPanel = () => {
             <div className="right_block col-6 d-flex justify-content-end">
                 <div className="complexityLevelFilter_wrapper dropdown">
                     <Tippy content="Choose the program complexity level">
-                        <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button className="btn btn-primary dropdown-toggle shadow" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Complexity level
                         </button>
                     </Tippy>
@@ -35,7 +35,7 @@ const ProgramsFilterPanel = () => {
                     </ul>
                 </div>
 
-                <div className="programTypeFilter_wrapper btn-group" role="group" aria-label="Basic outlined example">
+                <div className="programTypeFilter_wrapper btn-group shadow" role="group" aria-label="Basic outlined example">
                     <Tippy content="Show all programs">
                         <button type="button" className="btn btn-outline-primary">All</button>
                     </Tippy>

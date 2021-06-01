@@ -1,9 +1,14 @@
-.userProgramsPage_wrapper {
+.userProgramsListingPage_wrapper {
   padding: 50px 0;
   
-  .userProgramsPage_content {
+  .userProgramsListingPage_content {
     .title_wrapper {
       margin-bottom: 50px;
+    }
+    
+    .programCardsListing_wrapper {
+      margin: 0 -15px;
+      margin-bottom: -50px;
     }
   }
 }
