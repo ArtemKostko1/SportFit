@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import Tippy from '@tippy.js/react';
 import 'tippy.js/dist/tippy.css';
 import dateFormat from "../utils/dateFormat";
-import {PROGRAM_DETAIL_ROUTE, USER_PROFILE_ROUTE} from "../../_routing/routerConsts";
+import {PROGRAM_DETAIL_ROUTE, ACCOUNT_ROUTE} from "../../_routing/routerConsts";
 
 import camera from "../images/camera.svg";
 import profile from "../images/profile.svg";
@@ -20,7 +20,7 @@ const ProgramItem = ({ id, user, avatar, name, programType, complexityLevel, des
         <div className="programItem_wrapper container-xxl shadow">
             <div className="programItem_content container-xxl row">
                 <div className="left_block col-4 h-100">
-                    <Link to={`${USER_PROFILE_ROUTE}/${id}`} className="user_wrapper d-flex align-items-center w-100">
+                    <Link to={`${ACCOUNT_ROUTE}/${id}`} className="user_wrapper d-flex align-items-center w-100">
                         <div className="avatar rounded-circle d-flex justify-content-center">
                             <img src={avatar === null ? profile : avatar} alt="preView" width="auto" height="100%"/>
                         </div>

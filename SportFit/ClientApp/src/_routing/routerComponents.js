@@ -1,6 +1,6 @@
 ﻿import {
     MAIN_ROUTE, PROGRAMS_LISTENING_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE, CREATE_PROGRAM_ROUTE, PROGRAM_DETAIL_ROUTE, 
-    USER_ACCOUNT_ROUTE, USER_PROFILE_ROUTE, USER_SELECTED_ROUTE, USER_PROGRAMS_ROUTE, SUPPORT_ROUTE, SETTINGS_ROUTE,
+    ACCOUNT_ROUTE, EDIT_ACCOUNT_ROUTE, USER_SELECTED_ROUTE, USER_PROGRAMS_ROUTE, SUPPORT_ROUTE, SETTINGS_ROUTE,
     EDIT_PROGRAM_ROUTE
 } from "./routerConsts";
 
@@ -10,8 +10,8 @@ import SignUpPage from "../_components/signUpPage";
 import ProgramsListingPage from "../_components/programsListingPage";
 import CreateProgramPage from "../_components/createProgramPage";
 import ProgramDetailPage from "../_components/programDetailPage";
-import UserProfilePage from "../_components/userProfilePage";
-import UserAccountPage from "../_components/userAccountPage";
+import AccountPage from "../_components/accountPage";
+import EditAccountPage from "../_components/editAccountPage";
 import UserSelectedPage from "../_components/userSelectedPage";
 import UserProgramsListingPage from "../_components/userProgramsListingPage";
 import SupportPage from "../_components/supportPage";
@@ -47,12 +47,12 @@ export const routerComponents = [
         Component: ProgramDetailPage
     },
     {
-        path: USER_PROFILE_ROUTE + '/:id',
-        Component: UserProfilePage
+        path: ACCOUNT_ROUTE + '/:id',
+        Component: AccountPage
     },
     {
-        path: USER_ACCOUNT_ROUTE + '/:id',
-        Component: UserAccountPage
+        path: EDIT_ACCOUNT_ROUTE + '/:id',
+        Component: EditAccountPage
     },
     {
         path: USER_SELECTED_ROUTE/* + '/:id'*/,

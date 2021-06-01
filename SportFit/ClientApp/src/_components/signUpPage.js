@@ -4,30 +4,37 @@ import {Link} from "react-router-dom";
 import {LOGIN_ROUTE} from "../_routing/routerConsts";
 import * as userActions from "../_actions/user-actions";
 import {connect} from "react-redux";
-
-const initialInputValues = {
-    Nickname: '',
-    Login: '',
-    Password: '',
-}
+import checkValidation from "./utils/validators/validators";
 
 const SignUpPage = ({...props}) => {
+    const initialInputValues = {
+        Nickname: '',
+        Login: '',
+        Password: '',
+    }
+
+    const resetValues = () => {
+        values.Nickname = '';
+        values.Login = '';
+        values.Password = '';
+    }
+    
     const validate = (fieldValues = values) => {
-        let signUpTemp = {};
+        let temp = {};
 
         if('Nickname' in fieldValues)
-            signUpTemp.Nickname = fieldValues.Nickname ? "" : "Please enter a nickname";
+            temp.Nickname = fieldValues.Nickname ? "" : "Please enter a nickname";
         if('Login' in fieldValues)
-            signUpTemp.Login = fieldValues.Login ? "" : "Please enter a login";
+            temp.Login = fieldValues.Login ? "" : "Please enter a login";
         if('Password' in fieldValues)
-            signUpTemp.Password = fieldValues.Password ? "" : "Please enter a password";
+            temp.Password = fieldValues.Password ? "" : "Please enter a password";
 
         setErrors({
-            ...signUpTemp
+            ...temp
         });
 
         if (fieldValues === values)
-            return Object.values(signUpTemp).every(x => x === "");
+            return Object.values(temp).every(x => x === "");
     }
 
     const {
@@ -38,31 +45,14 @@ const SignUpPage = ({...props}) => {
         handleInputChange
     } = useForm(initialInputValues, validate);
 
-    const handleSubmit = async e => {
+    const handleSubmit = e => {
         e.preventDefault();
         
         if (validate()) {
-            debugger
-            await props.register(values, () => {window.alert('User registered')});
+            props.register(values, () => {window.alert('User registered')});
             document.getElementById('signUpUser_form').reset();
+            resetValues();
         }
-    }
-
-    function checkValidation() {
-        'use strict'
-        let forms = document.querySelectorAll('.signUpUser_form')
-
-        Array.prototype.slice.call(forms)
-            .forEach(function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
-
-                    form.classList.add('was-validated')
-                }, false)
-            })
     }
     
     return (
@@ -92,8 +82,8 @@ const SignUpPage = ({...props}) => {
                                     name="Nickname"
                                     type="text" 
                                     className="form-control" 
-                                    id="validationCustomUsername" 
-                                    placeholder="Enter your a nickname"
+                                    id="validationCustomUsername"
+                                    value={values.Nickname}
                                     onChange={handleInputChange}
                                     required
                                     {...(errors.Nickname && { error: "true" })}/>
@@ -107,8 +97,8 @@ const SignUpPage = ({...props}) => {
                                     name="Login"
                                     type="text" 
                                     className="form-control" 
-                                    id="validationCustomLogin" 
-                                    placeholder="Enter login"
+                                    id="validationCustomLogin"
+                                    value={values.Login}
                                     onChange={handleInputChange}
                                     required
                                     {...(errors.Login && { error: "true" })}/>
@@ -122,8 +112,8 @@ const SignUpPage = ({...props}) => {
                                     name="Password"
                                     type="password" 
                                     className="form-control" 
-                                    id="validationCustomPassword" 
-                                    placeholder="Enter password"
+                                    id="validationCustomPassword"
+                                    value={values.Password}
                                     onChange={handleInputChange}
                                     required
                                     {...(errors.Password && { error: "true" })}/>
@@ -135,7 +125,7 @@ const SignUpPage = ({...props}) => {
                                 <button 
                                     type="submit" 
                                     className="btn btn-primary w-100 fw-bold"
-                                    onClick={checkValidation}>
+                                    onClick={checkValidation('signUpUser_form')}>
                                     Create account
                                 </button>
                             </div>

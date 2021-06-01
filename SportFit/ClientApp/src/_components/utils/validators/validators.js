@@ -1,8 +1,18 @@
-﻿const Required = (value) => {
-    if (value)
-        return undefined;
-    
-    return "Field is required"
+﻿const checkValidation = (formName) => {
+    'use strict'
+    let forms = document.querySelectorAll(`.${formName}`)
+
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
 }
 
-export default Required;
+export default checkValidation;

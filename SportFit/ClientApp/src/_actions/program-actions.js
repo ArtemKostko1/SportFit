@@ -32,6 +32,7 @@ export const programsRequested = () => dispatch => {
 export const createProgram = (data, onSuccess) => dispatch => {
     api.program().createProgram(data)
         .then(response => {
+            debugger
             dispatch({
                 type: programActionTypes.CREATE_PROGRAM,
                 payload: response.data

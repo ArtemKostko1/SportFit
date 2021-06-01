@@ -4,6 +4,7 @@ import * as programActions from "../_actions/program-actions";
 import * as programTypeActions from "../_actions/programType-actions";
 import * as complexityLevelActions from "../_actions/complexityLevel-actions";
 import useForm from "./utils/useForm";
+import checkValidation from "./utils/validators/validators";
 
 import camera from "./images/camera.svg";
 
@@ -20,52 +21,7 @@ const CreateProgramPage = ({...props}) => {
         PreView: '',
         UserId: props.userItem.id
     }
-    
-    const validate = (fieldValues = values) => {
-        let temp = {};
 
-        if('Name' in fieldValues)
-            temp.Name = fieldValues.Name ? "" : "Please enter a program name";
-        if('ProgramTypeId' in fieldValues)
-            temp.ProgramTypeId = fieldValues.ProgramTypeId ? "" : "Program type not selected";
-        if('ComplexityLevelId' in fieldValues)
-            temp.ComplexityLevelId = fieldValues.ComplexityLevelId ? "" : "Complexity level not selected";
-        if('Description' in fieldValues)    
-            temp.Description = fieldValues.Description ? "" : "Please enter a program description";
-        if('Content' in fieldValues)    
-            temp.Content = fieldValues.Content ? "" : "Please enter a program content";
-
-        setErrors({
-            ...temp
-        });
-        
-        if (fieldValues === values)
-            return Object.values(temp).every(x => x === "");
-    }
-    
-    const {
-        values,
-        setValues,
-        errors,
-        setErrors,
-        handleInputChange
-    } = useForm(initialInputValues, validate);
-
-    const handleSubmit = async e => {
-        e.preventDefault();
-
-        debugger
-        if (validate()) {
-            if (currentProgram.id === undefined) {
-                await props.createProgram(values, () => {window.alert('Inserted')});
-            } else {
-                await props.updateProgram(currentProgram.id, values, () => {window.alert('Updated')});
-            }
-            document.getElementById('createProgram_form').reset();
-            resetValues();
-        }
-    }
-    
     const resetValues = () => {
         values.Name = '';
         values.ProgramTypeId = '';
@@ -75,28 +31,54 @@ const CreateProgramPage = ({...props}) => {
         values.PreView = '';
     }
 
-    function checkValidation() {
-        'use strict'
-        let forms = document.querySelectorAll('.createProgram_form')
+    const validate = (fieldValues = values) => {
+        let temp = {};
 
-        Array.prototype.slice.call(forms)
-            .forEach(function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
+        if('Name' in fieldValues)
+            temp.Name = fieldValues.Name ? "" : "Please enter a program name";
+        if('ProgramTypeId' in fieldValues)
+            temp.ProgramTypeId = fieldValues.ProgramTypeId ? "" : "Program type not selected";
+        if('ComplexityLevelId' in fieldValues)
+            temp.ComplexityLevelId = fieldValues.ComplexityLevelId ? "" : "Complexity level not selected";
+        if('Description' in fieldValues)
+            temp.Description = fieldValues.Description ? "" : "Please enter a program description";
+        if('Content' in fieldValues)
+            temp.Content = fieldValues.Content ? "" : "Please enter a program content";
 
-                    form.classList.add('was-validated')
-                }, false)
-            })
+        setErrors({
+            ...temp
+        });
+
+        if (fieldValues === values)
+            return Object.values(temp).every(x => x === "");
+    }
+
+    const {
+        values,
+        setValues,
+        errors,
+        setErrors,
+        handleInputChange
+    } = useForm(initialInputValues, validate);
+
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        if (validate()) {
+            if (currentProgram.id === undefined) {
+                props.createProgram(values, () => {window.alert('Inserted')});
+            } else {
+                props.updateProgram(currentProgram.id, values, () => {window.alert('Updated')});
+            }
+            document.getElementById('createProgram_form').reset();
+            resetValues();
+        }
     }
     
     useEffect(() => {
         props.fetchAllProgramTypes();
         props.fetchAllComplexityLevels();
         
-        debugger
         if (currentProgram.id !== undefined) {
             const editableProgram = props.programList.find(x => x.id === currentProgram.id);
             const programType = props.programTypesList.find(x => x.name === editableProgram.programType);
@@ -108,7 +90,8 @@ const CreateProgramPage = ({...props}) => {
                 ComplexityLevelId: complexityLevel.id,
                 Description: editableProgram.description,
                 Content: editableProgram.content,
-                PreView: editableProgram.preView
+                PreView: editableProgram.preView,
+                UserId: props.userItem.id
             }
             
             setValues({
@@ -277,7 +260,7 @@ const CreateProgramPage = ({...props}) => {
                             <button 
                                 type="submit" 
                                 className="createProgram btn btn-primary w-100 fw-bold"
-                                onClick={checkValidation}>
+                                onClick={checkValidation('createProgram_form')}>
                                 CREATE
                             </button>
                         </div>

@@ -17,7 +17,7 @@ export const program = (url = baseUrl + 'programs') => {
         fetchAllPrograms: async () => await axios.get(url),
         fetchProgramById: async id => await axios.get(`${url}/${id}`),
         createProgram: async newRecord => await axios.post(url, newRecord),
-        updateProgram: async (id, updatedRecord) => await axios.put(url + id, updatedRecord),
+        updateProgram: async (id, updatedRecord) => await axios.put(`${url}/${id}`, updatedRecord),
         deleteProgram: async id => await axios.delete(url + id)
     }
 }

@@ -1,31 +1,36 @@
 ﻿import React, {useEffect} from 'react';
-import { Redirect } from "react-router-dom";
 import {connect} from "react-redux";
 import useForm from "./utils/useForm";
 import {Link} from "react-router-dom";
 import * as userActions from "../_actions/user-actions";
 import {REGISTER_ROUTE, MAIN_ROUTE} from "../_routing/routerConsts";
-
-const initialInputValues = {
-    Login: '',
-    Password: '',
-}
+import checkValidation from "./utils/validators/validators";
 
 const SignInPage = ({...props}) => {
+    const initialInputValues = {
+        Login: '',
+        Password: ''
+    }
+
+    const resetValues = () => {
+        values.Login = '';
+        values.Password = '';
+    }
+    
     const validate = (fieldValues = values) => {
-        let signInTemp = {};
+        let temp = {};
         
         if('Login' in fieldValues)
-            signInTemp.Login = fieldValues.Login ? "" : "Please enter a login";
+            temp.Login = fieldValues.Login ? "" : "Please enter a login";
         if('Password' in fieldValues)
-            signInTemp.Password = fieldValues.Password ? "" : "Please enter a password";
+            temp.Password = fieldValues.Password ? "" : "Please enter a password";
 
         setErrors({
-            ...signInTemp
+            ...temp
         });
 
         if (fieldValues === values)
-            return Object.values(signInTemp).every(x => x === "");
+            return Object.values(temp).every(x => x === "");
     }
 
     const {
@@ -36,30 +41,14 @@ const SignInPage = ({...props}) => {
         handleInputChange
     } = useForm(initialInputValues, validate);
 
-    const handleSubmit = async e => {
+    const handleSubmit = e => {
         e.preventDefault();
 
         if (validate()) {
             props.authenticate(values, () => {window.alert('User authenticated')})
             document.getElementById('signInUser_form').reset();
+            resetValues();
         }
-    }
-
-    function checkValidation() {
-        'use strict'
-        let forms = document.querySelectorAll('.signInUser_form')
-
-        Array.prototype.slice.call(forms)
-            .forEach(function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
-
-                    form.classList.add('was-validated')
-                }, false)
-            })
     }
     
     return (
@@ -89,8 +78,8 @@ const SignInPage = ({...props}) => {
                                     name="Login"
                                     type="text" 
                                     className="form-control" 
-                                    id="validationCustomLogin" 
-                                    placeholder="Enter login"
+                                    id="validationCustomLogin"
+                                    value={values.Login}
                                     onChange={handleInputChange}
                                     required
                                     {...(errors.Login && { error: "true" })}/>
@@ -104,8 +93,8 @@ const SignInPage = ({...props}) => {
                                     name="Password"
                                     type="password" 
                                     className="form-control" 
-                                    id="validationCustomPassword" 
-                                    placeholder="Input password"
+                                    id="validationCustomPassword"
+                                    value={values.Password}
                                     onChange={handleInputChange}
                                     required
                                     {...(errors.Password && { error: "true" })}/>
@@ -114,12 +103,12 @@ const SignInPage = ({...props}) => {
                             </div>
                             
                             <div className="button_wrapper p-0">
-                                    <button
-                                        type="submit" 
-                                        className="btn btn-primary w-100 fw-bold"
-                                        onClick={checkValidation}>
-                                        Sign In
-                                    </button>
+                                <button
+                                    type="submit" 
+                                    className="btn btn-primary w-100 fw-bold"
+                                    onClick={checkValidation('signInUser_form')}>
+                                    Sign In
+                                </button>
                             </div>
 
                             <div className="link_wrapper d-flex justify-content-center align-items-center p-0">

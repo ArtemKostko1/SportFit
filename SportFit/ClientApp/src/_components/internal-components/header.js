@@ -2,8 +2,8 @@ import React, {useEffect} from 'react';
 import {NavLink} from "react-router-dom";
 
 import {
-    MAIN_ROUTE, PROGRAMS_LISTENING_ROUTE, LOGIN_ROUTE, USER_ACCOUNT_ROUTE,
-    USER_PROGRAMS_ROUTE, USER_SELECTED_ROUTE, SUPPORT_ROUTE, SETTINGS_ROUTE, REGISTER_ROUTE, PROGRAM_DETAIL_ROUTE
+    MAIN_ROUTE, PROGRAMS_LISTENING_ROUTE, LOGIN_ROUTE, ACCOUNT_ROUTE,
+    USER_PROGRAMS_ROUTE, USER_SELECTED_ROUTE, SUPPORT_ROUTE, SETTINGS_ROUTE, REGISTER_ROUTE
 } from "../../_routing/routerConsts";
 
 import profiler from '../images/profile.svg';
@@ -46,7 +46,7 @@ const Header = ({fetchUserById, userItem}) => {
                                 </a>
                                 
                                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><NavLink to={`${USER_ACCOUNT_ROUTE}/${id}`} className="dropdown-item">Yuor Profile</NavLink></li>
+                                    <li><NavLink to={`${ACCOUNT_ROUTE}/${id}`} className="dropdown-item">Yuor Profile</NavLink></li>
                                     
                                     <li><NavLink to={USER_PROGRAMS_ROUTE} className="dropdown-item">Yuor Programs</NavLink></li>
                                     

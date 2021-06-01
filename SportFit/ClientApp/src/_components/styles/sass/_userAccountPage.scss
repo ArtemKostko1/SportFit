@@ -3,11 +3,8 @@
   
   .userAccount_content {
     height: auto;
-    
-    padding: 50px;
 
     border-radius: 25px;
-    border: 2px solid #ceecff;
     
     .avatarAndSocialLinks_block {
       .avatar_wrapper {
@@ -48,10 +45,21 @@
       .userInfo_wrapper {
         height: 300px;
         
-        .nickName {
-          height: 42px;
+        .top_block {
+          .nickName {
+            height: 42px;
 
-          font-size: 20pt;
+            font-size: 20pt;
+          }
+
+          .btn{
+            width: 40px;
+            height: 100%;
+
+            .fa{
+              font-size: 1.25rem;
+            }
+          }
         }
 
         .info_wrapper {

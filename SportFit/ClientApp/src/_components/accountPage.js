@@ -1,14 +1,18 @@
 ﻿import React, { useEffect } from 'react';
 import {connect} from "react-redux";
+import Tippy from "@tippy.js/react";
+import 'tippy.js/dist/tippy.css';
 import * as userActions from "../_actions/user-actions";
 
 import profile from "./images/profile.svg";
 import vkIcon from "./images/vk.svg";
 import instagramIcon from "./images/instagram.svg";
 import emailIcon from "./images/email.svg";
+import {EDIT_ACCOUNT_ROUTE} from "../_routing/routerConsts";
+import {Link} from "react-router-dom";
 
 
-const UserAccountPage = ({match, fetchUserById, userItem}) => {
+const AccountPage = ({match, fetchUserById, userItem}) => {
     const { id } = match.params;
     
     useEffect(() => {
@@ -16,6 +20,7 @@ const UserAccountPage = ({match, fetchUserById, userItem}) => {
     }, []);
 
     const { avatar, nickname, fullName, birthDate, mobilePhone, email, vk, instagram  } = userItem;
+    debugger
     
     return (
         <div className="userAccountPage_wrapper container-xxl">
@@ -38,14 +43,14 @@ const UserAccountPage = ({match, fetchUserById, userItem}) => {
                         
                         <div className="socialNetworks_wrapper d-flex">
                             {
-                                vk === null ?
-                                <a className="socialNetwork-link me-2" href={vk}><img src={vkIcon} alt="" width="35" height="35"/></a> :
-                                null
+                                vk !== null ?
+                                    <a className="socialNetwork-link me-2" href={vk}><img src={vkIcon} alt="" width="35" height="35"/></a> :
+                                    null
                             }
                             {
-                                instagram === null ?
-                                <a className="socialNetwork-link me-2" href={instagram}><img src={instagramIcon} alt="" width="35" height="35"/></a> :
-                                null
+                                instagram !== null ?
+                                    <a className="socialNetwork-link me-2" href={instagram}><img src={instagramIcon} alt="" width="35" height="35"/></a> :
+                                    null
                             }
                         </div>
                     </div>
@@ -53,7 +58,17 @@ const UserAccountPage = ({match, fetchUserById, userItem}) => {
                 
                 <div className="userInfoAndPrograms col-9 ps-5">
                     <div className="userInfo_wrapper d-flex flex-column justify-content-between shadow row p-3">
-                        <div className="nickName fw-bold">{nickname}</div>
+                        <div className="top_block d-flex justify-content-between">
+                            <div className="nickName fw-bold">{nickname}</div>
+                            
+                            <Link to={`${EDIT_ACCOUNT_ROUTE}/${id}`}>
+                                <Tippy content="Edit profile">
+                                    <button className="btn btn-outline-secondary d-flex justify-content-center align-items-center p-0" type="button">
+                                        <i className="fa fa-pencil"/>
+                                    </button>
+                                </Tippy>
+                            </Link>
+                        </div>
 
                         <div className="info_wrapper">
                             <div className="info_title fw-bold">Full name</div>
@@ -88,4 +103,4 @@ const mapActionToProps = {
     fetchUserById: userActions.fetchUserById
 }
 
-export default connect(mapStateToProps, mapActionToProps)(UserAccountPage);
+export default connect(mapStateToProps, mapActionToProps)(AccountPage);
