@@ -13,44 +13,46 @@ const CreateProgramPage = ({...props}) => {
     const currentProgram = props.match.params;
     
     const initialInputValues = {
-        Name: '',
-        ProgramTypeId: '',
-        ComplexityLevelId: '',
-        Description: '',
-        Content: '',
-        PreView: '',
+        Name: null,
+        ProgramTypeId: null,
+        ComplexityLevelId: null,
+        Description: null,
+        PreView: null,
+        Content: null,
         UserId: props.userItem.id
     }
 
     const resetValues = () => {
-        values.Name = '';
-        values.ProgramTypeId = '';
-        values.ComplexityLevelId = '';
-        values.Description = '';
-        values.Content = '';
-        values.PreView = '';
+        document.getElementById('createProgram_form').reset();
+        
+        values.Name = null;
+        values.ProgramTypeId = null;
+        values.ComplexityLevelId = null;
+        values.Description = null;
+        values.PreView = null;
+        values.Content = null;
     }
 
     const validate = (fieldValues = values) => {
         let temp = {};
 
         if('Name' in fieldValues)
-            temp.Name = fieldValues.Name ? "" : "Please enter a program name";
+            temp.Name = fieldValues.Name ? null : "Please enter a program name";
         if('ProgramTypeId' in fieldValues)
-            temp.ProgramTypeId = fieldValues.ProgramTypeId ? "" : "Program type not selected";
+            temp.ProgramTypeId = fieldValues.ProgramTypeId ? null : "Program type not selected";
         if('ComplexityLevelId' in fieldValues)
-            temp.ComplexityLevelId = fieldValues.ComplexityLevelId ? "" : "Complexity level not selected";
+            temp.ComplexityLevelId = fieldValues.ComplexityLevelId ? null : "Complexity level not selected";
         if('Description' in fieldValues)
-            temp.Description = fieldValues.Description ? "" : "Please enter a program description";
+            temp.Description = fieldValues.Description ? null : "Please enter a program description";
         if('Content' in fieldValues)
-            temp.Content = fieldValues.Content ? "" : "Please enter a program content";
+            temp.Content = fieldValues.Content ? null : "Please enter a program content";
 
         setErrors({
             ...temp
         });
 
         if (fieldValues === values)
-            return Object.values(temp).every(x => x === "");
+            return Object.values(temp).every(x => x === null);
     }
 
     const {
@@ -64,14 +66,14 @@ const CreateProgramPage = ({...props}) => {
     const handleSubmit = e => {
         e.preventDefault();
 
+        debugger
         if (validate()) {
             if (currentProgram.id === undefined) {
                 props.createProgram(values, () => {window.alert('Inserted')});
+                resetValues();
             } else {
                 props.updateProgram(currentProgram.id, values, () => {window.alert('Updated')});
             }
-            document.getElementById('createProgram_form').reset();
-            resetValues();
         }
     }
     
@@ -80,7 +82,7 @@ const CreateProgramPage = ({...props}) => {
         props.fetchAllComplexityLevels();
         
         if (currentProgram.id !== undefined) {
-            const editableProgram = props.programList.find(x => x.id === currentProgram.id);
+            /*const editableProgram = props.programList.find(x => x.id === currentProgram.id);
             const programType = props.programTypesList.find(x => x.name === editableProgram.programType);
             const complexityLevel = props.complexityLevelsList.find(x => x.name === editableProgram.complexityLevel);
             
@@ -92,13 +94,13 @@ const CreateProgramPage = ({...props}) => {
                 Content: editableProgram.content,
                 PreView: editableProgram.preView,
                 UserId: props.userItem.id
-            }
+            }*/
             
             setValues({
-                ...tempProgram
+                //...tempProgram
             })
         }
-    }, [currentProgram.id]);
+    }, []);
 
     return (
         <div className="createProgramPage_wrapper container-xxl">
@@ -119,7 +121,7 @@ const CreateProgramPage = ({...props}) => {
                                         required
                                         {...(errors.Name && { error: "true" })}/>
 
-                                    <label htmlFor="validationCustomName" className="form-label fw-bold text-secondary">Name</label>
+                                    <label htmlFor="validationCustomName" className="form-label fw-bold">Name</label>
                                     <div className="invalid-feedback">{errors.Name}</div>
                                 </div>
                             </div>
@@ -205,8 +207,8 @@ const CreateProgramPage = ({...props}) => {
                                         required
                                         {...(errors.Description && { error: "true" })}/>
     
-                                        <label htmlFor="validationCustomDescription" className="fw-bold text-secondary">Description</label>
-                                    <div className="invalid-feedback">{errors.Description}</div>
+                                        <label htmlFor="validationCustomDescription" className="form-label fw-bold">Description</label>
+                                        <div className="invalid-feedback">{errors.Description}</div>
                                 </div>
                             </div>
                         </div>
@@ -216,7 +218,7 @@ const CreateProgramPage = ({...props}) => {
                                 <div className="preView_wrapper d-flex justify-content-center align-items-center">
                                     {
                                         values.PreView === null || values.PreView === '' || values.PreView === undefined ? 
-                                            <img src={camera} alt="preView" width="187" height="141"/> : 
+                                            <img className="preView_photo" src={camera} alt="preView" width="187" height="141"/> : 
                                             <img className="preView_photo" src={values.PreView} alt="preView"/>
                                     }
                                 </div>
@@ -229,8 +231,7 @@ const CreateProgramPage = ({...props}) => {
                                         type="text"
                                         id="validationCustomPreview"
                                         value={values.PreView}
-                                        onChange={handleInputChange}
-                                        required/>
+                                        onChange={handleInputChange}/>
                                 </div>
                             </div>
                         </div>
@@ -249,7 +250,7 @@ const CreateProgramPage = ({...props}) => {
                                     required
                                     {...(errors.Content && { error: "true" })}/>
 
-                                <label htmlFor="validationCustomContent" className="form-label fw-bold text-secondary">Program content</label>
+                                <label htmlFor="validationCustomContent" className="form-label fw-bold">Program content</label>
                                 <div className="invalid-feedback">{errors.Content}</div>
                             </div>
                         </div>

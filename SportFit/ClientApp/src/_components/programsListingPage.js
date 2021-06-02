@@ -13,11 +13,9 @@ import Spinner from "./special-components/spinner/spinner";
 import ProgramsFilterPanel from "./internal-components/programsFilterPanel";
 
 
-const ProgramsListingPage = ({fetchAllPrograms, fetchAllProgramTypes, fetchAllComplexityLevels, programList}) => {
+const ProgramsListingPage = ({fetchAllPrograms, programList}) => {
     useEffect(() => {
         fetchAllPrograms();
-        fetchAllProgramTypes();
-        fetchAllComplexityLevels();
     }, []);
     
     return (
@@ -57,8 +55,6 @@ const mapStateToProps = state => ({
 });
 
 const mapActionToProps = {
-    fetchAllPrograms: programActions.fetchAllPrograms,
-    fetchAllProgramTypes: programTypeActions.fetchAllProgramTypes,
-    fetchAllComplexityLevels: complexityLevelActions.fetchAllComplexityLevels
+    fetchAllPrograms: programActions.fetchAllPrograms
 }
 export default connect(mapStateToProps, mapActionToProps)(ProgramsListingPage);

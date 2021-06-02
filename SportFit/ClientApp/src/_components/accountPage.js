@@ -13,18 +13,17 @@ import {Link} from "react-router-dom";
 
 
 const AccountPage = ({match, fetchUserById, userItem}) => {
-    const { id } = match.params;
+    const currentUser = match.params;
     
     useEffect(() => {
-        fetchUserById(id);
-    }, []);
+        fetchUserById(currentUser.id);
+    }, [currentUser.id]);
 
     const { avatar, nickname, fullName, birthDate, mobilePhone, email, vk, instagram  } = userItem;
-    debugger
     
     return (
-        <div className="userAccountPage_wrapper container-xxl">
-            <div className="userAccount_content row w-100">
+        <div className="accountPage_wrapper container-xxl">
+            <div className="account_content row w-100">
                 <div className="avatarAndSocialLinks_block col-3">
                     <div className="avatar_wrapper d-flex justify-content-center align-items-center shadow rounded-3">
                         <img className="avatar_photo rounded-3" src={avatar === null || avatar === '' ? profile : avatar} alt="avatar" width="auto" height="100%"/>
@@ -44,12 +43,16 @@ const AccountPage = ({match, fetchUserById, userItem}) => {
                         <div className="socialNetworks_wrapper d-flex">
                             {
                                 vk !== null ?
-                                    <a className="socialNetwork-link me-2" href={vk}><img src={vkIcon} alt="" width="35" height="35"/></a> :
+                                    <a className="socialNetwork-link me-2" href={vk} target="_blank">
+                                        <img src={vkIcon} alt="" width="35" height="35"/>
+                                    </a> :
                                     null
                             }
                             {
                                 instagram !== null ?
-                                    <a className="socialNetwork-link me-2" href={instagram}><img src={instagramIcon} alt="" width="35" height="35"/></a> :
+                                    <a className="socialNetwork-link me-2" href={instagram} target="_blank">
+                                        <img src={instagramIcon} alt="" width="35" height="35"/>
+                                    </a> :
                                     null
                             }
                         </div>
@@ -61,7 +64,7 @@ const AccountPage = ({match, fetchUserById, userItem}) => {
                         <div className="top_block d-flex justify-content-between">
                             <div className="nickName fw-bold">{nickname}</div>
                             
-                            <Link to={`${EDIT_ACCOUNT_ROUTE}/${id}`}>
+                            <Link to={`${EDIT_ACCOUNT_ROUTE}/${currentUser.id}`}>
                                 <Tippy content="Edit profile">
                                     <button className="btn btn-outline-secondary d-flex justify-content-center align-items-center p-0" type="button">
                                         <i className="fa fa-pencil"/>
@@ -82,11 +85,11 @@ const AccountPage = ({match, fetchUserById, userItem}) => {
 
                         <div className="info_wrapper">
                             <div className="info_title fw-bold">Mobile phone</div>
-                            <a className="info_text_link d-flex align-items-center px-4" href="tel: +375296354820">{mobilePhone}</a>
+                            <a className="info_text_link d-flex align-items-center px-4" href={`tel: ${mobilePhone}`}>{mobilePhone}</a>
                         </div>
                     </div>
                     
-                    <div className="programs_wrapper row">
+                    <div className="_wrapper row">
                         
                     </div>
                 </div>

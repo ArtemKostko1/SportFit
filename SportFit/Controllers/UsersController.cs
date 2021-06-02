@@ -17,9 +17,11 @@ namespace SportFit.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
-        public UsersController(IUserService userService)
+        private readonly SportFitContext _context;
+        public UsersController(IUserService userService, SportFitContext context)
         {
             _userService = userService;
+            _context = context;
         }
 
         // GET: api/Users
@@ -64,11 +66,12 @@ namespace SportFit.Controllers
             return Ok(response);
         }
         
-        /*// PUT: api/Users/5
+        // PUT: api/Users/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(Guid id, User user)
         {
             user.Id = id;
+            user.ModificationDate = DateTime.Now;
 
             _context.Entry(user).State = EntityState.Modified;
 
@@ -89,7 +92,7 @@ namespace SportFit.Controllers
             }
 
             return NoContent();
-        }*/
+        }
 
         /*// DELETE: api/Users/5
         [HttpDelete("{id}")]
@@ -105,11 +108,11 @@ namespace SportFit.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
-        }
+        }*/
 
         private bool UserExists(Guid id)
         {
             return _context.Users.Any(e => e.Id == id);
-        }*/
+        }
     }
 }

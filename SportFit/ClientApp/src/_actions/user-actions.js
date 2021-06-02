@@ -49,6 +49,18 @@ export const fetchUserById = (id) => dispatch => {
         .catch(err => console.log(err));
 }
 
+export const updateUser = (id, data, onSuccess) => dispatch => {
+    api.user().updateUser()
+        .then(response => {
+            dispatch({
+                type: userActionTypes.USERS_UPDATE_SUCCESS,
+                payload: {id, ...data}
+            });
+            onSuccess();
+        })
+        .catch(err => console.log(err));
+}
+
 function logout() {
     localStorage.removeItem('user');
     return { type: userActionTypes.USERS_LOGOUT };

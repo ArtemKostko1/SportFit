@@ -18,13 +18,11 @@
           &:last-child {
             margin-bottom: 0;
           }
-          
-          .form-select {
-            height: 65px;
-          }
 
-          .form-select {
-            height: 65px;
+          .form-floating {
+            .form-label {
+              color: #BDBDBD;
+            }
           }
         }
       }
@@ -46,7 +44,6 @@
             }
             
             .input-group {
-              
               span {
                 height: 42.5px;
               }
@@ -73,9 +70,12 @@
       margin-bottom: 25px;
       
       .programContent_block {
-        div {
+        .form-floating {
           .form-control {
             min-height: 150px;
+          }
+          .form-label {
+            color: #BDBDBD;
           }
         }
       }

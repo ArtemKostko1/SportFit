@@ -14,7 +14,7 @@ import instagram from "../images/instagram.svg";
 const Footer = ({fetchAllPrograms, programList}) => {
     useEffect(() => {
         fetchAllPrograms();
-    }, []);
+    }, [programList]);
     
     return (
         <div className="footer_wrapper bg-dark mt-auto">
@@ -31,11 +31,25 @@ const Footer = ({fetchAllPrograms, programList}) => {
                         </div>
                         
                         <div className="socialNetworks d-flex">
-                            <a className="socialNetwork-link me-2" href="https://www.facebook.com/ArtiKostko"><img src={facebook} alt="" width="35" height="35"/></a>
-                            <a className="socialNetwork-link me-2" href="https://vk.com/arti_chember_one"><img src={vk} alt="" width="35" height="35"/></a>
-                            <a className="socialNetwork-link me-2" href="https://twitter.com/ArtemKostko"><img src={twitter} alt="" width="35" height="35"/></a>
-                            <a className="socialNetwork-link me-2" href="https://t.me/Artem4ekK"><img src={telegram} alt="" width="35" height="35"/></a>
-                            <a className="socialNetwork-link me-2" href="https://www.instagram.com/artemkostko/"><img src={instagram} alt="" width="35" height="35"/></a>
+                            <a className="socialNetwork-link me-2" href="https://www.facebook.com/ArtiKostko" target="_blank">
+                                <img src={facebook} alt="" width="35" height="35"/>
+                            </a>
+                            
+                            <a className="socialNetwork-link me-2" href="https://vk.com/arti_chember_one" target="_blank">
+                                <img src={vk} alt="" width="35" height="35"/>
+                            </a>
+                            
+                            <a className="socialNetwork-link me-2" href="https://twitter.com/ArtemKostko" target="_blank">
+                                <img src={twitter} alt="" width="35" height="35"/>
+                            </a>
+                            
+                            <a className="socialNetwork-link me-2" href="https://t.me/Artem4ekK" target="_blank">
+                                <img src={telegram} alt="" width="35" height="35"/>
+                            </a>
+                            
+                            <a className="socialNetwork-link me-2" href="https://www.instagram.com/artemkostko/" target="_blank">
+                                <img src={instagram} alt="" width="35" height="35"/>
+                            </a>
                         </div>
                     </div>
                     
