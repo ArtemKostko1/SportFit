@@ -12,7 +12,7 @@
       height: 350px;
       
       .avatar_block {
-        margin-bottom: 50px;
+        margin-bottom: 15px;
         
         .avatar_wrapper {
           height: 307.5px;
@@ -40,7 +40,9 @@
       }
 
       .socialNetworks_wrapper {
-        height: auto;
+        .title {
+          margin-bottom: 15px;
+        }
         
         .socialLink_wrapper {
           margin-bottom: 15px;
@@ -68,9 +70,15 @@
 
     .accountAndProfile {
       .accountInfo_wrapper {
-        margin-bottom: 50px;
+        height: 350px;
+        margin-bottom: 15px;
+        
+        .title {
+          margin-bottom: 15px;
+        }
         
         .input_wrapper {
+          height: 65px;
           margin-bottom: 15px;
           
           &:last-child {
@@ -85,7 +93,11 @@
         }
       }
       
-      .profile_wrapper {        
+      .profile_wrapper {     
+        .title {
+          margin-bottom: 15px;
+        }
+        
         .input_wrapper {
           margin-bottom: 15px;
           

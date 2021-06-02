@@ -57,6 +57,7 @@ export const userReducer = (state = userInitialState, {type, payload, error}) =>
             };
 
         case userActionTypes.USERS_UPDATE_SUCCESS:
+            debugger
             return {
                 ...state,
                 usersList: state.usersList.map(x => x.id === payload.id ? payload: x)

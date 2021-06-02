@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import 'tippy.js/dist/tippy.css';
 import * as userActions from "../_actions/user-actions";
 import useForm from "./utils/useForm";
+import dateFormat from "./utils/dateFormat";
 import checkValidation from "./utils/validators/validators";
 
 import profile from "./images/profile.svg";
@@ -78,6 +79,7 @@ const EditAccountPage = ({userItem, ...props}) => {
         if (currentUser.id !== undefined) {
             const tempUser = {
                 Login: userItem.login,
+                Password: userItem.password,
                 Nickname: userItem.nickname,
                 Avatar: userItem.avatar,
                 FullName: userItem.fullName,
@@ -122,6 +124,10 @@ const EditAccountPage = ({userItem, ...props}) => {
                         </div>
     
                         <div className="socialNetworks_wrapper">
+                            <div className="title">
+                                <h3 className="fw-bold">Social Networks</h3>
+                            </div>
+                            
                             <div className="socialLink_wrapper d-flex align-items-center">
                                 <div className="social_icon">
                                     <img src={emailIcon} alt="email" className="me-2" width="35" height="35"/>
@@ -136,11 +142,11 @@ const EditAccountPage = ({userItem, ...props}) => {
                                             id="validationCustomEmail"
                                             placeholder="Enter the email"
                                             value={values.Email}
-                                            onChange={handleInputChange}
-                                            {...(errors.Email && { error: true })}/>
+                                            onChange={handleInputChange}/>
     
                                         <label htmlFor="validationCustomEmail" className="form-label fw-bold">Email</label>
-                                        <div className="invalid-feedback">{errors.Email}</div>
+                                        {errors.Email && window.alert("Email is not valid")}
+                                        <div className="invalid-feedback">{ errors.Email}</div>
                                     </div>
                                 </div>
                             </div>
@@ -189,8 +195,12 @@ const EditAccountPage = ({userItem, ...props}) => {
                         </div>
                     </div>
     
-                    <div className="accountAndProfile col-9 ps-5">
-                        <div className="accountInfo_wrapper row">
+                    <div className="accountAndProfile col-9 ps-5">                        
+                        <div className="accountInfo_wrapper">
+                            <div className="title">
+                                <h3 className="fw-bold">Account</h3>
+                            </div>
+                            
                             <div className="input_wrapper p-0">
                                 <div className="form-floating">
                                     <input
@@ -221,7 +231,13 @@ const EditAccountPage = ({userItem, ...props}) => {
                                 </div>
                             </div>
 
-                            <div className="input_wrapper p-0">
+                            <button
+                                type="button"
+                                className="changePassword btn btn-outline-primary fw-bold">
+                                Change password
+                            </button>
+
+                            {/*<div className="input_wrapper p-0">
                                 <div className="form-floating">
                                     <input
                                         name="OldPassword"
@@ -264,10 +280,14 @@ const EditAccountPage = ({userItem, ...props}) => {
     
                                     <label htmlFor="validationCustomConfirmPassword" className="form-label fw-bold">Confirm password</label>
                                 </div>
-                            </div>
+                            </div>*/}
                         </div>
     
-                        <div className="profile_wrapper row">
+                        <div className="profile_wrapper">
+                            <div className="title">
+                                <h3 className="fw-bold">Profile</h3>
+                            </div>
+                            
                             <div className="input_wrapper p-0">
                                 <div className="form-floating">
                                     <input
@@ -291,7 +311,7 @@ const EditAccountPage = ({userItem, ...props}) => {
                                         className="form-control"
                                         id="validationCustomBirthDate"
                                         placeholder="Enter the birthDate"
-                                        value={values.BirthDate}
+                                        value={dateFormat(`${values.BirthDate}`)}
                                         onChange={handleInputChange}/>
 
                                     <label htmlFor="validationCustomBirthDate" className="form-label fw-bold text-secondary">Birthday</label>

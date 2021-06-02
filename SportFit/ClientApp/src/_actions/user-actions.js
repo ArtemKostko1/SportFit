@@ -50,8 +50,10 @@ export const fetchUserById = (id) => dispatch => {
 }
 
 export const updateUser = (id, data, onSuccess) => dispatch => {
-    api.user().updateUser()
+    debugger
+    api.user().updateUser(id, data)
         .then(response => {
+            debugger
             dispatch({
                 type: userActionTypes.USERS_UPDATE_SUCCESS,
                 payload: {id, ...data}

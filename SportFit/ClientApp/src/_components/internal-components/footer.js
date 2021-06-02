@@ -14,7 +14,7 @@ import instagram from "../images/instagram.svg";
 const Footer = ({fetchAllPrograms, programList}) => {
     useEffect(() => {
         fetchAllPrograms();
-    }, [programList]);
+    }, []);
     
     return (
         <div className="footer_wrapper bg-dark mt-auto">

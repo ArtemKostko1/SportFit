@@ -82,7 +82,7 @@ const CreateProgramPage = ({...props}) => {
         props.fetchAllComplexityLevels();
         
         if (currentProgram.id !== undefined) {
-            /*const editableProgram = props.programList.find(x => x.id === currentProgram.id);
+            const editableProgram = props.programList.find(x => x.id === currentProgram.id);
             const programType = props.programTypesList.find(x => x.name === editableProgram.programType);
             const complexityLevel = props.complexityLevelsList.find(x => x.name === editableProgram.complexityLevel);
             
@@ -94,13 +94,13 @@ const CreateProgramPage = ({...props}) => {
                 Content: editableProgram.content,
                 PreView: editableProgram.preView,
                 UserId: props.userItem.id
-            }*/
+            }
             
             setValues({
-                //...tempProgram
+                ...tempProgram
             })
         }
-    }, []);
+    }, [currentProgram.id]);
 
     return (
         <div className="createProgramPage_wrapper container-xxl">

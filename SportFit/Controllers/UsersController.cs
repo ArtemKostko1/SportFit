@@ -67,6 +67,7 @@ namespace SportFit.Controllers
         }
         
         // PUT: api/Users/5
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(Guid id, User user)
         {
