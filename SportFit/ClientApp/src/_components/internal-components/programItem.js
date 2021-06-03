@@ -22,7 +22,7 @@ const ProgramItem = ({ id, userId, userNickname, userAvatar, name, programType, 
                 <div className="left_block col-4 h-100">
                     <Link to={`${ACCOUNT_ROUTE}/${userId}`} className="user_wrapper d-flex align-items-center w-100">
                         <div className="avatar rounded-circle d-flex justify-content-center align-items-center">
-                            <img src={userAvatar === null ? profile : userAvatar} alt="preView" width="auto" height="100%"/>
+                            <img src={userAvatar === null || userAvatar === '' ? profile : userAvatar} alt="preView" width="auto" height="100%"/>
                         </div>
                         
                         <Tippy content="Show user profile">

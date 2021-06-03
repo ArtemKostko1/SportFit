@@ -49,6 +49,7 @@ export const userReducer = (state = userInitialState, {type, payload, error}) =>
             
             
         case userActionTypes.USERS_REGISTRATION_SUCCESS:
+            debugger
             return {
                 ...state,
                 usersList: [...state.usersList, payload]

@@ -19,6 +19,7 @@ export const authenticate = (data, onSuccess) => dispatch => {
 export const register = (data, onSuccess) => dispatch => {
     api.user().register(data)
         .then(response => {
+            debugger
             dispatch({
                 type: userActionTypes.USERS_REGISTRATION_SUCCESS,
                 payload: response.data

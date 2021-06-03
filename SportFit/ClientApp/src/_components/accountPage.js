@@ -25,11 +25,8 @@ const AccountPage = ({match, fetchUserById, userRequested, userItem}) => {
         }
     }, [currentUser.id]);
     
-    
-    
     let userTemp = currentUser.id !== undefined ? {...userItem} : {...JSON.parse(localStorage.getItem('user'))};
     const { avatar, nickname, fullName, birthDate, mobilePhone, email, vk, instagram } = userTemp;
-    debugger
         
     return (
         <div className="accountPage_wrapper container-xxl">

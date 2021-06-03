@@ -12,7 +12,7 @@ import vkIcon from "./images/vk.svg";
 import instagramIcon from "./images/instagram.svg";
 
 const EditAccountPage = ({userItem, ...props}) => {
-    const currentUser = props.match.params;
+    const currentUser = JSON.parse(localStorage.getItem('user'));
 
     const initialInputValues = {
         Avatar: '',
@@ -69,12 +69,12 @@ const EditAccountPage = ({userItem, ...props}) => {
         e.preventDefault();
         
         if (validate()) {
+            debugger
             props.updateUser(currentUser.id, values, () => {window.alert('Updated')});
         }
     }
 
     useEffect(() => {
-        const currentUser = JSON.parse(localStorage.getItem('user'));
         const tempUser = {
             Login: currentUser.login,
             Password: currentUser.password,

@@ -11,7 +11,7 @@ import logo from "../images/Logo.svg";
 import * as userActions from "../../_actions/user-actions";
 import {connect} from "react-redux";
 
-const Header = ({...props}) => {
+const Header = () => {
     const authUser = JSON.parse(localStorage.getItem('user'));
     
     return (
@@ -41,7 +41,7 @@ const Header = ({...props}) => {
                                     <div className="avatar_wrapper rounded-circle d-flex justify-content-center align-items-center">
                                         <img src=
                                                  {
-                                                      authUser === undefined || authUser.avatar === null ? 
+                                                      authUser === null ? 
                                                           profiler :
                                                           authUser.avatar
                                                  } 

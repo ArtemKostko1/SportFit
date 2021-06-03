@@ -1,4 +1,5 @@
 ﻿import axios from 'axios';
+import dateFormat from "../_components/utils/dateFormat";
 
 const baseUrl = "http://localhost:5000/api/";
 
@@ -14,7 +15,6 @@ export const user = (url = baseUrl + 'users') => {
         
         authenticate: async data => await axios.post(`${url}/authenticate`, data)
             .then(userData => {
-                debugger
                 localStorage.setItem('user', JSON.stringify(userData.data));
                 return userData;
             }),
@@ -23,9 +23,22 @@ export const user = (url = baseUrl + 'users') => {
             .then(userData => {
                 debugger
                 let editableUser = JSON.parse(localStorage.getItem('user'));
-                editableUser = {...updatedRecord};
+                editableUser =  {
+                    id: editableUser.id,
+                    login: updatedRecord.Login,
+                    password: updatedRecord.Password,
+                    nickname: updatedRecord.Nickname,
+                    avatar: updatedRecord.Avatar,
+                    fullName: updatedRecord.FullName,
+                    birthDate: updatedRecord.BirthDate,
+                    mobilePhone: updatedRecord.MobilePhone,
+                    email: updatedRecord.Email,
+                    instagram: updatedRecord.Instagram,
+                    vk: updatedRecord.Vk,
+                    token: editableUser.token
+                }
                 localStorage.setItem('user', JSON.stringify(editableUser));
-                return userData;
+                return editableUser;
             }),
     }
 }
