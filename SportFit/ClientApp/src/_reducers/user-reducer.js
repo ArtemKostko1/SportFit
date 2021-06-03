@@ -1,5 +1,4 @@
 ﻿import { userActionTypes } from '../_actions/_constants/userActionTypes';
-import {programActionTypes} from "../_actions/_constants/programActionTypes";
 
 const userInitialState = {
     usersList: [],
@@ -10,6 +9,11 @@ const userInitialState = {
 
 export const userReducer = (state = userInitialState, {type, payload, error}) => {
     switch (type) {
+        case userActionTypes.USERS_REQUESTED:
+            return {
+                userItem: {}
+            }
+        
         case userActionTypes.USERS_GETALL_REQUEST:
             return {
                 loading: true
@@ -47,17 +51,15 @@ export const userReducer = (state = userInitialState, {type, payload, error}) =>
         case userActionTypes.USERS_REGISTRATION_SUCCESS:
             return {
                 ...state,
-                userItem: payload
+                usersList: [...state.usersList, payload]
             };
 
         case userActionTypes.USERS_LOGIN_SUCCESS:
             return {
-                ...state,
-                userItem: payload
+                ...state
             };
 
         case userActionTypes.USERS_UPDATE_SUCCESS:
-            debugger
             return {
                 ...state,
                 usersList: state.usersList.map(x => x.id === payload.id ? payload: x)

@@ -1,4 +1,7 @@
 ﻿import React from 'react';
+import {Link} from "react-router-dom";
+import Tippy from '@tippy.js/react';
+import 'tippy.js/dist/tippy.css';
 
 import CommentsBlock from "./commentsBlock";
 import dumbbell from "../images/dumbbell.svg";
@@ -9,16 +12,24 @@ import muscles_medium from "../images/muscles_medium.png";
 import muscles_professional from "../images/muscles_professional.png";
 import camera from "../images/camera.svg";
 import profile from "../images/profile.svg";
+import {ACCOUNT_ROUTE} from "../../_routing/routerConsts";
 
 
-const ProgramDetailContent = ({ user, avatar, name, programType, complexityLevel, description, programContent }) => {
+const ProgramDetailContent = ({ userId, userNickname, userAvatar, name, programType, complexityLevel, description, content }) => {
     return (
         <>
-            <div className="programDetail_content container-xxl">
+            <div className="programDetail_content container-xxl shadow">
                 <div className="topInfo_wrapper row w-100">
                     <div className="user_wrapper col-11 d-flex align-items-center">
-                        <img className="rounded-circle" src={avatar === null ? profile : avatar} alt="ava" width="35" height="35"/>
-                        <span className="fw-bold ms-2">{user}</span>
+                        <Link to={`${ACCOUNT_ROUTE}/${userId}`} className="user_wrapper d-flex align-items-center w-100">
+                            <div className="avatar rounded-circle d-flex justify-content-center align-items-center">
+                                <img src={userAvatar === null ? profile : userAvatar} alt="ava" width="auto" height="100%"/>
+                            </div>
+                            
+                            <Tippy content="Show user profile">
+                                <span className="fw-bold ms-2">{userNickname}</span>
+                            </Tippy>
+                        </Link>
                     </div>
     
                     <div className="likes_wrapper col-1 d-flex align-items-center">
@@ -105,7 +116,7 @@ const ProgramDetailContent = ({ user, avatar, name, programType, complexityLevel
                         <div className="title col-1 fw-bold">Program:</div>
                         <div className="content col-11 ps-3">
                             <div className="content_text">
-                                {programContent}    
+                                {content}    
                             </div>
                         </div>
                     </div>

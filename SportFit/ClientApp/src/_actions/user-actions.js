@@ -1,6 +1,7 @@
 ﻿import * as api from '../_services/api';
 import { userActionTypes } from './_constants/userActionTypes';
 import { alertActionTypes } from './_constants/alertActionTypes';
+import {programActionTypes} from "./_constants/programActionTypes";
 //import { history } from '../_helpers/history';
 
 export const authenticate = (data, onSuccess) => dispatch => {
@@ -50,10 +51,8 @@ export const fetchUserById = (id) => dispatch => {
 }
 
 export const updateUser = (id, data, onSuccess) => dispatch => {
-    debugger
     api.user().updateUser(id, data)
         .then(response => {
-            debugger
             dispatch({
                 type: userActionTypes.USERS_UPDATE_SUCCESS,
                 payload: {id, ...data}
@@ -61,6 +60,12 @@ export const updateUser = (id, data, onSuccess) => dispatch => {
             onSuccess();
         })
         .catch(err => console.log(err));
+}
+
+export const userRequested = () => dispatch => {
+    dispatch({
+        type: userActionTypes.USERS_REQUESTED
+    })
 }
 
 function logout() {

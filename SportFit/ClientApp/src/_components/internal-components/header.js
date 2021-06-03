@@ -11,12 +11,8 @@ import logo from "../images/Logo.svg";
 import * as userActions from "../../_actions/user-actions";
 import {connect} from "react-redux";
 
-const Header = ({fetchUserById, userItem}) => {
-    useEffect(() => {
-        fetchUserById(id);
-    }, []);
-
-    const { id } = userItem;
+const Header = ({...props}) => {
+    const authUser = JSON.parse(localStorage.getItem('user'));
     
     return (
         <header className="header sticky-top bg-dark">
@@ -41,12 +37,20 @@ const Header = ({fetchUserById, userItem}) => {
                             </li>
                             
                             <li className="nav-item dropdown ms-5">
-                                <a className="nav-link navbar-logo dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src={profiler} alt="" width="40" height="40"/>
+                                <a className="nav-link navbar-logo dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div className="avatar_wrapper rounded-circle d-flex justify-content-center align-items-center">
+                                        <img src=
+                                                 {
+                                                      authUser === undefined || authUser.avatar === null ? 
+                                                          profiler :
+                                                          authUser.avatar
+                                                 } 
+                                             alt="avatar" width="auto" height="100%"/>
+                                    </div>
                                 </a>
                                 
                                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><NavLink to={`${ACCOUNT_ROUTE}/${id}`} className="dropdown-item">Yuor Profile</NavLink></li>
+                                    <li><NavLink to={ACCOUNT_ROUTE} className="dropdown-item">Yuor Profile</NavLink></li>
                                     
                                     <li><NavLink to={USER_PROGRAMS_ROUTE} className="dropdown-item">Yuor Programs</NavLink></li>
                                     

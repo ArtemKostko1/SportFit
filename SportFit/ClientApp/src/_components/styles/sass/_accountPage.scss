@@ -11,13 +11,16 @@
         height: 307.5px;
 
         overflow: hidden;
-        margin-bottom: 50px;
       }
 
       .socialLinks_wrapper {
         height: auto;
 
+        margin-top: 50px;
+        padding: 15px;
+
         .email_wrapper {
+          margin-bottom: 15px;
 
           .email_icon {
             i {
@@ -34,14 +37,10 @@
             }
           }
         }
-
-        .socialNetwork-link {
-          margin-top: 15px;
-        }
       }
     }
 
-    .userInfoAndPrograms {
+    .userInfoAndPrograms {      
       .userInfo_wrapper {
         height: 307.5px;
 
@@ -87,6 +86,8 @@
 
       .programs_wrapper {
         height: 500px;
+
+        margin-top: 50px;
       }
     }
   }

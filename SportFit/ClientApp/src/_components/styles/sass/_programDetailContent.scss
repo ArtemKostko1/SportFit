@@ -5,16 +5,24 @@
   margin-bottom: 50px;
 
   border-radius: 25px;
-  border: 2px solid #ceecff;
 
   .topInfo_wrapper {
     margin-bottom: 25px;
 
     .user_wrapper {
-      span {
-        font-size: 14pt;
+      .avatar {
+        overflow: hidden;
+        
+        width: 40px;
+        height: 40px;
 
-        &:hover {
+        background-color: #e0e0e0;
+      }
+
+      span {
+        color: black;
+
+        &:hover{
           color: #555555;
           cursor: pointer;
         }

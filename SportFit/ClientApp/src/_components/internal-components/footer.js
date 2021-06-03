@@ -11,7 +11,7 @@ import twitter from "../images/twitter.svg";
 import telegram from "../images/telegram.svg";
 import instagram from "../images/instagram.svg";
 
-const Footer = ({fetchAllPrograms, programList}) => {
+const Footer = ({fetchAllPrograms, programsList}) => {
     useEffect(() => {
         fetchAllPrograms();
     }, []);
@@ -88,7 +88,7 @@ const Footer = ({fetchAllPrograms, programList}) => {
                 
                 <div className="bottom row-12 d-flex justify-content-between">
                     <span>© 2021 SportFit. All rights reserved.</span>
-                    <span>{programList.length} programs on SportFit.</span>
+                    <span>{programsList.length} programs on SportFit.</span>
                 </div>
             </div>
         </div>
@@ -96,7 +96,7 @@ const Footer = ({fetchAllPrograms, programList}) => {
 }
 
 const mapStateToProps = programState => ({
-    programList: programState.programReducer.programList
+    programsList: programState.programReducer.programsList
 });
 
 const mapActionToProps = {

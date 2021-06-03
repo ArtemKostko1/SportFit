@@ -15,46 +15,45 @@ const EditAccountPage = ({userItem, ...props}) => {
     const currentUser = props.match.params;
 
     const initialInputValues = {
-        Avatar: null,
-        Login: null,
-        OldPassword: null,
-        Password: null,
-        ConfirmPassword: null,
-        FullName: null,
-        BirthDate: null,
-        MobilePhone: null,
-        Email: null,
-        Instagram: null,
-        Vk: null
+        Avatar: '',
+        Login: '',
+        OldPassword: '',
+        Password: '',
+        ConfirmPassword: '',
+        FullName: '',
+        BirthDate: '',
+        MobilePhone: '',
+        Email: '',
+        Instagram: '',
+        Vk: ''
     }
 
-    const resetValues = () => {
-        document.getElementById('editAccount_form').reset();
-        
-        values.Avatar = null;
-        values.Login = null;
-        values.OldPassword = null;
-        values.Password = null;
-        values.FullName = null;
-        values.BirthDate = null;
-        values.MobilePhone = null;
-        values.Email = null;
-        values.Instagram = null;
-        values.Vk = null;
+    const resetValues = () => { 
+        values.Avatar = '';
+        values.Login = '';
+        values.OldPassword = '';
+        values.Password = '';
+        values.FullName = '';
+        values.BirthDate = '';
+        values.MobilePhone = '';
+        values.Email = '';
+        values.Instagram = '';
+        values.Vk = '';
     }
 
     const validate = (fieldValues = values) => {
         let temp = {};
         
-        if('Email' in fieldValues)
-            temp.Email = (/^$|.+@.+../).test(fieldValues.Email) ? null : "Please enter correct email";
+        if('Email' in fieldValues){
+            temp.Email = (/^$|.+@.+../).test(fieldValues.Email) ? '' : 'Please enter correct email';
+        }
 
         setErrors({
             ...temp
         });
         
         if (fieldValues === values) {
-            return Object.values(temp).every(x => x === null);
+            return Object.values(temp).every(x => x === '');
         }
     }
 
@@ -70,31 +69,30 @@ const EditAccountPage = ({userItem, ...props}) => {
         e.preventDefault();
         
         if (validate()) {
-            debugger
             props.updateUser(currentUser.id, values, () => {window.alert('Updated')});
         }
     }
 
     useEffect(() => {
-        if (currentUser.id !== undefined) {
-            const tempUser = {
-                Login: userItem.login,
-                Password: userItem.password,
-                Nickname: userItem.nickname,
-                Avatar: userItem.avatar,
-                FullName: userItem.fullName,
-                BirthDate: userItem.birthDate,
-                MobilePhone: userItem.mobilePhone,
-                Email: userItem.email,
-                Instagram: userItem.instagram,
-                Vk: userItem.vk
-            }
-            
-            setValues({
-                ...tempUser
-            })
+        const currentUser = JSON.parse(localStorage.getItem('user'));
+        const tempUser = {
+            Login: currentUser.login,
+            Password: currentUser.password,
+            Nickname: currentUser.nickname,
+            Avatar: currentUser.avatar,
+            FullName: currentUser.fullName,
+            BirthDate: dateFormat(`${currentUser.birthDate}`, '-', 4),
+            MobilePhone: currentUser.mobilePhone,
+            Email: currentUser.email,
+            Instagram: currentUser.instagram,
+            Vk: currentUser.vk
         }
-    }, [currentUser.id]);
+        
+        setValues({
+            ...tempUser
+        })
+        
+    }, []);
     
     return (
         <div className="editAccountPage_wrapper container-xxl">
@@ -124,10 +122,6 @@ const EditAccountPage = ({userItem, ...props}) => {
                         </div>
     
                         <div className="socialNetworks_wrapper">
-                            <div className="title">
-                                <h3 className="fw-bold">Social Networks</h3>
-                            </div>
-                            
                             <div className="socialLink_wrapper d-flex align-items-center">
                                 <div className="social_icon">
                                     <img src={emailIcon} alt="email" className="me-2" width="35" height="35"/>
@@ -142,11 +136,11 @@ const EditAccountPage = ({userItem, ...props}) => {
                                             id="validationCustomEmail"
                                             placeholder="Enter the email"
                                             value={values.Email}
-                                            onChange={handleInputChange}/>
+                                            onChange={handleInputChange}
+                                            {...(errors.Email && { error: "true" })}/>
     
                                         <label htmlFor="validationCustomEmail" className="form-label fw-bold">Email</label>
-                                        {errors.Email && window.alert("Email is not valid")}
-                                        <div className="invalid-feedback">{ errors.Email}</div>
+                                        <div className="invalid-feedback">{errors.Email}</div>
                                     </div>
                                 </div>
                             </div>
@@ -196,11 +190,7 @@ const EditAccountPage = ({userItem, ...props}) => {
                     </div>
     
                     <div className="accountAndProfile col-9 ps-5">                        
-                        <div className="accountInfo_wrapper">
-                            <div className="title">
-                                <h3 className="fw-bold">Account</h3>
-                            </div>
-                            
+                        <div className="accountInfo_wrapper">                            
                             <div className="input_wrapper p-0">
                                 <div className="form-floating">
                                     <input
@@ -284,10 +274,6 @@ const EditAccountPage = ({userItem, ...props}) => {
                         </div>
     
                         <div className="profile_wrapper">
-                            <div className="title">
-                                <h3 className="fw-bold">Profile</h3>
-                            </div>
-                            
                             <div className="input_wrapper p-0">
                                 <div className="form-floating">
                                     <input
@@ -311,7 +297,7 @@ const EditAccountPage = ({userItem, ...props}) => {
                                         className="form-control"
                                         id="validationCustomBirthDate"
                                         placeholder="Enter the birthDate"
-                                        value={dateFormat(`${values.BirthDate}`)}
+                                        value={values.BirthDate}
                                         onChange={handleInputChange}/>
 
                                     <label htmlFor="validationCustomBirthDate" className="form-label fw-bold text-secondary">Birthday</label>
@@ -336,22 +322,12 @@ const EditAccountPage = ({userItem, ...props}) => {
                     </div>
                     
                     <div className="actions_block row">
-                        <div className="col-11 pe-3">
-                            <button
-                                type="submit"
-                                className="createProgram btn btn-primary w-100 fw-bold"
-                                onClick={checkValidation('editAccount_form')}>
-                                SAVE
-                            </button>
-                        </div>
-                        <div className="col-1">
-                            <button
-                                type="reset"
-                                className="createProgram btn btn-outline-secondary w-100 fw-bold"
-                                onClick={resetValues}>
-                                CLEAR
-                            </button>
-                        </div>
+                        <button
+                            type="submit"
+                            className="createProgram btn btn-primary w-100 fw-bold"
+                            onClick={checkValidation('editAccount_form')}>
+                            SAVE
+                        </button>
                     </div>
                 </form>
             </div>

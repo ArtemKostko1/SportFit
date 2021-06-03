@@ -15,18 +15,18 @@ import muscles_hard from "../images/muscles_hard.png";
 import muscles_professional from "../images/muscles_professional.png";
 
 
-const ProgramItem = ({ id, user, avatar, name, programType, complexityLevel, description, preView, creationDate }) => {
+const ProgramItem = ({ id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate }) => {
     return (
         <div className="programItem_wrapper container-xxl shadow">
             <div className="programItem_content container-xxl row">
                 <div className="left_block col-4 h-100">
-                    <Link to={`${ACCOUNT_ROUTE}/${id}`} className="user_wrapper d-flex align-items-center w-100">
-                        <div className="avatar rounded-circle d-flex justify-content-center">
-                            <img src={avatar === null ? profile : avatar} alt="preView" width="auto" height="100%"/>
+                    <Link to={`${ACCOUNT_ROUTE}/${userId}`} className="user_wrapper d-flex align-items-center w-100">
+                        <div className="avatar rounded-circle d-flex justify-content-center align-items-center">
+                            <img src={userAvatar === null ? profile : userAvatar} alt="preView" width="auto" height="100%"/>
                         </div>
                         
                         <Tippy content="Show user profile">
-                            <span className="fw-bold ms-2">{user}</span>
+                            <span className="fw-bold ms-2">{userNickname}</span>
                         </Tippy>
                     </Link>
 

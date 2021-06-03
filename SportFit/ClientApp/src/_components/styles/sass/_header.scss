@@ -18,6 +18,15 @@
         .nav-item {
           .nav-link {
             font-size: 20px;
+
+            .avatar_wrapper {
+              overflow: hidden;
+
+              height: 40px;
+              width: 40px;
+
+              background-color: #e0e0e0;
+            }
           }
         }
       }

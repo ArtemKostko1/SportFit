@@ -11,48 +11,50 @@ import camera from "./images/camera.svg";
 
 const CreateProgramPage = ({...props}) => {
     const currentProgram = props.match.params;
+    const currentUserId = JSON.parse(localStorage.getItem('user')).id;
     
     const initialInputValues = {
-        Name: null,
-        ProgramTypeId: null,
-        ComplexityLevelId: null,
-        Description: null,
-        PreView: null,
-        Content: null,
-        UserId: props.userItem.id
+        Name: '',
+        ProgramTypeId: '',
+        ComplexityLevelId: '',
+        Description: '',
+        PreView: '',
+        Content: '',
+        UserId: currentUserId
     }
+    debugger
 
     const resetValues = () => {
         document.getElementById('createProgram_form').reset();
         
-        values.Name = null;
-        values.ProgramTypeId = null;
-        values.ComplexityLevelId = null;
-        values.Description = null;
-        values.PreView = null;
-        values.Content = null;
+        values.Name = '';
+        values.ProgramTypeId = '';
+        values.ComplexityLevelId = '';
+        values.Description = '';
+        values.PreView = '';
+        values.Content = '';
     }
 
     const validate = (fieldValues = values) => {
         let temp = {};
 
         if('Name' in fieldValues)
-            temp.Name = fieldValues.Name ? null : "Please enter a program name";
+            temp.Name = fieldValues.Name ? '' : "Please enter a program name";
         if('ProgramTypeId' in fieldValues)
-            temp.ProgramTypeId = fieldValues.ProgramTypeId ? null : "Program type not selected";
+            temp.ProgramTypeId = fieldValues.ProgramTypeId ? '' : "Program type not selected";
         if('ComplexityLevelId' in fieldValues)
-            temp.ComplexityLevelId = fieldValues.ComplexityLevelId ? null : "Complexity level not selected";
+            temp.ComplexityLevelId = fieldValues.ComplexityLevelId ? '' : "Complexity level not selected";
         if('Description' in fieldValues)
-            temp.Description = fieldValues.Description ? null : "Please enter a program description";
+            temp.Description = fieldValues.Description ? '' : "Please enter a program description";
         if('Content' in fieldValues)
-            temp.Content = fieldValues.Content ? null : "Please enter a program content";
+            temp.Content = fieldValues.Content ? '' : "Please enter a program content";
 
         setErrors({
             ...temp
         });
 
         if (fieldValues === values)
-            return Object.values(temp).every(x => x === null);
+            return Object.values(temp).every(x => x === '');
     }
 
     const {
@@ -82,18 +84,16 @@ const CreateProgramPage = ({...props}) => {
         props.fetchAllComplexityLevels();
         
         if (currentProgram.id !== undefined) {
-            const editableProgram = props.programList.find(x => x.id === currentProgram.id);
-            const programType = props.programTypesList.find(x => x.name === editableProgram.programType);
-            const complexityLevel = props.complexityLevelsList.find(x => x.name === editableProgram.complexityLevel);
+            const editableProgram = props.programsList.find(x => x.id === currentProgram.id);
             
             const tempProgram = {
                 Name: editableProgram.name,
-                ProgramTypeId: programType.id,
-                ComplexityLevelId: complexityLevel.id,
+                ProgramTypeId: editableProgram.programTypeId,
+                ComplexityLevelId: editableProgram.complexityLevelId,
                 Description: editableProgram.description,
                 Content: editableProgram.content,
                 PreView: editableProgram.preView,
-                UserId: props.userItem.id
+                UserId: currentUserId
             }
             
             setValues({
@@ -282,7 +282,7 @@ const CreateProgramPage = ({...props}) => {
 
 const mapStateToProps = state => ({
     userItem: state.userReducer.userItem,
-    programList: state.programReducer.programList,
+    programsList: state.programReducer.programsList,
     programTypesList: state.programTypeReducer.programTypesList,
     complexityLevelsList: state.complexityLevelReducer.complexityLevelsList
 });

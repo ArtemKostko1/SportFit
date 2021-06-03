@@ -16,19 +16,20 @@ const ProgramDetailPage = ({match, fetchProgramById, programsRequested, programI
         }
     }, [id]);
 
-    const { userNickname, userAvatar, name, programType, complexityLevel, description, content } = programItem;
+    const { userId, userNickname, userAvatar, name, programType, complexityLevel, description, content } = programItem;
     
     return (
         <div className="programDetailPage_wrapper container-xxl d-flex flex-column align-items-center justify-content-center">
             {Object.keys(programItem).length === 0 ? (<Spinner/>) : (
                 <ProgramDetailContent
-                    user={userNickname}
-                    avatar={userAvatar}
+                    userId={userId}
+                    userNickname={userNickname}
+                    userAvatar={userAvatar}
                     name={name}
                     programType={programType}
                     complexityLevel={complexityLevel}
                     description={description}
-                    programContent={content}
+                    content={content}
                 />
             )}
         </div>

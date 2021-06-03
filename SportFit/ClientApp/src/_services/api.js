@@ -6,9 +6,27 @@ export const user = (url = baseUrl + 'users') => {
     return {
         fetchAllUsers: async () => await axios.get(url),
         fetchUserById: async id => await axios.get(`${url}/${id}`),
-        register: async newRecord => await axios.post(`${url}/register`, newRecord),
-        authenticate: async data => await axios.post(`${url}/authenticate`, data),
+        register: async newRecord => await axios.post(`${url}/register`, newRecord)
+            .then(userData => {
+                localStorage.setItem('user', JSON.stringify(userData.data));
+                return userData;
+            }),
+        
+        authenticate: async data => await axios.post(`${url}/authenticate`, data)
+            .then(userData => {
+                debugger
+                localStorage.setItem('user', JSON.stringify(userData.data));
+                return userData;
+            }),
+        
         updateUser: async (id, updatedRecord) => await axios.put(`${url}/${id}`, updatedRecord)
+            .then(userData => {
+                debugger
+                let editableUser = JSON.parse(localStorage.getItem('user'));
+                editableUser = {...updatedRecord};
+                localStorage.setItem('user', JSON.stringify(editableUser));
+                return userData;
+            }),
     }
 }
 

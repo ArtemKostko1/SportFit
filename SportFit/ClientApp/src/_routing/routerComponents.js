@@ -47,11 +47,11 @@ export const routerComponents = [
         Component: ProgramDetailPage
     },
     {
-        path: ACCOUNT_ROUTE + '/:id',
+        path: ACCOUNT_ROUTE + '/:id?',
         Component: AccountPage
     },
     {
-        path: EDIT_ACCOUNT_ROUTE + '/:id',
+        path: EDIT_ACCOUNT_ROUTE,
         Component: EditAccountPage
     },
     {

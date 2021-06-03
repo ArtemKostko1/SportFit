@@ -7,7 +7,7 @@ import Spinner from "./special-components/spinner/spinner";
 import * as programTypeActions from "../_actions/programType-actions";
 import * as complexityLevelActions from "../_actions/complexityLevel-actions";
 
-const UserProgramsListingPage = ({fetchAllPrograms, fetchAllProgramTypes, fetchAllComplexityLevels, programList}) => {    
+const UserProgramsListingPage = ({fetchAllPrograms, fetchAllProgramTypes, fetchAllComplexityLevels, programsList}) => {    
     useEffect(() => {
         fetchAllPrograms();
         fetchAllProgramTypes();
@@ -25,11 +25,11 @@ const UserProgramsListingPage = ({fetchAllPrograms, fetchAllProgramTypes, fetchA
                 
                 <div className="programCardsListing_wrapper row d-flex justify-content-center">
                     {
-                        Object.keys(programList).length === 0 ? (<Spinner/>) : 
+                        Object.keys(programsList).length === 0 ? (<Spinner/>) : 
                         (
                             <div className="programCardsListing_content row d-flex">
                                 {
-                                    programList.map((program, index) => {
+                                    programsList.map((program, index) => {
                                         const {id, name, preView, creationDate} = program;
                                         return (
                                             <UserProgramCard
@@ -52,7 +52,7 @@ const UserProgramsListingPage = ({fetchAllPrograms, fetchAllProgramTypes, fetchA
 };
 
 const mapStateToProps = state => ({
-    programList: state.programReducer.programList
+    programsList: state.programReducer.programsList
 });
 
 const mapActionToProps = {

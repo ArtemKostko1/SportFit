@@ -25,7 +25,6 @@ namespace SportFit.Controllers
         }
 
         // GET: api/Users
-        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -34,7 +33,6 @@ namespace SportFit.Controllers
         }
 
         // GET: api/Users/id
-        [Authorize]
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
@@ -67,7 +65,6 @@ namespace SportFit.Controllers
         }
         
         // PUT: api/Users/5
-        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(Guid id, User user)
         {
