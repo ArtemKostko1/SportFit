@@ -21,7 +21,6 @@ export const user = (url = baseUrl + 'users') => {
         
         updateUser: async (id, updatedRecord) => await axios.put(`${url}/${id}`, updatedRecord)
             .then(userData => {
-                debugger
                 let editableUser = JSON.parse(localStorage.getItem('user'));
                 editableUser =  {
                     id: editableUser.id,
@@ -38,7 +37,7 @@ export const user = (url = baseUrl + 'users') => {
                     token: editableUser.token
                 }
                 localStorage.setItem('user', JSON.stringify(editableUser));
-                return editableUser;
+                return userData;
             }),
     }
 }

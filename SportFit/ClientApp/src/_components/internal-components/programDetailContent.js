@@ -13,6 +13,7 @@ import muscles_professional from "../images/muscles_professional.png";
 import camera from "../images/camera.svg";
 import profile from "../images/profile.svg";
 import {ACCOUNT_ROUTE} from "../../_routing/routerConsts";
+import * as interfaceFunc from "../utils/interface";
 
 
 const ProgramDetailContent = ({ userId, userNickname, userAvatar, name, programType, complexityLevel, description, content }) => {
@@ -27,7 +28,7 @@ const ProgramDetailContent = ({ userId, userNickname, userAvatar, name, programT
                             </div>
                             
                             <Tippy content="Show user profile">
-                                <span className="fw-bold ms-2">{userNickname}</span>
+                                <span className="fw-bold ms-2" onClick={interfaceFunc.scrollToTop}>{userNickname}</span>
                             </Tippy>
                         </Link>
                     </div>
@@ -105,19 +106,19 @@ const ProgramDetailContent = ({ userId, userNickname, userAvatar, name, programT
                         <span className="fw-bold">{name}</span>
                     </div>
     
-                    <div className="description_wrapper row w-100">
+                    <div className="line_wrapper row w-100">
                         <div className="title col-1 fw-bold">Description:</div>
                         <div className="content col-11 ps-3">
                             <span>{description}</span>
                         </div>
                     </div>
     
-                    <div className="programText_wrapper row w-100">
+                    <div className="line_wrapper row w-100">
                         <div className="title col-1 fw-bold">Program:</div>
                         <div className="content col-11 ps-3">
-                            <div className="content_text">
-                                {content}    
-                            </div>
+                            <textarea
+                                className="form-control disabled"
+                                value={content}/>
                         </div>
                     </div>
                 </div>

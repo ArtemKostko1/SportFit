@@ -3,6 +3,7 @@
 const userInitialState = {
     usersList: [],
     userItem: {},
+    authUser: {},
     loading: true,
     error: ''
 }
@@ -52,18 +53,19 @@ export const userReducer = (state = userInitialState, {type, payload, error}) =>
             debugger
             return {
                 ...state,
-                usersList: [...state.usersList, payload]
+                authUser: payload
             };
 
         case userActionTypes.USERS_LOGIN_SUCCESS:
             return {
-                ...state
+                ...state,
+                authUser: payload
             };
 
         case userActionTypes.USERS_UPDATE_SUCCESS:
             return {
                 ...state,
-                usersList: state.usersList.map(x => x.id === payload.id ? payload: x)
+                authUser: [...state.authUser, payload]
             }
 
         case userActionTypes.USERS_LOGOUT:

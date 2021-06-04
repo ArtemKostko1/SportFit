@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import {Link} from "react-router-dom";
 import {CREATE_PROGRAM_ROUTE} from "../../_routing/routerConsts";
+import * as interfaceFunc from "../utils/interface";
 
 const Banner = () => {
     return (
@@ -12,7 +13,7 @@ const Banner = () => {
                 </div>
 
                 <div className="button_wrapper">
-                    <Link to={CREATE_PROGRAM_ROUTE}>
+                    <Link to={CREATE_PROGRAM_ROUTE} onClick={interfaceFunc.scrollToTop}>
                         <button type="#" className="btn btn-outline-light rounded-pill fw-bold">CREATE</button>
                     </Link>
                 </div>

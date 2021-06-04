@@ -34,10 +34,26 @@ namespace SportFit.Controllers
 
         // GET: api/Users/id
         [HttpGet("{id}")]
-        public IActionResult GetById(Guid id)
+        public UserModel GetById(Guid id)
         {
-            var user = _userService.GetById(id);
-            return Ok(user);
+            return (from user in _context.Users
+                where user.Id == id
+                select new UserModel()
+                {
+                    Id = user.Id,
+                    Login = user.Login,
+                    Password = user.Password,
+                    Nickname = user.Nickname,
+                    Avatar = user.Avatar,
+                    FullName = user.FullName,
+                    BirthDate = user.BirthDate,
+                    MobilePhone = user.MobilePhone,
+                    Email = user.Email,
+                    Instagram = user.Instagram,
+                    Vk = user.Vk,
+                    CreationDate = user.CreationDate,
+                    ModificationDate = user.ModificationDate,
+                }).FirstOrDefault();
         }
 
         [HttpPost("authenticate")]
@@ -54,6 +70,7 @@ namespace SportFit.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserModel userModel)
         {
+            userModel.CreationDate = DateTime.Now;
             var response = await _userService.Register(userModel);
 
             if (response == null)

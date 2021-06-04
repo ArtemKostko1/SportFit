@@ -8,7 +8,7 @@ namespace SportFit.Services
     public interface IEfRepository<T> where T: BaseEntity
     {
         IEnumerable<T> GetAll();
-        T GetById(Guid id);
+        /*T GetById(Guid id);*/
         Task<Guid> Add(T entity);
     }
 }

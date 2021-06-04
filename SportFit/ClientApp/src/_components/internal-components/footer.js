@@ -1,7 +1,7 @@
 ﻿import React, { useEffect } from 'react';
 import {Link} from "react-router-dom";
 import { connect } from "react-redux";
-import {MAIN_ROUTE} from "../../_routing/routerConsts";
+import {MAIN_ROUTE, ACCOUNT_ROUTE} from "../../_routing/routerConsts";
 import * as programActions from '../../_actions/program-actions';
 
 import logo from "../images/Logo.svg";
@@ -10,6 +10,7 @@ import vk from "../images/vk.svg";
 import twitter from "../images/twitter.svg";
 import telegram from "../images/telegram.svg";
 import instagram from "../images/instagram.svg";
+import * as interfaceFunc from "../utils/interface";
 
 const Footer = ({fetchAllPrograms, programsList}) => {
     useEffect(() => {
@@ -56,10 +57,10 @@ const Footer = ({fetchAllPrograms, programsList}) => {
                     <div className="center_block col-5 d-flex justify-content-center">
                         <div className="links_content col-4 d-flex flex-column">
                             <h6 className="title fw-bold">Company</h6>
-                            <Link to="">About Us</Link>
-                            <Link to="">Support</Link>
-                            <Link to="">Profile</Link>
-                            <Link to={MAIN_ROUTE}>Home</Link>
+                            <Link to="" onClick={interfaceFunc.scrollToTop}>About Us</Link>
+                            <Link to="" onClick={interfaceFunc.scrollToTop}>Support</Link>
+                            <Link to={ACCOUNT_ROUTE} onClick={interfaceFunc.scrollToTop}>Profile</Link>
+                            <Link to={MAIN_ROUTE} onClick={interfaceFunc.scrollToTop}>Home</Link>
                         </div>
                         
                         <div className="links_content col-4 d-flex flex-column">

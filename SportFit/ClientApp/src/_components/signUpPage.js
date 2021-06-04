@@ -5,6 +5,7 @@ import {LOGIN_ROUTE} from "../_routing/routerConsts";
 import * as userActions from "../_actions/user-actions";
 import {connect} from "react-redux";
 import checkValidation from "./utils/validators/validators";
+import * as interfaceFunc from "./utils/interface";
 
 const SignUpPage = ({...props}) => {
     const initialInputValues = {
@@ -121,7 +122,7 @@ const SignUpPage = ({...props}) => {
                                 <div className="invalid-feedback">{errors.Password}</div>
                             </div>
                             
-                            <div className="button_wrapper p-0">
+                            <div className="button_wrapper p-0" onClick={interfaceFunc.scrollToTop}>
                                 <button 
                                     type="submit" 
                                     className="btn btn-primary w-100 fw-bold"
@@ -132,7 +133,12 @@ const SignUpPage = ({...props}) => {
 
                             <div className="link_wrapper d-flex justify-content-center align-items-center p-0">
                                 <span className="fw-bold me-1">Already have an account?</span>
-                                <Link to={LOGIN_ROUTE} className="link-primary fw-bold">Sign In</Link>
+                                <Link 
+                                    to={LOGIN_ROUTE} 
+                                    className="link-primary fw-bold"
+                                    onClick={interfaceFunc.scrollToTop}>
+                                    Sign In
+                                </Link>
                             </div>
                         </form>
                     </div>

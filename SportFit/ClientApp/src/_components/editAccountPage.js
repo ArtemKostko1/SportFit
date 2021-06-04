@@ -13,6 +13,7 @@ import instagramIcon from "./images/instagram.svg";
 
 const EditAccountPage = ({userItem, ...props}) => {
     const currentUser = JSON.parse(localStorage.getItem('user'));
+    const Id = currentUser.id;
 
     const initialInputValues = {
         Avatar: '',
@@ -70,7 +71,7 @@ const EditAccountPage = ({userItem, ...props}) => {
         
         if (validate()) {
             debugger
-            props.updateUser(currentUser.id, values, () => {window.alert('Updated')});
+            props.updateUser(Id, values, () => {window.alert('Updated')});
         }
     }
 
@@ -81,7 +82,7 @@ const EditAccountPage = ({userItem, ...props}) => {
             Nickname: currentUser.nickname,
             Avatar: currentUser.avatar,
             FullName: currentUser.fullName,
-            BirthDate: dateFormat(`${currentUser.birthDate}`, '-', 4),
+            BirthDate:  dateFormat(currentUser.birthDate, '-', 4),
             MobilePhone: currentUser.mobilePhone,
             Email: currentUser.email,
             Instagram: currentUser.instagram,

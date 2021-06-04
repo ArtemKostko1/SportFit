@@ -22,7 +22,6 @@ const CreateProgramPage = ({...props}) => {
         Content: '',
         UserId: currentUserId
     }
-    debugger
 
     const resetValues = () => {
         document.getElementById('createProgram_form').reset();
@@ -67,8 +66,7 @@ const CreateProgramPage = ({...props}) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-
-        debugger
+        
         if (validate()) {
             if (currentProgram.id === undefined) {
                 props.createProgram(values, () => {window.alert('Inserted')});
@@ -262,7 +260,11 @@ const CreateProgramPage = ({...props}) => {
                                 type="submit" 
                                 className="createProgram btn btn-primary w-100 fw-bold"
                                 onClick={checkValidation('createProgram_form')}>
-                                CREATE
+                                {
+                                    currentProgram.id === undefined ?
+                                        'CREATE' :
+                                        'SAVE'
+                                }
                             </button>
                         </div>
                         <div className="col-1">

@@ -52,6 +52,7 @@ export const fetchUserById = (id) => dispatch => {
 }
 
 export const updateUser = (id, data, onSuccess) => dispatch => {
+    debugger
     api.user().updateUser(id, data)
         .then(response => {
             dispatch({

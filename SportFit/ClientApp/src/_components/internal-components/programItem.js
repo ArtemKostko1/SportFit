@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import Tippy from '@tippy.js/react';
 import 'tippy.js/dist/tippy.css';
 import dateFormat from "../utils/dateFormat";
+import * as interfaceFunc from "../utils/interface";
 import {PROGRAM_DETAIL_ROUTE, ACCOUNT_ROUTE} from "../../_routing/routerConsts";
 
 import camera from "../images/camera.svg";
@@ -26,7 +27,7 @@ const ProgramItem = ({ id, userId, userNickname, userAvatar, name, programType, 
                         </div>
                         
                         <Tippy content="Show user profile">
-                            <span className="fw-bold ms-2">{userNickname}</span>
+                            <span className="fw-bold ms-2" onClick={interfaceFunc.scrollToTop}>{userNickname}</span>
                         </Tippy>
                     </Link>
 
@@ -110,7 +111,7 @@ const ProgramItem = ({ id, userId, userNickname, userAvatar, name, programType, 
     
                             <Link to={`${PROGRAM_DETAIL_ROUTE}/${id}`}>
                                 <Tippy content="Show full description">
-                                    <button type="button" className="btn btn-outline-primary">
+                                    <button type="button" className="btn btn-outline-primary" onClick={interfaceFunc.scrollToTop}>
                                         Open
                                     </button>
                                 </Tippy>

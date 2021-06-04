@@ -11,6 +11,6 @@ namespace SportFit.Services
         AuthenticateResponse Authenticate(AuthenticateRequest model);
         Task<AuthenticateResponse> Register(UserModel userModel);
         IEnumerable<User> GetAll();
-        User GetById(Guid id);
+        /*User GetById(Guid id);*/
     }
 }

@@ -6,6 +6,7 @@ import {EDIT_PROGRAM_ROUTE, PROGRAM_DETAIL_ROUTE} from "../../_routing/routerCon
 import dateFormat from "../utils/dateFormat";
 
 import camera from "../images/camera.svg";
+import * as interfaceFunc from "../utils/interface";
 
 const UserProgramCard = ({ id, name, preView, creationDate }) => {
     return (
@@ -28,7 +29,7 @@ const UserProgramCard = ({ id, name, preView, creationDate }) => {
                 <div className="actions_block d-flex justify-content-between">
                     <Link to={`${PROGRAM_DETAIL_ROUTE}/${id}`}>
                         <Tippy content="Show full description">
-                            <button type="button" className="btn btn-outline-primary">
+                            <button type="button" className="btn btn-outline-primary" onClick={interfaceFunc.scrollToTop}>
                                 Open
                             </button>
                         </Tippy>
@@ -39,7 +40,11 @@ const UserProgramCard = ({ id, name, preView, creationDate }) => {
                     <div className="specialButtons_wrapper d-flex">
                         <Link to={`${EDIT_PROGRAM_ROUTE}/${id}`}>
                             <Tippy content="Edit">
-                                <button className="btn btn-outline-secondary d-flex justify-content-center align-items-center me-2 p-0" type="button">
+                                <button 
+                                    className="btn btn-outline-secondary d-flex justify-content-center align-items-center me-2 p-0" 
+                                    type="button"
+                                    onClick={interfaceFunc.scrollToTop}>
+                                    
                                     <i className="fa fa-pencil"/>
                                 </button>
                             </Tippy>

@@ -20,12 +20,12 @@ namespace SportFit.Services
             return _context.Set<T>().ToList();
         }
 
-        public T GetById(Guid id)
+        /*public T GetById(Guid id)
         {
             var result = _context.Set<T>().FirstOrDefault(x => x.Id == id);
 
             return result ?? null;
-        }
+        }*/
 
         public async Task<Guid> Add(T entity)
         {

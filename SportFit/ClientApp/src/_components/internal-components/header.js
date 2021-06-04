@@ -10,16 +10,21 @@ import profiler from '../images/profile.svg';
 import logo from "../images/Logo.svg";
 import * as userActions from "../../_actions/user-actions";
 import {connect} from "react-redux";
+import * as interfaceFunc from "../utils/interface";
 
 const Header = () => {
     const authUser = JSON.parse(localStorage.getItem('user'));
+
+    /*useEffect(() => {
+        
+    }, [authUser.avatar]);*/
     
     return (
         <header className="header sticky-top bg-dark">
             <nav className="navbar navbar-expand-md container-xxl navbar-dark bg-dark p-0">
                 <div className="navbar_wrapper container-fluid">
                     <div className="brand d-flex align-items-center">
-                        <NavLink to={MAIN_ROUTE}>
+                        <NavLink to={MAIN_ROUTE} onClick={interfaceFunc.scrollToTop}>
                             <img src={logo} alt="" width="50" height="50"/>
                             <span className="navbar-brand fw-bold ms-2 p-0">SportFit</span>
                         </NavLink>
@@ -33,7 +38,13 @@ const Header = () => {
                     <div id="navbarNavDropdown">
                         <ul className="navbar-nav">
                             <li className="nav-item d-flex align-items-center">
-                                <NavLink to={PROGRAMS_LISTENING_ROUTE} className="nav-link fw-bold active" aria-current="page">Programs</NavLink>
+                                <NavLink 
+                                    to={PROGRAMS_LISTENING_ROUTE} 
+                                    className="nav-link fw-bold active" 
+                                    aria-current="page"
+                                    onClick={interfaceFunc.scrollToTop}>
+                                    Programs
+                                </NavLink>
                             </li>
                             
                             <li className="nav-item dropdown ms-5">
@@ -41,7 +52,7 @@ const Header = () => {
                                     <div className="avatar_wrapper rounded-circle d-flex justify-content-center align-items-center">
                                         <img src=
                                                  {
-                                                      authUser === null ? 
+                                                      authUser.avatar === null ?
                                                           profiler :
                                                           authUser.avatar
                                                  } 
@@ -50,21 +61,50 @@ const Header = () => {
                                 </a>
                                 
                                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><NavLink to={ACCOUNT_ROUTE} className="dropdown-item">Yuor Profile</NavLink></li>
+                                    <li>
+                                        <NavLink to={ACCOUNT_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
+                                            Yuor Profile
+                                        </NavLink>
+                                    </li>
                                     
-                                    <li><NavLink to={USER_PROGRAMS_ROUTE} className="dropdown-item">Yuor Programs</NavLink></li>
+                                    <li>
+                                        <NavLink to={USER_PROGRAMS_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
+                                            Yuor Programs
+                                        </NavLink>
+                                    </li>
                                     
-                                    <li><NavLink to={USER_SELECTED_ROUTE} className="dropdown-item">Your Selected</NavLink></li>
+                                    <li>
+                                        <NavLink to={USER_SELECTED_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
+                                            Your Selected
+                                        </NavLink>
+                                    </li>
                                     
                                     <li><hr className="dropdown-divider"/></li>
                                     
-                                    <li><NavLink to={SUPPORT_ROUTE} className="dropdown-item">Support</NavLink></li>
+                                    <li>
+                                        <NavLink to={SUPPORT_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
+                                            Support
+                                        </NavLink>
+                                    </li>
                                     
-                                    <li><NavLink to={SETTINGS_ROUTE} className="dropdown-item">Settings</NavLink></li>
+                                    <li>
+                                        <NavLink to={SETTINGS_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
+                                            Settings
+                                        </NavLink>
+                                    </li>
                                     
-                                    <li><NavLink to={LOGIN_ROUTE} className="dropdown-item">Login</NavLink></li>
+                                    <li>
+                                        <NavLink to={LOGIN_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
+                                            Login
+                                        </NavLink>
+                                    </li>
                                     
-                                    <li><NavLink to={REGISTER_ROUTE} className="dropdown-item">Registration</NavLink></li>
+                                    <li>
+                                        <NavLink 
+                                            to={REGISTER_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
+                                            Registration
+                                        </NavLink>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>

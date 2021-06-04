@@ -7,8 +7,10 @@
  * ## shortYear if true: 01.11.20 in all types (2 symbol in year)
  */
 const dateFormat = (dateValue, separator = ".", typeString = 1, shortYear = false) => {
-    let date = new Date(dateValue);
+     if (dateValue === null)
+         return null;
     
+    let date = new Date(dateValue);
     if (date) {
         let day = date.getDate().toString().length === 1 ? "0" + date.getDate() : date.getDate();
         

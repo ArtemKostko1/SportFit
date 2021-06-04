@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import * as userActions from "../_actions/user-actions";
 import {REGISTER_ROUTE, MAIN_ROUTE} from "../_routing/routerConsts";
 import checkValidation from "./utils/validators/validators";
+import * as interfaceFunc from "./utils/interface";
 
 const SignInPage = ({...props}) => {
     const initialInputValues = {
@@ -102,7 +103,7 @@ const SignInPage = ({...props}) => {
                                 <div className="invalid-feedback">{errors.Password}</div>
                             </div>
                             
-                            <div className="button_wrapper p-0">
+                            <div className="button_wrapper p-0" onClick={interfaceFunc.scrollToTop}>
                                 <button
                                     type="submit" 
                                     className="btn btn-primary w-100 fw-bold"
@@ -113,7 +114,12 @@ const SignInPage = ({...props}) => {
 
                             <div className="link_wrapper d-flex justify-content-center align-items-center p-0">
                                 <span className="fw-bold me-1">Don't have an account?</span>
-                                <Link to={REGISTER_ROUTE} className="link-primary fw-bold">Sign Up</Link>
+                                <Link 
+                                    to={REGISTER_ROUTE} 
+                                    className="link-primary fw-bold" 
+                                    onClick={interfaceFunc.scrollToTop}>
+                                    Sign Up
+                                </Link>
                             </div>
                         </form>
                     </div>

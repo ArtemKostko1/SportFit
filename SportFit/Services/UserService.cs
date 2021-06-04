@@ -59,9 +59,9 @@ namespace SportFit.Services
             return _userRepository.GetAll();
         }
 
-        public User GetById(Guid id)
+        /*public User GetById(Guid id)
         {
             return _userRepository.GetById(id);
-        }
+        }*/
     }
 }

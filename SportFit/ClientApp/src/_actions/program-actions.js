@@ -43,6 +43,7 @@ export const createProgram = (data, onSuccess) => dispatch => {
 }
 
 export const updateProgram = (id, data, onSuccess) => dispatch => {
+    debugger
     api.program().updateProgram(id, data)
         .then(response => {
             dispatch({
