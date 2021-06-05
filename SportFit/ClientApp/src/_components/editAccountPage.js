@@ -1,11 +1,12 @@
 ﻿import React, {useEffect} from 'react';
 import {connect} from "react-redux";
-import 'tippy.js/dist/tippy.css';
+import {useToasts} from "react-toast-notifications";
 import * as userActions from "../_actions/user-actions";
+import * as validators from "./utils/validators/validators";
 import useForm from "./utils/useForm";
 import dateFormat from "./utils/dateFormat";
-import * as validators from "./utils/validators/validators";
 
+import 'tippy.js/dist/tippy.css';
 import profile from "./images/profile.svg";
 import emailIcon from "./images/email.svg";
 import vkIcon from "./images/vk.svg";
@@ -13,7 +14,8 @@ import instagramIcon from "./images/instagram.svg";
 
 const EditAccountPage = ({...props}) => {
     const currentUser = JSON.parse(localStorage.getItem('user'));
-
+    const { addToast } = useToasts();
+    
     const initialInputValues = {
         Avatar: '',
         Login: '',
@@ -56,9 +58,9 @@ const EditAccountPage = ({...props}) => {
     const handleSubmit = e => {
         e.preventDefault();
         if (validate()) {
-            props.updateUser(currentUser.id, values, () => {window.alert('Updated')});
+            props.updateUser(currentUser.id, values, () =>  addToast("Updated successfully", {appearance: 'success'}));
         } else {
-            errors.Email && window.alert(errors.Email);
+            addToast(errors.Email, {appearance: 'warning'});
         }
     }
 

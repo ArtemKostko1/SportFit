@@ -1,10 +1,10 @@
 ﻿import React, { useState, useEffect} from 'react';
 import { connect } from "react-redux";
 import {useToasts} from "react-toast-notifications";
+import useForm from "./utils/useForm";
 import * as programActions from "../_actions/program-actions";
 import * as programTypeActions from "../_actions/programType-actions";
 import * as complexityLevelActions from "../_actions/complexityLevel-actions";
-import useForm from "./utils/useForm";
 import * as validators from "./utils/validators/validators";
 
 import camera from "./images/camera.svg";
@@ -61,17 +61,15 @@ const CreateProgramPage = ({...props}) => {
         e.preventDefault();
         
         if (validate()) {
-            const onSuccess = () => {
-                resetForm();
-                addToast("Created successfully", {appearance: 'success'});
-            }
-            
             if (currentProgram.id === undefined) {
-                props.createProgram(values, onSuccess);
+                props.createProgram(values, () => addToast("Created successfully", {appearance: 'success'}));
+                resetForm();
                 
             } else {
-                props.updateProgram(currentProgram.id, values, () => {window.alert('Updated')});
+                props.updateProgram(currentProgram.id, values, () => addToast("Editing successfully", {appearance: 'success'}));
             }
+        } else {
+            addToast("Created failed", {appearance: 'warning'});
         }
     }
     

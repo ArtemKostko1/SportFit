@@ -1,6 +1,5 @@
 ﻿import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
-import {ToastProvider} from 'react-toast-notifications';
 import * as programActions from "../_actions/program-actions";
 import * as programTypeActions from "../_actions/programType-actions";
 import * as complexityLevelActions from "../_actions/complexityLevel-actions";
@@ -18,7 +17,6 @@ const UserProgramsListingPage = ({fetchAllPrograms, fetchAllProgramTypes, fetchA
     }, []);
     
     return (
-        <ToastProvider autoDismiss={true}>
         <div className="userProgramsListingPage_wrapper container-xxl">
             <div className="userProgramsListingPage_content">
                 <div className="title_wrapper d-flex justify-content-center">
@@ -52,7 +50,6 @@ const UserProgramsListingPage = ({fetchAllPrograms, fetchAllProgramTypes, fetchA
                 </div>
             </div>
         </div>
-        </ToastProvider>
     );
 };
 

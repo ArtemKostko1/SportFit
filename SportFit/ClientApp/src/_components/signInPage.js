@@ -6,8 +6,11 @@ import * as userActions from "../_actions/user-actions";
 import {REGISTER_ROUTE, MAIN_ROUTE} from "../_routing/routerConsts";
 import * as validators from "./utils/validators/validators";
 import * as interfaceFunc from "./utils/interface";
+import {useToasts} from "react-toast-notifications";
 
 const SignInPage = ({...props}) => {
+    const { addToast } = useToasts();
+    
     const initialInputValues = {
         Login: '',
         Password: ''
@@ -40,11 +43,12 @@ const SignInPage = ({...props}) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-
+        
         if (validate()) {
-            props.authenticate(values, () => {window.alert('User authenticated')})
-            document.getElementById('signInUser_form').reset();
+            props.authenticate(values, () => addToast("Authentication successfully", {appearance: 'success'}))
             resetForm();
+        } else {
+            addToast("Authentication failed", {appearance: 'warning'});
         }
     }
     

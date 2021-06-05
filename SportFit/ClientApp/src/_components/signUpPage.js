@@ -6,8 +6,11 @@ import useForm from "./utils/useForm";
 import * as userActions from "../_actions/user-actions";
 import * as validators from "./utils/validators/validators";
 import * as interfaceFunc from "./utils/interface";
+import {useToasts} from "react-toast-notifications";
 
 const SignUpPage = ({...props}) => {
+    const { addToast } = useToasts();
+    
     const initialInputValues = {
         Nickname: '',
         Login: '',
@@ -45,9 +48,10 @@ const SignUpPage = ({...props}) => {
         e.preventDefault();
         
         if (validate()) {
-            props.register(values, () => {window.alert('User registered')});
-            document.getElementById('signUpUser_form').reset();
+            props.register(values, () => addToast("Registration successfully", {appearance: 'success'}));
             resetForm();
+        } else {
+            addToast("Registration failed", {appearance: 'warning'});
         }
     }
     

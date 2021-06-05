@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { useToasts } from 'react-toast-notifications';
+import {useToasts} from 'react-toast-notifications';
 import {EDIT_PROGRAM_ROUTE, PROGRAM_DETAIL_ROUTE} from "../../_routing/routerConsts";
 import * as interfaceFunc from "../utils/interface";
 import * as programActions from "../../_actions/program-actions";
@@ -16,10 +16,8 @@ const UserProgramCard = ({ id, name, preView, creationDate, deleteProgram }) => 
     const { addToast } = useToasts();
     
     const onDelete = id => {
-        const onSuccess = () => addToast("Delete successfully", { appearance: 'success'});
-        
         if(window.confirm('Are you sure to delete this program?'))
-            deleteProgram(id, onSuccess);
+            deleteProgram(id, () => addToast("Delete successfully", { appearance: 'success'}));
     }
     
     return (
