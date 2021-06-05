@@ -13,13 +13,24 @@ const useForm = (initialInputValues, validate) => {
         })
         validate(fieldValues)
     }
+
+    const resetForm = () => {       
+       setValues({
+           ...initialInputValues
+       });
+       
+       setErrors({
+           
+       })
+    }
     
     return {
         values,
         setValues,
         errors,
         setErrors,
-        handleInputChange
+        handleInputChange,
+        resetForm
     }
 }
 

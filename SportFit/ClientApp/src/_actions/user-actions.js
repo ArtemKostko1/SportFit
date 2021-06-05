@@ -19,7 +19,6 @@ export const authenticate = (data, onSuccess) => dispatch => {
 export const register = (data, onSuccess) => dispatch => {
     api.user().register(data)
         .then(response => {
-            debugger
             dispatch({
                 type: userActionTypes.USERS_REGISTRATION_SUCCESS,
                 payload: response.data
@@ -52,12 +51,11 @@ export const fetchUserById = (id) => dispatch => {
 }
 
 export const updateUser = (id, data, onSuccess) => dispatch => {
-    debugger
     api.user().updateUser(id, data)
         .then(response => {
             dispatch({
                 type: userActionTypes.USERS_UPDATE_SUCCESS,
-                payload: {id, ...data}
+                payload: response
             });
             onSuccess();
         })
@@ -72,5 +70,7 @@ export const userRequested = () => dispatch => {
 
 function logout() {
     localStorage.removeItem('user');
-    return { type: userActionTypes.USERS_LOGOUT };
+    return { 
+        type: userActionTypes.USERS_LOGOUT 
+    };
 }

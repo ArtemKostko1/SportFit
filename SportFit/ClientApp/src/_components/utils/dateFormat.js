@@ -4,12 +4,13 @@
  * ## 2 = 11.01.2020
  * ## 3 = 2020.01.11
  * ## 4 = 2020.11.01
+ * ## 5 = 10:00
  * ## shortYear if true: 01.11.20 in all types (2 symbol in year)
  */
 const dateFormat = (dateValue, separator = ".", typeString = 1, shortYear = false) => {
      if (dateValue === null)
          return null;
-    
+     
     let date = new Date(dateValue);
     if (date) {
         let day = date.getDate().toString().length === 1 ? "0" + date.getDate() : date.getDate();
@@ -23,6 +24,9 @@ const dateFormat = (dateValue, separator = ".", typeString = 1, shortYear = fals
         }
         
         let year = shortYear ? date.getFullYear().toString().substr(2) : date.getFullYear();
+        
+        let hours = date.getHours().toString().length === 1 ? "0" + date.getHours() : date.getHours();
+        let minutes = date.getMinutes().toString().length === 1 ? "0" + date.getMinutes() : date.getMinutes();
         
         
         let result = "";
@@ -39,6 +43,9 @@ const dateFormat = (dateValue, separator = ".", typeString = 1, shortYear = fals
                 break;
             case 4:
                 result = year + separator + month + separator + day;
+                break;
+            case 5:
+                result = hours + separator + minutes;
                 break;
             default:
                 result = day + separator + month + separator + year;

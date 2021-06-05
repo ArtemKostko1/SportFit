@@ -20,7 +20,7 @@ export const user = (url = baseUrl + 'users') => {
             }),
         
         updateUser: async (id, updatedRecord) => await axios.put(`${url}/${id}`, updatedRecord)
-            .then(userData => {
+            .then(() => {
                 let editableUser = JSON.parse(localStorage.getItem('user'));
                 editableUser =  {
                     id: editableUser.id,
@@ -34,10 +34,12 @@ export const user = (url = baseUrl + 'users') => {
                     email: updatedRecord.Email,
                     instagram: updatedRecord.Instagram,
                     vk: updatedRecord.Vk,
+                    creationDate: editableUser.creationDate,
+                    modificationDate: editableUser.modificationDate,
                     token: editableUser.token
                 }
                 localStorage.setItem('user', JSON.stringify(editableUser));
-                return userData;
+                return editableUser;
             }),
     }
 }

@@ -1,0 +1,18 @@
+﻿.notificationToast_wrapper {  
+  .toast {
+    width: 400px;
+    background-color: #ffffff;
+    
+    strong, small, span {
+      color: #000000;
+    }
+    
+    a {
+      color: #000000;
+       
+      &:hover {
+        color: lightgrey;
+      }
+    }
+  }
+}

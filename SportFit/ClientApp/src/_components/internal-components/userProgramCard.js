@@ -1,14 +1,22 @@
 ﻿import React from 'react';
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 import Tippy from "@tippy.js/react";
 import 'tippy.js/dist/tippy.css';
 import {EDIT_PROGRAM_ROUTE, PROGRAM_DETAIL_ROUTE} from "../../_routing/routerConsts";
+import * as interfaceFunc from "../utils/interface";
+import * as programActions from "../../_actions/program-actions";
 import dateFormat from "../utils/dateFormat";
 
 import camera from "../images/camera.svg";
-import * as interfaceFunc from "../utils/interface";
 
-const UserProgramCard = ({ id, name, preView, creationDate }) => {
+
+const UserProgramCard = ({ id, name, preView, creationDate, deleteProgram }) => {
+    const onDelete = id => {
+        if(window.confirm('Are you sure to delete this program?'))
+            deleteProgram(id, () => {window.alert('Deleted')});
+    }
+    
     return (
         <div className="userProgramCard_wrapper shadow">
             <div className="preView_wrapper d-flex justify-content-center align-items-center w-100">
@@ -51,7 +59,10 @@ const UserProgramCard = ({ id, name, preView, creationDate }) => {
                         </Link>
 
                         <Tippy content="Delete">
-                            <button className="btn btn-outline-danger d-flex justify-content-center align-items-center p-0" type="button">
+                            <button 
+                                className="btn btn-outline-danger d-flex justify-content-center align-items-center p-0" 
+                                type="button"
+                                onClick={() => onDelete(id)}>
                                 <i className="fa fa-trash-o"/>
                             </button>
                         </Tippy>
@@ -62,4 +73,12 @@ const UserProgramCard = ({ id, name, preView, creationDate }) => {
     );
 };
 
-export default UserProgramCard;
+const mapStateToProps = state => ({
+
+});
+
+const mapActionToProps = {
+    deleteProgram: programActions.deleteProgram
+}
+
+export default connect(mapStateToProps, mapActionToProps)(UserProgramCard);

@@ -1,16 +1,19 @@
 ﻿import React, { useEffect } from 'react';
 import {Link} from "react-router-dom";
+import Tippy from "@tippy.js/react";
+import 'tippy.js/dist/tippy.css';
 import { connect } from "react-redux";
+import NotificationToast from "../special-components/notificationToast";
 import {MAIN_ROUTE, ACCOUNT_ROUTE} from "../../_routing/routerConsts";
 import * as programActions from '../../_actions/program-actions';
+import * as interfaceFunctions from "../utils/interface";
 
-import logo from "../images/Logo.svg";
+import logo from "../images/logo.svg";
 import facebook from "../images/facebook.svg";
 import vk from "../images/vk.svg";
 import twitter from "../images/twitter.svg";
 import telegram from "../images/telegram.svg";
 import instagram from "../images/instagram.svg";
-import * as interfaceFunc from "../utils/interface";
 
 const Footer = ({fetchAllPrograms, programsList}) => {
     useEffect(() => {
@@ -32,35 +35,45 @@ const Footer = ({fetchAllPrograms, programsList}) => {
                         </div>
                         
                         <div className="socialNetworks d-flex">
-                            <a className="socialNetwork-link me-2" href="https://www.facebook.com/ArtiKostko" target="_blank">
-                                <img src={facebook} alt="" width="35" height="35"/>
-                            </a>
+                            <Tippy content="Facebook">
+                                <a className="socialNetwork-link me-2" href="https://www.facebook.com/ArtiKostko" target="_blank">
+                                    <img src={facebook} alt="" width="35" height="35"/>
+                                </a>
+                            </Tippy>
                             
-                            <a className="socialNetwork-link me-2" href="https://vk.com/arti_chember_one" target="_blank">
-                                <img src={vk} alt="" width="35" height="35"/>
-                            </a>
+                            <Tippy content="Vk">
+                                <a className="socialNetwork-link me-2" href="https://vk.com/arti_chember_one" target="_blank">
+                                    <img src={vk} alt="" width="35" height="35"/>
+                                </a>
+                            </Tippy>
                             
-                            <a className="socialNetwork-link me-2" href="https://twitter.com/ArtemKostko" target="_blank">
-                                <img src={twitter} alt="" width="35" height="35"/>
-                            </a>
+                            <Tippy content="Twitter">
+                                <a className="socialNetwork-link me-2" href="https://twitter.com/ArtemKostko" target="_blank">
+                                    <img src={twitter} alt="" width="35" height="35"/>
+                                </a>
+                            </Tippy>
                             
-                            <a className="socialNetwork-link me-2" href="https://t.me/Artem4ekK" target="_blank">
-                                <img src={telegram} alt="" width="35" height="35"/>
-                            </a>
+                            <Tippy content="Telegram">
+                                <a className="socialNetwork-link me-2" href="https://t.me/Artem4ekK" target="_blank">
+                                    <img src={telegram} alt="" width="35" height="35"/>
+                                </a>
+                            </Tippy>
                             
-                            <a className="socialNetwork-link me-2" href="https://www.instagram.com/artemkostko/" target="_blank">
-                                <img src={instagram} alt="" width="35" height="35"/>
-                            </a>
+                            <Tippy content="Instagram">
+                                <a className="socialNetwork-link me-2" href="https://www.instagram.com/artemkostko/" target="_blank">
+                                    <img src={instagram} alt="" width="35" height="35"/>
+                                </a>
+                            </Tippy>
                         </div>
                     </div>
                     
                     <div className="center_block col-5 d-flex justify-content-center">
                         <div className="links_content col-4 d-flex flex-column">
                             <h6 className="title fw-bold">Company</h6>
-                            <Link to="" onClick={interfaceFunc.scrollToTop}>About Us</Link>
-                            <Link to="" onClick={interfaceFunc.scrollToTop}>Support</Link>
-                            <Link to={ACCOUNT_ROUTE} onClick={interfaceFunc.scrollToTop}>Profile</Link>
-                            <Link to={MAIN_ROUTE} onClick={interfaceFunc.scrollToTop}>Home</Link>
+                            <Link to="" onClick={interfaceFunctions.scrollToTop}>About Us</Link>
+                            <Link to="" onClick={interfaceFunctions.scrollToTop}>Support</Link>
+                            <Link to={ACCOUNT_ROUTE} onClick={interfaceFunctions.scrollToTop}>Profile</Link>
+                            <Link to={MAIN_ROUTE} onClick={interfaceFunctions.scrollToTop}>Home</Link>
                         </div>
                         
                         <div className="links_content col-4 d-flex flex-column">
@@ -75,10 +88,28 @@ const Footer = ({fetchAllPrograms, programsList}) => {
                                 artem.kostko@mail.ru
                             </a>
                             
-                            <a href="">
+                            <div onClick={interfaceFunctions.notificationToast}>
                                 <i className="bi bi-geo-alt me-2"/>
                                 Our address
-                            </a>
+                            </div>
+                            <NotificationToast 
+                                body=
+                                    {
+                                        <div>
+                                            <a
+                                                target="_blank"
+                                                href="https://yandex.by/maps/org/minskiy_gosudarstvenny_kolledzh_elektroniki/1018469854/?utm_medium=mapframe&utm_source=maps">
+                                                Минский государственный колледж электроники
+                                            </a>
+                                            
+                                            <iframe 
+                                                src="https://yandex.by/map-widget/v1/-/CCUaN4aIcB" 
+                                                width="100%" height="400" 
+                                                frameBorder="1"
+                                                allowFullScreen="true"/>
+                                        </div>
+                                    }
+                            />
                         </div>
                     </div>
                     

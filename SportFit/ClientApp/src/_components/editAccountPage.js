@@ -4,16 +4,15 @@ import 'tippy.js/dist/tippy.css';
 import * as userActions from "../_actions/user-actions";
 import useForm from "./utils/useForm";
 import dateFormat from "./utils/dateFormat";
-import checkValidation from "./utils/validators/validators";
+import * as validators from "./utils/validators/validators";
 
 import profile from "./images/profile.svg";
 import emailIcon from "./images/email.svg";
 import vkIcon from "./images/vk.svg";
 import instagramIcon from "./images/instagram.svg";
 
-const EditAccountPage = ({userItem, ...props}) => {
+const EditAccountPage = ({...props}) => {
     const currentUser = JSON.parse(localStorage.getItem('user'));
-    const Id = currentUser.id;
 
     const initialInputValues = {
         Avatar: '',
@@ -29,21 +28,8 @@ const EditAccountPage = ({userItem, ...props}) => {
         Vk: ''
     }
 
-    const resetValues = () => { 
-        values.Avatar = '';
-        values.Login = '';
-        values.OldPassword = '';
-        values.Password = '';
-        values.FullName = '';
-        values.BirthDate = '';
-        values.MobilePhone = '';
-        values.Email = '';
-        values.Instagram = '';
-        values.Vk = '';
-    }
-
     const validate = (fieldValues = values) => {
-        let temp = {};
+        let temp = {...errors};
         
         if('Email' in fieldValues){
             temp.Email = (/^$|.+@.+../).test(fieldValues.Email) ? '' : 'Please enter correct email';
@@ -63,15 +49,16 @@ const EditAccountPage = ({userItem, ...props}) => {
         setValues,
         errors,
         setErrors,
-        handleInputChange
+        handleInputChange,
+        resetForm
     } = useForm(initialInputValues, validate);
 
     const handleSubmit = e => {
         e.preventDefault();
-        
         if (validate()) {
-            debugger
-            props.updateUser(Id, values, () => {window.alert('Updated')});
+            props.updateUser(currentUser.id, values, () => {window.alert('Updated')});
+        } else {
+            errors.Email && window.alert(errors.Email);
         }
     }
 
@@ -138,10 +125,9 @@ const EditAccountPage = ({userItem, ...props}) => {
                                             placeholder="Enter the email"
                                             value={values.Email}
                                             onChange={handleInputChange}
-                                            {...(errors.Email && { error: "true" })}/>
+                                            {...errors.Email && {error: "true"}}/>
     
                                         <label htmlFor="validationCustomEmail" className="form-label fw-bold">Email</label>
-                                        <div className="invalid-feedback">{errors.Email}</div>
                                     </div>
                                 </div>
                             </div>
@@ -323,12 +309,23 @@ const EditAccountPage = ({userItem, ...props}) => {
                     </div>
                     
                     <div className="actions_block row">
-                        <button
-                            type="submit"
-                            className="createProgram btn btn-primary w-100 fw-bold"
-                            onClick={checkValidation('editAccount_form')}>
-                            SAVE
-                        </button>
+                        <div className="col-11 pe-3">
+                            <button
+                                type="submit"
+                                className="btn btn-primary w-100 fw-bold"
+                                onClick={validators.checkValidation('editAccount_form')}>
+                                SAVE
+                            </button>
+                        </div>
+                        
+                        <div className="col-1">
+                            <button
+                                type="reset"
+                                className="btn btn-outline-secondary w-100 fw-bold"
+                                onClick={resetForm}>
+                                CLEAR
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -337,7 +334,7 @@ const EditAccountPage = ({userItem, ...props}) => {
 };
 
 const mapStateToProps = state => ({
-    userItem: state.userReducer.userItem
+
 });
 
 const mapActionToProps = {

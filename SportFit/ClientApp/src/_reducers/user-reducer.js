@@ -12,6 +12,7 @@ export const userReducer = (state = userInitialState, {type, payload, error}) =>
     switch (type) {
         case userActionTypes.USERS_REQUESTED:
             return {
+                ...state,
                 userItem: {}
             }
         
@@ -50,7 +51,6 @@ export const userReducer = (state = userInitialState, {type, payload, error}) =>
             
             
         case userActionTypes.USERS_REGISTRATION_SUCCESS:
-            debugger
             return {
                 ...state,
                 authUser: payload
@@ -65,13 +65,14 @@ export const userReducer = (state = userInitialState, {type, payload, error}) =>
         case userActionTypes.USERS_UPDATE_SUCCESS:
             return {
                 ...state,
-                authUser: [...state.authUser, payload]
+                authUser: payload
             }
 
         case userActionTypes.USERS_LOGOUT:
             return {
                 usersList: [],
-                userItem: {}
+                userItem: {},
+                authUser: {}
             };
             
         default:

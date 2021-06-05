@@ -40,12 +40,22 @@
           margin-bottom: 15px;
         }
         
-        a{          
+        a {          
           margin-bottom: 5px;
           
           .bi {
             font-size: 15px;
             color: lightgrey;
+          }
+        }
+        
+        div {
+          font-size: 16px;
+          color: lightgrey;
+
+          &:hover {
+            cursor: pointer;
+            color: white;
           }
         }
       }

@@ -4,7 +4,7 @@ import * as programActions from "../_actions/program-actions";
 import * as programTypeActions from "../_actions/programType-actions";
 import * as complexityLevelActions from "../_actions/complexityLevel-actions";
 import useForm from "./utils/useForm";
-import checkValidation from "./utils/validators/validators";
+import * as validators from "./utils/validators/validators";
 
 import camera from "./images/camera.svg";
 
@@ -23,19 +23,8 @@ const CreateProgramPage = ({...props}) => {
         UserId: currentUserId
     }
 
-    const resetValues = () => {
-        document.getElementById('createProgram_form').reset();
-        
-        values.Name = '';
-        values.ProgramTypeId = '';
-        values.ComplexityLevelId = '';
-        values.Description = '';
-        values.PreView = '';
-        values.Content = '';
-    }
-
     const validate = (fieldValues = values) => {
-        let temp = {};
+        let temp = {...errors};
 
         if('Name' in fieldValues)
             temp.Name = fieldValues.Name ? '' : "Please enter a program name";
@@ -61,7 +50,8 @@ const CreateProgramPage = ({...props}) => {
         setValues,
         errors,
         setErrors,
-        handleInputChange
+        handleInputChange,
+        resetForm
     } = useForm(initialInputValues, validate);
 
     const handleSubmit = e => {
@@ -70,7 +60,7 @@ const CreateProgramPage = ({...props}) => {
         if (validate()) {
             if (currentProgram.id === undefined) {
                 props.createProgram(values, () => {window.alert('Inserted')});
-                resetValues();
+                resetForm();
             } else {
                 props.updateProgram(currentProgram.id, values, () => {window.alert('Updated')});
             }
@@ -83,7 +73,6 @@ const CreateProgramPage = ({...props}) => {
         
         if (currentProgram.id !== undefined) {
             const editableProgram = props.programsList.find(x => x.id === currentProgram.id);
-            
             const tempProgram = {
                 Name: editableProgram.name,
                 ProgramTypeId: editableProgram.programTypeId,
@@ -97,6 +86,7 @@ const CreateProgramPage = ({...props}) => {
             setValues({
                 ...tempProgram
             })
+            setErrors({})
         }
     }, [currentProgram.id]);
 
@@ -258,8 +248,8 @@ const CreateProgramPage = ({...props}) => {
                         <div className="col-11 pe-3">
                             <button 
                                 type="submit" 
-                                className="createProgram btn btn-primary w-100 fw-bold"
-                                onClick={checkValidation('createProgram_form')}>
+                                className="btn btn-primary w-100 fw-bold"
+                                onClick={validators.checkValidation('createProgram_form')}>
                                 {
                                     currentProgram.id === undefined ?
                                         'CREATE' :
@@ -270,8 +260,8 @@ const CreateProgramPage = ({...props}) => {
                         <div className="col-1">
                             <button 
                                 type="reset" 
-                                className="createProgram btn btn-outline-secondary w-100 fw-bold"
-                                onClick={resetValues}>
+                                className="btn btn-outline-secondary w-100 fw-bold"
+                                onClick={resetForm}>
                                 CLEAR
                             </button>
                         </div>

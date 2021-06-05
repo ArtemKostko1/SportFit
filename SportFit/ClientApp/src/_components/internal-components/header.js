@@ -1,32 +1,31 @@
 import React, {useEffect} from 'react';
 import {NavLink} from "react-router-dom";
-
+import {connect} from "react-redux";
+import * as interfaceFunc from "../utils/interface";
 import {
     MAIN_ROUTE, PROGRAMS_LISTENING_ROUTE, LOGIN_ROUTE, ACCOUNT_ROUTE,
     USER_PROGRAMS_ROUTE, USER_SELECTED_ROUTE, SUPPORT_ROUTE, SETTINGS_ROUTE, REGISTER_ROUTE
 } from "../../_routing/routerConsts";
 
 import profiler from '../images/profile.svg';
-import logo from "../images/Logo.svg";
-import * as userActions from "../../_actions/user-actions";
-import {connect} from "react-redux";
-import * as interfaceFunc from "../utils/interface";
+import logo from "../images/logo.svg";
 
-const Header = () => {
-    const authUser = JSON.parse(localStorage.getItem('user'));
 
-    /*useEffect(() => {
+const Header = ({authUser}) => {
+    useEffect(() => {
         
-    }, [authUser.avatar]);*/
+    }, [authUser.avatar]);
     
     return (
         <header className="header sticky-top bg-dark">
             <nav className="navbar navbar-expand-md container-xxl navbar-dark bg-dark p-0">
                 <div className="navbar_wrapper container-fluid">
-                    <div className="brand d-flex align-items-center">
+                    <div className="brand">
                         <NavLink to={MAIN_ROUTE} onClick={interfaceFunc.scrollToTop}>
-                            <img src={logo} alt="" width="50" height="50"/>
-                            <span className="navbar-brand fw-bold ms-2 p-0">SportFit</span>
+                            <div className="brand_wrapper d-flex align-items-center h-100">
+                                <img src={logo} alt="" width="50" height="50"/>
+                                <span className="navbar-brand fw-bold ms-2 p-0">SportFit</span>
+                            </div>
                         </NavLink>
                         
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
@@ -52,7 +51,7 @@ const Header = () => {
                                     <div className="avatar_wrapper rounded-circle d-flex justify-content-center align-items-center">
                                         <img src=
                                                  {
-                                                      authUser.avatar === null ?
+                                                      authUser.avatar === null || authUser.avatar === '' || authUser.avatar === undefined ?
                                                           profiler :
                                                           authUser.avatar
                                                  } 
@@ -116,11 +115,11 @@ const Header = () => {
 }
 
 const mapStateToProps = state => ({
-    userItem: state.userReducer.userItem
+    authUser: state.userReducer.authUser
 });
 
 const mapActionToProps = {
-    fetchUserById: userActions.fetchUserById
+    
 }
 
 export default connect(mapStateToProps, mapActionToProps)(Header);

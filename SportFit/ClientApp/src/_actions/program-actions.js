@@ -32,7 +32,6 @@ export const programsRequested = () => dispatch => {
 export const createProgram = (data, onSuccess) => dispatch => {
     api.program().createProgram(data)
         .then(response => {
-            debugger
             dispatch({
                 type: programActionTypes.CREATE_PROGRAM,
                 payload: response.data
@@ -55,7 +54,7 @@ export const updateProgram = (id, data, onSuccess) => dispatch => {
         .catch(err => console.log(err));
 }
 
-export const Delete = (id, onSuccess) => dispatch => {
+export const deleteProgram = (id, onSuccess) => dispatch => {
     api.program().deleteProgram(id)
         .then(response => {
             dispatch({

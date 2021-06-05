@@ -1,4 +1,6 @@
 .accountPage_wrapper {
+  min-height: 100vh;
+  
   padding: 50px 0;
 
   .account_content {
@@ -62,19 +64,14 @@
         }
 
         .info_wrapper {
-          .info_text {
+          .content {
             height: 42px;
 
             background-color: #e0e0e0;
             border-radius: 10px;
           }
 
-          .info_text_link {
-            height: 42px;
-
-            background-color: #e0e0e0;
-            border-radius: 10px;
-
+          .content_link {
             color: #000000;
 
             &:hover {

@@ -5,6 +5,7 @@ import Tippy from "@tippy.js/react";
 import 'tippy.js/dist/tippy.css';
 import {EDIT_ACCOUNT_ROUTE} from "../_routing/routerConsts";
 import * as userActions from "../_actions/user-actions";
+import dateFormat from "./utils/dateFormat";
 
 import profile from "./images/profile.svg";
 import vkIcon from "./images/vk.svg";
@@ -48,9 +49,11 @@ const AccountPage = ({match, fetchUserById, userRequested, userItem}) => {
                                                 <img src={emailIcon} alt="email" className="me-2" width="35" height="35"/>
                                             </div>
 
-                                            <div className="email_link w-100">
-                                                <input type="text" className="email form-control disabled" value={email}/>
-                                            </div>
+                                            <Tippy content="Email">
+                                                <div className="email_link w-100">
+                                                    <input type="text" className="email form-control disabled" value={email}/>
+                                                </div>
+                                            </Tippy>
                                         </div>
                                 }
 
@@ -58,16 +61,20 @@ const AccountPage = ({match, fetchUserById, userRequested, userItem}) => {
                                     {
                                         vk === null || vk === '' ?
                                             null :
-                                            <a className="socialNetwork-link me-2" href={vk} target="_blank">
-                                                <img src={vkIcon} alt="" width="35" height="35"/>
-                                            </a>
+                                            <Tippy content="VK">
+                                                <a className="socialNetwork-link me-2" href={vk} target="_blank">
+                                                    <img src={vkIcon} alt="" width="35" height="35"/>
+                                                </a>
+                                            </Tippy>
                                     }
                                     {
                                         instagram === null || instagram === '' ?
                                             null :
-                                            <a className="socialNetwork-link me-2" href={instagram} target="_blank">
-                                                <img src={instagramIcon} alt="" width="35" height="35"/>
-                                            </a>
+                                            <Tippy content="Instagram">
+                                                <a className="socialNetwork-link me-2" href={instagram} target="_blank">
+                                                    <img src={instagramIcon} alt="" width="35" height="35"/>
+                                                </a>
+                                            </Tippy>
                                     }
                                 </div>
                             </div>
@@ -93,18 +100,26 @@ const AccountPage = ({match, fetchUserById, userRequested, userItem}) => {
                         </div>
 
                         <div className="info_wrapper">
-                            <div className="info_title fw-bold">Full name</div>
-                            <div className="info_text d-flex align-items-center px-4">{fullName}</div>
+                            <div className="title fw-bold">Full name</div>
+                            <div className="content d-flex align-items-center px-4">
+                                <span>{fullName}</span>
+                            </div>
                         </div>
 
                         <div className="info_wrapper">
-                            <div className="info_title fw-bold">Birthday</div>
-                            <div className="info_text d-flex align-items-center px-4">{birthDate}</div>
+                            <div className="title fw-bold">Birthday</div>
+                            <div className="content d-flex align-items-center px-4">
+                                <span>{dateFormat(birthDate)}</span>
+                            </div>
                         </div>
 
                         <div className="info_wrapper">
-                            <div className="info_title fw-bold">Mobile phone</div>
-                            <a className="info_text_link d-flex align-items-center px-4" href={`tel: ${mobilePhone}`}>{mobilePhone}</a>
+                            <div className="title fw-bold">Mobile phone</div>
+                            <div className="content d-flex align-items-center px-4">
+                                <Tippy content="Call">
+                                    <a className="content_link" href={`tel: ${mobilePhone}`}>{mobilePhone}</a>
+                                </Tippy>
+                            </div>
                         </div>
                     </div>
                     

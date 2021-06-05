@@ -1,10 +1,10 @@
 ﻿import React, {useEffect} from 'react';
-import useForm from "./utils/useForm";
+import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {LOGIN_ROUTE} from "../_routing/routerConsts";
+import useForm from "./utils/useForm";
 import * as userActions from "../_actions/user-actions";
-import {connect} from "react-redux";
-import checkValidation from "./utils/validators/validators";
+import * as validators from "./utils/validators/validators";
 import * as interfaceFunc from "./utils/interface";
 
 const SignUpPage = ({...props}) => {
@@ -12,12 +12,6 @@ const SignUpPage = ({...props}) => {
         Nickname: '',
         Login: '',
         Password: '',
-    }
-
-    const resetValues = () => {
-        values.Nickname = '';
-        values.Login = '';
-        values.Password = '';
     }
     
     const validate = (fieldValues = values) => {
@@ -43,7 +37,8 @@ const SignUpPage = ({...props}) => {
         setValues,
         errors,
         setErrors,
-        handleInputChange
+        handleInputChange,
+        resetForm
     } = useForm(initialInputValues, validate);
 
     const handleSubmit = e => {
@@ -52,7 +47,7 @@ const SignUpPage = ({...props}) => {
         if (validate()) {
             props.register(values, () => {window.alert('User registered')});
             document.getElementById('signUpUser_form').reset();
-            resetValues();
+            resetForm();
         }
     }
     
@@ -126,7 +121,7 @@ const SignUpPage = ({...props}) => {
                                 <button 
                                     type="submit" 
                                     className="btn btn-primary w-100 fw-bold"
-                                    onClick={checkValidation('signUpUser_form')}>
+                                    onClick={validators.checkValidation('signUpUser_form')}>
                                     Create account
                                 </button>
                             </div>

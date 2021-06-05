@@ -1,4 +1,4 @@
-﻿const checkValidation = (formName) => {
+﻿export const checkValidation = (formName) => {
     'use strict'
     let forms = document.querySelectorAll(`.${formName}`)
 
@@ -10,9 +10,7 @@
                     event.stopPropagation()
                 }
 
-                form.classList.add('was-validated')
+                form.classList.replace('needs-validation', 'was-validated')
             }, false)
         })
 }
-
-export default checkValidation;

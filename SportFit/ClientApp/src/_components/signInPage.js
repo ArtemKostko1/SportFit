@@ -4,18 +4,13 @@ import useForm from "./utils/useForm";
 import {Link} from "react-router-dom";
 import * as userActions from "../_actions/user-actions";
 import {REGISTER_ROUTE, MAIN_ROUTE} from "../_routing/routerConsts";
-import checkValidation from "./utils/validators/validators";
+import * as validators from "./utils/validators/validators";
 import * as interfaceFunc from "./utils/interface";
 
 const SignInPage = ({...props}) => {
     const initialInputValues = {
         Login: '',
         Password: ''
-    }
-
-    const resetValues = () => {
-        values.Login = '';
-        values.Password = '';
     }
     
     const validate = (fieldValues = values) => {
@@ -39,7 +34,8 @@ const SignInPage = ({...props}) => {
         setValues,
         errors,
         setErrors,
-        handleInputChange
+        handleInputChange,
+        resetForm
     } = useForm(initialInputValues, validate);
 
     const handleSubmit = e => {
@@ -48,7 +44,7 @@ const SignInPage = ({...props}) => {
         if (validate()) {
             props.authenticate(values, () => {window.alert('User authenticated')})
             document.getElementById('signInUser_form').reset();
-            resetValues();
+            resetForm();
         }
     }
     
@@ -107,7 +103,7 @@ const SignInPage = ({...props}) => {
                                 <button
                                     type="submit" 
                                     className="btn btn-primary w-100 fw-bold"
-                                    onClick={checkValidation('signInUser_form')}>
+                                    onClick={validators.checkValidation('signInUser_form')}>
                                     Sign In
                                 </button>
                             </div>
