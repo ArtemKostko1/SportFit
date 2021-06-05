@@ -1,19 +1,21 @@
 ﻿import React, { useEffect } from 'react';
 import {Link} from "react-router-dom";
-import Tippy from "@tippy.js/react";
-import 'tippy.js/dist/tippy.css';
 import { connect } from "react-redux";
-import NotificationToast from "../special-components/notificationToast";
 import {MAIN_ROUTE, ACCOUNT_ROUTE} from "../../_routing/routerConsts";
 import * as programActions from '../../_actions/program-actions';
 import * as interfaceFunctions from "../utils/interface";
 
+import Tippy from "@tippy.js/react";
+import 'tippy.js/dist/tippy.css';
 import logo from "../images/logo.svg";
 import facebook from "../images/facebook.svg";
 import vk from "../images/vk.svg";
 import twitter from "../images/twitter.svg";
 import telegram from "../images/telegram.svg";
 import instagram from "../images/instagram.svg";
+
+import NotificationToast from "../special-components/notificationToast";
+
 
 const Footer = ({fetchAllPrograms, programsList}) => {
     useEffect(() => {

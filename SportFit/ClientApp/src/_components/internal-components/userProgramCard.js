@@ -1,20 +1,25 @@
 ﻿import React from 'react';
-import {Link} from "react-router-dom";
-import {connect} from "react-redux";
-import Tippy from "@tippy.js/react";
-import 'tippy.js/dist/tippy.css';
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { useToasts } from 'react-toast-notifications';
 import {EDIT_PROGRAM_ROUTE, PROGRAM_DETAIL_ROUTE} from "../../_routing/routerConsts";
 import * as interfaceFunc from "../utils/interface";
 import * as programActions from "../../_actions/program-actions";
 import dateFormat from "../utils/dateFormat";
 
+import Tippy from "@tippy.js/react";
+import 'tippy.js/dist/tippy.css';
 import camera from "../images/camera.svg";
 
 
 const UserProgramCard = ({ id, name, preView, creationDate, deleteProgram }) => {
+    const { addToast } = useToasts();
+    
     const onDelete = id => {
+        const onSuccess = () => addToast("Delete successfully", { appearance: 'success'});
+        
         if(window.confirm('Are you sure to delete this program?'))
-            deleteProgram(id, () => {window.alert('Deleted')});
+            deleteProgram(id, onSuccess);
     }
     
     return (

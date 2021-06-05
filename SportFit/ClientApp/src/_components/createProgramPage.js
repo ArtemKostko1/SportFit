@@ -1,5 +1,6 @@
 ﻿import React, { useState, useEffect} from 'react';
 import { connect } from "react-redux";
+import {useToasts} from "react-toast-notifications";
 import * as programActions from "../_actions/program-actions";
 import * as programTypeActions from "../_actions/programType-actions";
 import * as complexityLevelActions from "../_actions/complexityLevel-actions";
@@ -54,13 +55,20 @@ const CreateProgramPage = ({...props}) => {
         resetForm
     } = useForm(initialInputValues, validate);
 
+    const { addToast } = useToasts();
+
     const handleSubmit = e => {
         e.preventDefault();
         
         if (validate()) {
-            if (currentProgram.id === undefined) {
-                props.createProgram(values, () => {window.alert('Inserted')});
+            const onSuccess = () => {
                 resetForm();
+                addToast("Created successfully", {appearance: 'success'});
+            }
+            
+            if (currentProgram.id === undefined) {
+                props.createProgram(values, onSuccess);
+                
             } else {
                 props.updateProgram(currentProgram.id, values, () => {window.alert('Updated')});
             }

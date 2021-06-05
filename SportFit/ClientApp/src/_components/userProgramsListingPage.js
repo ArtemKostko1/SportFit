@@ -1,11 +1,14 @@
 ﻿import React, {useEffect, useState} from 'react';
-import UserProgramCard from "./internal-components/userProgramCard";
-import ProgramsFilterPanel from "./internal-components/programsFilterPanel";
-import * as programActions from "../_actions/program-actions";
 import {connect} from "react-redux";
-import Spinner from "./special-components/spinner/spinner";
+import {ToastProvider} from 'react-toast-notifications';
+import * as programActions from "../_actions/program-actions";
 import * as programTypeActions from "../_actions/programType-actions";
 import * as complexityLevelActions from "../_actions/complexityLevel-actions";
+
+import Spinner from "./special-components/spinner/spinner";
+import UserProgramCard from "./internal-components/userProgramCard";
+import ProgramsFilterPanel from "./internal-components/programsFilterPanel";
+
 
 const UserProgramsListingPage = ({fetchAllPrograms, fetchAllProgramTypes, fetchAllComplexityLevels, programsList}) => {    
     useEffect(() => {
@@ -15,6 +18,7 @@ const UserProgramsListingPage = ({fetchAllPrograms, fetchAllProgramTypes, fetchA
     }, []);
     
     return (
+        <ToastProvider autoDismiss={true}>
         <div className="userProgramsListingPage_wrapper container-xxl">
             <div className="userProgramsListingPage_content">
                 <div className="title_wrapper d-flex justify-content-center">
@@ -48,6 +52,7 @@ const UserProgramsListingPage = ({fetchAllPrograms, fetchAllProgramTypes, fetchA
                 </div>
             </div>
         </div>
+        </ToastProvider>
     );
 };
 
