@@ -5,7 +5,7 @@ import * as interfaceFunc from "../utils/interface";
 
 const Banner = () => {
     return (
-        <div className="banner">
+        <div className="banner_wrapper">
             <div className="banner_blackout d-flex flex-column justify-content-center align-items-center">
                 <div className="content d-flex flex-column align-items-center">
                     <h2 className="title">Create your personal program</h2>

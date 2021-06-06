@@ -21,7 +21,7 @@ namespace SportFit.Controllers
             _context = context;
         }
 
-        // GET: api/Programs
+        // GET: api/programs
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProgramModel>>> GetPrograms()
         {
@@ -29,6 +29,57 @@ namespace SportFit.Controllers
                 join programType in _context.ProgramTypes on program.ProgramTypeId equals programType.Id
                 join complexityLevel in _context.ComplexityLevels on program.ComplexityLevelId equals complexityLevel.Id
                 join user in _context.Users on program.UserId equals user.Id
+                select new ProgramModel()
+                {
+                    Id = program.Id,
+                    UserId = user.Id,
+                    UserNickname = user.Nickname,
+                    UserAvatar = user.Avatar,
+                    Name = program.Name,
+                    ProgramTypeId = program.ProgramTypeId,
+                    ProgramType = programType.Name,
+                    ComplexityLevelId = program.ComplexityLevelId,
+                    ComplexityLevel = complexityLevel.Name,
+                    Description = program.Description,
+                    Content = program.Content,
+                    PreView = program.PreView,
+                    CreationDate = program.CreationDate,
+                    ModificationDate = program.ModificationDate
+                }).ToListAsync();
+            
+            /*return await _context.Programs
+                .Include(pt => pt.ProgramType)
+                .Include(c => c.ComplexityLevel)
+                .Include(u => u.User)
+                .Select((Program, index, p) =>  new ProgramModel()
+                    {
+                    Id = p.Id,
+                    UserId = u.Id,
+                    UserNickname = u.Nickname,
+                    UserAvatar = u.Avatar,
+                    Name = p.Name,
+                    ProgramTypeId = p.ProgramTypeId,
+                    ProgramType = programType.Name,
+                    ComplexityLevelId = program.ComplexityLevelId,
+                    ComplexityLevel = complexityLevel.Name,
+                    Description = program.Description,
+                    Content = program.Content,
+                    PreView = program.PreView,
+                    CreationDate = program.CreationDate,
+                    ModificationDate = program.ModificationDate
+                })
+                .ToListAsync();*/
+        }
+        
+        // GET: api/userPrograms
+        [HttpGet("{id}/myPrograms")]
+        public async Task<ActionResult<IEnumerable<ProgramModel>>> GetUserPrograms(Guid id)
+        {
+            return await (from program in _context.Programs
+                join programType in _context.ProgramTypes on program.ProgramTypeId equals programType.Id
+                join complexityLevel in _context.ComplexityLevels on program.ComplexityLevelId equals complexityLevel.Id
+                join user in _context.Users on program.UserId equals user.Id
+                where user.Id == id
                 select new ProgramModel()
                 {
                     Id = program.Id,

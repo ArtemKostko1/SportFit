@@ -116,7 +116,7 @@ a:hover {
   padding: 50px 0;
 }
 
-.banner {
+.banner_wrapper {
   border-radius: 25px;
   height: 400px;
   background-image: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
@@ -124,27 +124,27 @@ a:hover {
   background-size: cover;
   background-position: center;
 }
-.banner .banner_blackout {
+.banner_wrapper .banner_blackout {
   border-radius: 25px;
   height: 400px;
   padding: 75px;
   background-color: rgba(0, 0, 0, 0.5);
 }
-.banner .banner_blackout .content {
+.banner_wrapper .banner_blackout .content {
   margin-bottom: 65px;
 }
-.banner .banner_blackout .content .title {
+.banner_wrapper .banner_blackout .content .title {
   margin-bottom: 20px;
   color: white;
 }
-.banner .banner_blackout .content span {
+.banner_wrapper .banner_blackout .content span {
   color: lightgrey;
 }
-.banner .banner_blackout .button_wrapper .btn {
+.banner_wrapper .banner_blackout .button_wrapper .btn {
   width: 170px;
   color: white;
 }
-.banner .banner_blackout .button_wrapper .btn:hover {
+.banner_wrapper .banner_blackout .button_wrapper .btn:hover {
   color: black;
 }
 
@@ -582,6 +582,18 @@ a:hover {
 .userProgramsListingPage_wrapper .userProgramsListingPage_content .programCardsListing_wrapper {
   margin: 0 -15px;
   margin-bottom: -50px;
+}
+.userProgramsListingPage_wrapper .userProgramsListingPage_content .programCardsListing_wrapper .loading_wrapper {
+  min-height: calc(100vh - 214px);
+}
+.userProgramsListingPage_wrapper .userProgramsListingPage_content .programCardsListing_wrapper .loading_wrapper .loading {
+  margin-bottom: 50px;
+}
+.userProgramsListingPage_wrapper .userProgramsListingPage_content .programCardsListing_wrapper .empty_wrapper .title_wrapper {
+  margin-bottom: 50px;
+}
+.userProgramsListingPage_wrapper .userProgramsListingPage_content .programCardsListing_wrapper .empty_wrapper .banner_wrapper {
+  margin-bottom: 50px;
 }
 
 .supportPage_wrapper {

@@ -62,19 +62,19 @@ const Header = ({authUser}) => {
                                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
                                         <NavLink to={ACCOUNT_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
-                                            Yuor Profile
+                                            My Profile
                                         </NavLink>
                                     </li>
                                     
                                     <li>
                                         <NavLink to={USER_PROGRAMS_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
-                                            Yuor Programs
+                                            My Programs
                                         </NavLink>
                                     </li>
                                     
                                     <li>
                                         <NavLink to={USER_SELECTED_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
-                                            Your Selected
+                                            My Selected
                                         </NavLink>
                                     </li>
                                     

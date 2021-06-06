@@ -48,10 +48,10 @@ const SignUpPage = ({...props}) => {
         e.preventDefault();
         
         if (validate()) {
-            props.register(values, () => addToast("Registration successfully", {appearance: 'success'}));
+            props.register(values, () => addToast("Successfully registered", {appearance: 'success'}));
             resetForm();
         } else {
-            addToast("Registration failed", {appearance: 'warning'});
+            addToast("Failed registered", {appearance: 'warning'});
         }
     }
     

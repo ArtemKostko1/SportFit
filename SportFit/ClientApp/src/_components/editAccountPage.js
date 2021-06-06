@@ -58,7 +58,7 @@ const EditAccountPage = ({...props}) => {
     const handleSubmit = e => {
         e.preventDefault();
         if (validate()) {
-            props.updateUser(currentUser.id, values, () =>  addToast("Updated successfully", {appearance: 'success'}));
+            props.updateUser(currentUser.id, values, () =>  addToast("Successfully edited", {appearance: 'success'}));
         } else {
             addToast(errors.Email, {appearance: 'warning'});
         }

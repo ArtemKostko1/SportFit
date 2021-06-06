@@ -7,14 +7,17 @@ import * as complexityLevelActions from "../_actions/complexityLevel-actions";
 import Spinner from "./special-components/spinner/spinner";
 import UserProgramCard from "./internal-components/userProgramCard";
 import ProgramsFilterPanel from "./internal-components/programsFilterPanel";
+import Banner from "./internal-components/banner";
+import empty from "./images/empty.svg";
 
 
-const UserProgramsListingPage = ({fetchAllPrograms, fetchAllProgramTypes, fetchAllComplexityLevels, programsList}) => {    
+const UserProgramsListingPage = ({fetchAllMyPrograms, myProgramsList, myProgramsLoading}) => {
+    const currentUserId = JSON.parse(localStorage.getItem('user')).id;
+    
     useEffect(() => {
-        fetchAllPrograms();
-        fetchAllProgramTypes();
-        fetchAllComplexityLevels()
-    }, []);
+        fetchAllMyPrograms(currentUserId);
+        
+    }, [myProgramsList]);
     
     return (
         <div className="userProgramsListingPage_wrapper container-xxl">
@@ -23,15 +26,33 @@ const UserProgramsListingPage = ({fetchAllPrograms, fetchAllProgramTypes, fetchA
                     <h1 className="title fw-bold m-0">YUOR PERSONAL PROGRAMS</h1>
                 </div>
                 
-                <ProgramsFilterPanel/>
+                {
+                    Object.keys(myProgramsList).length !== 0 ?
+                        <ProgramsFilterPanel/> :
+                        null
+                }
                 
-                <div className="programCardsListing_wrapper row d-flex justify-content-center">
+                <div className="programCardsListing_wrapper">
                     {
-                        Object.keys(programsList).length === 0 ? (<Spinner/>) : 
-                        (
+                        myProgramsLoading === true ? (
+                            <div className="loading_wrapper d-flex justify-content-center align-items-center">
+                                <Spinner/>
+                            </div>
+                            ) : 
+                            
+                        (Object.keys(myProgramsList).length === 0 ? (
+                                <div className="empty_wrapper row container-xxl">
+                                    <div className="title_wrapper d-flex justify-content-center">
+                                        <img src={empty} alt="email" width="300" height="300"/>
+                                    </div>
+                                    
+                                    <Banner/>
+                                </div>
+                            ) :
+                                
                             <div className="programCardsListing_content row d-flex">
                                 {
-                                    programsList.map((program, index) => {
+                                    myProgramsList.map((program, index) => {
                                         const {id, name, preView, creationDate} = program;
                                         return (
                                             <UserProgramCard
@@ -54,11 +75,12 @@ const UserProgramsListingPage = ({fetchAllPrograms, fetchAllProgramTypes, fetchA
 };
 
 const mapStateToProps = state => ({
-    programsList: state.programReducer.programsList
+    myProgramsList: state.programReducer.myProgramsList,
+    myProgramsLoading: state.programReducer.myProgramsLoading
 });
 
 const mapActionToProps = {
-    fetchAllPrograms: programActions.fetchAllPrograms,
+    fetchAllMyPrograms: programActions.fetchAllMyPrograms,
     fetchAllProgramTypes: programTypeActions.fetchAllProgramTypes,
     fetchAllComplexityLevels: complexityLevelActions.fetchAllComplexityLevels
 }

@@ -12,6 +12,17 @@ export const fetchAllPrograms = () => dispatch => {
         .catch(err => console.log(err));
 }
 
+export const fetchAllMyPrograms = (id) => dispatch => {
+    api.program().fetchAllMyPrograms(id)
+        .then(response => {
+            dispatch({
+                type: programActionTypes.FETCH_ALL_MY_PROGRAMS,
+                payload: response.data
+            });
+        })
+        .catch(err => console.log(err));
+}
+
 export const fetchProgramById = (id) => dispatch => {
     api.program().fetchProgramById(id)
         .then(response => {
@@ -21,12 +32,6 @@ export const fetchProgramById = (id) => dispatch => {
             });
         })
         .catch(err => console.log(err));
-}
-
-export const programsRequested = () => dispatch => {
-    dispatch({
-        type: programActionTypes.PROGRAMS_REQUESTED
-    })
 }
 
 export const createProgram = (data, onSuccess) => dispatch => {
@@ -65,3 +70,16 @@ export const deleteProgram = (id, onSuccess) => dispatch => {
         })
         .catch(err => console.log(err));
 }
+
+export const programsRequested = () => dispatch => {
+    dispatch({
+        type: programActionTypes.PROGRAMS_REQUESTED
+    })
+}
+
+/*
+export const myProgramsRequested = () => dispatch => {
+    dispatch({
+        type: programActionTypes.MY_PROGRAMS_REQUESTED
+    })
+}*/

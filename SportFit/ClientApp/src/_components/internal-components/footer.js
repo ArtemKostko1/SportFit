@@ -18,6 +18,11 @@ import NotificationToast from "../special-components/notificationToast";
 
 
 const Footer = ({fetchAllPrograms, programsList}) => {
+
+    const body = [
+        
+    ]
+    
     useEffect(() => {
         fetchAllPrograms();
     }, []);
@@ -94,24 +99,7 @@ const Footer = ({fetchAllPrograms, programsList}) => {
                                 <i className="bi bi-geo-alt me-2"/>
                                 Our address
                             </div>
-                            <NotificationToast 
-                                body=
-                                    {
-                                        <div>
-                                            <a
-                                                target="_blank"
-                                                href="https://yandex.by/maps/org/minskiy_gosudarstvenny_kolledzh_elektroniki/1018469854/?utm_medium=mapframe&utm_source=maps">
-                                                Минский государственный колледж электроники
-                                            </a>
-                                            
-                                            <iframe 
-                                                src="https://yandex.by/map-widget/v1/-/CCUaN4aIcB" 
-                                                width="100%" height="400" 
-                                                frameBorder="1"
-                                                allowFullScreen="true"/>
-                                        </div>
-                                    }
-                            />
+                            <NotificationToast/>
                         </div>
                     </div>
                     

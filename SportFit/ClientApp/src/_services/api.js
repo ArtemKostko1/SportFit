@@ -1,5 +1,4 @@
 ﻿import axios from 'axios';
-import dateFormat from "../_components/utils/dateFormat";
 
 const baseUrl = "http://localhost:5000/api/";
 
@@ -47,6 +46,7 @@ export const user = (url = baseUrl + 'users') => {
 export const program = (url = baseUrl + 'programs') => {
     return{
         fetchAllPrograms: async () => await axios.get(url),
+        fetchAllMyPrograms: async id => await axios.get(`${url}/${id}/myPrograms`),
         fetchProgramById: async id => await axios.get(`${url}/${id}`),
         createProgram: async newRecord => await axios.post(url, newRecord),
         updateProgram: async (id, updatedRecord) => await axios.put(`${url}/${id}`, updatedRecord),

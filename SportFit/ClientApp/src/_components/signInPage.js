@@ -45,10 +45,10 @@ const SignInPage = ({...props}) => {
         e.preventDefault();
         
         if (validate()) {
-            props.authenticate(values, () => addToast("Authentication successfully", {appearance: 'success'}))
+            props.authenticate(values, () => addToast("Successfully authenticated", {appearance: 'success'}))
             resetForm();
         } else {
-            addToast("Authentication failed", {appearance: 'warning'});
+            addToast("Failed authenticated", {appearance: 'warning'});
         }
     }
     

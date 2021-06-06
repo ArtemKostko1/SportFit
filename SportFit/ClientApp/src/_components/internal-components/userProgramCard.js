@@ -17,7 +17,7 @@ const UserProgramCard = ({ id, name, preView, creationDate, deleteProgram }) => 
     
     const onDelete = id => {
         if(window.confirm('Are you sure to delete this program?'))
-            deleteProgram(id, () => addToast("Delete successfully", { appearance: 'success'}));
+            deleteProgram(id, () => addToast("Successfully deleted", { appearance: 'success'}));
     }
     
     return (

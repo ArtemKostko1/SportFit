@@ -1,7 +1,7 @@
 .userProgramsListingPage_wrapper {
   padding: 50px 0;
   
-  .userProgramsListingPage_content {
+  .userProgramsListingPage_content {    
     .title_wrapper {
       margin-bottom: 50px;
     }
@@ -9,6 +9,23 @@
     .programCardsListing_wrapper {
       margin: 0 -15px;
       margin-bottom: -50px;
+      
+      .loading_wrapper {
+        min-height: calc(100vh - 214px);
+        .loading {
+          margin-bottom: 50px;
+        }
+      }
+      
+      .empty_wrapper {
+        .title_wrapper {
+          margin-bottom: 50px;
+        }
+        
+        .banner_wrapper {
+          margin-bottom: 50px;
+        }
+      }
     }
   }
 }

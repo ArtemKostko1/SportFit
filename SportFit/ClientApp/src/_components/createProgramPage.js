@@ -62,14 +62,14 @@ const CreateProgramPage = ({...props}) => {
         
         if (validate()) {
             if (currentProgram.id === undefined) {
-                props.createProgram(values, () => addToast("Created successfully", {appearance: 'success'}));
+                props.createProgram(values, () => addToast("Successfully created", {appearance: 'success'}));
                 resetForm();
                 
             } else {
-                props.updateProgram(currentProgram.id, values, () => addToast("Editing successfully", {appearance: 'success'}));
+                props.updateProgram(currentProgram.id, values, () => addToast("Successfully edited", {appearance: 'success'}));
             }
         } else {
-            addToast("Created failed", {appearance: 'warning'});
+            addToast("Failed created", {appearance: 'warning'});
         }
     }
     
