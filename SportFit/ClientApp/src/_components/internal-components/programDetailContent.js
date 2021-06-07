@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
 import {ACCOUNT_ROUTE} from "../../_routing/routerConsts";
 import * as interfaceFunc from "../utils/interface";
@@ -15,14 +15,55 @@ import muscles_medium from "../images/muscles_medium.png";
 import muscles_professional from "../images/muscles_professional.png";
 import camera from "../images/camera.svg";
 import profile from "../images/profile.svg";
+import bookmark from "../images/bookmark.svg";
+import bookmark_solid from "../images/bookmark_solid.svg";
+import like from "../images/like.svg";
+import like_solid from "../images/like_solid.svg";
 
 
 const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, content }) => {
+    let isSelected = false;
+    let isLiked = false;
+    
+    const onSelected = () => {
+        isSelected = !isSelected;
+        
+        if (isSelected) {
+            let attribute = document.createAttribute("src");
+            attribute.value = `${bookmark_solid}`;
+            document.getElementById('addToSelected_button').attributes.setNamedItem(attribute)
+            
+        } else {
+            let attribute = document.createAttribute("src");
+            attribute.value = `${bookmark}`;
+            document.getElementById('addToSelected_button').attributes.setNamedItem(attribute)
+        }
+    }
+
+    const onLiked = () => {
+        isLiked = !isLiked;
+
+        if (isLiked) {
+            let attribute = document.createAttribute("src");
+            attribute.value = `${like_solid}`;
+            document.getElementById('like_button').attributes.setNamedItem(attribute)
+            
+        } else {
+            let attribute = document.createAttribute("src");
+            attribute.value = `${like}`;
+            document.getElementById('like_button').attributes.setNamedItem(attribute)
+        }
+    }
+
+    useEffect(() => {
+        
+    }, [isSelected]);
+    
     return (
         <>
             <div className="programDetail_content container-xxl shadow">
                 <div className="topInfo_wrapper row w-100">
-                    <div className="user_wrapper col-11 d-flex align-items-center">
+                    <div className="user_wrapper col-10 d-flex align-items-center">
                         <Link to={`${ACCOUNT_ROUTE}/${userId}`} className="user_wrapper d-flex align-items-center w-100">
                             <div className="avatar rounded-circle d-flex justify-content-center align-items-center">
                                 <img src={userAvatar === null ? profile : userAvatar} alt="ava" width="auto" height="100%"/>
@@ -34,12 +75,26 @@ const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, prog
                         </Link>
                     </div>
     
-                    <div className="likes_wrapper col-1 d-flex align-items-center">
-                        <span className="likesCount fw-bold">0</span>
+                    <div className="actionsButtons_wrapper col-2 d-flex justify-content-end">
+                        <div className="likes_wrapper d-flex align-items-center">
+                            <span className="likesCount fw-bold">0</span>
+        
+                            <button 
+                                className="likeProgram rounded-circle shadow-sm rounded ms-2"
+                                onClick={() => onLiked()}>
+                                
+                                <img id="like_button" src={like} alt="ava" width="25" height="25"/>
+                            </button>
+                        </div>
     
-                        <button className="likeProgram rounded-circle shadow-sm rounded ms-2">
-                            <i className="bi bi-suit-heart"/>
-                        </button>
+                        <div className="addToSelected_wrapper ms-2">
+                            <button 
+                                className="addToSelected rounded-circle shadow-sm rounded ms-2"
+                                onClick={() => onSelected()}>
+                                
+                                <img id="addToSelected_button" src={bookmark} alt="ava" width="25" height="25"/>
+                            </button>
+                        </div>
                     </div>
                 </div>
     

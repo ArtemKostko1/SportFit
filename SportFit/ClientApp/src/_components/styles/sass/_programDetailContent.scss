@@ -29,31 +29,57 @@
       }
     }
 
-    .likes_wrapper {
-      .likesCount {
-        font-size: 14pt;
-        color: #0d6efd;
-      }
-
-      .likeProgram {
-        height: 45px;
-        width: 45px;
-
-        background-color: #F2FDFF;
-        border: transparent;
-
-        .bi {
-          font-weight: bold;
-          font-size: 24px;
+    .actionsButtons_wrapper {
+      .likes_wrapper {
+        .likesCount {
+          font-size: 14pt;
           color: #0d6efd;
         }
-
-        &:hover {
-          background-color: #C8F8FF;
+  
+        .likeProgram {
+          height: 45px;
+          width: 45px;
+  
+          background-color: #F2FDFF;
+          border: transparent;
+  
+          .bi {
+            font-weight: bold;
+            font-size: 24px;
+            color: #0d6efd;
+          }
+  
+          &:hover {
+            background-color: #C8F8FF;
+          }
+  
+          &:active {
+            background-color: #ceecff;
+          }
         }
+      }
+      
+      .addToSelected_wrapper {
+        .addToSelected {
+          height: 45px;
+          width: 45px;
 
-        &:active {
-          background-color: #ceecff;
+          background-color: #F2FDFF;
+          border: transparent;
+
+          .bi {
+            font-weight: bold;
+            font-size: 24px;
+            color: #0d6efd;
+          }
+
+          &:hover {
+            background-color: #C8F8FF;
+          }
+
+          &:active {
+            background-color: #ceecff;
+          }
         }
       }
     }

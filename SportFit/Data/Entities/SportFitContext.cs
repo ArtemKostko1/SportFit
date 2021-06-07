@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace SportFit.Data.Entities
@@ -41,6 +42,43 @@ namespace SportFit.Data.Entities
                 .HasOne(s => s.Program)
                 .WithMany(p => p.SelectedPrograms)
                 .OnDelete(DeleteBehavior.Restrict);
+            
+            
+            modelBuilder.Entity<ProgramType>().HasData(
+                new ProgramType
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Training program"
+                },
+                new ProgramType
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Meal plan"
+                }
+            );
+            
+            modelBuilder.Entity<ComplexityLevel>().HasData(
+                new ComplexityLevel
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Professional"
+                },
+                new ComplexityLevel
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Hard"
+                },
+                new ComplexityLevel
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Medium"
+                },
+                new ComplexityLevel
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Easy"
+                }
+            );
         }
 
         public DbSet<User> Users { get; set; }

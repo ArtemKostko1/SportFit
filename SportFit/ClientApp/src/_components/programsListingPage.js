@@ -9,6 +9,7 @@ import Spinner from "./special-components/spinner/spinner";
 import ProgramsFilterPanel from "./internal-components/programsFilterPanel";
 
 import meditation from "./images/meditation.svg";
+import empty from "./images/empty.svg";
 
 
 const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoading}) => {
@@ -20,11 +21,24 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoadin
         <div className="programsListingPage_wrapper container-xxl">
             <Banner/>
             <Separator image={meditation}/>
-            <ProgramsFilterPanel/>
+            
+            {
+                Object.keys(programsList).length !== 0 ?
+                    <ProgramsFilterPanel/> :
+                    null
+            }
             
             <div className="programsListing_content d-flex flex-column align-items-center">
                 {programsListLoading === true ? (<Spinner/>) : (
-
+                    
+                    (Object.keys(programsList).length === 0 ? (
+                        <div className="empty_wrapper row container-xxl">
+                            <div className="title_wrapper d-flex justify-content-center">
+                                <img src={empty} alt="email" width="300" height="300"/>
+                            </div>
+                        </div>
+                    ) :
+                            
                     programsList.map((program, index) => {
                         const { id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate } = program;
                         return (
@@ -43,7 +57,7 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoadin
                             />
                         );
                     })
-                )}
+                ))}
             </div> 
         </div>
     );

@@ -15,31 +15,60 @@
   .commentItem_content {
     min-height: 90px;
     
-    .userNickname {
+    .nicknameAndActions {
       margin-bottom: 5px;
       
-      span {
-        color: #000000;
-        font-size: 12pt;
+      .userNickname {
+        span {
+          color: #000000;
+          font-size: 12pt;
 
-        &:hover {
-          color: #555555;
-          cursor: pointer;
+          &:hover {
+            color: #555555;
+            cursor: pointer;
+          }
+        }
+      }
+      
+      .actionsButtons_wrapper {
+        .dropdown{
+          .actions_dropdown {
+            height: 27.5px;
+            width: 27.5px;
+            
+            border-radius: 50px;
+          }
+
+          .dropdown-menu {
+            .dropdown-item {
+              cursor: pointer;
+            }
+          }
+          
+          &:hover{
+            background-color: #f0f0f0;
+            
+            .fa {
+              color: #000000;
+            }
+          }
+          
+          .fa {
+            color: #aaaaaa;
+          }
         }
       }
     }
 
     .form-control {
-      height: 67.5px;
+      height: 77.5px;
       line-height: 1.75rem;
 
       margin-bottom: 5px;
-      
-      color: #808080;
     }
     
     .creationDate_wrapper {
-      font-size: 10pt;
+      font-size: 12pt;
     }
   }
 }

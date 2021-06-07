@@ -20,12 +20,14 @@ const CommentsBlock = ({programId, userId, fetchAllComment, commentsList, commen
             
             <hr className="w-100 m-0"/>
             
-            <div className="commentsList_wrapper">
-                {commentsListLoading === true ? (<Spinner/>) : (
-                    
-                    (programCommentsList.length !== 0 ?
+            {commentsListLoading === true ? (<Spinner/>) : (
+                
+                (programCommentsList.length !== 0 ?
+                        
+                    <div className="commentsList_wrapper"> {
                         programCommentsList.map((comment, index) => {
-                            const { id, program, user, nickname, avatar, content, creationDate, modificationDate } = comment;
+                            const {id, program, user, nickname, avatar, content, creationDate, modificationDate} = comment;
+                            
                             return (
                                 <CommentItem
                                     key={index}
@@ -38,11 +40,12 @@ const CommentsBlock = ({programId, userId, fetchAllComment, commentsList, commen
                                     creationDate={creationDate}
                                     modificationDate={modificationDate}/>
                             );
-                        }) :
-                        null
-                    )
-                )}
-            </div>
+                        })
+                    }
+                    </div> :
+                    null
+                )
+            )}
         </div>
     );
 };
