@@ -1,8 +1,6 @@
-﻿import React, {useEffect, useState} from 'react';
+﻿import React, {useEffect} from 'react';
 import {connect} from "react-redux";
 import * as programActions from "../_actions/program-actions";
-import * as programTypeActions from "../_actions/programType-actions";
-import * as complexityLevelActions from "../_actions/complexityLevel-actions";
 
 import Spinner from "./special-components/spinner/spinner";
 import UserProgramCard from "./internal-components/userProgramCard";
@@ -16,7 +14,7 @@ const UserProgramsListingPage = ({fetchAllMyPrograms, myProgramsList, myPrograms
     
     useEffect(() => {
         fetchAllMyPrograms(currentUserId);
-        
+
     }, [myProgramsList]);
     
     return (
@@ -80,9 +78,7 @@ const mapStateToProps = state => ({
 });
 
 const mapActionToProps = {
-    fetchAllMyPrograms: programActions.fetchAllMyPrograms,
-    fetchAllProgramTypes: programTypeActions.fetchAllProgramTypes,
-    fetchAllComplexityLevels: complexityLevelActions.fetchAllComplexityLevels
+    fetchAllMyPrograms: programActions.fetchAllMyPrograms
 }
 
 export default connect(mapStateToProps, mapActionToProps)(UserProgramsListingPage);

@@ -6,22 +6,24 @@ import ProgramDetailContent from "./internal-components/programDetailContent";
 import Spinner from "./special-components/spinner/spinner";
 
 
-const ProgramDetailPage = ({match, fetchProgramById, programsRequested, programItem}) => {
-    const { id } = match.params;
+const ProgramDetailPage = ({match, programItem, fetchProgramById, programItemLoading, programItemRequested}) => {
+    const currentProgram = match.params;
     
     useEffect(() => {
-        fetchProgramById(id);
+        fetchProgramById(currentProgram.id);
+        
         return () => {
-            programsRequested();
+            programItemRequested();
         }
-    }, [id]);
+    }, [currentProgram.id]);
 
-    const { userId, userNickname, userAvatar, name, programType, complexityLevel, description, content } = programItem;
+    const { id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, content } = programItem;
     
     return (
         <div className="programDetailPage_wrapper container-xxl d-flex flex-column align-items-center justify-content-center">
-            {Object.keys(programItem).length === 0 ? (<Spinner/>) : (
+            {programItemLoading === true ? (<Spinner/>) : (
                 <ProgramDetailContent
+                    id={id}
                     userId={userId}
                     userNickname={userNickname}
                     userAvatar={userAvatar}
@@ -36,13 +38,14 @@ const ProgramDetailPage = ({match, fetchProgramById, programsRequested, programI
     )
 }
 
-const mapStateToProps = programState => ({
-    programItem: programState.programReducer.programItem
+const mapStateToProps = state => ({
+    programItem: state.programReducer.programItem,
+    programItemLoading: state.programReducer.programItemLoading
 });
 
 const mapActionToProps = {
     fetchProgramById: programActions.fetchProgramById,
-    programsRequested: programActions.programsRequested
+    programItemRequested: programActions.programItemRequested
 }
 
 export default connect(mapStateToProps, mapActionToProps)(ProgramDetailPage);

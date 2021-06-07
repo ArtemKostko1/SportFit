@@ -1,9 +1,6 @@
 ﻿import React, { useEffect } from 'react';
 import { connect } from "react-redux";
 import * as programActions from '../_actions/program-actions';
-import * as userActions from '../_actions/user-actions';
-
-import meditation from "./images/meditation.svg";
 
 import Banner from "./internal-components/banner";
 import Separator from "./internal-components/separator";
@@ -11,8 +8,10 @@ import ProgramItem from "./internal-components/programItem";
 import Spinner from "./special-components/spinner/spinner";
 import ProgramsFilterPanel from "./internal-components/programsFilterPanel";
 
+import meditation from "./images/meditation.svg";
 
-const ProgramsListingPage = ({fetchAllPrograms, programsList}) => {
+
+const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoading}) => {
     useEffect(() => {
         fetchAllPrograms();
     }, []);
@@ -24,7 +23,7 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList}) => {
             <ProgramsFilterPanel/>
             
             <div className="programsListing_content d-flex flex-column align-items-center">
-                {Object.keys(programsList).length === 0 ? (<Spinner/>) : (
+                {programsListLoading === true ? (<Spinner/>) : (
 
                     programsList.map((program, index) => {
                         const { id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate } = program;
@@ -51,7 +50,8 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList}) => {
 }
 
 const mapStateToProps = state => ({
-    programsList: state.programReducer.programsList
+    programsList: state.programReducer.programsList,
+    programsListLoading: state.programReducer.programsListLoading
 });
 
 const mapActionToProps = {

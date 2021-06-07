@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SportFit.Data.Entities;
+using SportFit.Data.Models;
 
 namespace SportFit.Controllers
 {
@@ -22,9 +23,22 @@ namespace SportFit.Controllers
 
         // GET: api/Comments
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Comment>>> GetComments()
+        public async Task<ActionResult<IEnumerable<CommentModel>>> GetComments()
         {
-            return await _context.Comments.ToListAsync();
+            return await (from comment in _context.Comments
+                join program in _context.Programs on comment.ProgramId equals program.Id
+                join user in _context.Users on comment.UserId equals user.Id
+                select new CommentModel()
+                {
+                    Id = comment.Id,
+                    Program = program.Id,
+                    User = user.Id,
+                    Nickname = user.Nickname,
+                    Avatar = user.Avatar,
+                    Content = comment.Content,
+                    CreationDate = comment.CreationDate,
+                    ModificationDate = comment.ModificationDate
+                }).ToListAsync();
         }
 
         // GET: api/Comments/5
@@ -74,6 +88,7 @@ namespace SportFit.Controllers
         [HttpPost]
         public async Task<ActionResult<Comment>> PostComment(Comment comment)
         {
+            comment.CreationDate = DateTime.Now;
             _context.Comments.Add(comment);
             try
             {

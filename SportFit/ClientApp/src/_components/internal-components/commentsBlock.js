@@ -1,24 +1,59 @@
-﻿import React from 'react';
+﻿import React, {useEffect} from 'react';
+import {connect} from "react-redux";
+import * as commentActions from "../../_actions/comment-actions";
+
 import CommentItem from "./commentItem";
 import UserComment from "./userComment";
+import Spinner from "../special-components/spinner/spinner";
 
-import profile from "../images/profile.svg";
 
-const CommentsBlock = () => {
+const CommentsBlock = ({programId, userId, fetchAllComment, commentsList, commentsListLoading}) => {
+    useEffect(() => {
+        fetchAllComment();
+    }, [commentsList]);
+
+    let programCommentsList = commentsList.filter(c => c.program === programId);
+    
     return (
-        <div className="commentsBlock_wrapper container-xxl shadow-sm">
-            <UserComment avatar={ profile }/>
+        <div className="commentsBlock_wrapper container-xxl shadow-sm p-0">
+            <UserComment programId={programId}/>
             
             <hr className="w-100 m-0"/>
             
             <div className="commentsList_wrapper">
-                <CommentItem avatar={ profile } nickname="Floyd Miles" comment="Great choice of Acronym AF1’s 👌🏼"/>
-                <CommentItem avatar={ profile } nickname="Savannah Nguyen" comment="Flipping the cassette while reading/examining the fold-out cover 😁"/>
-                <CommentItem avatar={ profile } nickname="Marvin McKinney" comment="Everyday I “just” listen to music 👌🏿"/>
-                <CommentItem avatar={ profile } nickname="Courtney Henry" comment="Soo great!!!"/>
+                {commentsListLoading === true ? (<Spinner/>) : (
+                    
+                    (programCommentsList.length !== 0 ?
+                        programCommentsList.map((comment, index) => {
+                            const { id, program, user, nickname, avatar, content, creationDate, modificationDate } = comment;
+                            return (
+                                <CommentItem
+                                    key={index}
+                                    id={id}
+                                    program={program}
+                                    user={user}
+                                    nickname={nickname}
+                                    avatar={avatar}
+                                    content={content}
+                                    creationDate={creationDate}
+                                    modificationDate={modificationDate}/>
+                            );
+                        }) :
+                        null
+                    )
+                )}
             </div>
         </div>
     );
 };
 
-export default CommentsBlock;
+const mapStateToProps = state => ({
+    commentsList: state.commentReducer.commentsList,
+    commentsListLoading: state.commentReducer.commentsListLoading
+});
+
+const mapActionToProps = {
+    fetchAllComment: commentActions.fetchAllComments
+}
+
+export default connect(mapStateToProps, mapActionToProps)(CommentsBlock);

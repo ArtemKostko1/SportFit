@@ -208,12 +208,12 @@ const CreateProgramPage = ({...props}) => {
                         </div>
 
                         <div className="right_block col-4">
-                            <div className="preViewDownloadPhoto_block w-100">
+                            <div className="preViewDownloadPhoto_block d-flex flex-column align-items-end">
                                 <div className="preView_wrapper d-flex justify-content-center align-items-center">
                                     {
-                                        values.PreView === null || values.PreView === '' || values.PreView === undefined ? 
-                                            <img className="preView_photo" src={camera} alt="preView" width="187" height="141"/> : 
-                                            <img className="preView_photo" src={values.PreView} alt="preView"/>
+                                        values.PreView === null || values.PreView === '' ? 
+                                            <img src={camera} alt="preView" width="187" height="141"/> : 
+                                            <img className="preView_photo" src={values.PreView} alt="preView" width="auto" height="100%"/>
                                     }
                                 </div>
 
@@ -221,7 +221,7 @@ const CreateProgramPage = ({...props}) => {
                                     <span className="input-group-text" id="validationCustomPreview">Url</span>
                                     <input
                                         name="PreView"
-                                        className="downloadPhoto form-control" 
+                                        className="form-control" 
                                         type="text"
                                         id="validationCustomPreview"
                                         value={values.PreView}

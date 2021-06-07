@@ -4,26 +4,19 @@ const programInitialState = {
     programsList: [],
     myProgramsList: [],
     programItem: {},
-    programsLoading: true,
-    myProgramsLoading: true,
+    programItemLoading: true,
+    programsListLoading: true,
+    myProgramsListLoading: true,
 }
 
 export const programReducer = (state = programInitialState, {type, payload}) => {
-    switch (type){
-        case programActionTypes.PROGRAMS_REQUESTED:
-            return {
-                programItem: {}
-            }
-
-        /*case programActionTypes.MY_PROGRAMS_REQUESTED:
-            return {
-                myProgramsList: []
-            }*/
-        
+    switch (type)
+    {        
         case programActionTypes.FETCH_ALL_PROGRAMS:
             return {
                 ...state,
-                programsList: payload
+                programsList: payload,
+                programsListLoading: false
             }
 
         case programActionTypes.FETCH_ALL_MY_PROGRAMS:
@@ -36,7 +29,8 @@ export const programReducer = (state = programInitialState, {type, payload}) => 
         case programActionTypes.FETCH_PROGRAM:
             return {
                 ...state,
-                programItem: payload
+                programItem: payload,
+                programItemLoading: false
             }
 
         case programActionTypes.CREATE_PROGRAM:
@@ -55,6 +49,20 @@ export const programReducer = (state = programInitialState, {type, payload}) => 
             return {
                 ...state,
                 programsList: state.programsList.filter(x => x.id !== payload)
+            }
+
+        case programActionTypes.PROGRAM_ITEM_REQUESTED:
+            return {
+                ...state,
+                programItem: {},
+                programItemLoading: true
+            }
+
+        case programActionTypes.MY_PROGRAMS_REQUESTED:
+            return {
+                ...state,
+                myProgramsList: [],
+                myProgramsListLoading: true
             }
 
         default:

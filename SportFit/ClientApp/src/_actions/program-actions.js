@@ -47,7 +47,6 @@ export const createProgram = (data, onSuccess) => dispatch => {
 }
 
 export const updateProgram = (id, data, onSuccess) => dispatch => {
-    debugger
     api.program().updateProgram(id, data)
         .then(response => {
             dispatch({
@@ -71,15 +70,14 @@ export const deleteProgram = (id, onSuccess) => dispatch => {
         .catch(err => console.log(err));
 }
 
-export const programsRequested = () => dispatch => {
+export const programItemRequested = () => dispatch => {
     dispatch({
-        type: programActionTypes.PROGRAMS_REQUESTED
+        type: programActionTypes.PROGRAM_ITEM_REQUESTED
     })
 }
 
-/*
 export const myProgramsRequested = () => dispatch => {
     dispatch({
         type: programActionTypes.MY_PROGRAMS_REQUESTED
     })
-}*/
+}

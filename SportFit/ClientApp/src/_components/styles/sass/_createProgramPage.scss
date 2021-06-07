@@ -7,13 +7,17 @@
     border-radius: 25px;
     
     .top_block{
-      margin-bottom: 30px;
+      margin-bottom: 32.5px;
       
       .left_block {
         .input_wrapper {
-          height: 65px;
+          .form-floating {
+            .form-control, .form-select {
+              height: 67.5px;
+            }
+          }
           
-          margin-bottom: 30px;
+          margin-bottom: 32.5px;
           
           &:last-child {
             margin-bottom: 0;
@@ -29,12 +33,11 @@
 
       .right_block {
         .preViewDownloadPhoto_block {
-          height: 350px;
           .preView_wrapper {
             overflow: hidden;
             
-            height: 307.5px;
-            width: auto;
+            height: 325px;
+            width: 420px;
             
             background-color: #e0e0e0;
             border-radius: 15px 15px 0 0;
@@ -42,24 +45,19 @@
             .preView_photo {
               border-radius: 15px 15px 0 0;
             }
-            
-            .input-group {
-              span {
-                height: 42.5px;
-              }
-              .downloadPhoto {
-                height: 42.5px !important;
-              }
-            }
           }
           
-          .input-group {            
+          .input-group {
+            width: 420px;
+            
             .input-group-text{
-              border-radius: 0 0 0 15px; 
+              border-radius: 0 0 0 15px;
+              height: 42.5px;
             }
             
-            .downloadPhoto {
+            .form-control {
               border-radius: 0 0 15px 0;
+              height: 42.5px;
             }
           }
         }

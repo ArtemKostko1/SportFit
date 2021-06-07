@@ -67,3 +67,13 @@ export const complexityLevel = (url = baseUrl + 'complexityLevels') => {
         fetchComplexityLevelById: async id => await axios.get(`${url}/${id}`),
     }
 }
+
+export const comment = (url = baseUrl + 'comments') => {
+    return{
+        fetchAllComments: async () => await axios.get(url),
+        fetchCommentById: async id => await axios.get(`${url}/${id}`),
+        createComment: async newRecord => await axios.post(url, newRecord),
+        updateComment: async (id, updatedRecord) => await axios.put(`${url}/${id}`, updatedRecord),
+        deleteComment: async id => await axios.delete(`${url}/${id}`)
+    }
+}

@@ -7,10 +7,10 @@ namespace SportFit.Data.Entities
 {
     public class Like : BaseEntity
     {
-        [Required]
-        public Program Program { get; set; }
-
-        [Required]
+        public Guid ProgramId { get; set; }
+        public Guid UserId { get; set; }
+        
         public User User { get; set; }
+        public Program Program { get; set; }
     }
 }

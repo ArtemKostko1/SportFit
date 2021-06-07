@@ -1,9 +1,12 @@
 ﻿import React from 'react';
 import {Link} from "react-router-dom";
-import Tippy from '@tippy.js/react';
-import 'tippy.js/dist/tippy.css';
+import {ACCOUNT_ROUTE} from "../../_routing/routerConsts";
+import * as interfaceFunc from "../utils/interface";
 
 import CommentsBlock from "./commentsBlock";
+
+import Tippy from '@tippy.js/react';
+import 'tippy.js/dist/tippy.css';
 import dumbbell from "../images/dumbbell.svg";
 import meal from "../images/meal.svg";
 import muscles_hard from "../images/muscles_hard.png";
@@ -12,11 +15,9 @@ import muscles_medium from "../images/muscles_medium.png";
 import muscles_professional from "../images/muscles_professional.png";
 import camera from "../images/camera.svg";
 import profile from "../images/profile.svg";
-import {ACCOUNT_ROUTE} from "../../_routing/routerConsts";
-import * as interfaceFunc from "../utils/interface";
 
 
-const ProgramDetailContent = ({ userId, userNickname, userAvatar, name, programType, complexityLevel, description, content }) => {
+const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, content }) => {
     return (
         <>
             <div className="programDetail_content container-xxl shadow">
@@ -53,7 +54,7 @@ const ProgramDetailContent = ({ userId, userNickname, userAvatar, name, programT
                                     (programType === 'Meal plan' || programType === 'План питания' ?
                                         meal : null)
                                  } 
-                                 alt="ava" width="42" height="42"/>
+                                 alt="type" width="42" height="42"/>
                         </div>
     
                         <div className="complexityLevel_wrapper col-6 d-flex align-items-center justify-content-end">
@@ -124,7 +125,7 @@ const ProgramDetailContent = ({ userId, userNickname, userAvatar, name, programT
                 </div>
             </div>
     
-            <CommentsBlock/>
+            <CommentsBlock programId={id} userId={userId}/>
         </>
     );
 };

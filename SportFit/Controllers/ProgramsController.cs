@@ -160,7 +160,6 @@ namespace SportFit.Controllers
         [HttpPost]
         public async Task<ActionResult<SportFit.Data.Entities.Program>> PostProgram(SportFit.Data.Entities.Program program)
         {
-            program.Id = Guid.NewGuid();
             program.CreationDate = DateTime.Now;
             
             _context.Programs.Add(program);
