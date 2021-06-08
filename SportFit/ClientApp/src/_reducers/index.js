@@ -4,11 +4,13 @@ import { programReducer } from "./program-reducer";
 import { programTypeReducer } from "./programType-reducer";
 import { complexityLevelReducer } from "./complexityLevel-reducer";
 import { commentReducer } from "./comment-reducer";
+import { likeReducer } from "./like-reducer";
 
 export const reducers = combineReducers({
     userReducer,
     programReducer,
     programTypeReducer,
     complexityLevelReducer,
-    commentReducer
+    commentReducer,
+    likeReducer
 });

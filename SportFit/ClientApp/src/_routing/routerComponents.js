@@ -1,7 +1,6 @@
 ﻿import {
     MAIN_ROUTE, PROGRAMS_LISTENING_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE, CREATE_PROGRAM_ROUTE, PROGRAM_DETAIL_ROUTE, 
-    ACCOUNT_ROUTE, EDIT_ACCOUNT_ROUTE, USER_SELECTED_ROUTE, USER_PROGRAMS_ROUTE, SUPPORT_ROUTE, SETTINGS_ROUTE,
-    EDIT_PROGRAM_ROUTE
+    ACCOUNT_ROUTE, EDIT_ACCOUNT_ROUTE, USER_SELECTED_ROUTE, USER_PROGRAMS_ROUTE, SUPPORT_ROUTE, EDIT_PROGRAM_ROUTE
 } from "./routerConsts";
 
 import HomePage from "../_components/homePage";
@@ -15,7 +14,6 @@ import EditAccountPage from "../_components/editAccountPage";
 import UserSelectedPage from "../_components/userSelectedPage";
 import UserProgramsListingPage from "../_components/userProgramsListingPage";
 import SupportPage from "../_components/supportPage";
-import SettingsPage from "../_components/settingsPage";
 
 export const routerComponents = [
     {
@@ -65,9 +63,5 @@ export const routerComponents = [
     {
         path: SUPPORT_ROUTE,
         Component: SupportPage
-    },
-    {
-        path: SETTINGS_ROUTE,
-        Component: SettingsPage
     }
 ]

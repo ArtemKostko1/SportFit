@@ -10,6 +10,7 @@ import ProgramsFilterPanel from "./internal-components/programsFilterPanel";
 
 import meditation from "./images/meditation.svg";
 import empty from "./images/empty.svg";
+import Footer from "./internal-components/footer";
 
 
 const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoading}) => {
@@ -18,7 +19,8 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoadin
     }, []);
     
     return (
-        <div className="programsListingPage_wrapper container-xxl">
+        <>
+            <div className="programsListingPage_wrapper container-xxl">
             <Banner/>
             <Separator image={meditation}/>
             
@@ -60,6 +62,9 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoadin
                 ))}
             </div> 
         </div>
+
+            <Footer/>
+        </>
     );
 }
 

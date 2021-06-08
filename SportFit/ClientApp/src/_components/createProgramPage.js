@@ -8,6 +8,7 @@ import * as complexityLevelActions from "../_actions/complexityLevel-actions";
 import * as validators from "./utils/validators/validators";
 
 import camera from "./images/camera.svg";
+import Footer from "./internal-components/footer";
 
 
 const CreateProgramPage = ({...props}) => {
@@ -97,184 +98,188 @@ const CreateProgramPage = ({...props}) => {
     }, [currentProgram.id]);
 
     return (
-        <div className="createProgramPage_wrapper container-xxl">
-            <div className="createProgram_content shadow">
-                <form className="createProgram_form needs-validation" id="createProgram_form" autoComplete="off" noValidate onSubmit={handleSubmit}>
-                    <div className="top_block row">
-                        <div className="left_block col-8 pe-5">
-                            <div className="input_wrapper p-0">
-                                <div className="form-floating">
-                                    <input
-                                        name="Name"
-                                        type="text"
-                                        className="form-control"
-                                        id="validationCustomName"
-                                        placeholder="Enter the name"
-                                        value={values.Name}
-                                        onChange={handleInputChange}
-                                        required
-                                        {...(errors.Name && { error: "true" })}/>
-
-                                    <label htmlFor="validationCustomName" className="form-label fw-bold">Name</label>
-                                    <div className="invalid-feedback">{errors.Name}</div>
-                                </div>
-                            </div>
-
-                            <div className="input_wrapper p-0">
-                                <div className="form-floating">
-                                    <select
-                                        name="ProgramTypeId"
-                                        className="form-select"
-                                        id="validationCustomProgramTypeId"
-                                        aria-label="select example"
-                                        placeholder="Select program type"
-                                        value={values.ProgramTypeId}
-                                        onChange={handleInputChange}
-                                        required
-                                        {...(errors.ProgramTypeId && { error: "true" })}>
+        <>
+            <div className="createProgramPage_wrapper container-xxl">
+                <div className="createProgram_content shadow">
+                    <form className="createProgram_form needs-validation" id="createProgram_form" autoComplete="off" noValidate onSubmit={handleSubmit}>
+                        <div className="top_block row">
+                            <div className="left_block col-8 pe-5">
+                                <div className="input_wrapper p-0">
+                                    <div className="form-floating">
+                                        <input
+                                            name="Name"
+                                            type="text"
+                                            className="form-control"
+                                            id="validationCustomName"
+                                            placeholder="Enter the name"
+                                            value={values.Name}
+                                            onChange={handleInputChange}
+                                            required
+                                            {...(errors.Name && { error: "true" })}/>
     
-                                        <option selected value="">Open this select menu</option>
-                                        {
-                                            props.programTypesList.map((programType, index) => {
-                                                const { id, name } = programType;
-                                                return (
-                                                    <option
-                                                        key={index}
-                                                        value={id}>
-                                                        
-                                                        {name}
-                                                    </option>
-                                                );
-                                            }
-                                        )}
-                                    </select>
-
-                                    <label htmlFor="validationCustomProgramTypeId" className="form-label fw-bold text-secondary">Type</label>
-                                    <div className="invalid-feedback">{errors.ProgramTypeId}</div>
+                                        <label htmlFor="validationCustomName" className="form-label fw-bold">Name</label>
+                                        <div className="invalid-feedback">{errors.Name}</div>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div className="input_wrapper p-0">
-                                <div className="form-floating">
-                                    <select
-                                        name="ComplexityLevelId"
-                                        className="form-select"
-                                        aria-label="select example"
-                                        id="validationCustomComplexityLevelId"
-                                        placeholder="Select complexity level"
-                                        value={values.ComplexityLevelId}
-                                        onChange={handleInputChange}
-                                        required
-                                        {...(errors.ComplexityLevelId && { error: "true" })}>
     
-                                        <option selected value="">Open this select menu</option>
-                                        {
-                                            props.complexityLevelsList.map((complexityLevel, index) => {
-                                                    const { id, name } = complexityLevel;
+                                <div className="input_wrapper p-0">
+                                    <div className="form-floating">
+                                        <select
+                                            name="ProgramTypeId"
+                                            className="form-select"
+                                            id="validationCustomProgramTypeId"
+                                            aria-label="select example"
+                                            placeholder="Select program type"
+                                            value={values.ProgramTypeId}
+                                            onChange={handleInputChange}
+                                            required
+                                            {...(errors.ProgramTypeId && { error: "true" })}>
+        
+                                            <option selected value="">Open this select menu</option>
+                                            {
+                                                props.programTypesList.map((programType, index) => {
+                                                    const { id, name } = programType;
                                                     return (
                                                         <option
                                                             key={index}
                                                             value={id}>
-    
+                                                            
                                                             {name}
                                                         </option>
                                                     );
                                                 }
                                             )}
-                                    </select>
-
-                                    <label htmlFor="validationCustomComplexityLevelId" className="form-label fw-bold text-secondary">Complexity Level</label>
-                                    <div className="invalid-feedback">{errors.ComplexityLevelId}</div>
+                                        </select>
+    
+                                        <label htmlFor="validationCustomProgramTypeId" className="form-label fw-bold text-secondary">Type</label>
+                                        <div className="invalid-feedback">{errors.ProgramTypeId}</div>
+                                    </div>
+                                </div>
+    
+                                <div className="input_wrapper p-0">
+                                    <div className="form-floating">
+                                        <select
+                                            name="ComplexityLevelId"
+                                            className="form-select"
+                                            aria-label="select example"
+                                            id="validationCustomComplexityLevelId"
+                                            placeholder="Select complexity level"
+                                            value={values.ComplexityLevelId}
+                                            onChange={handleInputChange}
+                                            required
+                                            {...(errors.ComplexityLevelId && { error: "true" })}>
+        
+                                            <option selected value="">Open this select menu</option>
+                                            {
+                                                props.complexityLevelsList.map((complexityLevel, index) => {
+                                                        const { id, name } = complexityLevel;
+                                                        return (
+                                                            <option
+                                                                key={index}
+                                                                value={id}>
+        
+                                                                {name}
+                                                            </option>
+                                                        );
+                                                    }
+                                                )}
+                                        </select>
+    
+                                        <label htmlFor="validationCustomComplexityLevelId" className="form-label fw-bold text-secondary">Complexity Level</label>
+                                        <div className="invalid-feedback">{errors.ComplexityLevelId}</div>
+                                    </div>
+                                </div>
+    
+                                <div className="input_wrapper p-0">
+                                    <div className="form-floating">
+                                        <input
+                                            name="Description"
+                                            type="text"
+                                            className="form-control"
+                                            id="validationCustomDescription"
+                                            placeholder="Enter description"
+                                            value={values.Description}
+                                            onChange={handleInputChange}
+                                            required
+                                            {...(errors.Description && { error: "true" })}/>
+        
+                                            <label htmlFor="validationCustomDescription" className="form-label fw-bold">Description</label>
+                                            <div className="invalid-feedback">{errors.Description}</div>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div className="input_wrapper p-0">
+    
+                            <div className="right_block col-4">
+                                <div className="preViewDownloadPhoto_block d-flex flex-column align-items-end">
+                                    <div className="preView_wrapper d-flex justify-content-center align-items-center">
+                                        {
+                                            values.PreView === null || values.PreView === '' ? 
+                                                <img src={camera} alt="preView" width="187" height="141"/> : 
+                                                <img className="preView_photo" src={values.PreView} alt="preView" width="auto" height="100%"/>
+                                        }
+                                    </div>
+    
+                                    <div className="input-group">
+                                        <span className="input-group-text" id="validationCustomPreview">Url</span>
+                                        <input
+                                            name="PreView"
+                                            className="form-control" 
+                                            type="text"
+                                            id="validationCustomPreview"
+                                            value={values.PreView}
+                                            onChange={handleInputChange}/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div className="bottom_block">
+                            <div className="programContent_block row">
                                 <div className="form-floating">
-                                    <input
-                                        name="Description"
-                                        type="text"
+                                    <textarea
+                                        name="Content"
                                         className="form-control"
-                                        id="validationCustomDescription"
-                                        placeholder="Enter description"
-                                        value={values.Description}
+                                        id="validationCustomContent"
+                                        placeholder="Enter program content"
+                                        value={values.Content}
                                         onChange={handleInputChange}
                                         required
-                                        {...(errors.Description && { error: "true" })}/>
+                                        {...(errors.Content && { error: "true" })}/>
     
-                                        <label htmlFor="validationCustomDescription" className="form-label fw-bold">Description</label>
-                                        <div className="invalid-feedback">{errors.Description}</div>
+                                    <label htmlFor="validationCustomContent" className="form-label fw-bold">Program content</label>
+                                    <div className="invalid-feedback">{errors.Content}</div>
                                 </div>
                             </div>
                         </div>
-
-                        <div className="right_block col-4">
-                            <div className="preViewDownloadPhoto_block d-flex flex-column align-items-end">
-                                <div className="preView_wrapper d-flex justify-content-center align-items-center">
+    
+                        <div className="actions_block row">
+                            <div className="col-11 pe-3">
+                                <button 
+                                    type="submit" 
+                                    className="btn btn-primary w-100 fw-bold"
+                                    onClick={validators.checkValidation('createProgram_form')}>
                                     {
-                                        values.PreView === null || values.PreView === '' ? 
-                                            <img src={camera} alt="preView" width="187" height="141"/> : 
-                                            <img className="preView_photo" src={values.PreView} alt="preView" width="auto" height="100%"/>
+                                        currentProgram.id === undefined ?
+                                            'CREATE' :
+                                            'SAVE'
                                     }
-                                </div>
-
-                                <div className="input-group">
-                                    <span className="input-group-text" id="validationCustomPreview">Url</span>
-                                    <input
-                                        name="PreView"
-                                        className="form-control" 
-                                        type="text"
-                                        id="validationCustomPreview"
-                                        value={values.PreView}
-                                        onChange={handleInputChange}/>
-                                </div>
+                                </button>
+                            </div>
+                            <div className="col-1">
+                                <button 
+                                    type="reset" 
+                                    className="btn btn-outline-secondary w-100 fw-bold"
+                                    onClick={resetForm}>
+                                    CLEAR
+                                </button>
                             </div>
                         </div>
-                    </div>
-
-                    <div className="bottom_block">
-                        <div className="programContent_block row">
-                            <div className="form-floating">
-                                <textarea
-                                    name="Content"
-                                    className="form-control"
-                                    id="validationCustomContent"
-                                    placeholder="Enter program content"
-                                    value={values.Content}
-                                    onChange={handleInputChange}
-                                    required
-                                    {...(errors.Content && { error: "true" })}/>
-
-                                <label htmlFor="validationCustomContent" className="form-label fw-bold">Program content</label>
-                                <div className="invalid-feedback">{errors.Content}</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="actions_block row">
-                        <div className="col-11 pe-3">
-                            <button 
-                                type="submit" 
-                                className="btn btn-primary w-100 fw-bold"
-                                onClick={validators.checkValidation('createProgram_form')}>
-                                {
-                                    currentProgram.id === undefined ?
-                                        'CREATE' :
-                                        'SAVE'
-                                }
-                            </button>
-                        </div>
-                        <div className="col-1">
-                            <button 
-                                type="reset" 
-                                className="btn btn-outline-secondary w-100 fw-bold"
-                                onClick={resetForm}>
-                                CLEAR
-                            </button>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
+            
+            <Footer/>
+        </>
     );
 }
 

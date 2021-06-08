@@ -24,6 +24,29 @@ namespace SportFit.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<SelectedProgram>>> GetSelectedPrograms()
         {
+            /*return (from selectedProgram in _context.SelectedPrograms
+                join programType in _context.ProgramTypes on program.ProgramTypeId equals programType.Id
+                join complexityLevel in _context.ComplexityLevels on program.ComplexityLevelId equals complexityLevel.Id
+                join user in _context.Users on program.UserId equals user.Id
+                where program.Id == id
+                select new SelectedProgramModel()
+                {
+                    Id = program.Id,
+                    UserId = user.Id,
+                    UserNickname = user.Nickname,
+                    UserAvatar = user.Avatar,
+                    Name = program.Name,
+                    ProgramTypeId = program.ProgramTypeId,
+                    ProgramType = programType.Name,
+                    ComplexityLevelId = program.ComplexityLevelId,
+                    ComplexityLevel = complexityLevel.Name,
+                    Description = program.Description,
+                    Content = program.Content,
+                    PreView = program.PreView,
+                    CreationDate = program.CreationDate,
+                    ModificationDate = program.ModificationDate
+                }).FirstOrDefault();*/
+            
             return await _context.SelectedPrograms.ToListAsync();
         }
 

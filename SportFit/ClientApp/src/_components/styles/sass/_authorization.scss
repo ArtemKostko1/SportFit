@@ -10,9 +10,19 @@
   .row {
     height: calc(100vh - 60px);
     
-    .left {
+    .left{
       
+      .photo_wrapper {
+        overflow: hidden;
+        height: 1000px;
+        width: auto;
+        
+        img {
+
+        }
+      }
     }
+    
     .right {
       .authorization_form_wrapper {
         width: 550px;

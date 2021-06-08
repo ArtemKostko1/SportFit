@@ -51,23 +51,6 @@ namespace SportFit.Controllers
                 .Include(pt => pt.ProgramType)
                 .Include(c => c.ComplexityLevel)
                 .Include(u => u.User)
-                .Select((Program, index, p) =>  new ProgramModel()
-                    {
-                    Id = p.Id,
-                    UserId = u.Id,
-                    UserNickname = u.Nickname,
-                    UserAvatar = u.Avatar,
-                    Name = p.Name,
-                    ProgramTypeId = p.ProgramTypeId,
-                    ProgramType = programType.Name,
-                    ComplexityLevelId = program.ComplexityLevelId,
-                    ComplexityLevel = complexityLevel.Name,
-                    Description = program.Description,
-                    Content = program.Content,
-                    PreView = program.PreView,
-                    CreationDate = program.CreationDate,
-                    ModificationDate = program.ModificationDate
-                })
                 .ToListAsync();*/
         }
         

@@ -54,6 +54,14 @@ export const program = (url = baseUrl + 'programs') => {
     }
 }
 
+export const selectedProgram = (url = baseUrl + 'programs') => {
+    return{
+        fetchAllSelectedPrograms: async () => await axios.get(url),
+        addSelectedProgram: async newRecord => await axios.post(url, newRecord),
+        deleteSelectedProgram: async id => await axios.delete(`${url}/${id}`)
+    }
+}
+
 export const programType = (url = baseUrl + 'programTypes') => {
     return{
         fetchAlProgramTypes: async () => await axios.get(url),
@@ -73,7 +81,15 @@ export const comment = (url = baseUrl + 'comments') => {
         fetchAllComments: async () => await axios.get(url),
         fetchCommentById: async id => await axios.get(`${url}/${id}`),
         createComment: async newRecord => await axios.post(url, newRecord),
-        updateComment: async (id, updatedRecord) => await axios.put(`${url}/${id}`, updatedRecord),
         deleteComment: async id => await axios.delete(`${url}/${id}`)
+    }
+}
+
+export const like = (url = baseUrl + 'likes') => {
+    return{
+        fetchAllLikes: async () => await axios.get(url),
+        fetchLikeById: async id => await axios.get(`${url}/${id}`),
+        createLike: async newRecord => await axios.post(url, newRecord),
+        deleteLike: async id => await axios.delete(`${url}/${id}`)
     }
 }

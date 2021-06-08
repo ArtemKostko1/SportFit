@@ -7,6 +7,7 @@ import * as userActions from "../_actions/user-actions";
 import * as validators from "./utils/validators/validators";
 import * as interfaceFunc from "./utils/interface";
 import {useToasts} from "react-toast-notifications";
+import signUpBackground from "./images/signUpBackground.png";
 
 const SignUpPage = ({...props}) => {
     const { addToast } = useToasts();
@@ -59,14 +60,16 @@ const SignUpPage = ({...props}) => {
         <div className="authorization_wrapper container-fluid p-0">
             <div className="row">
                 <div className="left col-6 bg-dark">
-                    
+                    <div className="photo_wrapper w-100">
+                        {/*<img src={signUpBackground} alt="background"/>*/}
+                    </div>
                 </div>
                 <div className="right col-6 d-flex justify-content-center align-items-center">
                     <div className="authorization_form_wrapper">
                         <form className="signUpUser_form needs-validation" id="signUpUser_form" autoComplete="off" noValidate onSubmit={handleSubmit}>
                             <h3 className="title fw-bold p-0">Sign Up</h3>
 
-                            <div className="button_wrapper p-0">
+                            {/*<div className="button_wrapper p-0">
                                 <button type="#" className="btn btn-outline-primary w-100 fw-bold">Sign up with Google</button>
                             </div>
                             
@@ -74,7 +77,7 @@ const SignUpPage = ({...props}) => {
                                 <hr className="w-100 m-0"/>
                                 <span className="fw-bold mx-4">or</span>
                                 <hr className="w-100 m-0"/>
-                            </div>
+                            </div>*/}
                             
                             <div className="input_wrapper p-0">
                                 <label htmlFor="formGroupExampleInput" className="form-label fw-bold">User name</label>

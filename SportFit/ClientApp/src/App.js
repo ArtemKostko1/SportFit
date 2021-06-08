@@ -7,15 +7,15 @@ import Footer from "./_components/internal-components/footer";
 import AppRouter from "./_routing/appRouter";
 import {ToastProvider} from "react-toast-notifications";
 
-const App = () => {    
+const App = () => {
     return (
         <BrowserRouter>
             <ToastProvider>
                 <Header/>
-                    <div className="content">
-                        <AppRouter/>
-                    </div>
-                <Footer/>
+                
+                <div className="content">
+                    <AppRouter/>
+                </div>
             </ToastProvider>
         </BrowserRouter>
     );

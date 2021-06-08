@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import * as interfaceFunc from "../utils/interface";
 import {
     MAIN_ROUTE, PROGRAMS_LISTENING_ROUTE, LOGIN_ROUTE, ACCOUNT_ROUTE,
-    USER_PROGRAMS_ROUTE, USER_SELECTED_ROUTE, SUPPORT_ROUTE, SETTINGS_ROUTE, REGISTER_ROUTE
+    USER_PROGRAMS_ROUTE, USER_SELECTED_ROUTE, SUPPORT_ROUTE, REGISTER_ROUTE
 } from "../../_routing/routerConsts";
 
 import profiler from '../images/profile.svg';
@@ -83,12 +83,6 @@ const Header = ({authUser}) => {
                                     <li>
                                         <NavLink to={SUPPORT_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
                                             Support
-                                        </NavLink>
-                                    </li>
-                                    
-                                    <li>
-                                        <NavLink to={SETTINGS_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
-                                            Settings
                                         </NavLink>
                                     </li>
                                     

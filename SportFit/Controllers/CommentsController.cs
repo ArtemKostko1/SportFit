@@ -57,7 +57,7 @@ namespace SportFit.Controllers
 
         // PUT: api/Comments/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        /*[HttpPut("{id}")]
         public async Task<IActionResult> PutComment(Guid id, Comment comment)
         {
             comment.Id = id;
@@ -81,7 +81,7 @@ namespace SportFit.Controllers
             }
 
             return NoContent();
-        }
+        }*/
 
         // POST: api/Comments
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

@@ -7,6 +7,7 @@ import {REGISTER_ROUTE, MAIN_ROUTE} from "../_routing/routerConsts";
 import * as validators from "./utils/validators/validators";
 import * as interfaceFunc from "./utils/interface";
 import {useToasts} from "react-toast-notifications";
+import signInBackground from "./images/signInBackgroundJPG.jpg";
 
 const SignInPage = ({...props}) => {
     const { addToast } = useToasts();
@@ -56,14 +57,16 @@ const SignInPage = ({...props}) => {
         <div className="authorization_wrapper container-fluid p-0">
             <div className="row">
                 <div className="left col-6 bg-dark">
-                    
+                    <div className="photo_wrapper w-100">
+                        {/*<img src={signInBackground} alt="background" width="auto" height="100%"/>*/}
+                    </div>
                 </div>
                 <div className="right col-6 d-flex justify-content-center align-items-center">
                     <div className="authorization_form_wrapper">
                         <form className="signInUser_form needs-validation" id="signInUser_form" autoComplete="off" noValidate onSubmit={handleSubmit}>
                             <h3 className="title fw-bold p-0">Sign In</h3>
 
-                            <div className="button_wrapper p-0">
+                            {/*<div className="button_wrapper p-0">
                                 <button type="#" className="btn btn-outline-primary w-100 fw-bold">Sign in with Google</button>
                             </div>
                             
@@ -71,7 +74,7 @@ const SignInPage = ({...props}) => {
                                 <hr className="w-100 m-0"/>
                                 <span className="fw-bold mx-4">or</span>
                                 <hr className="w-100 m-0"/>
-                            </div>
+                            </div>*/}
                             
                             <div className="input_wrapper p-0">
                                 <label htmlFor="validationCustomLogin" className="form-label fw-bold">Login</label>

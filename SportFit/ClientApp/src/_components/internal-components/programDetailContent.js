@@ -2,6 +2,7 @@
 import {Link} from "react-router-dom";
 import {ACCOUNT_ROUTE} from "../../_routing/routerConsts";
 import * as interfaceFunc from "../utils/interface";
+import * as likeActions from "../../_actions/like-actions";
 
 import CommentsBlock from "./commentsBlock";
 
@@ -19,11 +20,15 @@ import bookmark from "../images/bookmark.svg";
 import bookmark_solid from "../images/bookmark_solid.svg";
 import like from "../images/like.svg";
 import like_solid from "../images/like_solid.svg";
+import {connect} from "react-redux";
 
 
-const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, content }) => {
+const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, content, 
+                                fetchAllLikes, createLike, deleteLike, likesList, likesListLenght }) => {
+    
+    const currentUserId = JSON.parse(localStorage.getItem('user')).id;
+    
     let isSelected = false;
-    let isLiked = false;
     
     const onSelected = () => {
         isSelected = !isSelected;
@@ -40,24 +45,25 @@ const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, prog
         }
     }
 
-    const onLiked = () => {
-        isLiked = !isLiked;
+    const likeValues = {
+        ProgramId: id,
+        UserId: currentUserId
+    }
+    
+    debugger
+    let currentLike = likesList.find(x => x.userId === currentUserId);
+    let isLiked = likesList.some(x => x.userId === currentUserId);
 
-        if (isLiked) {
-            let attribute = document.createAttribute("src");
-            attribute.value = `${like_solid}`;
-            document.getElementById('like_button').attributes.setNamedItem(attribute)
-            
-        } else {
-            let attribute = document.createAttribute("src");
-            attribute.value = `${like}`;
-            document.getElementById('like_button').attributes.setNamedItem(attribute)
-        }
+    const onLiked = () => {
+        debugger
+        isLiked = !isLiked;
+        
+        isLiked ? createLike(likeValues) : deleteLike(currentLike.id);
     }
 
     useEffect(() => {
-        
-    }, [isSelected]);
+        fetchAllLikes();
+    }, []);
     
     return (
         <>
@@ -77,22 +83,22 @@ const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, prog
     
                     <div className="actionsButtons_wrapper col-2 d-flex justify-content-end">
                         <div className="likes_wrapper d-flex align-items-center">
-                            <span className="likesCount fw-bold">0</span>
+                            <span className="likesCount fw-bold">{likesList.length}</span>
         
                             <button 
                                 className="likeProgram rounded-circle shadow-sm rounded ms-2"
-                                onClick={() => onLiked()}>
+                                onClick={onLiked}>
                                 
-                                <img id="like_button" src={like} alt="ava" width="25" height="25"/>
+                                <img id="like_button" src={isLiked ? like_solid : like} alt="ava" width="25" height="25"/>
                             </button>
                         </div>
     
                         <div className="addToSelected_wrapper ms-2">
                             <button 
                                 className="addToSelected rounded-circle shadow-sm rounded ms-2"
-                                onClick={() => onSelected()}>
+                                onClick={onSelected}>
                                 
-                                <img id="addToSelected_button" src={bookmark} alt="ava" width="25" height="25"/>
+                                <img id="addToSelected_button" alt="ava" width="25" height="25"/>
                             </button>
                         </div>
                     </div>
@@ -185,4 +191,15 @@ const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, prog
     );
 };
 
-export default ProgramDetailContent;
+const mapStateToProps = state => ({
+    likesList: state.likeReducer.likesList,
+    likesListLenght: state.likeReducer.likesListLenght,
+});
+
+const mapActionToProps = {
+    fetchAllLikes: likeActions.fetchAllLikes,
+    createLike: likeActions.createLike,
+    deleteLike: likeActions.deleteLike
+}
+
+export default connect(mapStateToProps, mapActionToProps)(ProgramDetailContent);

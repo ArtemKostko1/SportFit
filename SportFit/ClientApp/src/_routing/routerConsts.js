@@ -10,4 +10,3 @@ export const EDIT_ACCOUNT_ROUTE = '/editAccount';
 export const USER_SELECTED_ROUTE = '/userSelected';
 export const USER_PROGRAMS_ROUTE = '/userPrograms';
 export const SUPPORT_ROUTE = '/support';
-export const SETTINGS_ROUTE = '/settings';
