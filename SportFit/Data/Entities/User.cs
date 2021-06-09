@@ -6,16 +6,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace SportFit.Data.Entities
 {
     public class User : BaseModificationTracking
-    {       
-        [Required]
+    {
         [Column(TypeName = "nvarchar(50)")]
         public string Login { get; set; }
         
-        [Required]
         [Column(TypeName = "nvarchar(50)")]
         public string Password { get; set; }
         
-        [Required]
         [Column(TypeName = "nvarchar(30)")]
         public string Nickname { get; set; }
 

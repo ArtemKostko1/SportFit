@@ -19,6 +19,14 @@
   width: 40px;
   background-color: #e0e0e0;
 }
+.header .navbar .navbar_wrapper .navbar-nav .nav-item .dropdown-menu .dropdown-item {
+  cursor: pointer;
+}
+.header .navbar .navbar_wrapper .navbar-nav .nav-item .dropdown-menu .dropdown-item .routeLink {
+  color: #000000;
+  font-size: 12pt;
+  cursor: pointer;
+}
 
 .btn-outline-primary {
   color: #000000;
@@ -212,27 +220,6 @@ a:hover {
 }
 .programItem_wrapper .programItem_content .right_block .actions_block .creationDate {
   font-size: 12pt;
-}
-.programItem_wrapper .programItem_content .right_block .actions_block .likes_wrapper .likesCount {
-  font-size: 16pt;
-  color: #0d6efd;
-}
-.programItem_wrapper .programItem_content .right_block .actions_block .likes_wrapper .likeProgram {
-  height: 45px;
-  width: 45px;
-  background-color: #F2FDFF;
-  border: transparent;
-}
-.programItem_wrapper .programItem_content .right_block .actions_block .likes_wrapper .likeProgram .bi {
-  font-weight: bold;
-  font-size: 24px;
-  color: #0d6efd;
-}
-.programItem_wrapper .programItem_content .right_block .actions_block .likes_wrapper .likeProgram:hover {
-  background-color: #C8F8FF;
-}
-.programItem_wrapper .programItem_content .right_block .actions_block .likes_wrapper .likeProgram:active {
-  background-color: #ceecff;
 }
 .programItem_wrapper .programItem_content .right_block .actions_block .btn {
   width: 100px;
@@ -645,6 +632,30 @@ a:hover {
   margin-bottom: 50px;
 }
 
+.userSelectedProgramsListingPage_wrapper {
+  min-height: calc(100vh - 60px);
+  padding: 50px 0;
+}
+.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .title_wrapper {
+  margin-bottom: 50px;
+}
+.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .selectedProgramCardsListing_wrapper {
+  margin: 0 -15px;
+  margin-bottom: -50px;
+}
+.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .selectedProgramCardsListing_wrapper .loading_wrapper {
+  min-height: calc(100vh - 214px);
+}
+.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .selectedProgramCardsListing_wrapper .loading_wrapper .loading {
+  margin-bottom: 50px;
+}
+.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .selectedProgramCardsListing_wrapper .empty_wrapper .title_wrapper {
+  margin-bottom: 50px;
+}
+.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .selectedProgramCardsListing_wrapper .empty_wrapper .banner_wrapper {
+  margin-bottom: 50px;
+}
+
 .supportPage_wrapper {
   height: 100vh;
   padding: 50px;
@@ -705,6 +716,48 @@ a:hover {
 }
 .userProgramCard_wrapper .programContent_wrapper .actions_block .specialButtons_wrapper .btn .fa {
   font-size: 1.25rem;
+}
+
+.userSelectedProgramCard_wrapper {
+  height: auto;
+  width: 420px;
+  margin: 0 15px 50px 15px;
+  border-radius: 15px;
+}
+.userSelectedProgramCard_wrapper .preView_wrapper {
+  overflow: hidden;
+  height: 325px;
+  width: 400px;
+  border-radius: 15px;
+  background-color: #e0e0e0;
+}
+.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper {
+  padding: 15px;
+}
+.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .name_wrapper {
+  height: 3.25rem;
+  margin-bottom: 15px;
+  font-size: 14pt;
+}
+.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .actions_block .btn {
+  width: 88px;
+}
+.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .actions_block .specialButtons_wrapper .addToSelected_wrapper .addToSelected {
+  height: 45px;
+  width: 45px;
+  background-color: #F2FDFF;
+  border: transparent;
+}
+.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .actions_block .specialButtons_wrapper .addToSelected_wrapper .addToSelected .bi {
+  font-weight: bold;
+  font-size: 24px;
+  color: #0d6efd;
+}
+.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .actions_block .specialButtons_wrapper .addToSelected_wrapper .addToSelected:hover {
+  background-color: #C8F8FF;
+}
+.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .actions_block .specialButtons_wrapper .addToSelected_wrapper .addToSelected:active {
+  background-color: #ceecff;
 }
 
 .notificationToast_wrapper .toast {

@@ -76,9 +76,9 @@ export const userReducer = (state = userInitialState, {type, payload, error}) =>
 
         case userActionTypes.USERS_LOGOUT:
             return {
+                ...state,
                 usersList: [],
-                userItem: {},
-                authUser: {}
+                authUser: null
             };
             
         default:

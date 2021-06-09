@@ -1,14 +1,11 @@
-﻿import React, {useEffect} from 'react';
-import {connect} from "react-redux";
+﻿import React from 'react';
 import {Link} from "react-router-dom";
-import Tippy from '@tippy.js/react';
-import 'tippy.js/dist/tippy.css';
-import dateFormat from "../utils/dateFormat";
 import * as interfaceFunc from "../utils/interface";
-import * as likeActions from "../../_actions/like-actions";
-import * as selectedProgramActions from "../../_actions/selectedProgram-actions";
+import dateFormat from "../utils/dateFormat";
 import {PROGRAM_DETAIL_ROUTE, ACCOUNT_ROUTE} from "../../_routing/routerConsts";
 
+import Tippy from '@tippy.js/react';
+import 'tippy.js/dist/tippy.css';
 import camera from "../images/camera.svg";
 import profile from "../images/profile.svg";
 import dumbbell from "../images/dumbbell.svg";
@@ -19,47 +16,7 @@ import muscles_hard from "../images/muscles_hard.png";
 import muscles_professional from "../images/muscles_professional.png";
 
 
-const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate,
-                        fetchAllLikes, createLike, deleteLike, likesList, fetchAllSelectedPrograms,
-                        addSelectedProgram, deleteSelectedProgram, selectedProgramsList}) => {
-
-    useEffect(() => {
-        fetchAllLikes(id);
-        fetchAllSelectedPrograms(id);
-    }, []);
-
-    const currentUserId = JSON.parse(localStorage.getItem('user')).id;
-
-    const selectedProgramValues = {
-        ProgramId: id,
-        UserId: currentUserId
-    }
-
-    const likeValues = {
-        ProgramId: id,
-        UserId: currentUserId
-    }
-
-
-    let currentSelectedProgram = selectedProgramsList.find(x => x.userId === currentUserId);
-    let isSelected = selectedProgramsList.some(x => x.userId === currentUserId);
-
-    let currentLike = likesList.find(x => x.userId === currentUserId);
-    let isLiked = likesList.some(x => x.userId === currentUserId);
-
-
-    const onSelected = () => {
-        isSelected = !isSelected;
-
-        isSelected ? addSelectedProgram(selectedProgramValues) : deleteSelectedProgram(currentSelectedProgram.id);
-    }
-
-    const onLiked = () => {
-        isLiked = !isLiked;
-
-        isLiked ? createLike(likeValues) : deleteLike(currentLike.id);
-    }
-    
+const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate}) => {
     return (
         <div className="programItem_wrapper container-xxl shadow">
             <div className="programItem_content container-xxl row">
@@ -158,20 +115,4 @@ const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType,
     );
 }
 
-const mapStateToProps = state => ({
-    likesList: state.likeReducer.likesList,
-    likesListLenght: state.likeReducer.likesListLenght,
-    selectedProgramsList: state.selectedProgramReducer.selectedProgramsList,
-    selectedProgramsListLenght: state.selectedProgramReducer.selectedProgramsListLenght,
-});
-
-const mapActionToProps = {
-    fetchAllLikes: likeActions.fetchAllLikes,
-    createLike: likeActions.createLike,
-    deleteLike: likeActions.deleteLike,
-    fetchAllSelectedPrograms: selectedProgramActions.fetchAllSelectedPrograms,
-    addSelectedProgram: selectedProgramActions.addSelectedProgram,
-    deleteSelectedProgram: selectedProgramActions.deleteSelectedProgram
-}
-
-export default connect(mapStateToProps, mapActionToProps)(ProgramItem);
+export default ProgramItem;

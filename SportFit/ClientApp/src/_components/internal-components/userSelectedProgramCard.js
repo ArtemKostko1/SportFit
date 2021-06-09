@@ -6,23 +6,20 @@ import * as interfaceFunc from "../utils/interface";
 import * as likeActions from "../../_actions/like-actions";
 import * as selectedProgramActions from "../../_actions/selectedProgram-actions";
 import dateFormat from "../utils/dateFormat";
-import {EDIT_PROGRAM_ROUTE, PROGRAM_DETAIL_ROUTE} from "../../_routing/routerConsts";
+import {PROGRAM_DETAIL_ROUTE} from "../../_routing/routerConsts";
 
 import Tippy from "@tippy.js/react";
 import 'tippy.js/dist/tippy.css';
 import camera from "../images/camera.svg";
-import like_solid from "../images/like_solid.svg";
-import like from "../images/like.svg";
 import bookmark_solid from "../images/bookmark_solid.svg";
 import bookmark from "../images/bookmark.svg";
 
 
-const UserSelectedProgramCard = ({  id, name, preView, creationDate, deleteProgram,
-                             fetchAllLikes, createLike, deleteLike, likesList, fetchAllSelectedPrograms,
-                             addSelectedProgram, deleteSelectedProgram, selectedProgramsList}) => {
+const UserSelectedProgramCard = ({   id, programId, name, preView, creationDate,
+                                     createLike, deleteLike, likesList, fetchAllSelectedPrograms,
+                                     addSelectedProgram, deleteSelectedProgram, selectedProgramsList}) => {
 
     useEffect(() => {
-        fetchAllLikes(id);
         fetchAllSelectedPrograms(currentUserId);
     }, []);
 
@@ -34,28 +31,14 @@ const UserSelectedProgramCard = ({  id, name, preView, creationDate, deleteProgr
         UserId: currentUserId
     }
 
-    const likeValues = {
-        ProgramId: id,
-        UserId: currentUserId
-    }
-
-    let currentSelectedProgram = selectedProgramsList.find(x => x.programId === id);
-    let isSelected = selectedProgramsList.some(x => x.programId === id);
-
-    let currentLike = likesList.find(x => x.userId === currentUserId);
-    let isLiked = likesList.some(x => x.userId === currentUserId);
+    let currentSelectedProgram = selectedProgramsList.find(x => x.programId === programId);
+    let isSelected = selectedProgramsList.some(x => x.programId === programId);
 
     const onSelected = () => {
         debugger
         isSelected = !isSelected;
 
-        isSelected ? addSelectedProgram(selectedProgramValues) : deleteSelectedProgram(currentSelectedProgram.id);
-    }
-
-    const onLiked = () => {
-        isLiked = !isLiked;
-
-        isLiked ? createLike(likeValues) : deleteLike(currentLike.id);
+        !isSelected && deleteSelectedProgram(currentSelectedProgram.id);
     }
 
     return (
@@ -76,7 +59,7 @@ const UserSelectedProgramCard = ({  id, name, preView, creationDate, deleteProgr
 
 
                 <div className="actions_block d-flex justify-content-between">
-                    <Link to={`${PROGRAM_DETAIL_ROUTE}/${id}`}>
+                    <Link to={`${PROGRAM_DETAIL_ROUTE}/${programId}`}>
                         <Tippy content="Show full description">
                             <button type="button" className="btn btn-outline-primary" onClick={interfaceFunc.scrollToTop}>
                                 Open
@@ -87,19 +70,6 @@ const UserSelectedProgramCard = ({  id, name, preView, creationDate, deleteProgr
                     <div className="d-flex align-items-center">{dateFormat(creationDate)}</div>
 
                     <div className="specialButtons_wrapper d-flex">
-                        <div className="likes_wrapper d-flex align-items-center">
-                            <span className="likesCount fw-bold">{likesList.length}</span>
-
-                            <Tippy content="Like this">
-                                <button
-                                    className="likeProgram rounded-circle shadow-sm rounded ms-2"
-                                    onClick={onLiked}>
-
-                                    <img id="like_button" src={isLiked ? like_solid : like} alt="ava" width="25" height="25"/>
-                                </button>
-                            </Tippy>
-                        </div>
-
                         <div className="addToSelected_wrapper ms-2">
                             <Tippy content="Add to selected">
                                 <button

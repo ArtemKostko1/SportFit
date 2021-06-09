@@ -10,7 +10,7 @@ import Spinner from "../special-components/spinner/spinner";
 const CommentsBlock = ({programId, userId, fetchAllComment, commentsList, commentsListLoading}) => {
     useEffect(() => {
         fetchAllComment();
-    }, []);
+    }, [commentsList]);
 
     let programCommentsList = commentsList.filter(c => c.program === programId);
     

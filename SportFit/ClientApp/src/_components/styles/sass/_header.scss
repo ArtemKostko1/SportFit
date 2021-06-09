@@ -27,6 +27,18 @@
               background-color: #e0e0e0;
             }
           }
+          
+          .dropdown-menu {
+            .dropdown-item {
+              cursor: pointer;
+              
+              .routeLink {
+                color: #000000;
+                font-size: 12pt;
+                cursor: pointer;
+              }
+            }
+          }
         }
       }
     }

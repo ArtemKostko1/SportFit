@@ -12,10 +12,10 @@ import empty from "./images/empty.svg";
 
 const UserSelectedPage = ({fetchAllSelectedPrograms, selectedProgramsList, selectedProgramsListLoading, ...props}) => {    
     useEffect(() => {
-        fetchAllSelectedPrograms(currentUserId);
-    }, []);
+        fetchAllSelectedPrograms(currentUser.id);
+    }, [selectedProgramsList]);
 
-    const currentUserId = JSON.parse(localStorage.getItem('user')).id;
+    const currentUser = JSON.parse(localStorage.getItem('user'));
     
     return (
         <>
@@ -42,7 +42,7 @@ const UserSelectedPage = ({fetchAllSelectedPrograms, selectedProgramsList, selec
 
                                 (Object.keys(selectedProgramsList).length === 0 ? 
                                     (
-                                        <div className="empty_wrapper row container-xxl">
+                                        <div className="empty_wrapper row container-xxl d-flex align-items-center">
                                             <div className="title_wrapper d-flex justify-content-center">
                                                 <img src={empty} alt="email" width="300" height="300"/>
                                             </div>
@@ -52,10 +52,11 @@ const UserSelectedPage = ({fetchAllSelectedPrograms, selectedProgramsList, selec
                                     <div className="selectedProgramCardsListing_content row d-flex">
                                         {
                                             selectedProgramsList.map((program, index) => {
-                                                const {id, name, preView, creationDate} = program;
+                                                const {id, programId, name, preView, creationDate} = program;
                                                 return (
                                                     <UserSelectedProgramCard
                                                         id={id}
+                                                        programId={programId}
                                                         key={index}
                                                         name={name}
                                                         preView={preView}

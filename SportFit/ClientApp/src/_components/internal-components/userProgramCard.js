@@ -5,6 +5,9 @@ import {useToasts} from 'react-toast-notifications';
 import {EDIT_PROGRAM_ROUTE, PROGRAM_DETAIL_ROUTE} from "../../_routing/routerConsts";
 import * as interfaceFunc from "../utils/interface";
 import * as programActions from "../../_actions/program-actions";
+import * as likeActions from "../../_actions/like-actions";
+import * as commentActions from "../../_actions/comment-actions";
+import * as selectedProgramActions from "../../_actions/selectedProgram-actions";
 import dateFormat from "../utils/dateFormat";
 
 import Tippy from "@tippy.js/react";
@@ -81,7 +84,10 @@ const mapStateToProps = state => ({
 });
 
 const mapActionToProps = {
-    deleteProgram: programActions.deleteProgram
+    deleteProgram: programActions.deleteProgram,
+    deleteLike: likeActions.deleteLike,
+    deleteComment: commentActions.deleteComment,
+    deleteSelectedProgram: selectedProgramActions.deleteSelectedProgram
 }
 
 export default connect(mapStateToProps, mapActionToProps)(UserProgramCard);

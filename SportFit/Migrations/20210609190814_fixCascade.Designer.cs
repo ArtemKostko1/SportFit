@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SportFit.Data.Entities;
 
 namespace SportFit.Migrations
 {
     [DbContext(typeof(SportFitContext))]
-    partial class SportFitContextModelSnapshot : ModelSnapshot
+    [Migration("20210609190814_fixCascade")]
+    partial class fixCascade
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

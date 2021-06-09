@@ -7,7 +7,6 @@ namespace SportFit.Data.Entities
     public class Comment : BaseModificationTracking
     {
         public Guid ProgramId { get; set; }
-        
         public Guid UserId { get; set; }
         
         public string Content { get; set; }

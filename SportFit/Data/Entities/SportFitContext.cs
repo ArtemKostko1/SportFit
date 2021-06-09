@@ -42,6 +42,8 @@ namespace SportFit.Data.Entities
                 .HasOne(s => s.Program)
                 .WithMany(p => p.SelectedPrograms)
                 .OnDelete(DeleteBehavior.Restrict);
+            
+            base.OnModelCreating(modelBuilder);
 
             BaseFillTables(modelBuilder);
         }

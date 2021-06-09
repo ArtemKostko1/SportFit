@@ -12,10 +12,17 @@ import logo from "../images/logo.svg";
 import * as userActions from "../../_actions/user-actions";
 
 
-const Header = ({userAuthenticated, authUser}) => {
+const Header = ({userAuthenticated, logout, authUser}) => {
     useEffect(() => {
         userAuthenticated();
     }, []);
+    
+    const currentUser = JSON.parse(localStorage.getItem('user'));
+    
+    debugger
+    const onLogout= () => {
+        logout();
+    }
     
     return (
         <header className="header sticky-top bg-dark">
@@ -52,53 +59,78 @@ const Header = ({userAuthenticated, authUser}) => {
                                     <div className="avatar_wrapper rounded-circle d-flex justify-content-center align-items-center">
                                         <img src=
                                                  {
-                                                      authUser.avatar === null || authUser.avatar === '' || authUser.avatar === undefined ?
-                                                          profiler :
-                                                          authUser.avatar
+                                                     authUser === null ?
+                                                         profiler :
+                                                         (authUser.avatar === null || authUser.avatar === '' ? 
+                                                             profiler :
+                                                             authUser.avatar
+                                                         )
+                                                          
                                                  } 
                                              alt="avatar" width="auto" height="100%"/>
                                     </div>
                                 </a>
                                 
                                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                    <li>
-                                        <NavLink to={ACCOUNT_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
-                                            My Profile
-                                        </NavLink>
-                                    </li>
+                                    {
+                                        currentUser !== null ?
+                                            <>
+                                                <NavLink className="routeLink" to={ACCOUNT_ROUTE} onClick={interfaceFunc.scrollToTop}>
+                                                    <li className="dropdown-item">
+                                                        My Profile
+                                                    </li>
+                                                </NavLink>
+                                                
+                                                <NavLink className="routeLink" to={USER_PROGRAMS_ROUTE} onClick={interfaceFunc.scrollToTop}>
+                                                    <li className="dropdown-item">
+                                                        My Programs
+                                                    </li>
+                                                </NavLink>
+                                                
+                                                <NavLink className="routeLink" to={USER_SELECTED_ROUTE} onClick={interfaceFunc.scrollToTop}>
+                                                    <li className="dropdown-item">
+                                                        My Selected
+                                                    </li>
+                                                </NavLink>
+
+                                                <li>
+                                                    <hr className="dropdown-divider"/>
+                                                </li>
+                                            </> :
+                                            null
+                                    }
                                     
-                                    <li>
-                                        <NavLink to={USER_PROGRAMS_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
-                                            My Programs
-                                        </NavLink>
-                                    </li>
-                                    
-                                    <li>
-                                        <NavLink to={USER_SELECTED_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
-                                            My Selected
-                                        </NavLink>
-                                    </li>
-                                    
-                                    <li><hr className="dropdown-divider"/></li>
-                                    
-                                    <li>
-                                        <NavLink to={SUPPORT_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
+                                    <NavLink className="routeLink" to={SUPPORT_ROUTE} onClick={interfaceFunc.scrollToTop}>
+                                        <li className="dropdown-item">
                                             Support
-                                        </NavLink>
-                                    </li>
+                                        </li>
+                                    </NavLink>
                                     
-                                    <li>
-                                        <NavLink to={LOGIN_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
-                                            Login
-                                        </NavLink>
-                                    </li>
                                     
-                                    <li>
-                                        <NavLink 
-                                            to={REGISTER_ROUTE} className="dropdown-item" onClick={interfaceFunc.scrollToTop}>
-                                            Registration
-                                        </NavLink>
-                                    </li>
+                                    {
+                                        currentUser === null ?
+                                            <>
+                                                <NavLink to={LOGIN_ROUTE} className="routeLink" onClick={interfaceFunc.scrollToTop}>
+                                                    <li className="dropdown-item">
+                                                        Login
+                                                    </li>
+                                                </NavLink>
+                                                
+                                                <NavLink to={REGISTER_ROUTE} className="routeLink" onClick={interfaceFunc.scrollToTop}>
+                                                    <li className="dropdown-item">
+                                                        Registration
+                                                    </li>
+                                                </NavLink>
+                                            </> :
+
+                                            <NavLink className="routeLink" to={MAIN_ROUTE} onClick={interfaceFunc.scrollToTop}>
+                                                <li
+                                                    className="dropdown-item"
+                                                    onClick={() => onLogout()}>
+                                                        Logout
+                                                </li>
+                                            </NavLink>
+                                    }
                                 </ul>
                             </li>
                         </ul>
@@ -114,7 +146,8 @@ const mapStateToProps = state => ({
 });
 
 const mapActionToProps = {
-    userAuthenticated: userActions.userAuthenticated
+    userAuthenticated: userActions.userAuthenticated,
+    logout: userActions.logout
 }
 
 export default connect(mapStateToProps, mapActionToProps)(Header);
