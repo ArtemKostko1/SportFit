@@ -25,19 +25,19 @@ namespace SportFit.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CommentModel>>> GetComments()
         {
-            return await (from comment in _context.Comments
-                join program in _context.Programs on comment.ProgramId equals program.Id
-                join user in _context.Users on comment.UserId equals user.Id
-                select new CommentModel()
+            return await _context.Comments
+                .Include(p => p.Program)
+                .Include(u => u.User)
+                .Select(c => new CommentModel()
                 {
-                    Id = comment.Id,
-                    Program = program.Id,
-                    User = user.Id,
-                    Nickname = user.Nickname,
-                    Avatar = user.Avatar,
-                    Content = comment.Content,
-                    CreationDate = comment.CreationDate,
-                    ModificationDate = comment.ModificationDate
+                    Id = c.Id,
+                    Program = c.ProgramId,
+                    User = c.UserId,
+                    Nickname = c.User.Nickname,
+                    Avatar = c.User.Avatar,
+                    Content = c.Program.Content,
+                    CreationDate = c.CreationDate,
+                    ModificationDate = c.ModificationDate
                 }).ToListAsync();
         }
 
@@ -52,12 +52,11 @@ namespace SportFit.Controllers
                 return NotFound();
             }
 
-            return comment;
+            return Ok(comment);
         }
 
         // PUT: api/Comments/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        /*[HttpPut("{id}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> PutComment(Guid id, Comment comment)
         {
             comment.Id = id;
@@ -81,10 +80,9 @@ namespace SportFit.Controllers
             }
 
             return NoContent();
-        }*/
+        }
 
         // POST: api/Comments
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Comment>> PostComment(Comment comment)
         {

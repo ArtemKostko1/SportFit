@@ -21,14 +21,14 @@ namespace SportFit.Controllers
             _context = context;
         }
 
-        // GET: api/Likes
+        // GET: api/likes
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Like>>> GetLikes()
         {
             return await _context.Likes.ToListAsync();
         }
 
-        // GET: api/Likes/5
+        // GET: api/likes/programId
         [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<LikeModel>>> GetLike(Guid id)
         {
@@ -44,7 +44,6 @@ namespace SportFit.Controllers
         }
 
         // POST: api/Likes
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Like>> PostLike(Like like)
         {

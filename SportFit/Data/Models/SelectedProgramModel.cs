@@ -5,6 +5,7 @@ namespace SportFit.Data.Models
 {
     public class SelectedProgramModel : BaseModificationTracking
     {
+        public Guid ProgramId { get; set; }
         public Guid UserId { get; set; }
         public string UserNickname { get; set; }
         public string UserAvatar { get; set; }

@@ -15,6 +15,12 @@ export const userReducer = (state = userInitialState, {type, payload, error}) =>
                 ...state,
                 userItem: {}
             }
+
+        case userActionTypes.USERS_AUTHENTICATED:
+            return {
+                ...state,
+                authUser: JSON.parse(localStorage.getItem('user'))
+            }
         
         case userActionTypes.USERS_GETALL_REQUEST:
             return {

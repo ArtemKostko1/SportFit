@@ -23,38 +23,66 @@ namespace SportFit.Controllers
 
         // GET: api/SelectedPrograms
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SelectedProgram>>> GetSelectedPrograms()
+        public async Task<ActionResult<IEnumerable<SelectedProgramModel>>> GetSelectedPrograms()
         {
-            return await _context.SelectedPrograms.ToListAsync();
+            return await _context.SelectedPrograms
+                .Include(p => p.Program)
+                .ThenInclude(u => u.User)
+                .Include(p => p.Program)
+                .ThenInclude(pt => pt.ProgramType)
+                .Include(p => p.Program)
+                .ThenInclude(c => c.ComplexityLevel)
+                .Select(s => new SelectedProgramModel()
+                {
+                    Id = s.Program.Id,
+                    UserId = s.Program.User.Id,
+                    UserNickname = s.Program.User.Nickname,
+                    UserAvatar = s.Program.User.Avatar,
+                    Name = s.Program.Name,
+                    ProgramTypeId = s.Program.ProgramTypeId,
+                    ProgramType = s.Program.ProgramType.Name,
+                    ComplexityLevelId = s.Program.ComplexityLevelId,
+                    ComplexityLevel = s.Program.ComplexityLevel.Name,
+                    Description = s.Program.Description,
+                    Content = s.Program.Content,
+                    PreView = s.Program.PreView,
+                    CreationDate = s.Program.CreationDate,
+                    ModificationDate = s.Program.ModificationDate
+                })
+                .ToListAsync();
         }
 
         // GET: api/SelectedPrograms/5
         [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<SelectedProgramModel>>> GetSelectedProgram(Guid id)
         {
-            return await (from selectedProgram in _context.SelectedPrograms
-                join program in _context.ProgramTypes on selectedProgram.ProgramId equals program.Id
-                join programType in _context.ProgramTypes on selectedProgram.Program.ProgramTypeId equals programType.Id
-                join complexityLevel in _context.ComplexityLevels on selectedProgram.Program.ComplexityLevelId equals complexityLevel.Id
-                join user in _context.Users on selectedProgram.Program.UserId equals user.Id
-                where selectedProgram.UserId == id
-                select new SelectedProgramModel()
+            return await _context.SelectedPrograms
+                .Include(p => p.Program)
+                .ThenInclude(u => u.User)
+                .Include(p => p.Program)
+                .ThenInclude(pt => pt.ProgramType)
+                .Include(p => p.Program)
+                .ThenInclude(c => c.ComplexityLevel)
+                .Where(s => s.UserId == id)
+                .Select(s => new SelectedProgramModel()
                 {
-                    Id = selectedProgram.Program.Id,
-                    UserId = selectedProgram.User.Id,
-                    UserNickname = selectedProgram.User.Nickname,
-                    UserAvatar = selectedProgram.User.Avatar,
-                    Name = selectedProgram.Program.Name,
-                    ProgramTypeId = selectedProgram.Program.ProgramTypeId,
-                    ProgramType = programType.Name,
-                    ComplexityLevelId = selectedProgram.Program.ComplexityLevelId,
-                    ComplexityLevel = complexityLevel.Name,
-                    Description = selectedProgram.Program.Description,
-                    Content = selectedProgram.Program.Content,
-                    PreView = selectedProgram.Program.PreView,
-                    CreationDate = selectedProgram.Program.CreationDate,
-                    ModificationDate = selectedProgram.Program.ModificationDate
-                }).ToListAsync();
+                    Id = s.Id,
+                    ProgramId = s.ProgramId,
+                    UserId = s.Program.User.Id,
+                    UserNickname = s.Program.User.Nickname,
+                    UserAvatar = s.Program.User.Avatar,
+                    Name = s.Program.Name,
+                    ProgramTypeId = s.Program.ProgramTypeId,
+                    ProgramType = s.Program.ProgramType.Name,
+                    ComplexityLevelId = s.Program.ComplexityLevelId,
+                    ComplexityLevel = s.Program.ComplexityLevel.Name,
+                    Description = s.Program.Description,
+                    Content = s.Program.Content,
+                    PreView = s.Program.PreView,
+                    CreationDate = s.Program.CreationDate,
+                    ModificationDate = s.Program.ModificationDate
+                })
+                .ToListAsync();
         }
 
         // PUT: api/SelectedPrograms/5

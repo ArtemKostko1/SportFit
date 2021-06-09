@@ -1,9 +1,12 @@
 ﻿import React, {useEffect} from 'react';
+import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import Tippy from '@tippy.js/react';
 import 'tippy.js/dist/tippy.css';
 import dateFormat from "../utils/dateFormat";
 import * as interfaceFunc from "../utils/interface";
+import * as likeActions from "../../_actions/like-actions";
+import * as selectedProgramActions from "../../_actions/selectedProgram-actions";
 import {PROGRAM_DETAIL_ROUTE, ACCOUNT_ROUTE} from "../../_routing/routerConsts";
 
 import camera from "../images/camera.svg";
@@ -14,13 +17,6 @@ import muscles_easy from "../images/muscles_easy.png";
 import muscles_medium from "../images/muscles_medium.png";
 import muscles_hard from "../images/muscles_hard.png";
 import muscles_professional from "../images/muscles_professional.png";
-import bookmark_solid from "../images/bookmark_solid.svg";
-import bookmark from "../images/bookmark.svg";
-import * as likeActions from "../../_actions/like-actions";
-import * as selectedProgramActions from "../../_actions/selectedProgram-actions";
-import {connect} from "react-redux";
-import like_solid from "../images/like_solid.svg";
-import like from "../images/like.svg";
 
 
 const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate,

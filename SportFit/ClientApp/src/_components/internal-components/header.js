@@ -9,12 +9,13 @@ import {
 
 import profiler from '../images/profile.svg';
 import logo from "../images/logo.svg";
+import * as userActions from "../../_actions/user-actions";
 
 
-const Header = ({authUser}) => {
+const Header = ({userAuthenticated, authUser}) => {
     useEffect(() => {
-        
-    }, [authUser.avatar]);
+        userAuthenticated();
+    }, []);
     
     return (
         <header className="header sticky-top bg-dark">
@@ -113,7 +114,7 @@ const mapStateToProps = state => ({
 });
 
 const mapActionToProps = {
-    
+    userAuthenticated: userActions.userAuthenticated
 }
 
 export default connect(mapStateToProps, mapActionToProps)(Header);

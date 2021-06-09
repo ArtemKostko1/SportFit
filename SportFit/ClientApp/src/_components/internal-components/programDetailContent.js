@@ -44,16 +44,16 @@ const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, prog
         ProgramId: id,
         UserId: currentUserId
     }
-
     
-    let currentSelectedProgram = selectedProgramsList.find(x => x.userId === currentUserId);
-    let isSelected = selectedProgramsList.some(x => x.userId === currentUserId);
+    let currentSelectedProgram = selectedProgramsList.find(x => x.programId === id);
+    let isSelected = selectedProgramsList.some(x => x.programId === id);
 
     let currentLike = likesList.find(x => x.userId === currentUserId);
     let isLiked = likesList.some(x => x.userId === currentUserId);
 
     
     const onSelected = () => {
+        debugger
         isSelected = !isSelected;
 
         isSelected ? addSelectedProgram(selectedProgramValues) : deleteSelectedProgram(currentSelectedProgram.id);
@@ -202,8 +202,7 @@ const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, prog
 const mapStateToProps = state => ({
     likesList: state.likeReducer.likesList,
     likesListLenght: state.likeReducer.likesListLenght,
-    selectedProgramsList: state.selectedProgramReducer.selectedProgramsList,
-    selectedProgramsListLenght: state.selectedProgramReducer.selectedProgramsListLenght,
+    selectedProgramsList: state.selectedProgramReducer.selectedProgramsList
 });
 
 const mapActionToProps = {

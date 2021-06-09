@@ -34,26 +34,33 @@ namespace SportFit.Controllers
 
         // GET: api/Users/id
         [HttpGet("{id}")]
-        public UserModel GetById(Guid id)
+        public async Task<ActionResult<UserModel>> GetById(Guid id)
         {
-            return (from user in _context.Users
-                where user.Id == id
-                select new UserModel()
+            var user = await _context.Users
+                .Where(u => u.Id == id)
+                .Select(u => new UserModel()
                 {
-                    Id = user.Id,
-                    Login = user.Login,
-                    Password = user.Password,
-                    Nickname = user.Nickname,
-                    Avatar = user.Avatar,
-                    FullName = user.FullName,
-                    BirthDate = user.BirthDate,
-                    MobilePhone = user.MobilePhone,
-                    Email = user.Email,
-                    Instagram = user.Instagram,
-                    Vk = user.Vk,
-                    CreationDate = user.CreationDate,
-                    ModificationDate = user.ModificationDate,
-                }).FirstOrDefault();
+                    Id = u.Id,
+                    Login = u.Login,
+                    Password = u.Password,
+                    Nickname = u.Nickname,
+                    Avatar = u.Avatar,
+                    FullName = u.FullName,
+                    BirthDate = u.BirthDate,
+                    MobilePhone = u.MobilePhone,
+                    Email = u.Email,
+                    Instagram = u.Instagram,
+                    Vk = u.Vk,
+                    CreationDate = u.CreationDate,
+                    ModificationDate = u.ModificationDate
+                }).FirstAsync();
+            
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user);
         }
 
         [HttpPost("authenticate")]

@@ -38,7 +38,7 @@ namespace SportFit.Controllers
                 return NotFound();
             }
 
-            return programType;
+            return Ok(programType);
         }
     }
 }

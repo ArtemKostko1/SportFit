@@ -68,6 +68,12 @@ export const logout = () => dispatch => {
     })
 }
 
+export const userAuthenticated = () => dispatch => {
+    dispatch({
+        type: userActionTypes.USERS_AUTHENTICATED
+    })
+}
+
 export const userRequested = () => dispatch => {
     dispatch({
         type: userActionTypes.USERS_REQUESTED

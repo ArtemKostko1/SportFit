@@ -1,69 +1,88 @@
-﻿import React from 'react';
+﻿import React, {useEffect} from 'react';
+import {connect} from "react-redux";
+import * as selectedProgramActions from "../_actions/selectedProgram-actions";
+
+import UserSelectedProgramCard from "./internal-components/userSelectedProgramCard";
 import Footer from "./internal-components/footer";
 import ProgramsFilterPanel from "./internal-components/programsFilterPanel";
 import Spinner from "./special-components/spinner/spinner";
-import empty from "./images/empty.svg";
-import Banner from "./internal-components/banner";
-import UserProgramCard from "./internal-components/userProgramCard";
 
-const UserSelectedPage = ({...props}) => {
+import empty from "./images/empty.svg";
+
+
+const UserSelectedPage = ({fetchAllSelectedPrograms, selectedProgramsList, selectedProgramsListLoading, ...props}) => {    
+    useEffect(() => {
+        fetchAllSelectedPrograms(currentUserId);
+    }, []);
+
+    const currentUserId = JSON.parse(localStorage.getItem('user')).id;
+    
     return (
         <>
-            {/*<div className="userProgramsListingPage_wrapper container-xxl">
-                <div className="userProgramsListingPage_content">
+            <div className="userSelectedProgramsListingPage_wrapper container-xxl">
+                <div className="userSelectedProgramsListingPage_content">
                     <div className="title_wrapper d-flex justify-content-center">
-                        <h1 className="title fw-bold m-0">YUOR PERSONAL PROGRAMS</h1>
+                        <h1 className="title fw-bold m-0">YUOR SELECTED</h1>
                     </div>
 
                     {
-                        Object.keys(myProgramsList).length !== 0 ?
+                        Object.keys(selectedProgramsList).length !== 0 ?
                             <ProgramsFilterPanel/> :
                             null
                     }
 
-                    <div className="programCardsListing_wrapper">
+                    <div className="selectedProgramCardsListing_wrapper">
                         {
-                            myProgramsLoading === true ? (
+                            selectedProgramsListLoading === true ? 
+                                (
                                     <div className="loading_wrapper d-flex justify-content-center align-items-center">
                                         <Spinner/>
                                     </div>
                                 ) :
 
-                                (Object.keys(myProgramsList).length === 0 ? (
-                                            <div className="empty_wrapper row container-xxl">
-                                                <div className="title_wrapper d-flex justify-content-center">
-                                                    <img src={empty} alt="email" width="300" height="300"/>
-                                                </div>
-
-                                                <Banner/>
+                                (Object.keys(selectedProgramsList).length === 0 ? 
+                                    (
+                                        <div className="empty_wrapper row container-xxl">
+                                            <div className="title_wrapper d-flex justify-content-center">
+                                                <img src={empty} alt="email" width="300" height="300"/>
                                             </div>
-                                        ) :
-
-                                        <div className="programCardsListing_content row d-flex">
-                                            {
-                                                myProgramsList.map((program, index) => {
-                                                    const {id, name, preView, creationDate} = program;
-                                                    return (
-                                                        <UserProgramCard
-                                                            id={id}
-                                                            key={index}
-                                                            name={name}
-                                                            preView={preView}
-                                                            creationDate={creationDate}
-                                                        />
-                                                    );
-                                                })
-                                            }
                                         </div>
+                                    ) :
+
+                                    <div className="selectedProgramCardsListing_content row d-flex">
+                                        {
+                                            selectedProgramsList.map((program, index) => {
+                                                const {id, name, preView, creationDate} = program;
+                                                return (
+                                                    <UserSelectedProgramCard
+                                                        id={id}
+                                                        key={index}
+                                                        name={name}
+                                                        preView={preView}
+                                                        creationDate={creationDate}
+                                                    />
+                                                );
+                                            })
+                                        }
+                                    </div>
                                 )
                         }
                     </div>
                 </div>
-            </div>*/}
+            </div>
 
             <Footer/>
         </>
     );
 };
 
-export default UserSelectedPage;
+const mapStateToProps = state => ({
+    selectedProgramsList: state.selectedProgramReducer.selectedProgramsList,
+    selectedProgramsListLoading: state.selectedProgramReducer.selectedProgramsListLoading
+});
+
+const mapActionToProps = {
+    fetchAllSelectedPrograms: selectedProgramActions.fetchAllSelectedPrograms
+}
+
+export default connect(mapStateToProps, mapActionToProps)(UserSelectedPage);

@@ -16,7 +16,7 @@ export const addSelectedProgram = (data, onSuccess) => dispatch => {
     api.selectedProgram().addSelectedProgram(data)
         .then(response => {
             dispatch({
-                type: selectedProgramsActionTypes.CREATE_SELECTED_PROGRAM,
+                type: selectedProgramsActionTypes.ADD_TO_SELECTED,
                 payload: response.data
             });
             onSuccess();
