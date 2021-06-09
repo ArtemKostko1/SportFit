@@ -46,7 +46,7 @@ const UserComment = ({ programId, ...props }) => {
 
         if (validate()) {
             debugger
-            props.createComment(values, () => addToast("Successfully comment posted", {appearance: 'success'}));
+            props.createComment(values, () => addToast("Комментарий успешно опубликован", {appearance: 'success'}));
             resetForm();
         }
     }

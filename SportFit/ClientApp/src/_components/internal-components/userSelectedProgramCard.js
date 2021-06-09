@@ -62,7 +62,7 @@ const UserSelectedProgramCard = ({   id, programId, name, preView, creationDate,
                     <Link to={`${PROGRAM_DETAIL_ROUTE}/${programId}`}>
                         <Tippy content="Show full description">
                             <button type="button" className="btn btn-outline-primary" onClick={interfaceFunc.scrollToTop}>
-                                Open
+                                Открыть
                             </button>
                         </Tippy>
                     </Link>
@@ -71,7 +71,7 @@ const UserSelectedProgramCard = ({   id, programId, name, preView, creationDate,
 
                     <div className="specialButtons_wrapper d-flex">
                         <div className="addToSelected_wrapper ms-2">
-                            <Tippy content="Add to selected">
+                            <Tippy content="Убрать из избранных">
                                 <button
                                     className="addToSelected rounded-circle shadow-sm rounded ms-2"
                                     onClick={onSelected}>

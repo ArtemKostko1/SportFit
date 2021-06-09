@@ -29,15 +29,15 @@ const CreateProgramPage = ({...props}) => {
         let temp = {...errors};
 
         if('Name' in fieldValues)
-            temp.Name = fieldValues.Name ? '' : "Please enter a program name";
+            temp.Name = fieldValues.Name ? '' : "Пожалуйста введите название";
         if('ProgramTypeId' in fieldValues)
-            temp.ProgramTypeId = fieldValues.ProgramTypeId ? '' : "Program type not selected";
+            temp.ProgramTypeId = fieldValues.ProgramTypeId ? '' : "Тип не выбран";
         if('ComplexityLevelId' in fieldValues)
-            temp.ComplexityLevelId = fieldValues.ComplexityLevelId ? '' : "Complexity level not selected";
+            temp.ComplexityLevelId = fieldValues.ComplexityLevelId ? '' : "Степень сложности не выбрана";
         if('Description' in fieldValues)
-            temp.Description = fieldValues.Description ? '' : "Please enter a program description";
+            temp.Description = fieldValues.Description ? '' : "Пожалуйста введите описание";
         if('Content' in fieldValues)
-            temp.Content = fieldValues.Content ? '' : "Please enter a program content";
+            temp.Content = fieldValues.Content ? '' : "Пожалуйста введите контент";
 
         setErrors({
             ...temp
@@ -63,14 +63,14 @@ const CreateProgramPage = ({...props}) => {
         
         if (validate()) {
             if (currentProgram.id === undefined) {
-                props.createProgram(values, () => addToast("Successfully created", {appearance: 'success'}));
+                props.createProgram(values, () => addToast("Успешно создано", {appearance: 'success'}));
                 resetForm();
                 
             } else {
-                props.updateProgram(currentProgram.id, values, () => addToast("Successfully edited", {appearance: 'success'}));
+                props.updateProgram(currentProgram.id, values, () => addToast("Провально редактировано", {appearance: 'success'}));
             }
         } else {
-            addToast("Failed created", {appearance: 'warning'});
+            addToast("Провально создано", {appearance: 'warning'});
         }
     }
     
@@ -117,7 +117,7 @@ const CreateProgramPage = ({...props}) => {
                                             required
                                             {...(errors.Name && { error: "true" })}/>
     
-                                        <label htmlFor="validationCustomName" className="form-label fw-bold">Name</label>
+                                        <label htmlFor="validationCustomName" className="form-label fw-bold">Название</label>
                                         <div className="invalid-feedback">{errors.Name}</div>
                                     </div>
                                 </div>
@@ -135,7 +135,7 @@ const CreateProgramPage = ({...props}) => {
                                             required
                                             {...(errors.ProgramTypeId && { error: "true" })}>
         
-                                            <option selected value="">Open this select menu</option>
+                                            <option selected value="">Вабрать значение</option>
                                             {
                                                 props.programTypesList.map((programType, index) => {
                                                     const { id, name } = programType;
@@ -151,7 +151,7 @@ const CreateProgramPage = ({...props}) => {
                                             )}
                                         </select>
     
-                                        <label htmlFor="validationCustomProgramTypeId" className="form-label fw-bold text-secondary">Type</label>
+                                        <label htmlFor="validationCustomProgramTypeId" className="form-label fw-bold text-secondary">Тип</label>
                                         <div className="invalid-feedback">{errors.ProgramTypeId}</div>
                                     </div>
                                 </div>
@@ -169,7 +169,7 @@ const CreateProgramPage = ({...props}) => {
                                             required
                                             {...(errors.ComplexityLevelId && { error: "true" })}>
         
-                                            <option selected value="">Open this select menu</option>
+                                            <option selected value="">Выбрать значение</option>
                                             {
                                                 props.complexityLevelsList.map((complexityLevel, index) => {
                                                         const { id, name } = complexityLevel;
@@ -185,7 +185,7 @@ const CreateProgramPage = ({...props}) => {
                                                 )}
                                         </select>
     
-                                        <label htmlFor="validationCustomComplexityLevelId" className="form-label fw-bold text-secondary">Complexity Level</label>
+                                        <label htmlFor="validationCustomComplexityLevelId" className="form-label fw-bold text-secondary">Степень сложности</label>
                                         <div className="invalid-feedback">{errors.ComplexityLevelId}</div>
                                     </div>
                                 </div>
@@ -203,7 +203,7 @@ const CreateProgramPage = ({...props}) => {
                                             required
                                             {...(errors.Description && { error: "true" })}/>
         
-                                            <label htmlFor="validationCustomDescription" className="form-label fw-bold">Description</label>
+                                            <label htmlFor="validationCustomDescription" className="form-label fw-bold">Описание</label>
                                             <div className="invalid-feedback">{errors.Description}</div>
                                     </div>
                                 </div>
@@ -246,7 +246,7 @@ const CreateProgramPage = ({...props}) => {
                                         required
                                         {...(errors.Content && { error: "true" })}/>
     
-                                    <label htmlFor="validationCustomContent" className="form-label fw-bold">Program content</label>
+                                    <label htmlFor="validationCustomContent" className="form-label fw-bold">Контент</label>
                                     <div className="invalid-feedback">{errors.Content}</div>
                                 </div>
                             </div>
@@ -260,17 +260,17 @@ const CreateProgramPage = ({...props}) => {
                                     onClick={validators.checkValidation('createProgram_form')}>
                                     {
                                         currentProgram.id === undefined ?
-                                            'CREATE' :
-                                            'SAVE'
+                                            'СОЗДАТЬ' :
+                                            'РЕДАКТИРОВАТЬ'
                                     }
                                 </button>
                             </div>
                             <div className="col-1">
                                 <button 
                                     type="reset" 
-                                    className="btn btn-outline-secondary w-100 fw-bold"
+                                    className="btn btn-outline-secondary w-100 fw-bold px-0"
                                     onClick={resetForm}>
-                                    CLEAR
+                                    ОЧИСТИТЬ
                                 </button>
                             </div>
                         </div>

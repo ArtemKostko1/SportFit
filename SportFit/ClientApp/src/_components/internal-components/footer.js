@@ -38,7 +38,7 @@ const Footer = ({fetchAllPrograms, programsList}) => {
                         </div>
                         
                         <div className="text">
-                            <span>SportFit is the world’s leading community of coaches and athletes who share, has progressed and enjoy.</span>
+                            <span>SportFit - это ведущее в мире сообщество тренеров и спортсменов, которые делятся, прогрессируют и получают удовольствие.</span>
                         </div>
                         
                         <div className="socialNetworks d-flex">
@@ -76,15 +76,15 @@ const Footer = ({fetchAllPrograms, programsList}) => {
                     
                     <div className="center_block col-5 d-flex justify-content-center">
                         <div className="links_content col-4 d-flex flex-column">
-                            <h6 className="title fw-bold">Company</h6>
-                            <Link to="" onClick={interfaceFunctions.scrollToTop}>About Us</Link>
-                            <Link to="" onClick={interfaceFunctions.scrollToTop}>Support</Link>
-                            <Link to={ACCOUNT_ROUTE} onClick={interfaceFunctions.scrollToTop}>Profile</Link>
-                            <Link to={MAIN_ROUTE} onClick={interfaceFunctions.scrollToTop}>Home</Link>
+                            <h6 className="title fw-bold">Навигация</h6>
+                            <Link to="" onClick={interfaceFunctions.scrollToTop}>О нас</Link>
+                            <Link to="" onClick={interfaceFunctions.scrollToTop}>Поддержка</Link>
+                            <Link to={ACCOUNT_ROUTE} onClick={interfaceFunctions.scrollToTop}>Профиль</Link>
+                            <Link to={MAIN_ROUTE} onClick={interfaceFunctions.scrollToTop}>Главная</Link>
                         </div>
                         
                         <div className="links_content col-4 d-flex flex-column">
-                            <h6 className="title fw-bold">Contacts</h6>
+                            <h6 className="title fw-bold">Контакты</h6>
                             <a href="tel: +375296354820">
                                 <i className="bi bi-telephone me-2"/>
                                 +375(29)635-48-20
@@ -97,20 +97,20 @@ const Footer = ({fetchAllPrograms, programsList}) => {
                             
                             <div onClick={interfaceFunctions.notificationToast}>
                                 <i className="bi bi-geo-alt me-2"/>
-                                Our address
+                                Наш адрес
                             </div>
                             <NotificationToast/>
                         </div>
                     </div>
                     
                     <div className="right_block col-2">
-                        <span>There is no such thing as an accident. What we call by that name is the effect of some cause which we do not see.</span>
+                        <span>Не бывает несчастного случая. То, что мы называем так - это следствие какой-то причины, которую мы не видим.</span>
                     </div>
                 </div>
                 
                 <div className="bottom row-12 d-flex justify-content-between">
-                    <span>© 2021 SportFit. All rights reserved.</span>
-                    <span>{programsList.length} programs on SportFit.</span>
+                    <span>© 2021 SportFit. Все права защищены.</span>
+                    <span>{programsList.length} программы(а) в SportFit.</span>
                 </div>
             </div>
         </div>

@@ -51,7 +51,7 @@ const AccountPage = ({match, fetchUserById, userRequested, userItem}) => {
                                                     <img src={emailIcon} alt="email" className="me-2" width="35" height="35"/>
                                                 </div>
     
-                                                <Tippy content="Email">
+                                                <Tippy content="Почта">
                                                     <div className="email_link w-100">
                                                         <input type="text" className="email form-control disabled" value={email}/>
                                                     </div>

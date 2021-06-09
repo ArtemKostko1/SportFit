@@ -49,7 +49,7 @@ const Header = ({userAuthenticated, logout, authUser}) => {
                                     className="nav-link fw-bold active" 
                                     aria-current="page"
                                     onClick={interfaceFunc.scrollToTop}>
-                                    Programs
+                                    Программы и планы
                                 </NavLink>
                             </li>
                             
@@ -76,19 +76,19 @@ const Header = ({userAuthenticated, logout, authUser}) => {
                                             <>
                                                 <NavLink className="routeLink" to={ACCOUNT_ROUTE} onClick={interfaceFunc.scrollToTop}>
                                                     <li className="dropdown-item">
-                                                        My Profile
+                                                        Мой профиль
                                                     </li>
                                                 </NavLink>
                                                 
                                                 <NavLink className="routeLink" to={USER_PROGRAMS_ROUTE} onClick={interfaceFunc.scrollToTop}>
                                                     <li className="dropdown-item">
-                                                        My Programs
+                                                        Мои программы
                                                     </li>
                                                 </NavLink>
                                                 
                                                 <NavLink className="routeLink" to={USER_SELECTED_ROUTE} onClick={interfaceFunc.scrollToTop}>
                                                     <li className="dropdown-item">
-                                                        My Selected
+                                                        Избранные
                                                     </li>
                                                 </NavLink>
 
@@ -101,7 +101,7 @@ const Header = ({userAuthenticated, logout, authUser}) => {
                                     
                                     <NavLink className="routeLink" to={SUPPORT_ROUTE} onClick={interfaceFunc.scrollToTop}>
                                         <li className="dropdown-item">
-                                            Support
+                                            Поддержка
                                         </li>
                                     </NavLink>
                                     
@@ -111,13 +111,13 @@ const Header = ({userAuthenticated, logout, authUser}) => {
                                             <>
                                                 <NavLink to={LOGIN_ROUTE} className="routeLink" onClick={interfaceFunc.scrollToTop}>
                                                     <li className="dropdown-item">
-                                                        Login
+                                                        Вход
                                                     </li>
                                                 </NavLink>
                                                 
                                                 <NavLink to={REGISTER_ROUTE} className="routeLink" onClick={interfaceFunc.scrollToTop}>
                                                     <li className="dropdown-item">
-                                                        Registration
+                                                        Регистрация
                                                     </li>
                                                 </NavLink>
                                             </> :
@@ -126,7 +126,7 @@ const Header = ({userAuthenticated, logout, authUser}) => {
                                                 <li
                                                     className="dropdown-item"
                                                     onClick={() => onLogout()}>
-                                                        Logout
+                                                        Выход
                                                 </li>
                                             </NavLink>
                                     }

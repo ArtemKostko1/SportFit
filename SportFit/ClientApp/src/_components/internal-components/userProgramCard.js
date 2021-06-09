@@ -19,8 +19,8 @@ const UserProgramCard = ({ id, name, preView, creationDate, deleteProgram }) => 
     const { addToast } = useToasts();
     
     const onDelete = id => {
-        if(window.confirm('Are you sure to delete this program?'))
-            deleteProgram(id, () => addToast("Successfully deleted", { appearance: 'success'}));
+        if(window.confirm('Вы уверены, что хотите удалить эту программу?'))
+            deleteProgram(id, () => addToast("Успешно удалено", { appearance: 'success'}));
     }
     
     return (
@@ -42,9 +42,9 @@ const UserProgramCard = ({ id, name, preView, creationDate, deleteProgram }) => 
                 
                 <div className="actions_block d-flex justify-content-between">
                     <Link to={`${PROGRAM_DETAIL_ROUTE}/${id}`}>
-                        <Tippy content="Show full description">
+                        <Tippy content="Посмотреть полное описание">
                             <button type="button" className="btn btn-outline-primary" onClick={interfaceFunc.scrollToTop}>
-                                Open
+                                Открыть
                             </button>
                         </Tippy>
                     </Link>
@@ -53,7 +53,7 @@ const UserProgramCard = ({ id, name, preView, creationDate, deleteProgram }) => 
 
                     <div className="specialButtons_wrapper d-flex">
                         <Link to={`${EDIT_PROGRAM_ROUTE}/${id}`}>
-                            <Tippy content="Edit">
+                            <Tippy content="Редактировать">
                                 <button 
                                     className="btn btn-outline-secondary d-flex justify-content-center align-items-center me-2 p-0" 
                                     type="button"
@@ -64,7 +64,7 @@ const UserProgramCard = ({ id, name, preView, creationDate, deleteProgram }) => 
                             </Tippy>
                         </Link>
 
-                        <Tippy content="Delete">
+                        <Tippy content="Удалить">
                             <button 
                                 className="btn btn-outline-danger d-flex justify-content-center align-items-center p-0" 
                                 type="button"

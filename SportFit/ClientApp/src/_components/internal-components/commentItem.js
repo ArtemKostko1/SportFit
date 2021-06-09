@@ -17,8 +17,7 @@ const CommentItem = ({ id, program, user, nickname, avatar, content, creationDat
     const { addToast } = useToasts();
 
     const onDelete = id => {
-        if(window.confirm('Are you sure to delete your comment?'))
-            props.deleteComment(id, () => addToast("Successfully deleted", { appearance: 'success'}));
+        props.deleteComment(id, () => addToast("Успешно удалено", { appearance: 'success'}));
     }
     
     return (

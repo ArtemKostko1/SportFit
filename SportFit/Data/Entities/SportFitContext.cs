@@ -54,12 +54,12 @@ namespace SportFit.Data.Entities
                 new ProgramType
                 {
                     Id = Guid.NewGuid(),
-                    Name = "Training program"
+                    Name = "Программа тренировки"
                 },
                 new ProgramType
                 {
                     Id = Guid.NewGuid(),
-                    Name = "Meal plan"
+                    Name = "План питания"
                 }
             );
 
@@ -67,22 +67,22 @@ namespace SportFit.Data.Entities
                 new ComplexityLevel
                 {
                     Id = Guid.NewGuid(),
-                    Name = "Professional"
+                    Name = "Легко"
                 },
                 new ComplexityLevel
                 {
                     Id = Guid.NewGuid(),
-                    Name = "Hard"
+                    Name = "Средне"
                 },
                 new ComplexityLevel
                 {
                     Id = Guid.NewGuid(),
-                    Name = "Medium"
+                    Name = "Сложно"
                 },
                 new ComplexityLevel
                 {
                     Id = Guid.NewGuid(),
-                    Name = "Easy"
+                    Name = "Профессионально"
                 }
             );
         }

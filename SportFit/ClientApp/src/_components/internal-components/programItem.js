@@ -26,7 +26,7 @@ const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType,
                             <img src={userAvatar === null || userAvatar === '' ? profile : userAvatar} alt="preView" width="auto" height="100%"/>
                         </div>
                         
-                        <Tippy content="Show user profile">
+                        <Tippy content="Посмотреть профиль">
                             <span className="fw-bold ms-2" onClick={interfaceFunc.scrollToTop}>{userNickname}</span>
                         </Tippy>
                     </Link>
@@ -48,16 +48,16 @@ const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType,
 
                         <div className="line row d-flex align-items-center">
                             <div className="left_group col-10">
-                                <span className="characteristic fw-bold pe-2">Type:</span>
+                                <span className="characteristic fw-bold pe-2">Тип:</span>
                                 <span className="description">{programType}</span>
                             </div>
 
                             <div className="right_group col-2 d-flex justify-content-end">
                                 <img src=
                                          {
-                                             programType === 'Training program' || programType === 'Программа тренировки' ?
+                                             programType === 'Программа тренировки' ?
                                                  dumbbell :
-                                             (programType === 'Meal plan' || programType === 'План питания' ?
+                                             (programType === 'План питания' ?
                                                  meal : null)
                                          }
                                      alt="ava" width="40" height="40"/>
@@ -66,19 +66,19 @@ const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType,
 
                         <div className="line row d-flex align-items-center">
                             <div className="left_group col-10">
-                                <span className="characteristic fw-bold pe-2">Complexity level:</span>
+                                <span className="characteristic fw-bold pe-2">Степень сложности:</span>
                                 <span className="description">{complexityLevel}</span>
                             </div>
 
                             <div className="right_group col-2 d-flex justify-content-end">
                                 {
-                                    complexityLevel === 'Easy' || programType === 'Легко' ?
+                                    complexityLevel === 'Легко' ?
                                         <img src={muscles_easy} alt="ava" height="23"/> :
-                                    (complexityLevel === 'Medium' || programType === 'Средне' ?
+                                    (complexityLevel === 'Средне' ?
                                         <img src={muscles_medium} alt="ava" height="23"/> :
-                                    (complexityLevel === 'Hard' || programType === 'Сложно' ?
+                                    (complexityLevel === 'Сложно' ?
                                         <img src={muscles_hard} alt="ava" height="23"/> :
-                                    (complexityLevel === 'Professional' || programType === 'Професионально' ?
+                                    (complexityLevel === 'Профессионально' ?
                                         <img src={muscles_professional} alt="ava" height="23"/> : 
                                     null)))
                                 }
@@ -87,7 +87,7 @@ const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType,
 
                         <div className="line row">
                             <div className="left_group col-10">
-                                <span className="characteristic fw-bold pe-2">Description:</span>
+                                <span className="characteristic fw-bold pe-2">Описание:</span>
                                 <span className="description">{description}</span>
                             </div>
 
@@ -101,9 +101,9 @@ const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType,
 
                         <div className="actionsButtons_wrapper d-flex">
                             <Link to={`${PROGRAM_DETAIL_ROUTE}/${id}`}>
-                                <Tippy content="Show full description">
+                                <Tippy content="Посмотреть полное описание">
                                     <button type="button" className="btn btn-outline-primary ms-3" onClick={interfaceFunc.scrollToTop}>
-                                        Open
+                                        Открыть
                                     </button>
                                 </Tippy>
                             </Link>

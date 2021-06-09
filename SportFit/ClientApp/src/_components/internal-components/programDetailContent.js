@@ -85,7 +85,7 @@ const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, prog
                         <div className="likes_wrapper d-flex align-items-center">
                             <span className="likesCount fw-bold">{likesList.length}</span>
 
-                            <Tippy content="Like this">
+                            <Tippy content={`Понравилось ${likesList.length} ${likesList.length === 1 ? 'человеку' : 'людям'}`}>
                                 <button 
                                     className="likeProgram rounded-circle shadow-sm rounded ms-2"
                                     onClick={onLiked}>
@@ -118,9 +118,9 @@ const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, prog
                             <div className="badge d-flex align-items-center justify-content-center me-3">{programType}</div>
                             <img src=
                                  {
-                                    programType === 'Training program' || programType === 'Программа тренировки' ?
+                                    programType === 'Программа тренировки' ?
                                         dumbbell :
-                                    (programType === 'Meal plan' || programType === 'План питания' ?
+                                    (programType === 'План питания' ?
                                         meal : null)
                                  } 
                                  alt="type" width="42" height="42"/>
@@ -128,22 +128,22 @@ const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, prog
     
                         <div className="complexityLevel_wrapper col-6 d-flex align-items-center justify-content-end">
                             {
-                                complexityLevel === 'Easy' || programType === 'Легко' ?
+                                complexityLevel === 'Легко' ?
                                     <>
                                         <img src={muscles_easy} alt="ava"/>
                                         <div className="badge d-flex align-items-center justify-content-center bg-primary ms-3">{complexityLevel}</div>
                                     </> :
-                                (complexityLevel === 'Medium' || programType === 'Средне' ?
+                                (complexityLevel === 'Средне' ?
                                     <>
                                         <img src={muscles_medium} alt="ava"/>
                                         <div className="badge d-flex align-items-center justify-content-center bg-warning ms-3">{complexityLevel}</div>
                                     </> :
-                                (complexityLevel === 'Hard' || programType === 'Сложно' ?
+                                (complexityLevel === 'Сложно' ?
                                     <>
                                         <img src={muscles_hard} alt="ava"/>
                                         <div className="badge d-flex align-items-center justify-content-center bg-danger ms-3">{complexityLevel}</div>
                                     </> :
-                                (complexityLevel === 'Professional' || programType === 'Професионально' ?
+                                (complexityLevel === 'Профеcсионально' ?
                                     <>
                                         <img src={muscles_professional} alt="ava"/>
                                         <div className="badge d-flex align-items-center justify-content-center bg-dark ms-3">{complexityLevel}</div>
@@ -152,39 +152,19 @@ const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, prog
                         </div>
                     </div>
     
-                    <div className="gallery_wrapper d-flex align-items-center shadow-sm rounded">
-                        <div className="photosGallery_wrapper d-flex row w-100">
-                            <div className="col-4">
-                                <div className="photo_wrapper d-flex justify-content-center align-items-center w-100 h-100 bg-dark">
-                                    <img src={camera} alt="" width="187" height="141"/>
-                                </div>
-                            </div>
-                            <div className="col-4">
-                                <div className="photo_wrapper d-flex justify-content-center align-items-center w-100 h-100 bg-primary">
-                                    <img src={camera} alt="" width="187" height="141"/>
-                                </div>
-                            </div>
-                            <div className="col-4">
-                                <div className="photo_wrapper d-flex justify-content-center align-items-center w-100 h-100 bg-secondary">
-                                    <img src={camera} alt="" width="187" height="141"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
                     <div className="name_wrapper">
                         <span className="fw-bold">{name}</span>
                     </div>
     
                     <div className="line_wrapper row w-100">
-                        <div className="title col-1 fw-bold">Description:</div>
+                        <div className="title col-1 fw-bold">Описание:</div>
                         <div className="content col-11 ps-3">
                             <span>{description}</span>
                         </div>
                     </div>
     
                     <div className="line_wrapper row w-100">
-                        <div className="title col-1 fw-bold">Program:</div>
+                        <div className="title col-1 fw-bold">Контент:</div>
                         <div className="content col-11 ps-3">
                             <textarea
                                 className="form-control disabled"
