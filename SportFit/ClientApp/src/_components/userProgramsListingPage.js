@@ -16,7 +16,7 @@ const UserProgramsListingPage = ({fetchAllMyPrograms, myProgramsList, myPrograms
     useEffect(() => {
         fetchAllMyPrograms(currentUserId);
 
-    }, []);
+    }, [myProgramsList]);
     
     return (
         <>

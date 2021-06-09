@@ -35,7 +35,7 @@ namespace SportFit.Controllers
                     User = c.UserId,
                     Nickname = c.User.Nickname,
                     Avatar = c.User.Avatar,
-                    Content = c.Program.Content,
+                    Content = c.Content,
                     CreationDate = c.CreationDate,
                     ModificationDate = c.ModificationDate
                 }).ToListAsync();

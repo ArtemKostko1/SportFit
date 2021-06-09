@@ -171,6 +171,20 @@ namespace SportFit.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProgram(Guid id)
         {
+            var likes = await _context.Likes
+                .Where(l => l.ProgramId == id).ToListAsync();
+            
+            var comments = await _context.Comments
+                .Where(c => c.ProgramId == id).ToListAsync();
+            
+            var selectedPrograms = await _context.SelectedPrograms
+                .Where(s => s.ProgramId == id).ToListAsync();
+            
+            _context.Likes.RemoveRange(likes);
+            _context.Comments.RemoveRange(comments);
+            _context.SelectedPrograms.RemoveRange(selectedPrograms);
+            
+            
             var program = await _context.Programs.FindAsync(id);
             if (program == null)
             {

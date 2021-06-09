@@ -43,7 +43,7 @@ const CommentItem = ({ id, program, user, nickname, avatar, content, creationDat
                 <div className="nicknameAndActions row">
                     <div className="userNickname col-11">
                         <Link to={`${ACCOUNT_ROUTE}/${user}`}>
-                            <Tippy content="Show user profile">
+                            <Tippy content="Посмотреть профиль">
                                 <span className="fw-bold" onClick={interfaceFunc.scrollToTop}>{ nickname }</span>
                             </Tippy>
                         </Link>
@@ -67,7 +67,7 @@ const CommentItem = ({ id, program, user, nickname, avatar, content, creationDat
                                         <li
                                             className="dropdown-item"
                                             onClick={() => onDelete(id)}>
-                                            Delete
+                                            Удалить
                                         </li>
                                     </ul>
                                 </div>
@@ -79,7 +79,6 @@ const CommentItem = ({ id, program, user, nickname, avatar, content, creationDat
                 <textarea
                     className="form-control w-100"
                     value={content}>
-                    { content }
                 </textarea>
                 
                 <div className="creationDate_wrapper text-secondary">

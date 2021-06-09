@@ -19,7 +19,6 @@ const Header = ({userAuthenticated, logout, authUser}) => {
     
     const currentUser = JSON.parse(localStorage.getItem('user'));
     
-    debugger
     const onLogout= () => {
         logout();
     }

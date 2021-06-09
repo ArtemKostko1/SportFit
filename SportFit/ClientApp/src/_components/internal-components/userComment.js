@@ -45,6 +45,7 @@ const UserComment = ({ programId, ...props }) => {
         e.preventDefault();
 
         if (validate()) {
+            debugger
             props.createComment(values, () => addToast("Successfully comment posted", {appearance: 'success'}));
             resetForm();
         }
@@ -80,7 +81,7 @@ const UserComment = ({ programId, ...props }) => {
                             required
                             {...(errors.Content && { error: "true" })}/>
                         
-                        <label htmlFor="floatingTextarea">Leave a comment here</label>
+                        <label htmlFor="floatingTextarea">Оставь свой комментарий</label>
                         <div className="invalid-feedback">{errors.Content}</div>
                     </div>
 
@@ -89,7 +90,7 @@ const UserComment = ({ programId, ...props }) => {
                             type="submit" 
                             className="postComment btn btn-outline-dark rounded-pill fw-bold"
                             onClick={validators.checkValidation('comment_form')}>
-                            Post a comment
+                            Прокомментировать
                         </button>
                     </div>
                 </form>

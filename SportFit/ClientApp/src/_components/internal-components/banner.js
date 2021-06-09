@@ -8,13 +8,13 @@ const Banner = () => {
         <div className="banner_wrapper">
             <div className="banner_blackout d-flex flex-column justify-content-center align-items-center">
                 <div className="content d-flex flex-column align-items-center">
-                    <h2 className="title">Create your personal program</h2>
-                    <span>Become a coach for everyone</span>
+                    <h2 className="title">Создай свою персональную программу</h2>
+                    <span>Стань тренером для всех</span>
                 </div>
 
                 <div className="button_wrapper">
                     <Link to={CREATE_PROGRAM_ROUTE} onClick={interfaceFunc.scrollToTop}>
-                        <button type="#" className="btn btn-outline-light rounded-pill fw-bold">CREATE</button>
+                        <button type="#" className="btn btn-outline-light rounded-pill fw-bold">СОЗДАТЬ</button>
                     </Link>
                 </div>
             </div>
