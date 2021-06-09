@@ -3,9 +3,8 @@ using SportFit.Data.Entities;
 
 namespace SportFit.Data.Models
 {
-    public class AuthenticateResponse
+    public class AuthenticateResponse : BaseModificationTracking
     {
-        public Guid Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public string Nickname { get; set; }
@@ -16,9 +15,6 @@ namespace SportFit.Data.Models
         public string Email { get; set; }
         public string Instagram { get; set; }
         public string Vk { get; set; }
-        public DateTime? CreationDate { get; set; }
-        public DateTime? ModificationDate { get; set; }
-
         public string Token { get; set; }
 
 

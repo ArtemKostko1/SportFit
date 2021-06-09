@@ -42,8 +42,12 @@ namespace SportFit.Data.Entities
                 .HasOne(s => s.Program)
                 .WithMany(p => p.SelectedPrograms)
                 .OnDelete(DeleteBehavior.Restrict);
-            
-            
+
+            BaseFillTables(modelBuilder);
+        }
+
+        private void BaseFillTables (ModelBuilder modelBuilder)
+		{
             modelBuilder.Entity<ProgramType>().HasData(
                 new ProgramType
                 {
@@ -56,7 +60,7 @@ namespace SportFit.Data.Entities
                     Name = "Meal plan"
                 }
             );
-            
+
             modelBuilder.Entity<ComplexityLevel>().HasData(
                 new ComplexityLevel
                 {

@@ -54,9 +54,9 @@ export const program = (url = baseUrl + 'programs') => {
     }
 }
 
-export const selectedProgram = (url = baseUrl + 'programs') => {
+export const selectedProgram = (url = baseUrl + 'selectedPrograms') => {
     return{
-        fetchAllSelectedPrograms: async () => await axios.get(url),
+        fetchAllSelectedPrograms: async id => await axios.get(`${url}/${id}`),
         addSelectedProgram: async newRecord => await axios.post(url, newRecord),
         deleteSelectedProgram: async id => await axios.delete(`${url}/${id}`)
     }
@@ -87,7 +87,7 @@ export const comment = (url = baseUrl + 'comments') => {
 
 export const like = (url = baseUrl + 'likes') => {
     return{
-        fetchAllLikes: async () => await axios.get(url),
+        fetchAllLikes: async id => await axios.get(`${url}/${id}`),
         fetchLikeById: async id => await axios.get(`${url}/${id}`),
         createLike: async newRecord => await axios.post(url, newRecord),
         deleteLike: async id => await axios.delete(`${url}/${id}`)

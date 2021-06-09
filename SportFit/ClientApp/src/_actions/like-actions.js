@@ -1,8 +1,8 @@
 ﻿import * as api from '../_services/api';
 import {likeActionTypes} from './_constants/likeActionTypes';
 
-export const fetchAllLikes = () => dispatch => {
-    api.like().fetchAllLikes()
+export const fetchAllLikes = id => dispatch => {
+    api.like().fetchAllLikes(id)
         .then(response => {
             dispatch({
                 type: likeActionTypes.FETCH_ALL_LIKES,

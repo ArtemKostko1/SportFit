@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SportFit.Data.Entities
 {
-    public class User : BaseEntity
+    public class User : BaseModificationTracking
     {       
         [Required]
         [Column(TypeName = "nvarchar(50)")]

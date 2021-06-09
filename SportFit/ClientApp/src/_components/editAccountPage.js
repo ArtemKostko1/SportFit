@@ -34,8 +34,10 @@ const EditAccountPage = ({...props}) => {
     const validate = (fieldValues = values) => {
         let temp = {...errors};
         
+        debugger
         if('Email' in fieldValues){
-            temp.Email = (/^$|.+@.+../).test(fieldValues.Email) ? '' : 'Please enter correct email';
+            temp.Email = (/^$|.+@.+../).test(fieldValues.Email) || 
+                fieldValues.Email === '' || fieldValues.Email === null ? '' : 'Please enter correct email';
         }
 
         setErrors({
@@ -58,6 +60,8 @@ const EditAccountPage = ({...props}) => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        
+        debugger
         if (validate()) {
             props.updateUser(currentUser.id, values, () =>  addToast("Successfully edited", {appearance: 'success'}));
         } else {

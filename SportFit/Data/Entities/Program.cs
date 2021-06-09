@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SportFit.Data.Entities
 {
-    public class Program : BaseEntity
+    public class Program : BaseModificationTracking
     {        
         public Guid UserId { get; set; }
 

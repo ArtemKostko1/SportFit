@@ -5,6 +5,7 @@ import { programTypeReducer } from "./programType-reducer";
 import { complexityLevelReducer } from "./complexityLevel-reducer";
 import { commentReducer } from "./comment-reducer";
 import { likeReducer } from "./like-reducer";
+import { selectedProgramReducer } from "./selectedProgram-reducer";
 
 export const reducers = combineReducers({
     userReducer,
@@ -12,5 +13,6 @@ export const reducers = combineReducers({
     programTypeReducer,
     complexityLevelReducer,
     commentReducer,
-    likeReducer
+    likeReducer,
+    selectedProgramReducer
 });

@@ -6,10 +6,10 @@ namespace SportFit.Data.Entities
 {
     public class SelectedProgram : BaseEntity
     {
-        [Required]
-        public Program Program { get; set; }
+        public Guid ProgramId { get; set; }
+        public Guid UserId { get; set; }
 
-        [Required]
         public User User { get; set; }
+        public Program Program { get; set; }
     }
 }

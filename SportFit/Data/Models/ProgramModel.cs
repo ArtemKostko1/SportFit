@@ -3,7 +3,7 @@ using System;
 
 namespace SportFit.Data.Models
 {
-    public class ProgramModel : BaseEntity
+    public class ProgramModel : BaseModificationTracking
     {
         public Guid UserId { get; set; }
         public string UserNickname { get; set; }

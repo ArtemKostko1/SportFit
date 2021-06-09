@@ -1,10 +1,10 @@
-﻿using System;
+﻿using SportFit.Data.Entities;
+using System;
 
 namespace SportFit.Data.Models
 {
-    public class UserModel
+    public class UserModel : BaseModificationTracking
     {
-        public Guid Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public string Nickname { get; set; }
@@ -15,7 +15,5 @@ namespace SportFit.Data.Models
         public string Email { get; set; }
         public string Instagram { get; set; }
         public string Vk { get; set; }
-        public DateTime? CreationDate { get; set; }
-        public DateTime? ModificationDate { get; set; }
     }
 }

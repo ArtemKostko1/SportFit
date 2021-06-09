@@ -12,7 +12,6 @@ export const likeReducer = (state = likeInitialState, {type, payload}) => {
             return {
                 ...state,
                 likesList: payload,
-                likesListLenght: state.likesList.length,
                 likesListLoading: false
             }
 

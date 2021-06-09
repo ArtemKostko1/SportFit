@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SportFit.Data.Entities;
+using SportFit.Data.Models;
 
 namespace SportFit.Controllers
 {
@@ -29,16 +30,17 @@ namespace SportFit.Controllers
 
         // GET: api/Likes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Like>> GetLike(Guid id)
+        public async Task<ActionResult<IEnumerable<LikeModel>>> GetLike(Guid id)
         {
-            var like = await _context.Likes.FindAsync(id);
-
-            if (like == null)
-            {
-                return NotFound();
-            }
-
-            return like;
+            return await _context.Likes
+                .Where(l => l.ProgramId == id)
+                .Select(l => new LikeModel()
+                {
+                    Id = l.Id,
+                    UserId = l.UserId,
+                    ProgramId =  l.ProgramId
+                })
+                .ToListAsync();
         }
 
         // POST: api/Likes

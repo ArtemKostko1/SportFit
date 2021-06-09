@@ -5,10 +5,8 @@ namespace SportFit.Data.Entities
 {
     public class ProgramTag : BaseEntity
     {
-        [Required]
         public Guid ProgramId { get; set; }
         
-        [Required]
         public Guid TagId { get; set; }
         
         

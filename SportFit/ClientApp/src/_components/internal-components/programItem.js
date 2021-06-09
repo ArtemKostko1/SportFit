@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
 import Tippy from '@tippy.js/react';
 import 'tippy.js/dist/tippy.css';
@@ -14,9 +14,56 @@ import muscles_easy from "../images/muscles_easy.png";
 import muscles_medium from "../images/muscles_medium.png";
 import muscles_hard from "../images/muscles_hard.png";
 import muscles_professional from "../images/muscles_professional.png";
+import bookmark_solid from "../images/bookmark_solid.svg";
+import bookmark from "../images/bookmark.svg";
+import * as likeActions from "../../_actions/like-actions";
+import * as selectedProgramActions from "../../_actions/selectedProgram-actions";
+import {connect} from "react-redux";
+import like_solid from "../images/like_solid.svg";
+import like from "../images/like.svg";
 
 
-const ProgramItem = ({ id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate }) => {
+const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate,
+                        fetchAllLikes, createLike, deleteLike, likesList, fetchAllSelectedPrograms,
+                        addSelectedProgram, deleteSelectedProgram, selectedProgramsList}) => {
+
+    useEffect(() => {
+        fetchAllLikes(id);
+        fetchAllSelectedPrograms(id);
+    }, []);
+
+    const currentUserId = JSON.parse(localStorage.getItem('user')).id;
+
+    const selectedProgramValues = {
+        ProgramId: id,
+        UserId: currentUserId
+    }
+
+    const likeValues = {
+        ProgramId: id,
+        UserId: currentUserId
+    }
+
+
+    let currentSelectedProgram = selectedProgramsList.find(x => x.userId === currentUserId);
+    let isSelected = selectedProgramsList.some(x => x.userId === currentUserId);
+
+    let currentLike = likesList.find(x => x.userId === currentUserId);
+    let isLiked = likesList.some(x => x.userId === currentUserId);
+
+
+    const onSelected = () => {
+        isSelected = !isSelected;
+
+        isSelected ? addSelectedProgram(selectedProgramValues) : deleteSelectedProgram(currentSelectedProgram.id);
+    }
+
+    const onLiked = () => {
+        isLiked = !isLiked;
+
+        isLiked ? createLike(likeValues) : deleteLike(currentLike.id);
+    }
+    
     return (
         <div className="programItem_wrapper container-xxl shadow">
             <div className="programItem_content container-xxl row">
@@ -95,23 +142,14 @@ const ProgramItem = ({ id, userId, userNickname, userAvatar, name, programType, 
                         </div>
                     </div>
 
+
                     <div className="actions_block d-flex justify-content-between">
                         <div className="creationDate d-flex align-items-center text-secondary">{dateFormat(creationDate)}</div>
-                        
-                        <div className="actions_buttons d-flex align-items-center">
-                            <div className="likes_wrapper me-4">
-                                <span className="likesCount fw-bold">0</span>
 
-                                <Tippy content="Like this">
-                                    <button className="likeProgram rounded-circle shadow-sm rounded ms-2">
-                                        <i className="bi bi-suit-heart"/>
-                                    </button>
-                                </Tippy>
-                            </div>
-    
+                        <div className="actionsButtons_wrapper d-flex">
                             <Link to={`${PROGRAM_DETAIL_ROUTE}/${id}`}>
                                 <Tippy content="Show full description">
-                                    <button type="button" className="btn btn-outline-primary" onClick={interfaceFunc.scrollToTop}>
+                                    <button type="button" className="btn btn-outline-primary ms-3" onClick={interfaceFunc.scrollToTop}>
                                         Open
                                     </button>
                                 </Tippy>
@@ -124,4 +162,20 @@ const ProgramItem = ({ id, userId, userNickname, userAvatar, name, programType, 
     );
 }
 
-export default ProgramItem;
+const mapStateToProps = state => ({
+    likesList: state.likeReducer.likesList,
+    likesListLenght: state.likeReducer.likesListLenght,
+    selectedProgramsList: state.selectedProgramReducer.selectedProgramsList,
+    selectedProgramsListLenght: state.selectedProgramReducer.selectedProgramsListLenght,
+});
+
+const mapActionToProps = {
+    fetchAllLikes: likeActions.fetchAllLikes,
+    createLike: likeActions.createLike,
+    deleteLike: likeActions.deleteLike,
+    fetchAllSelectedPrograms: selectedProgramActions.fetchAllSelectedPrograms,
+    addSelectedProgram: selectedProgramActions.addSelectedProgram,
+    deleteSelectedProgram: selectedProgramActions.deleteSelectedProgram
+}
+
+export default connect(mapStateToProps, mapActionToProps)(ProgramItem);

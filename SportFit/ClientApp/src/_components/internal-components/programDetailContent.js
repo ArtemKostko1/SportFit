@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import {ACCOUNT_ROUTE} from "../../_routing/routerConsts";
 import * as interfaceFunc from "../utils/interface";
 import * as likeActions from "../../_actions/like-actions";
+import * as selectedProgramActions from "../../_actions/selectedProgram-actions";
 
 import CommentsBlock from "./commentsBlock";
 
@@ -24,46 +25,45 @@ import {connect} from "react-redux";
 
 
 const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, content, 
-                                fetchAllLikes, createLike, deleteLike, likesList, likesListLenght }) => {
+                                fetchAllLikes, createLike, deleteLike, likesList, fetchAllSelectedPrograms, 
+                                addSelectedProgram, deleteSelectedProgram, selectedProgramsList }) => {
+
+    useEffect(() => {
+        fetchAllLikes(id);
+        fetchAllSelectedPrograms(currentUserId);
+    }, []);
     
     const currentUserId = JSON.parse(localStorage.getItem('user')).id;
-    
-    let isSelected = false;
-    
-    const onSelected = () => {
-        isSelected = !isSelected;
-        
-        if (isSelected) {
-            let attribute = document.createAttribute("src");
-            attribute.value = `${bookmark_solid}`;
-            document.getElementById('addToSelected_button').attributes.setNamedItem(attribute)
-            
-        } else {
-            let attribute = document.createAttribute("src");
-            attribute.value = `${bookmark}`;
-            document.getElementById('addToSelected_button').attributes.setNamedItem(attribute)
-        }
-    }
 
-    const likeValues = {
+    const selectedProgramValues = {
         ProgramId: id,
         UserId: currentUserId
     }
     
-    debugger
+    const likeValues = {
+        ProgramId: id,
+        UserId: currentUserId
+    }
+
+    
+    let currentSelectedProgram = selectedProgramsList.find(x => x.userId === currentUserId);
+    let isSelected = selectedProgramsList.some(x => x.userId === currentUserId);
+
     let currentLike = likesList.find(x => x.userId === currentUserId);
     let isLiked = likesList.some(x => x.userId === currentUserId);
 
+    
+    const onSelected = () => {
+        isSelected = !isSelected;
+
+        isSelected ? addSelectedProgram(selectedProgramValues) : deleteSelectedProgram(currentSelectedProgram.id);
+    }
+
     const onLiked = () => {
-        debugger
         isLiked = !isLiked;
         
         isLiked ? createLike(likeValues) : deleteLike(currentLike.id);
     }
-
-    useEffect(() => {
-        fetchAllLikes();
-    }, []);
     
     return (
         <>
@@ -84,23 +84,31 @@ const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, prog
                     <div className="actionsButtons_wrapper col-2 d-flex justify-content-end">
                         <div className="likes_wrapper d-flex align-items-center">
                             <span className="likesCount fw-bold">{likesList.length}</span>
-        
-                            <button 
-                                className="likeProgram rounded-circle shadow-sm rounded ms-2"
-                                onClick={onLiked}>
-                                
-                                <img id="like_button" src={isLiked ? like_solid : like} alt="ava" width="25" height="25"/>
-                            </button>
+
+                            <Tippy content="Like this">
+                                <button 
+                                    className="likeProgram rounded-circle shadow-sm rounded ms-2"
+                                    onClick={onLiked}>
+                                    
+                                    <img id="like_button" src={isLiked ? like_solid : like} alt="ava" width="25" height="25"/>
+                                </button>
+                            </Tippy>
                         </div>
     
-                        <div className="addToSelected_wrapper ms-2">
-                            <button 
-                                className="addToSelected rounded-circle shadow-sm rounded ms-2"
-                                onClick={onSelected}>
-                                
-                                <img id="addToSelected_button" alt="ava" width="25" height="25"/>
-                            </button>
-                        </div>
+                        {
+                            userId !== currentUserId ?
+                                <div className="addToSelected_wrapper ms-2">
+                                    <Tippy content="Add to selected">
+                                        <button
+                                            className="addToSelected rounded-circle shadow-sm rounded ms-2"
+                                            onClick={onSelected}>
+        
+                                            <img id="addToSelected_button" src={isSelected ? bookmark_solid : bookmark} alt="ava" width="25" height="25"/>
+                                        </button>
+                                    </Tippy>
+                                </div> :
+                                null
+                        }
                     </div>
                 </div>
     
@@ -194,12 +202,17 @@ const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, prog
 const mapStateToProps = state => ({
     likesList: state.likeReducer.likesList,
     likesListLenght: state.likeReducer.likesListLenght,
+    selectedProgramsList: state.selectedProgramReducer.selectedProgramsList,
+    selectedProgramsListLenght: state.selectedProgramReducer.selectedProgramsListLenght,
 });
 
 const mapActionToProps = {
     fetchAllLikes: likeActions.fetchAllLikes,
     createLike: likeActions.createLike,
-    deleteLike: likeActions.deleteLike
+    deleteLike: likeActions.deleteLike,
+    fetchAllSelectedPrograms: selectedProgramActions.fetchAllSelectedPrograms,
+    addSelectedProgram: selectedProgramActions.addSelectedProgram,
+    deleteSelectedProgram: selectedProgramActions.deleteSelectedProgram
 }
 
 export default connect(mapStateToProps, mapActionToProps)(ProgramDetailContent);

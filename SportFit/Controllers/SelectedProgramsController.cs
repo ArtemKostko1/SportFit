@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SportFit.Data.Entities;
+using SportFit.Data.Models;
 
 namespace SportFit.Controllers
 {
@@ -24,44 +25,36 @@ namespace SportFit.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<SelectedProgram>>> GetSelectedPrograms()
         {
-            /*return (from selectedProgram in _context.SelectedPrograms
-                join programType in _context.ProgramTypes on program.ProgramTypeId equals programType.Id
-                join complexityLevel in _context.ComplexityLevels on program.ComplexityLevelId equals complexityLevel.Id
-                join user in _context.Users on program.UserId equals user.Id
-                where program.Id == id
-                select new SelectedProgramModel()
-                {
-                    Id = program.Id,
-                    UserId = user.Id,
-                    UserNickname = user.Nickname,
-                    UserAvatar = user.Avatar,
-                    Name = program.Name,
-                    ProgramTypeId = program.ProgramTypeId,
-                    ProgramType = programType.Name,
-                    ComplexityLevelId = program.ComplexityLevelId,
-                    ComplexityLevel = complexityLevel.Name,
-                    Description = program.Description,
-                    Content = program.Content,
-                    PreView = program.PreView,
-                    CreationDate = program.CreationDate,
-                    ModificationDate = program.ModificationDate
-                }).FirstOrDefault();*/
-            
             return await _context.SelectedPrograms.ToListAsync();
         }
 
         // GET: api/SelectedPrograms/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<SelectedProgram>> GetSelectedProgram(Guid id)
+        public async Task<ActionResult<IEnumerable<SelectedProgramModel>>> GetSelectedProgram(Guid id)
         {
-            var selectedProgram = await _context.SelectedPrograms.FindAsync(id);
-
-            if (selectedProgram == null)
-            {
-                return NotFound();
-            }
-
-            return selectedProgram;
+            return await (from selectedProgram in _context.SelectedPrograms
+                join program in _context.ProgramTypes on selectedProgram.ProgramId equals program.Id
+                join programType in _context.ProgramTypes on selectedProgram.Program.ProgramTypeId equals programType.Id
+                join complexityLevel in _context.ComplexityLevels on selectedProgram.Program.ComplexityLevelId equals complexityLevel.Id
+                join user in _context.Users on selectedProgram.Program.UserId equals user.Id
+                where selectedProgram.UserId == id
+                select new SelectedProgramModel()
+                {
+                    Id = selectedProgram.Program.Id,
+                    UserId = selectedProgram.User.Id,
+                    UserNickname = selectedProgram.User.Nickname,
+                    UserAvatar = selectedProgram.User.Avatar,
+                    Name = selectedProgram.Program.Name,
+                    ProgramTypeId = selectedProgram.Program.ProgramTypeId,
+                    ProgramType = programType.Name,
+                    ComplexityLevelId = selectedProgram.Program.ComplexityLevelId,
+                    ComplexityLevel = complexityLevel.Name,
+                    Description = selectedProgram.Program.Description,
+                    Content = selectedProgram.Program.Content,
+                    PreView = selectedProgram.Program.PreView,
+                    CreationDate = selectedProgram.Program.CreationDate,
+                    ModificationDate = selectedProgram.Program.ModificationDate
+                }).ToListAsync();
         }
 
         // PUT: api/SelectedPrograms/5
