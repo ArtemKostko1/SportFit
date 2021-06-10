@@ -22,14 +22,14 @@ const UserSelectedPage = ({fetchAllSelectedPrograms, selectedProgramsList, selec
             <div className="userSelectedProgramsListingPage_wrapper container-xxl">
                 <div className="userSelectedProgramsListingPage_content">
                     <div className="title_wrapper d-flex justify-content-center">
-                        <h1 className="title fw-bold m-0">YUOR SELECTED</h1>
+                        <h1 className="title fw-bold m-0">ИЗБРАННЫЕ</h1>
                     </div>
 
-                    {
+                    {/*{
                         Object.keys(selectedProgramsList).length !== 0 ?
                             <ProgramsFilterPanel/> :
                             null
-                    }
+                    }*/}
 
                     <div className="selectedProgramCardsListing_wrapper">
                         {

@@ -1,1 +1,778 @@
-.header{height:60px}.header .navbar .navbar_wrapper{height:60px}.header .navbar .navbar_wrapper .brand{height:60px}.header .navbar .navbar_wrapper .brand .navbar-brand{font-size:24pt}.header .navbar .navbar_wrapper .navbar-nav .nav-item .nav-link{font-size:20px}.header .navbar .navbar_wrapper .navbar-nav .nav-item .nav-link .avatar_wrapper{overflow:hidden;height:40px;width:40px;background-color:#e0e0e0}.header .navbar .navbar_wrapper .navbar-nav .nav-item .dropdown-menu .dropdown-item{cursor:pointer}.header .navbar .navbar_wrapper .navbar-nav .nav-item .dropdown-menu .dropdown-item .routeLink{color:#000000;font-size:12pt;cursor:pointer}.btn-outline-primary{color:#000000}.btn-outline-primary:hover{color:#ffffff}.authorization_wrapper .row{height:calc(100vh - 60px)}.authorization_wrapper .row .right .authorization_form_wrapper{width:550px}.authorization_wrapper .row .right .authorization_form_wrapper .title{margin-bottom:15px!important}.authorization_wrapper .row .right .authorization_form_wrapper .separator{margin-bottom:15px!important}.authorization_wrapper .row .right .authorization_form_wrapper .separator span{line-height:1rem;color:#BDBDBD}.authorization_wrapper .row .right .authorization_form_wrapper .input_wrapper{margin-bottom:15px!important}.authorization_wrapper .row .right .authorization_form_wrapper .input_wrapper .form-label{color:#d3d3d3}.authorization_wrapper .row .right .authorization_form_wrapper .input_wrapper .form-control{color:#000000}.authorization_wrapper .row .right .authorization_form_wrapper .button_wrapper{margin-bottom:15px!important}a{text-decoration:none;font-size:16px;color:lightgrey}a:hover{color:white}.footer_wrapper{height:350px}.footer_wrapper .top{height:290px;padding:45px 0}.footer_wrapper .top .left_block .brand{margin-bottom:35px}.footer_wrapper .top .left_block .brand .brandName{color:white}.footer_wrapper .top .left_block .text{margin-bottom:35px;height:45px;font-size:16px;color:lightgrey}.footer_wrapper .top .center_block .links_content .title{color:white;margin-bottom:15px}.footer_wrapper .top .center_block .links_content a{margin-bottom:5px}.footer_wrapper .top .center_block .links_content a .bi{font-size:15px;color:lightgrey}.footer_wrapper .top .center_block .links_content div{font-size:16px;color:lightgrey}.footer_wrapper .top .center_block .links_content div:hover{cursor:pointer;color:white}.footer_wrapper .top .right_block{color:lightgrey}.footer_wrapper .bottom{height:60px;font-size:16px;color:lightgrey}.home_wrapper{padding:50px 0}.banner_wrapper{border-radius:25px;height:400px;background-image:url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");background-repeat:no-repeat;background-size:cover;background-position:center}.banner_wrapper .banner_blackout{border-radius:25px;height:400px;padding:75px;background-color:rgba(0,0,0,0.5)}.banner_wrapper .banner_blackout .content{margin-bottom:65px}.banner_wrapper .banner_blackout .content .title{margin-bottom:20px;color:white}.banner_wrapper .banner_blackout .content span{color:lightgrey}.banner_wrapper .banner_blackout .button_wrapper .btn{width:170px;color:white}.banner_wrapper .banner_blackout .button_wrapper .btn:hover{color:black}.programsListingPage_wrapper{padding:50px 0}.programsListingPage_wrapper .banner{background-image:url("https://images.unsplash.com/photo-1579126038374-6064e9370f0f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1317&q=80")}.programsListingPage_wrapper .programsListing_content .programItem_wrapper{margin-bottom:50px}.programsListingPage_wrapper .programsListing_content .programItem_wrapper:last-child{margin-bottom:0}.programItem_wrapper{height:auto;padding:25px;border-radius:25px}.programItem_wrapper .programItem_content .left_block .user_wrapper{margin-bottom:15px}.programItem_wrapper .programItem_content .left_block .user_wrapper .avatar{overflow:hidden;width:40px;height:40px;background-color:#e0e0e0}.programItem_wrapper .programItem_content .left_block .user_wrapper span{color:black}.programItem_wrapper .programItem_content .left_block .user_wrapper span:hover{color:#555555;cursor:pointer}.programItem_wrapper .programItem_content .left_block .preView_wrapper{overflow:hidden;height:325px;width:420px;background-color:#e0e0e0;border-radius:15px}.programItem_wrapper .programItem_content .left_block .preView_wrapper .preView_photo{max-width:420px;border-radius:15px}.programItem_wrapper .programItem_content .right_block{padding:0}.programItem_wrapper .programItem_content .right_block .content_block .name_wrapper{margin-bottom:15px;font-size:16pt;color:#008cff}.programItem_wrapper .programItem_content .right_block .content_block .line{height:40px}.programItem_wrapper .programItem_content .right_block .content_block .line .characteristic{font-size:12pt}.programItem_wrapper .programItem_content .right_block .content_block .line .description{font-size:12pt}.programItem_wrapper .programItem_content .right_block .actions_block .creationDate{font-size:12pt}.programItem_wrapper .programItem_content .right_block .actions_block .btn{width:100px}.createProgramPage_wrapper{padding:50px 0}.createProgramPage_wrapper .createProgram_content{padding:25px;border-radius:25px}.createProgramPage_wrapper .createProgram_content .top_block{margin-bottom:32.5px}.createProgramPage_wrapper .createProgram_content .top_block .left_block .input_wrapper{margin-bottom:32.5px}.createProgramPage_wrapper .createProgram_content .top_block .left_block .input_wrapper .form-floating .form-control,.createProgramPage_wrapper .createProgram_content .top_block .left_block .input_wrapper .form-floating .form-select{height:67.5px}.createProgramPage_wrapper .createProgram_content .top_block .left_block .input_wrapper:last-child{margin-bottom:0}.createProgramPage_wrapper .createProgram_content .top_block .left_block .input_wrapper .form-floating .form-label{color:#BDBDBD}.createProgramPage_wrapper .createProgram_content .top_block .right_block .preViewDownloadPhoto_block .preView_wrapper{overflow:hidden;height:325px;width:420px;background-color:#e0e0e0;border-radius:15px 15px 0 0}.createProgramPage_wrapper .createProgram_content .top_block .right_block .preViewDownloadPhoto_block .preView_wrapper .preView_photo{border-radius:15px 15px 0 0}.createProgramPage_wrapper .createProgram_content .top_block .right_block .preViewDownloadPhoto_block .input-group{width:420px}.createProgramPage_wrapper .createProgram_content .top_block .right_block .preViewDownloadPhoto_block .input-group .input-group-text{border-radius:0 0 0 15px;height:42.5px}.createProgramPage_wrapper .createProgram_content .top_block .right_block .preViewDownloadPhoto_block .input-group .form-control{border-radius:0 0 15px 0;height:42.5px}.createProgramPage_wrapper .createProgram_content .bottom_block{margin-bottom:25px}.createProgramPage_wrapper .createProgram_content .bottom_block .programContent_block .form-floating .form-control{min-height:150px}.createProgramPage_wrapper .createProgram_content .bottom_block .programContent_block .form-floating .form-label{color:#BDBDBD}.separator_wrapper{height:200px;margin:25px 0}.separator_wrapper hr{height:2px}.row{--bs-gutter-x:0}.programDetailPage_wrapper{padding:50px 0;min-height:100vh}.commentsBlock_wrapper{height:auto;border-radius:25px}.commentsBlock_wrapper hr{color:#CEECFF;height:2px}.commentsBlock_wrapper .commentsList_wrapper{padding:50px}.commentItem_wrapper{margin-bottom:50px}.commentItem_wrapper:last-child{margin-bottom:0}.commentItem_wrapper .userAvatar_wrapper .avatar_wrapper{height:75px;width:75px}.commentItem_wrapper .commentItem_content{min-height:90px}.commentItem_wrapper .commentItem_content .nicknameAndActions{margin-bottom:5px}.commentItem_wrapper .commentItem_content .nicknameAndActions .userNickname span{color:#000000;font-size:12pt}.commentItem_wrapper .commentItem_content .nicknameAndActions .userNickname span:hover{color:#555555;cursor:pointer}.commentItem_wrapper .commentItem_content .nicknameAndActions .actionsButtons_wrapper .dropdown .actions_dropdown{height:27.5px;width:27.5px;border-radius:50px}.commentItem_wrapper .commentItem_content .nicknameAndActions .actionsButtons_wrapper .dropdown .dropdown-menu .dropdown-item{cursor:pointer}.commentItem_wrapper .commentItem_content .nicknameAndActions .actionsButtons_wrapper .dropdown:hover{background-color:#f0f0f0}.commentItem_wrapper .commentItem_content .nicknameAndActions .actionsButtons_wrapper .dropdown:hover .fa{color:#000000}.commentItem_wrapper .commentItem_content .nicknameAndActions .actionsButtons_wrapper .dropdown .fa{color:#aaaaaa}.commentItem_wrapper .commentItem_content .form-control{height:77.5px;line-height:1.75rem;margin-bottom:5px}.commentItem_wrapper .commentItem_content .creationDate_wrapper{font-size:12pt}.userComment_wrapper{padding:50px}.userComment_wrapper .userAvatar_wrapper .avatar_wrapper{height:75px;width:75px}.userComment_wrapper .userCommentInput_wrapper .comment_form .input_wrapper{margin-bottom:25px}.userComment_wrapper .userCommentInput_wrapper .comment_form .input_wrapper .commentText{height:100px}.userComment_wrapper .userCommentInput_wrapper .comment_form .button_wrapper .btn{width:300px}.programDetail_content{height:auto;padding:50px;margin-bottom:50px;border-radius:25px}.programDetail_content .topInfo_wrapper{margin-bottom:25px}.programDetail_content .topInfo_wrapper .user_wrapper .avatar{overflow:hidden;width:40px;height:40px;background-color:#e0e0e0}.programDetail_content .topInfo_wrapper .user_wrapper span{color:black}.programDetail_content .topInfo_wrapper .user_wrapper span:hover{color:#555555;cursor:pointer}.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .likes_wrapper .likesCount{font-size:14pt;color:#0d6efd}.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .likes_wrapper .likeProgram{height:45px;width:45px;background-color:#F2FDFF;border:transparent}.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .likes_wrapper .likeProgram .bi{font-weight:bold;font-size:24px;color:#0d6efd}.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .likes_wrapper .likeProgram:hover{background-color:#C8F8FF}.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .likes_wrapper .likeProgram:active{background-color:#ceecff}.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .addToSelected_wrapper .addToSelected{height:45px;width:45px;background-color:#F2FDFF;border:transparent}.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .addToSelected_wrapper .addToSelected .bi{font-weight:bold;font-size:24px;color:#0d6efd}.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .addToSelected_wrapper .addToSelected:hover{background-color:#C8F8FF}.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .addToSelected_wrapper .addToSelected:active{background-color:#ceecff}.programDetail_content .mainContent_wrapper .typesCharacterization_wrapper{margin-bottom:25px}.programDetail_content .mainContent_wrapper .typesCharacterization_wrapper .programType_wrapper .badge{width:250px;height:42px;font-size:14pt;background-color:#0D6EFD}.programDetail_content .mainContent_wrapper .typesCharacterization_wrapper .complexityLevel_wrapper .badge{width:200px;height:42px;font-size:14pt}.programDetail_content .mainContent_wrapper .gallery_wrapper{height:400px;margin-bottom:25px}.programDetail_content .mainContent_wrapper .gallery_wrapper .photosGallery_wrapper{height:350px}.programDetail_content .mainContent_wrapper .name_wrapper{margin-bottom:15px;font-size:18pt;color:#008CFF}.programDetail_content .mainContent_wrapper .line_wrapper{margin-bottom:15px}.programDetail_content .mainContent_wrapper .line_wrapper:last-child{margin-bottom:0}.programDetail_content .mainContent_wrapper .line_wrapper .title{font-size:14pt}.programDetail_content .mainContent_wrapper .line_wrapper .content{font-size:12pt}.programDetail_content .mainContent_wrapper .line_wrapper .content .form-control{min-height:200px!important;font-size:12pt}.editAccountPage_wrapper{padding:50px 0}.editAccountPage_wrapper .editAccount_content{height:auto;padding:25px;border-radius:25px}.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .avatar_block{margin-bottom:50px}.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .avatar_block .avatar_wrapper{height:330px;overflow:hidden;background-color:#e0e0e0;border-radius:15px 15px 0 0}.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .avatar_block .avatar_wrapper .avatar_photo{border-radius:15px 15px 0 0}.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .avatar_block .input-group{height:42.5px}.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .avatar_block .input-group .input-group-text{border-radius:0 0 0 15px}.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .avatar_block .input-group .avatarUrl{border-radius:0 0 15px 0}.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .socialNetworks_wrapper .socialLink_wrapper{margin-bottom:15px}.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .socialNetworks_wrapper .socialLink_wrapper:last-child{margin-bottom:0}.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .socialNetworks_wrapper .socialLink_wrapper .social_icon i{font-size:30px}.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .socialNetworks_wrapper .socialLink_wrapper .social_link .form-floating .form-label{color:#BDBDBD}.editAccountPage_wrapper .editAccount_content .accountAndProfile .accountInfo_wrapper{height:372.5px;margin-bottom:50px}.editAccountPage_wrapper .editAccount_content .accountAndProfile .accountInfo_wrapper .title{margin-bottom:15px}.editAccountPage_wrapper .editAccount_content .accountAndProfile .accountInfo_wrapper .input_wrapper{height:65px;margin-bottom:15px}.editAccountPage_wrapper .editAccount_content .accountAndProfile .accountInfo_wrapper .input_wrapper:last-child{margin-bottom:0}.editAccountPage_wrapper .editAccount_content .accountAndProfile .accountInfo_wrapper .input_wrapper .form-floating .form-label{color:#BDBDBD}.editAccountPage_wrapper .editAccount_content .accountAndProfile .profile_wrapper .title{margin-bottom:15px}.editAccountPage_wrapper .editAccount_content .accountAndProfile .profile_wrapper .input_wrapper{margin-bottom:15px}.editAccountPage_wrapper .editAccount_content .accountAndProfile .profile_wrapper .input_wrapper:last-child{margin-bottom:0}.editAccountPage_wrapper .editAccount_content .accountAndProfile .profile_wrapper .input_wrapper .form-floating .form-label{color:#BDBDBD}.editAccountPage_wrapper .editAccount_content .actions_block{margin-top:25px}.accountPage_wrapper{min-height:100vh;padding:50px 0}.accountPage_wrapper .account_content{height:auto;border-radius:25px}.accountPage_wrapper .account_content .avatarAndSocialLinks_block .avatar_wrapper{height:330px;overflow:hidden}.accountPage_wrapper .account_content .avatarAndSocialLinks_block .socialLinks_wrapper{height:auto;margin-top:50px;padding:15px}.accountPage_wrapper .account_content .avatarAndSocialLinks_block .socialLinks_wrapper .email_wrapper{margin-bottom:15px}.accountPage_wrapper .account_content .avatarAndSocialLinks_block .socialLinks_wrapper .email_wrapper .email_icon i{font-size:30px}.accountPage_wrapper .account_content .avatarAndSocialLinks_block .socialLinks_wrapper .email_wrapper .email_link .email{height:42px;background-color:#e0e0e0;border-radius:10px}.accountPage_wrapper .account_content .userInfoAndPrograms .userInfo_wrapper{height:330px}.accountPage_wrapper .account_content .userInfoAndPrograms .userInfo_wrapper .top_block .nickName{height:42px;font-size:20pt}.accountPage_wrapper .account_content .userInfoAndPrograms .userInfo_wrapper .top_block .btn{width:40px;height:100%}.accountPage_wrapper .account_content .userInfoAndPrograms .userInfo_wrapper .top_block .btn .fa{font-size:1.25rem}.accountPage_wrapper .account_content .userInfoAndPrograms .userInfo_wrapper .info_wrapper .content{height:42px;background-color:#e0e0e0;border-radius:10px}.accountPage_wrapper .account_content .userInfoAndPrograms .userInfo_wrapper .info_wrapper .content_link{color:#000000}.accountPage_wrapper .account_content .userInfoAndPrograms .userInfo_wrapper .info_wrapper .content_link:hover{color:#777777}.accountPage_wrapper .account_content .userInfoAndPrograms .programs_wrapper{height:500px;margin-top:50px}.userProgramsListingPage_wrapper{padding:50px 0}.userProgramsListingPage_wrapper .userProgramsListingPage_content .title_wrapper{margin-bottom:50px}.userProgramsListingPage_wrapper .userProgramsListingPage_content .programCardsListing_wrapper{margin:0 -15px;margin-bottom:-50px}.userProgramsListingPage_wrapper .userProgramsListingPage_content .programCardsListing_wrapper .loading_wrapper{min-height:calc(100vh - 214px)}.userProgramsListingPage_wrapper .userProgramsListingPage_content .programCardsListing_wrapper .loading_wrapper .loading{margin-bottom:50px}.userProgramsListingPage_wrapper .userProgramsListingPage_content .programCardsListing_wrapper .empty_wrapper .title_wrapper{margin-bottom:50px}.userProgramsListingPage_wrapper .userProgramsListingPage_content .programCardsListing_wrapper .empty_wrapper .banner_wrapper{margin-bottom:50px}.userSelectedProgramsListingPage_wrapper{min-height:calc(100vh - 60px);padding:50px 0}.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .title_wrapper{margin-bottom:50px}.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .selectedProgramCardsListing_wrapper{margin:0 -15px;margin-bottom:-50px}.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .selectedProgramCardsListing_wrapper .loading_wrapper{min-height:calc(100vh - 214px)}.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .selectedProgramCardsListing_wrapper .loading_wrapper .loading{margin-bottom:50px}.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .selectedProgramCardsListing_wrapper .empty_wrapper .title_wrapper{margin-bottom:50px}.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .selectedProgramCardsListing_wrapper .empty_wrapper .banner_wrapper{margin-bottom:50px}.supportPage_wrapper{height:100vh;padding:50px}.supportPage_wrapper .supportPage_content{position:relative;top:-30px;height:400px;width:600px;padding:25px;border-radius:25px;border:2px solid #ceecff}.programsFilterPanel_wrapper{margin:50px 0}.programsFilterPanel_wrapper .left_block .programSearch_wrapper{max-width:420px}.programsFilterPanel_wrapper .right_block .complexityLevelFilter_wrapper{margin-right:50px}.programsFilterPanel_wrapper .right_block .programTypeFilter_wrapper button:nth-child(2){width:90px}.programsFilterPanel_wrapper .right_block .programTypeFilter_wrapper button:last-child{width:90px}.userProgramCard_wrapper{height:auto;width:420px;margin:0 15px 50px 15px;border-radius:15px}.userProgramCard_wrapper .preView_wrapper{overflow:hidden;height:325px;width:400px;border-radius:15px;background-color:#e0e0e0}.userProgramCard_wrapper .programContent_wrapper{padding:15px}.userProgramCard_wrapper .programContent_wrapper .name_wrapper{height:3.25rem;margin-bottom:15px;font-size:14pt}.userProgramCard_wrapper .programContent_wrapper .actions_block .btn{width:88px}.userProgramCard_wrapper .programContent_wrapper .actions_block .specialButtons_wrapper .btn{width:40px;height:100%}.userProgramCard_wrapper .programContent_wrapper .actions_block .specialButtons_wrapper .btn .fa{font-size:1.25rem}.userSelectedProgramCard_wrapper{height:auto;width:420px;margin:0 15px 50px 15px;border-radius:15px}.userSelectedProgramCard_wrapper .preView_wrapper{overflow:hidden;height:325px;width:400px;border-radius:15px;background-color:#e0e0e0}.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper{padding:15px}.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .name_wrapper{height:3.25rem;margin-bottom:15px;font-size:14pt}.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .actions_block .btn{width:88px}.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .actions_block .specialButtons_wrapper .addToSelected_wrapper .addToSelected{height:45px;width:45px;background-color:#F2FDFF;border:transparent}.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .actions_block .specialButtons_wrapper .addToSelected_wrapper .addToSelected .bi{font-weight:bold;font-size:24px;color:#0d6efd}.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .actions_block .specialButtons_wrapper .addToSelected_wrapper .addToSelected:hover{background-color:#C8F8FF}.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .actions_block .specialButtons_wrapper .addToSelected_wrapper .addToSelected:active{background-color:#ceecff}.notificationToast_wrapper .toast{width:400px;background-color:#ffffff}.notificationToast_wrapper .toast small,.notificationToast_wrapper .toast span,.notificationToast_wrapper .toast strong{color:#000000}.notificationToast_wrapper .toast a{color:#000000}.notificationToast_wrapper .toast a:hover{color:lightgrey}
+.header {
+  height: 60px;
+}
+.header .navbar .navbar_wrapper {
+  height: 60px;
+}
+.header .navbar .navbar_wrapper .brand {
+  height: 60px;
+}
+.header .navbar .navbar_wrapper .brand .navbar-brand {
+  font-size: 24pt;
+}
+.header .navbar .navbar_wrapper .navbar-nav .nav-item .nav-link {
+  font-size: 20px;
+}
+.header .navbar .navbar_wrapper .navbar-nav .nav-item .nav-link .avatar_wrapper {
+  overflow: hidden;
+  height: 40px;
+  width: 40px;
+  background-color: #e0e0e0;
+}
+.header .navbar .navbar_wrapper .navbar-nav .nav-item .dropdown-menu .dropdown-item {
+  cursor: pointer;
+}
+.header .navbar .navbar_wrapper .navbar-nav .nav-item .dropdown-menu .dropdown-item .routeLink {
+  color: #000000;
+  font-size: 12pt;
+  cursor: pointer;
+}
+
+.btn-outline-primary {
+  color: #000000;
+}
+.btn-outline-primary:hover {
+  color: #ffffff;
+}
+
+.authorization_wrapper .row {
+  height: calc(100vh - 60px);
+}
+.authorization_wrapper .row .right .authorization_form_wrapper {
+  width: 550px;
+}
+.authorization_wrapper .row .right .authorization_form_wrapper .title {
+  margin-bottom: 15px !important;
+}
+.authorization_wrapper .row .right .authorization_form_wrapper .separator {
+  margin-bottom: 15px !important;
+}
+.authorization_wrapper .row .right .authorization_form_wrapper .separator span {
+  line-height: 1rem;
+  color: #BDBDBD;
+}
+.authorization_wrapper .row .right .authorization_form_wrapper .input_wrapper {
+  margin-bottom: 15px !important;
+}
+.authorization_wrapper .row .right .authorization_form_wrapper .input_wrapper .form-label {
+  color: #d3d3d3;
+}
+.authorization_wrapper .row .right .authorization_form_wrapper .input_wrapper .form-control {
+  color: #000000;
+}
+.authorization_wrapper .row .right .authorization_form_wrapper .button_wrapper {
+  margin-bottom: 15px !important;
+}
+
+a {
+  text-decoration: none;
+  font-size: 16px;
+  color: lightgrey;
+}
+a:hover {
+  color: white;
+}
+
+.footer_wrapper {
+  height: 350px;
+}
+.footer_wrapper .top {
+  height: 290px;
+  padding: 45px 0;
+}
+.footer_wrapper .top .left_block .brand {
+  margin-bottom: 35px;
+}
+.footer_wrapper .top .left_block .brand .brandName {
+  color: white;
+}
+.footer_wrapper .top .left_block .text {
+  margin-bottom: 35px;
+  height: 45px;
+  font-size: 16px;
+  color: lightgrey;
+}
+.footer_wrapper .top .center_block .links_content .title {
+  color: white;
+  margin-bottom: 15px;
+}
+.footer_wrapper .top .center_block .links_content a {
+  margin-bottom: 5px;
+}
+.footer_wrapper .top .center_block .links_content a .bi {
+  font-size: 15px;
+  color: lightgrey;
+}
+.footer_wrapper .top .center_block .links_content div {
+  font-size: 16px;
+  color: lightgrey;
+}
+.footer_wrapper .top .center_block .links_content div:hover {
+  cursor: pointer;
+  color: white;
+}
+.footer_wrapper .top .right_block {
+  color: lightgrey;
+  text-align: justify;
+}
+.footer_wrapper .bottom {
+  height: 60px;
+  font-size: 16px;
+  color: lightgrey;
+}
+
+.home_wrapper {
+  padding: 50px 0;
+}
+
+.banner_wrapper {
+  border-radius: 25px;
+  height: 400px;
+  background-image: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.banner_wrapper .banner_blackout {
+  border-radius: 25px;
+  height: 400px;
+  padding: 75px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.banner_wrapper .banner_blackout .content {
+  margin-bottom: 65px;
+}
+.banner_wrapper .banner_blackout .content .title {
+  margin-bottom: 20px;
+  color: white;
+}
+.banner_wrapper .banner_blackout .content span {
+  color: lightgrey;
+}
+.banner_wrapper .banner_blackout .button_wrapper .btn {
+  width: 170px;
+  color: white;
+}
+.banner_wrapper .banner_blackout .button_wrapper .btn:hover {
+  color: black;
+}
+
+.programsListingPage_wrapper {
+  padding: 50px 0;
+  min-height: calc(100vh - 60px);
+}
+.programsListingPage_wrapper .banner {
+  background-image: url("https://images.unsplash.com/photo-1579126038374-6064e9370f0f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1317&q=80");
+}
+.programsListingPage_wrapper .programsListing_content .programItem_wrapper {
+  margin-bottom: 50px;
+}
+.programsListingPage_wrapper .programsListing_content .programItem_wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.programItem_wrapper {
+  height: auto;
+  padding: 25px;
+  border-radius: 25px;
+}
+.programItem_wrapper .programItem_content .left_block .user_wrapper {
+  margin-bottom: 15px;
+}
+.programItem_wrapper .programItem_content .left_block .user_wrapper .avatar {
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  background-color: #e0e0e0;
+}
+.programItem_wrapper .programItem_content .left_block .user_wrapper span {
+  color: black;
+}
+.programItem_wrapper .programItem_content .left_block .user_wrapper span:hover {
+  color: #555555;
+  cursor: pointer;
+}
+.programItem_wrapper .programItem_content .left_block .preView_wrapper {
+  overflow: hidden;
+  height: 325px;
+  width: 420px;
+  background-color: #e0e0e0;
+  border-radius: 15px;
+}
+.programItem_wrapper .programItem_content .left_block .preView_wrapper .preView_photo {
+  max-width: 420px;
+  border-radius: 15px;
+}
+.programItem_wrapper .programItem_content .right_block {
+  padding: 0;
+}
+.programItem_wrapper .programItem_content .right_block .content_block .name_wrapper {
+  margin-bottom: 15px;
+  font-size: 16pt;
+  color: #008cff;
+}
+.programItem_wrapper .programItem_content .right_block .content_block .line {
+  height: 40px;
+}
+.programItem_wrapper .programItem_content .right_block .content_block .line .characteristic {
+  font-size: 12pt;
+}
+.programItem_wrapper .programItem_content .right_block .content_block .line .description {
+  font-size: 12pt;
+}
+.programItem_wrapper .programItem_content .right_block .actions_block .creationDate {
+  font-size: 12pt;
+}
+.programItem_wrapper .programItem_content .right_block .actions_block .btn {
+  width: 100px;
+}
+
+.createProgramPage_wrapper {
+  padding: 50px 0;
+}
+.createProgramPage_wrapper .createProgram_content {
+  padding: 25px;
+  border-radius: 25px;
+}
+.createProgramPage_wrapper .createProgram_content .top_block {
+  margin-bottom: 32.5px;
+}
+.createProgramPage_wrapper .createProgram_content .top_block .left_block .input_wrapper {
+  margin-bottom: 32.5px;
+}
+.createProgramPage_wrapper .createProgram_content .top_block .left_block .input_wrapper .form-floating .form-control, .createProgramPage_wrapper .createProgram_content .top_block .left_block .input_wrapper .form-floating .form-select {
+  height: 67.5px;
+}
+.createProgramPage_wrapper .createProgram_content .top_block .left_block .input_wrapper:last-child {
+  margin-bottom: 0;
+}
+.createProgramPage_wrapper .createProgram_content .top_block .left_block .input_wrapper .form-floating .form-label {
+  color: #BDBDBD;
+}
+.createProgramPage_wrapper .createProgram_content .top_block .right_block .preViewDownloadPhoto_block .preView_wrapper {
+  overflow: hidden;
+  height: 325px;
+  width: 420px;
+  background-color: #e0e0e0;
+  border-radius: 15px 15px 0 0;
+}
+.createProgramPage_wrapper .createProgram_content .top_block .right_block .preViewDownloadPhoto_block .preView_wrapper .preView_photo {
+  border-radius: 15px 15px 0 0;
+}
+.createProgramPage_wrapper .createProgram_content .top_block .right_block .preViewDownloadPhoto_block .input-group {
+  width: 420px;
+}
+.createProgramPage_wrapper .createProgram_content .top_block .right_block .preViewDownloadPhoto_block .input-group .input-group-text {
+  border-radius: 0 0 0 15px;
+  height: 42.5px;
+}
+.createProgramPage_wrapper .createProgram_content .top_block .right_block .preViewDownloadPhoto_block .input-group .form-control {
+  border-radius: 0 0 15px 0;
+  height: 42.5px;
+}
+.createProgramPage_wrapper .createProgram_content .bottom_block {
+  margin-bottom: 25px;
+}
+.createProgramPage_wrapper .createProgram_content .bottom_block .programContent_block .form-floating .form-control {
+  min-height: 150px;
+}
+.createProgramPage_wrapper .createProgram_content .bottom_block .programContent_block .form-floating .form-label {
+  color: #BDBDBD;
+}
+
+.separator_wrapper {
+  height: 200px;
+  margin: 25px 0;
+}
+.separator_wrapper hr {
+  height: 2px;
+}
+
+.row {
+  --bs-gutter-x: 0;
+}
+
+.programDetailPage_wrapper {
+  padding: 50px 0;
+  min-height: 100vh;
+}
+
+.commentsBlock_wrapper {
+  height: auto;
+  border-radius: 25px;
+}
+.commentsBlock_wrapper hr {
+  color: #CEECFF;
+  height: 2px;
+}
+.commentsBlock_wrapper .commentsList_wrapper {
+  padding: 50px;
+}
+
+.commentItem_wrapper {
+  margin-bottom: 50px;
+}
+.commentItem_wrapper:last-child {
+  margin-bottom: 0;
+}
+.commentItem_wrapper .userAvatar_wrapper .avatar_wrapper {
+  height: 75px;
+  width: 75px;
+}
+.commentItem_wrapper .commentItem_content {
+  min-height: 90px;
+}
+.commentItem_wrapper .commentItem_content .nicknameAndActions {
+  margin-bottom: 5px;
+}
+.commentItem_wrapper .commentItem_content .nicknameAndActions .userNickname span {
+  color: #000000;
+  font-size: 12pt;
+}
+.commentItem_wrapper .commentItem_content .nicknameAndActions .userNickname span:hover {
+  color: #555555;
+  cursor: pointer;
+}
+.commentItem_wrapper .commentItem_content .nicknameAndActions .actionsButtons_wrapper .dropdown .actions_dropdown {
+  height: 27.5px;
+  width: 27.5px;
+  border-radius: 50px;
+}
+.commentItem_wrapper .commentItem_content .nicknameAndActions .actionsButtons_wrapper .dropdown .dropdown-menu .dropdown-item {
+  cursor: pointer;
+}
+.commentItem_wrapper .commentItem_content .nicknameAndActions .actionsButtons_wrapper .dropdown:hover {
+  background-color: #f0f0f0;
+}
+.commentItem_wrapper .commentItem_content .nicknameAndActions .actionsButtons_wrapper .dropdown:hover .fa {
+  color: #000000;
+}
+.commentItem_wrapper .commentItem_content .nicknameAndActions .actionsButtons_wrapper .dropdown .fa {
+  color: #aaaaaa;
+}
+.commentItem_wrapper .commentItem_content .form-control {
+  height: 77.5px;
+  line-height: 1.75rem;
+  margin-bottom: 5px;
+}
+.commentItem_wrapper .commentItem_content .creationDate_wrapper {
+  font-size: 12pt;
+}
+
+.userComment_wrapper {
+  padding: 50px;
+}
+.userComment_wrapper .userAvatar_wrapper .avatar_wrapper {
+  height: 75px;
+  width: 75px;
+}
+.userComment_wrapper .userCommentInput_wrapper .comment_form .input_wrapper {
+  margin-bottom: 25px;
+}
+.userComment_wrapper .userCommentInput_wrapper .comment_form .input_wrapper .commentText {
+  height: 100px;
+}
+.userComment_wrapper .userCommentInput_wrapper .comment_form .button_wrapper .btn {
+  width: 300px;
+}
+
+.programDetail_content {
+  height: auto;
+  padding: 50px;
+  margin-bottom: 50px;
+  border-radius: 25px;
+}
+.programDetail_content .topInfo_wrapper {
+  margin-bottom: 25px;
+}
+.programDetail_content .topInfo_wrapper .user_wrapper .avatar {
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  background-color: #e0e0e0;
+}
+.programDetail_content .topInfo_wrapper .user_wrapper span {
+  color: black;
+}
+.programDetail_content .topInfo_wrapper .user_wrapper span:hover {
+  color: #555555;
+  cursor: pointer;
+}
+.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .likes_wrapper .likesCount {
+  font-size: 14pt;
+  color: #0d6efd;
+}
+.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .likes_wrapper .likeProgram {
+  height: 45px;
+  width: 45px;
+  background-color: #F2FDFF;
+  border: transparent;
+}
+.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .likes_wrapper .likeProgram .bi {
+  font-weight: bold;
+  font-size: 24px;
+  color: #0d6efd;
+}
+.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .likes_wrapper .likeProgram:hover {
+  background-color: #C8F8FF;
+}
+.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .likes_wrapper .likeProgram:active {
+  background-color: #ceecff;
+}
+.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .addToSelected_wrapper .addToSelected {
+  height: 45px;
+  width: 45px;
+  background-color: #F2FDFF;
+  border: transparent;
+}
+.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .addToSelected_wrapper .addToSelected .bi {
+  font-weight: bold;
+  font-size: 24px;
+  color: #0d6efd;
+}
+.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .addToSelected_wrapper .addToSelected:hover {
+  background-color: #C8F8FF;
+}
+.programDetail_content .topInfo_wrapper .actionsButtons_wrapper .addToSelected_wrapper .addToSelected:active {
+  background-color: #ceecff;
+}
+.programDetail_content .mainContent_wrapper .typesCharacterization_wrapper {
+  margin-bottom: 25px;
+}
+.programDetail_content .mainContent_wrapper .typesCharacterization_wrapper .programType_wrapper .badge {
+  width: 250px;
+  height: 42px;
+  font-size: 14pt;
+  background-color: #0D6EFD;
+}
+.programDetail_content .mainContent_wrapper .typesCharacterization_wrapper .complexityLevel_wrapper .badge {
+  width: 200px;
+  height: 42px;
+  font-size: 14pt;
+}
+.programDetail_content .mainContent_wrapper .gallery_wrapper {
+  height: 400px;
+  margin-bottom: 25px;
+}
+.programDetail_content .mainContent_wrapper .gallery_wrapper .photosGallery_wrapper {
+  height: 350px;
+}
+.programDetail_content .mainContent_wrapper .name_wrapper {
+  margin-bottom: 15px;
+  font-size: 18pt;
+  color: #008CFF;
+}
+.programDetail_content .mainContent_wrapper .line_wrapper {
+  margin-bottom: 15px;
+}
+.programDetail_content .mainContent_wrapper .line_wrapper:last-child {
+  margin-bottom: 0;
+}
+.programDetail_content .mainContent_wrapper .line_wrapper .title {
+  font-size: 14pt;
+}
+.programDetail_content .mainContent_wrapper .line_wrapper .content {
+  font-size: 12pt;
+}
+.programDetail_content .mainContent_wrapper .line_wrapper .content .form-control {
+  min-height: 200px !important;
+  font-size: 12pt;
+}
+
+.editAccountPage_wrapper {
+  padding: 50px 0;
+}
+.editAccountPage_wrapper .editAccount_content {
+  height: auto;
+  padding: 25px;
+  border-radius: 25px;
+}
+.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .avatar_block {
+  margin-bottom: 50px;
+}
+.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .avatar_block .avatar_wrapper {
+  height: 330px;
+  overflow: hidden;
+  background-color: #e0e0e0;
+  border-radius: 15px 15px 0 0;
+}
+.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .avatar_block .avatar_wrapper .avatar_photo {
+  border-radius: 15px 15px 0 0;
+}
+.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .avatar_block .input-group {
+  height: 42.5px;
+}
+.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .avatar_block .input-group .input-group-text {
+  border-radius: 0 0 0 15px;
+}
+.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .avatar_block .input-group .avatarUrl {
+  border-radius: 0 0 15px 0;
+}
+.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .socialNetworks_wrapper .socialLink_wrapper {
+  margin-bottom: 15px;
+}
+.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .socialNetworks_wrapper .socialLink_wrapper:last-child {
+  margin-bottom: 0;
+}
+.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .socialNetworks_wrapper .socialLink_wrapper .social_icon i {
+  font-size: 30px;
+}
+.editAccountPage_wrapper .editAccount_content .avatarAndSocialLinks_block .socialNetworks_wrapper .socialLink_wrapper .social_link .form-floating .form-label {
+  color: #BDBDBD;
+}
+.editAccountPage_wrapper .editAccount_content .accountAndProfile .accountInfo_wrapper {
+  height: 372.5px;
+  margin-bottom: 50px;
+}
+.editAccountPage_wrapper .editAccount_content .accountAndProfile .accountInfo_wrapper .title {
+  margin-bottom: 15px;
+}
+.editAccountPage_wrapper .editAccount_content .accountAndProfile .accountInfo_wrapper .input_wrapper {
+  height: 65px;
+  margin-bottom: 15px;
+}
+.editAccountPage_wrapper .editAccount_content .accountAndProfile .accountInfo_wrapper .input_wrapper:last-child {
+  margin-bottom: 0;
+}
+.editAccountPage_wrapper .editAccount_content .accountAndProfile .accountInfo_wrapper .input_wrapper .form-floating .form-label {
+  color: #BDBDBD;
+}
+.editAccountPage_wrapper .editAccount_content .accountAndProfile .profile_wrapper .title {
+  margin-bottom: 15px;
+}
+.editAccountPage_wrapper .editAccount_content .accountAndProfile .profile_wrapper .input_wrapper {
+  margin-bottom: 15px;
+}
+.editAccountPage_wrapper .editAccount_content .accountAndProfile .profile_wrapper .input_wrapper:last-child {
+  margin-bottom: 0;
+}
+.editAccountPage_wrapper .editAccount_content .accountAndProfile .profile_wrapper .input_wrapper .form-floating .form-label {
+  color: #BDBDBD;
+}
+.editAccountPage_wrapper .editAccount_content .actions_block {
+  margin-top: 25px;
+}
+
+.accountPage_wrapper {
+  min-height: 100vh;
+  padding: 50px 0;
+}
+.accountPage_wrapper .account_content {
+  height: auto;
+  border-radius: 25px;
+}
+.accountPage_wrapper .account_content .avatarAndSocialLinks_block .avatar_wrapper {
+  height: 330px;
+  overflow: hidden;
+}
+.accountPage_wrapper .account_content .avatarAndSocialLinks_block .socialLinks_wrapper {
+  height: auto;
+  margin-top: 50px;
+  padding: 15px;
+}
+.accountPage_wrapper .account_content .avatarAndSocialLinks_block .socialLinks_wrapper .email_wrapper {
+  margin-bottom: 15px;
+}
+.accountPage_wrapper .account_content .avatarAndSocialLinks_block .socialLinks_wrapper .email_wrapper .email_icon i {
+  font-size: 30px;
+}
+.accountPage_wrapper .account_content .avatarAndSocialLinks_block .socialLinks_wrapper .email_wrapper .email_link .email {
+  height: 42px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+}
+.accountPage_wrapper .account_content .userInfoAndPrograms .userInfo_wrapper {
+  height: 330px;
+}
+.accountPage_wrapper .account_content .userInfoAndPrograms .userInfo_wrapper .top_block .nickName {
+  height: 42px;
+  font-size: 20pt;
+}
+.accountPage_wrapper .account_content .userInfoAndPrograms .userInfo_wrapper .top_block .btn {
+  width: 40px;
+  height: 100%;
+}
+.accountPage_wrapper .account_content .userInfoAndPrograms .userInfo_wrapper .top_block .btn .fa {
+  font-size: 1.25rem;
+}
+.accountPage_wrapper .account_content .userInfoAndPrograms .userInfo_wrapper .info_wrapper .content {
+  height: 42px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+}
+.accountPage_wrapper .account_content .userInfoAndPrograms .userInfo_wrapper .info_wrapper .content_link {
+  color: #000000;
+}
+.accountPage_wrapper .account_content .userInfoAndPrograms .userInfo_wrapper .info_wrapper .content_link:hover {
+  color: #777777;
+}
+.accountPage_wrapper .account_content .userInfoAndPrograms .programs_wrapper {
+  height: 500px;
+  margin-top: 50px;
+}
+
+.userProgramsListingPage_wrapper {
+  min-height: calc(100vh - 60px);
+  padding: 50px 0;
+}
+.userProgramsListingPage_wrapper .userProgramsListingPage_content .title_wrapper {
+  margin-bottom: 50px;
+}
+.userProgramsListingPage_wrapper .userProgramsListingPage_content .programCardsListing_wrapper {
+  margin: 0 -15px;
+  margin-bottom: -50px;
+}
+.userProgramsListingPage_wrapper .userProgramsListingPage_content .programCardsListing_wrapper .loading_wrapper {
+  min-height: calc(100vh - 214px);
+}
+.userProgramsListingPage_wrapper .userProgramsListingPage_content .programCardsListing_wrapper .loading_wrapper .loading {
+  margin-bottom: 50px;
+}
+.userProgramsListingPage_wrapper .userProgramsListingPage_content .programCardsListing_wrapper .empty_wrapper .title_wrapper {
+  margin-bottom: 50px;
+}
+.userProgramsListingPage_wrapper .userProgramsListingPage_content .programCardsListing_wrapper .empty_wrapper .banner_wrapper {
+  margin-bottom: 50px;
+}
+
+.userSelectedProgramsListingPage_wrapper {
+  min-height: calc(100vh - 60px);
+  padding: 50px 0;
+}
+.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .title_wrapper {
+  margin-bottom: 50px;
+}
+.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .selectedProgramCardsListing_wrapper {
+  margin: 0 -15px;
+  margin-bottom: -50px;
+}
+.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .selectedProgramCardsListing_wrapper .loading_wrapper {
+  min-height: calc(100vh - 214px);
+}
+.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .selectedProgramCardsListing_wrapper .loading_wrapper .loading {
+  margin-bottom: 50px;
+}
+.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .selectedProgramCardsListing_wrapper .empty_wrapper .title_wrapper {
+  margin-bottom: 50px;
+}
+.userSelectedProgramsListingPage_wrapper .userSelectedProgramsListingPage_content .selectedProgramCardsListing_wrapper .empty_wrapper .banner_wrapper {
+  margin-bottom: 50px;
+}
+
+.supportPage_wrapper {
+  height: 100vh;
+  padding: 50px;
+}
+.supportPage_wrapper .supportPage_content {
+  position: relative;
+  top: -30px;
+  height: 400px;
+  width: 600px;
+  padding: 25px;
+  border-radius: 25px;
+  border: 2px solid #ceecff;
+}
+
+.programsFilterPanel_wrapper {
+  margin: 50px 0;
+}
+.programsFilterPanel_wrapper .left_block .programSearch_wrapper {
+  max-width: 420px;
+}
+.programsFilterPanel_wrapper .right_block .complexityLevelFilter_wrapper {
+  margin-right: 25px;
+}
+.programsFilterPanel_wrapper .right_block .programTypeFilter_wrapper button:nth-child(2) {
+  width: 125px;
+}
+.programsFilterPanel_wrapper .right_block .programTypeFilter_wrapper button:last-child {
+  width: 125px;
+}
+
+.userProgramCard_wrapper {
+  height: auto;
+  width: 420px;
+  margin: 0 15px 50px 15px;
+  border-radius: 15px;
+}
+.userProgramCard_wrapper .preView_wrapper {
+  overflow: hidden;
+  height: 325px;
+  width: 400px;
+  border-radius: 15px;
+  background-color: #e0e0e0;
+}
+.userProgramCard_wrapper .programContent_wrapper {
+  padding: 15px;
+}
+.userProgramCard_wrapper .programContent_wrapper .name_wrapper {
+  height: 3.25rem;
+  margin-bottom: 15px;
+  font-size: 14pt;
+}
+.userProgramCard_wrapper .programContent_wrapper .actions_block .btn {
+  width: 88px;
+}
+.userProgramCard_wrapper .programContent_wrapper .actions_block .specialButtons_wrapper .btn {
+  width: 40px;
+  height: 100%;
+}
+.userProgramCard_wrapper .programContent_wrapper .actions_block .specialButtons_wrapper .btn .fa {
+  font-size: 1.25rem;
+}
+
+.userSelectedProgramCard_wrapper {
+  height: auto;
+  width: 420px;
+  margin: 0 15px 50px 15px;
+  border-radius: 15px;
+}
+.userSelectedProgramCard_wrapper .preView_wrapper {
+  overflow: hidden;
+  height: 325px;
+  width: 400px;
+  border-radius: 15px;
+  background-color: #e0e0e0;
+}
+.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper {
+  padding: 15px;
+}
+.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .name_wrapper {
+  height: 3.25rem;
+  margin-bottom: 15px;
+  font-size: 14pt;
+}
+.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .actions_block .btn {
+  width: 88px;
+}
+.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .actions_block .specialButtons_wrapper .addToSelected_wrapper .addToSelected {
+  height: 45px;
+  width: 45px;
+  background-color: #F2FDFF;
+  border: transparent;
+}
+.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .actions_block .specialButtons_wrapper .addToSelected_wrapper .addToSelected .bi {
+  font-weight: bold;
+  font-size: 24px;
+  color: #0d6efd;
+}
+.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .actions_block .specialButtons_wrapper .addToSelected_wrapper .addToSelected:hover {
+  background-color: #C8F8FF;
+}
+.userSelectedProgramCard_wrapper .selectedProgramContent_wrapper .actions_block .specialButtons_wrapper .addToSelected_wrapper .addToSelected:active {
+  background-color: #ceecff;
+}
+
+.notificationToast_wrapper .toast {
+  width: 400px;
+  background-color: #ffffff;
+}
+.notificationToast_wrapper .toast strong, .notificationToast_wrapper .toast small, .notificationToast_wrapper .toast span {
+  color: #000000;
+}
+.notificationToast_wrapper .toast a {
+  color: #000000;
+}
+.notificationToast_wrapper .toast a:hover {
+  color: lightgrey;
+}

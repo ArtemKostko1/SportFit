@@ -43,7 +43,7 @@ const UserProgramCard = ({ id, name, preView, creationDate, deleteProgram }) => 
                 <div className="actions_block d-flex justify-content-between">
                     <Link to={`${PROGRAM_DETAIL_ROUTE}/${id}`}>
                         <Tippy content="Посмотреть полное описание">
-                            <button type="button" className="btn btn-outline-primary" onClick={interfaceFunc.scrollToTop}>
+                            <button type="button" className="btn btn-outline-primary px-0" onClick={interfaceFunc.scrollToTop}>
                                 Открыть
                             </button>
                         </Tippy>

@@ -7,25 +7,29 @@ import UserComment from "./userComment";
 import Spinner from "../special-components/spinner/spinner";
 
 
-const CommentsBlock = ({programId, userId, fetchAllComment, commentsList, commentsListLoading}) => {
+const CommentsBlock = ({programId, fetchAllComments, commentsList, commentsListLoading}) => {
     useEffect(() => {
-        fetchAllComment();
+        fetchAllComments();
     }, [commentsList]);
 
+    const currentUser = JSON.parse(localStorage.getItem('user'));
     let programCommentsList = commentsList.filter(c => c.program === programId);
     
     return (
-        <div className="commentsBlock_wrapper container-xxl shadow-sm p-0">
-            <UserComment programId={programId}/>
-            
-            <hr className="w-100 m-0"/>
+        <div className="commentsBlock_wrapper container-xxl p-0">
+            {
+                currentUser !== null ?
+                    <UserComment programId={programId}/> :
+                    null
+            }
             
             {commentsListLoading === true ? (<Spinner/>) : (
                 
                 (programCommentsList.length !== 0 ?
                         
-                    <div className="commentsList_wrapper"> {
+                    <div className="commentsList_wrapper shadow-sm"> {
                         programCommentsList.map((comment, index) => {
+                            debugger
                             const {id, program, user, nickname, avatar, content, creationDate, modificationDate} = comment;
                             
                             return (
@@ -56,7 +60,7 @@ const mapStateToProps = state => ({
 });
 
 const mapActionToProps = {
-    fetchAllComment: commentActions.fetchAllComments
+    fetchAllComments: commentActions.fetchAllComments
 }
 
 export default connect(mapStateToProps, mapActionToProps)(CommentsBlock);

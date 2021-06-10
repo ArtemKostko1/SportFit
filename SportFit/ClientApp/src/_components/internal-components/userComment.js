@@ -22,7 +22,7 @@ const UserComment = ({ programId, ...props }) => {
         let temp = {...errors};
 
         if('Content' in fieldValues)
-            temp.Content = fieldValues.Content ? '' : "Please enter a comment";
+            temp.Content = fieldValues.Content ? '' : "Пожалуйста введите комментарий";
 
         setErrors({
             ...temp
@@ -52,7 +52,7 @@ const UserComment = ({ programId, ...props }) => {
     }
     
     return (
-        <div className="userComment_wrapper row">
+        <div className="userComment_wrapper row shadow-sm">
             <div className="userAvatar_wrapper col-1">
                 <div className="avatar_wrapper">
                     <img 

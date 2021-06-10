@@ -23,14 +23,14 @@ const UserProgramsListingPage = ({fetchAllMyPrograms, myProgramsList, myPrograms
             <div className="userProgramsListingPage_wrapper container-xxl">
                 <div className="userProgramsListingPage_content">
                     <div className="title_wrapper d-flex justify-content-center">
-                        <h1 className="title fw-bold m-0">YUOR PERSONAL PROGRAMS</h1>
+                        <h1 className="title fw-bold m-0">ВАШИ ПЕРСОНАЛЬНЫЕ ПРОГРАММЫ</h1>
                     </div>
                     
-                    {
+                    {/*{
                         Object.keys(myProgramsList).length !== 0 ?
                             <ProgramsFilterPanel/> :
                             null
-                    }
+                    }*/}
                     
                     <div className="programCardsListing_wrapper">
                         {

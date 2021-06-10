@@ -63,14 +63,14 @@ const CreateProgramPage = ({...props}) => {
         
         if (validate()) {
             if (currentProgram.id === undefined) {
-                props.createProgram(values, () => addToast("Успешно создано", {appearance: 'success'}));
+                props.createProgram(values, () => addToast("Успешное создание", {appearance: 'success'}));
                 resetForm();
                 
             } else {
-                props.updateProgram(currentProgram.id, values, () => addToast("Провально редактировано", {appearance: 'success'}));
+                props.updateProgram(currentProgram.id, values, () => addToast("Неудачное редактирование", {appearance: 'success'}));
             }
         } else {
-            addToast("Провально создано", {appearance: 'warning'});
+            addToast("Неудачное создание", {appearance: 'warning'});
         }
     }
     
@@ -253,7 +253,7 @@ const CreateProgramPage = ({...props}) => {
                         </div>
     
                         <div className="actions_block row">
-                            <div className="col-11 pe-3">
+                            <div className="col-10 pe-3">
                                 <button 
                                     type="submit" 
                                     className="btn btn-primary w-100 fw-bold"
@@ -261,11 +261,11 @@ const CreateProgramPage = ({...props}) => {
                                     {
                                         currentProgram.id === undefined ?
                                             'СОЗДАТЬ' :
-                                            'РЕДАКТИРОВАТЬ'
+                                            'СОХРАНИТЬ'
                                     }
                                 </button>
                             </div>
-                            <div className="col-1">
+                            <div className="col-2">
                                 <button 
                                     type="reset" 
                                     className="btn btn-outline-secondary w-100 fw-bold px-0"

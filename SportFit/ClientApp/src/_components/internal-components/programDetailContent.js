@@ -15,7 +15,6 @@ import muscles_hard from "../images/muscles_hard.png";
 import muscles_easy from "../images/muscles_easy.png";
 import muscles_medium from "../images/muscles_medium.png";
 import muscles_professional from "../images/muscles_professional.png";
-import camera from "../images/camera.svg";
 import profile from "../images/profile.svg";
 import bookmark from "../images/bookmark.svg";
 import bookmark_solid from "../images/bookmark_solid.svg";
@@ -26,40 +25,42 @@ import {connect} from "react-redux";
 
 const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, content, 
                                 fetchAllLikes, createLike, deleteLike, likesList, fetchAllSelectedPrograms, 
-                                addSelectedProgram, deleteSelectedProgram, selectedProgramsList }) => {
+                                addSelectedProgram, deleteSelectedProgram, selectedProgramsList, commentsList }) => {
 
     useEffect(() => {
-        fetchAllLikes(id);
-        fetchAllSelectedPrograms(currentUserId);
+        if(currentUser !== null)
+        {
+            fetchAllLikes(id)
+            fetchAllSelectedPrograms(currentUser.id)
+        }
     }, []);
     
-    const currentUserId = JSON.parse(localStorage.getItem('user')).id;
-
-    const selectedProgramValues = {
-        ProgramId: id,
-        UserId: currentUserId
-    }
-    
-    const likeValues = {
-        ProgramId: id,
-        UserId: currentUserId
-    }
+    const currentUser = JSON.parse(localStorage.getItem('user'));
     
     let currentSelectedProgram = selectedProgramsList.find(x => x.programId === id);
     let isSelected = selectedProgramsList.some(x => x.programId === id);
 
-    let currentLike = likesList.find(x => x.userId === currentUserId);
-    let isLiked = likesList.some(x => x.userId === currentUserId);
+    let currentLike = currentUser !== null ? likesList.find(x => x.userId === currentUser.id) : {};
+    let isLiked = currentUser !== null ? likesList.some(x => x.userId === currentUser.id) : false;
 
     
     const onSelected = () => {
-        debugger
+        const selectedProgramValues = {
+            ProgramId: id,
+            UserId: currentUser.id
+        }
+        
         isSelected = !isSelected;
 
         isSelected ? addSelectedProgram(selectedProgramValues) : deleteSelectedProgram(currentSelectedProgram.id);
     }
 
     const onLiked = () => {
+        const likeValues = {
+            ProgramId: id,
+            UserId: currentUser.id
+        }
+        
         isLiked = !isLiked;
         
         isLiked ? createLike(likeValues) : deleteLike(currentLike.id);
@@ -81,35 +82,40 @@ const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, prog
                         </Link>
                     </div>
     
-                    <div className="actionsButtons_wrapper col-2 d-flex justify-content-end">
-                        <div className="likes_wrapper d-flex align-items-center">
-                            <span className="likesCount fw-bold">{likesList.length}</span>
+                    {
+                        currentUser !== null ?
+                            <div className="actionsButtons_wrapper col-2 d-flex justify-content-end">
+                                <div className="likes_wrapper d-flex align-items-center">
+                                    <span className="likesCount fw-bold">{likesList.length}</span>
 
-                            <Tippy content={`Понравилось ${likesList.length} ${likesList.length === 1 ? 'человеку' : 'людям'}`}>
-                                <button 
-                                    className="likeProgram rounded-circle shadow-sm rounded ms-2"
-                                    onClick={onLiked}>
-                                    
-                                    <img id="like_button" src={isLiked ? like_solid : like} alt="ava" width="25" height="25"/>
-                                </button>
-                            </Tippy>
-                        </div>
-    
-                        {
-                            userId !== currentUserId ?
-                                <div className="addToSelected_wrapper ms-2">
-                                    <Tippy content="Add to selected">
+                                    <Tippy content={`Понравилось ${likesList.length} ${likesList.length === 1 ? 'человеку' : 'людям'}`}>
                                         <button
-                                            className="addToSelected rounded-circle shadow-sm rounded ms-2"
-                                            onClick={onSelected}>
-        
-                                            <img id="addToSelected_button" src={isSelected ? bookmark_solid : bookmark} alt="ava" width="25" height="25"/>
+                                            className="likeProgram rounded-circle shadow-sm rounded ms-2"
+                                            onClick={onLiked}>
+
+                                            <img id="like_button" src={isLiked ? like_solid : like} alt="ava" width="25" height="25"/>
                                         </button>
                                     </Tippy>
-                                </div> :
-                                null
-                        }
-                    </div>
+                                </div>
+
+                                {
+                                    userId !== currentUser.id ?
+                                        <div className="addToSelected_wrapper ms-2">
+                                            <Tippy content="Add to selected">
+                                                <button
+                                                    className="addToSelected rounded-circle shadow-sm rounded ms-2"
+                                                    onClick={onSelected}>
+
+                                                    <img id="addToSelected_button" src={isSelected ? bookmark_solid : bookmark} alt="ava" width="25" height="25"/>
+                                                </button>
+                                            </Tippy>
+                                        </div> :
+                                        null
+                                }
+                            </div> :
+                            null
+                    }
+                    
                 </div>
     
                 <div className="mainContent_wrapper">
@@ -174,7 +180,7 @@ const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, prog
                 </div>
             </div>
     
-            <CommentsBlock programId={id} userId={userId}/>
+            <CommentsBlock programId={id}/>
         </>
     );
 };

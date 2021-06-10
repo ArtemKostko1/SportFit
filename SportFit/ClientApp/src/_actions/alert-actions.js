@@ -1,19 +1,11 @@
-﻿import { alertActionTypes } from '/_constants/alertActionTypes';
+﻿import { alertActionTypes } from './_constants/alertActionTypes';
 
-export const alertActions = {
-    success,
-    error,
-    clear
-};
-
-function success(message) {
+export const success = (message) => {
     return { type: alertActionTypes.ALERT_SUCCESS, message };
 }
 
-function error(message) {
-    return { type: alertActionTypes.ALERT_ERROR, message };
-}
-
-function clear() {
-    return { type: alertActionTypes.ALERT_CLEAR };
+export const checkError = () => dispatch => {
+    dispatch({
+        type: alertActionTypes.CHECK_ERROR
+    });
 }

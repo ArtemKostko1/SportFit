@@ -22,7 +22,7 @@ const ProgramDetailPage = ({match, programItem, fetchProgramById, programItemLoa
     
     return (
         <>
-            <div className="programDetailPage_wrapper container-xxl d-flex flex-column align-items-center justify-content-center">
+            <div className="programDetailPage_wrapper container-xxl d-flex flex-column align-items-center">
             {programItemLoading === true ? (<Spinner/>) : (
                 <ProgramDetailContent
                     id={id}

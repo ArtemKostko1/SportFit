@@ -60,7 +60,7 @@ const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType,
                                              (programType === 'План питания' ?
                                                  meal : null)
                                          }
-                                     alt="ava" width="40" height="40"/>
+                                     alt="programType" width="40" height="40"/>
                             </div>
                         </div>
 
@@ -73,13 +73,13 @@ const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType,
                             <div className="right_group col-2 d-flex justify-content-end">
                                 {
                                     complexityLevel === 'Легко' ?
-                                        <img src={muscles_easy} alt="ava" height="23"/> :
+                                        <img src={muscles_easy} alt="complexityLevel" height="23"/> :
                                     (complexityLevel === 'Средне' ?
-                                        <img src={muscles_medium} alt="ava" height="23"/> :
+                                        <img src={muscles_medium} alt="complexityLevel" height="23"/> :
                                     (complexityLevel === 'Сложно' ?
-                                        <img src={muscles_hard} alt="ava" height="23"/> :
+                                        <img src={muscles_hard} alt="complexityLevel" height="23"/> :
                                     (complexityLevel === 'Профессионально' ?
-                                        <img src={muscles_professional} alt="ava" height="23"/> : 
+                                        <img src={muscles_professional} alt="complexityLevel" height="23"/> : 
                                     null)))
                                 }
                             </div>

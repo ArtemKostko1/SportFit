@@ -36,7 +36,7 @@ const EditAccountPage = ({...props}) => {
         
         if('Email' in fieldValues){
             temp.Email = (/^$|.+@.+../).test(fieldValues.Email) || 
-                fieldValues.Email === '' || fieldValues.Email === null ? '' : 'Please enter correct email';
+                fieldValues.Email === '' || fieldValues.Email === null ? '' : 'Введите корректную почту';
         }
 
         setErrors({
@@ -61,7 +61,7 @@ const EditAccountPage = ({...props}) => {
         e.preventDefault();
         
         if (validate()) {
-            props.updateUser(currentUser.id, values, () =>  addToast("Successfully edited", {appearance: 'success'}));
+            props.updateUser(currentUser.id, values, () =>  addToast("Редактирование успешно", {appearance: 'success'}));
         } else {
             addToast(errors.Email, {appearance: 'warning'});
         }
@@ -154,7 +154,7 @@ const EditAccountPage = ({...props}) => {
                                                 value={values.Vk}
                                                 onChange={handleInputChange}/>
         
-                                            <label htmlFor="validationCustomVk" className="form-label fw-bold">VK</label>
+                                            <label htmlFor="validationCustomVk" className="form-label fw-bold">ВКонтакте</label>
                                         </div>
                                     </div>
                                 </div>
@@ -175,7 +175,7 @@ const EditAccountPage = ({...props}) => {
                                                 value={values.Instagram}
                                                 onChange={handleInputChange}/>
         
-                                            <label htmlFor="validationCustomInstagram" className="form-label fw-bold">Instagram</label>
+                                            <label htmlFor="validationCustomInstagram" className="form-label fw-bold">Инстаграм</label>
                                         </div>
                                     </div>
                                 </div>
@@ -196,7 +196,7 @@ const EditAccountPage = ({...props}) => {
                                             onChange={handleInputChange}
                                             {...(errors.Nickname && { error: "true" })}/>
             
-                                        <label htmlFor="validationCustomNickname" className="form-label fw-bold">Nickname</label>
+                                        <label htmlFor="validationCustomNickname" className="form-label fw-bold">Имя пользователя</label>
                                         <div className="invalid-feedback">{errors.Nickname}</div>
                                     </div>
                                 </div>
@@ -210,14 +210,14 @@ const EditAccountPage = ({...props}) => {
                                             id="validationCustomLogin"
                                             value={values.Login}/>
                                         
-                                        <label htmlFor="validationCustomNickname" className="form-label fw-bold text-warning">Login cannot be changed</label>
+                                        <label htmlFor="validationCustomNickname" className="form-label fw-bold text-warning">Логин не может быть изменён</label>
                                     </div>
                                 </div>
     
                                 <button
                                     type="button"
                                     className="changePassword btn btn-outline-primary fw-bold">
-                                    Change password
+                                    Изменить пароль
                                 </button>
     
                                 {/*<div className="input_wrapper p-0">
@@ -278,7 +278,7 @@ const EditAccountPage = ({...props}) => {
                                             value={values.FullName}
                                             onChange={handleInputChange}/>
     
-                                        <label htmlFor="validationCustomFullName" className="form-label fw-bold">FullName</label>
+                                        <label htmlFor="validationCustomFullName" className="form-label fw-bold">ФИО</label>
                                     </div>
                                 </div>
     
@@ -293,7 +293,7 @@ const EditAccountPage = ({...props}) => {
                                             value={values.BirthDate}
                                             onChange={handleInputChange}/>
     
-                                        <label htmlFor="validationCustomBirthDate" className="form-label fw-bold text-secondary">Birthday</label>
+                                        <label htmlFor="validationCustomBirthDate" className="form-label fw-bold text-secondary">День рождения</label>
                                     </div>
                                 </div>
     
@@ -308,28 +308,28 @@ const EditAccountPage = ({...props}) => {
                                             value={values.MobilePhone}
                                             onChange={handleInputChange}/>
     
-                                        <label htmlFor="validationCustomMobilePhone" className="form-label fw-bold">MobilePhone</label>
+                                        <label htmlFor="validationCustomMobilePhone" className="form-label fw-bold">Телефон</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div className="actions_block row">
-                            <div className="col-11 pe-3">
+                            <div className="col-10 pe-3">
                                 <button
                                     type="submit"
                                     className="btn btn-primary w-100 fw-bold"
                                     onClick={validators.checkValidation('editAccount_form')}>
-                                    SAVE
+                                    СОХРАНИТЬ
                                 </button>
                             </div>
                             
-                            <div className="col-1">
+                            <div className="col-2">
                                 <button
                                     type="reset"
                                     className="btn btn-outline-secondary w-100 fw-bold"
                                     onClick={resetForm}>
-                                    CLEAR
+                                    ОЧИСТИТЬ
                                 </button>
                             </div>
                         </div>

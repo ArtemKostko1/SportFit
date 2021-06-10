@@ -1,21 +1,22 @@
-﻿import { alertConstants } from '../_constants/alert-constants';
+﻿import { alertActionTypes } from '../_actions/_constants/alertActionTypes';
 
-export function alert(state = {}, action) {
-    switch (action.type) {
-        case alertConstants.ALERT_SUCCESS:
+const alertInitialState = {
+    statusCode: '',
+    message: '',
+}
+
+export const alertReducer = (state = alertInitialState, {type, payload}) => {
+    switch (type) {            
+        case alertActionTypes.ALERT_ERROR:
             return {
-                type: 'alert-success',
-                message: action.message
+                statusCode: payload.code.statusCode,
+                message: payload.message
             };
-            
-        case alertConstants.ALERT_ERROR:
+
+        case alertActionTypes.CHECK_ERROR:
             return {
-                type: 'alert-danger',
-                message: action.message
+                ...state
             };
-            
-        case alertConstants.ALERT_CLEAR:
-            return {};
             
         default:
             return state

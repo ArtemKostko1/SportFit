@@ -1,11 +1,23 @@
 ﻿import * as api from '../_services/api';
 import { userActionTypes } from './_constants/userActionTypes';
-import { alertActionTypes } from './_constants/alertActionTypes';
-//import { history } from '../_helpers/history';
+import {alertActionTypes} from "./_constants/alertActionTypes";
 
 export const authenticate = (data, onSuccess) => dispatch => {
     api.user().authenticate(data)
         .then(response => {
+           /* let data = {...response};
+            if (data.code.statusCode !== 401) {
+                dispatch({
+                    type: userActionTypes.USERS_LOGIN_SUCCESS,
+                    payload: response.data
+                });
+                onSuccess();
+            } else {
+                dispatch({
+                    type: alertActionTypes.ALERT_ERROR,
+                    payload: data
+                });
+            }*/
             dispatch({
                 type: userActionTypes.USERS_LOGIN_SUCCESS,
                 payload: response.data

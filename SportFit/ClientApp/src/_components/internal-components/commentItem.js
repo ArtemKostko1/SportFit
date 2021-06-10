@@ -13,6 +13,7 @@ import profiler from '../images/profile.svg';
 
 
 const CommentItem = ({ id, program, user, nickname, avatar, content, creationDate, ...props }) => {
+    debugger
     const currentUser = JSON.parse(localStorage.getItem('user'));
     const { addToast } = useToasts();
 
@@ -49,7 +50,8 @@ const CommentItem = ({ id, program, user, nickname, avatar, content, creationDat
                     </div>
 
                     {
-                        user === currentUser.id ?
+                        currentUser !== null ?
+                            (user === currentUser.id ?
                             <div className="actionsButtons_wrapper col-1 d-flex justify-content-end">
                                 <div className="dropdown rounded-circle">
                                     <div
@@ -71,7 +73,7 @@ const CommentItem = ({ id, program, user, nickname, avatar, content, creationDat
                                     </ul>
                                 </div>
                             </div> :
-                            null
+                            null) : null
                     }
                 </div>
 

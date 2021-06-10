@@ -12,7 +12,7 @@ const ProgramsFilterPanel = () => {
                             <input
                                 className="form-control"
                                 type="search"
-                                placeholder="Type to search"/>
+                                placeholder="Введите, чтобы найти"/>
                         </form>
                     </Tippy>
                 </div>
@@ -22,30 +22,30 @@ const ProgramsFilterPanel = () => {
                 <div className="complexityLevelFilter_wrapper dropdown">
                     <Tippy content="Choose the program complexity level">
                         <button className="btn btn-primary dropdown-toggle shadow" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Complexity level
+                            Степень сложности
                         </button>
                     </Tippy>
 
                     <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                        <li className="dropdown-item">All</li>
-                        <li className="dropdown-item">Easy</li>
-                        <li className="dropdown-item">Medium</li>
-                        <li className="dropdown-item">Hard</li>
-                        <li className="dropdown-item">Professional</li>
+                        <li className="dropdown-item">Все</li>
+                        <li className="dropdown-item">Легко</li>
+                        <li className="dropdown-item">Средне</li>
+                        <li className="dropdown-item">Сложно</li>
+                        <li className="dropdown-item">Профессионально</li>
                     </ul>
                 </div>
 
                 <div className="programTypeFilter_wrapper btn-group shadow" role="group" aria-label="Basic outlined example">
                     <Tippy content="Show all programs">
-                        <button type="button" className="btn btn-outline-primary">All</button>
+                        <button type="button" className="btn btn-outline-primary">Все</button>
                     </Tippy>
 
                     <Tippy content="Show all training programs">
-                        <button type="button" className="btn btn-outline-primary">Training</button>
+                        <button type="button" className="btn btn-outline-primary">Тренировка</button>
                     </Tippy>
 
                     <Tippy content="Show all meal plans">
-                        <button type="button" className="btn btn-outline-primary">Meal</button>
+                        <button type="button" className="btn btn-outline-primary">Питание</button>
                     </Tippy>
                 </div>
             </div>

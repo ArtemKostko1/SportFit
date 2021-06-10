@@ -17,18 +17,25 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoadin
     useEffect(() => {
         fetchAllPrograms();
     }, []);
+
+    const currentUser = JSON.parse(localStorage.getItem('user'));
     
     return (
         <>
             <div className="programsListingPage_wrapper container-xxl">
-            <Banner/>
+                {
+                    currentUser !== null ?
+                        <Banner/> :
+                        null
+                }
+                
             <Separator image={meditation}/>
             
-            {
+            {/*{
                 Object.keys(programsList).length !== 0 ?
                     <ProgramsFilterPanel/> :
                     null
-            }
+            }*/}
             
             <div className="programsListing_content d-flex flex-column align-items-center">
                 {programsListLoading === true ? (<Spinner/>) : (

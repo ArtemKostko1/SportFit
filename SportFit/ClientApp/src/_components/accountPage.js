@@ -63,7 +63,7 @@ const AccountPage = ({match, fetchUserById, userRequested, userItem}) => {
                                         {
                                             vk === null || vk === '' ?
                                                 null :
-                                                <Tippy content="VK">
+                                                <Tippy content="ВКонтакте">
                                                     <a className="socialNetwork-link me-2" href={vk} target="_blank">
                                                         <img src={vkIcon} alt="" width="35" height="35"/>
                                                     </a>
@@ -72,7 +72,7 @@ const AccountPage = ({match, fetchUserById, userRequested, userItem}) => {
                                         {
                                             instagram === null || instagram === '' ?
                                                 null :
-                                                <Tippy content="Instagram">
+                                                <Tippy content="Инстаграм">
                                                     <a className="socialNetwork-link me-2" href={instagram} target="_blank">
                                                         <img src={instagramIcon} alt="" width="35" height="35"/>
                                                     </a>
@@ -91,7 +91,7 @@ const AccountPage = ({match, fetchUserById, userRequested, userItem}) => {
                                 {
                                     currentUser.id === undefined ?
                                         <Link to={EDIT_ACCOUNT_ROUTE}>
-                                            <Tippy content="Edit">
+                                            <Tippy content="Редактировать">
                                                 <button className="btn btn-outline-secondary d-flex justify-content-center align-items-center p-0" type="button">
                                                     <i className="fa fa-pencil"/>
                                                 </button>
@@ -102,31 +102,27 @@ const AccountPage = ({match, fetchUserById, userRequested, userItem}) => {
                             </div>
     
                             <div className="info_wrapper">
-                                <div className="title fw-bold">Full name</div>
+                                <div className="title fw-bold">ФИО</div>
                                 <div className="content d-flex align-items-center px-4">
                                     <span>{fullName}</span>
                                 </div>
                             </div>
     
                             <div className="info_wrapper">
-                                <div className="title fw-bold">Birthday</div>
+                                <div className="title fw-bold">День рождения</div>
                                 <div className="content d-flex align-items-center px-4">
                                     <span>{dateFormat(birthDate)}</span>
                                 </div>
                             </div>
     
                             <div className="info_wrapper">
-                                <div className="title fw-bold">Mobile phone</div>
+                                <div className="title fw-bold">Телефон</div>
                                 <div className="content d-flex align-items-center px-4">
                                     <Tippy content="Call">
                                         <a className="content_link" href={`tel: ${mobilePhone}`}>{mobilePhone}</a>
                                     </Tippy>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div className="_wrapper row">
-                            
                         </div>
                     </div>
                 </div>

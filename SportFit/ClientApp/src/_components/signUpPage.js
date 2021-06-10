@@ -1,4 +1,4 @@
-﻿import React, {useEffect} from 'react';
+﻿import React from 'react';
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {LOGIN_ROUTE} from "../_routing/routerConsts";
@@ -7,7 +7,6 @@ import * as userActions from "../_actions/user-actions";
 import * as validators from "./utils/validators/validators";
 import * as interfaceFunc from "./utils/interface";
 import {useToasts} from "react-toast-notifications";
-import signUpBackground from "./images/signUpBackground.png";
 
 const SignUpPage = ({...props}) => {
     const { addToast } = useToasts();
@@ -22,11 +21,11 @@ const SignUpPage = ({...props}) => {
         let temp = {};
 
         if('Nickname' in fieldValues)
-            temp.Nickname = fieldValues.Nickname ? "" : "Please enter a nickname";
+            temp.Nickname = fieldValues.Nickname ? "" : "Пожалуйста введите имя пользователя";
         if('Login' in fieldValues)
-            temp.Login = fieldValues.Login ? "" : "Please enter a login";
+            temp.Login = fieldValues.Login ? "" : "Пожалуйста введите логин";
         if('Password' in fieldValues)
-            temp.Password = fieldValues.Password ? "" : "Please enter a password";
+            temp.Password = fieldValues.Password ? "" : "Пожалуйста введите пароль";
 
         setErrors({
             ...temp
@@ -49,10 +48,10 @@ const SignUpPage = ({...props}) => {
         e.preventDefault();
         
         if (validate()) {
-            props.register(values, () => addToast("Successfully registered", {appearance: 'success'}));
+            props.register(values, () => addToast("Успешная регистрация", {appearance: 'success'}));
             resetForm();
         } else {
-            addToast("Failed registered", {appearance: 'warning'});
+            addToast("Неудачная регистрация", {appearance: 'warning'});
         }
     }
     
@@ -67,20 +66,10 @@ const SignUpPage = ({...props}) => {
                 <div className="right col-6 d-flex justify-content-center align-items-center">
                     <div className="authorization_form_wrapper">
                         <form className="signUpUser_form needs-validation" id="signUpUser_form" autoComplete="off" noValidate onSubmit={handleSubmit}>
-                            <h3 className="title fw-bold p-0">Sign Up</h3>
-
-                            {/*<div className="button_wrapper p-0">
-                                <button type="#" className="btn btn-outline-primary w-100 fw-bold">Sign up with Google</button>
-                            </div>
-                            
-                            <div className="separator d-flex justify-content-center align-items-center p-0">
-                                <hr className="w-100 m-0"/>
-                                <span className="fw-bold mx-4">or</span>
-                                <hr className="w-100 m-0"/>
-                            </div>*/}
+                            <h3 className="title fw-bold p-0">Регистрация</h3>
                             
                             <div className="input_wrapper p-0">
-                                <label htmlFor="formGroupExampleInput" className="form-label fw-bold">User name</label>
+                                <label htmlFor="formGroupExampleInput" className="form-label fw-bold">Имя пользователя</label>
                                 <input
                                     name="Nickname"
                                     type="text" 
@@ -95,7 +84,7 @@ const SignUpPage = ({...props}) => {
                             </div>
                             
                             <div className="input_wrapper p-0">
-                                <label htmlFor="formGroupExampleInput2" className="form-label fw-bold">Login</label>
+                                <label htmlFor="formGroupExampleInput2" className="form-label fw-bold">Логин</label>
                                 <input
                                     name="Login"
                                     type="text" 
@@ -110,7 +99,7 @@ const SignUpPage = ({...props}) => {
                             </div>
                             
                             <div className="input_wrapper p-0">
-                                <label htmlFor="validationCustomPassword" className="form-label fw-bold">Password</label>
+                                <label htmlFor="validationCustomPassword" className="form-label fw-bold">Пароль</label>
                                 <input
                                     name="Password"
                                     type="password" 
@@ -129,17 +118,17 @@ const SignUpPage = ({...props}) => {
                                     type="submit" 
                                     className="btn btn-primary w-100 fw-bold"
                                     onClick={validators.checkValidation('signUpUser_form')}>
-                                    Create account
+                                    Создать аккаунт
                                 </button>
                             </div>
 
                             <div className="link_wrapper d-flex justify-content-center align-items-center p-0">
-                                <span className="fw-bold me-1">Already have an account?</span>
+                                <span className="fw-bold me-1">Уже есть аккаунт?</span>
                                 <Link 
                                     to={LOGIN_ROUTE} 
                                     className="link-primary fw-bold"
                                     onClick={interfaceFunc.scrollToTop}>
-                                    Sign In
+                                    Войдите
                                 </Link>
                             </div>
                         </form>

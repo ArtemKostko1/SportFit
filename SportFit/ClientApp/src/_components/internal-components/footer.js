@@ -1,7 +1,7 @@
 ﻿import React, { useEffect } from 'react';
 import {Link} from "react-router-dom";
 import { connect } from "react-redux";
-import {MAIN_ROUTE, ACCOUNT_ROUTE} from "../../_routing/routerConsts";
+import {MAIN_ROUTE, ACCOUNT_ROUTE, PROGRAMS_LISTENING_ROUTE} from "../../_routing/routerConsts";
 import * as programActions from '../../_actions/program-actions';
 import * as interfaceFunctions from "../utils/interface";
 
@@ -17,15 +17,12 @@ import instagram from "../images/instagram.svg";
 import NotificationToast from "../special-components/notificationToast";
 
 
-const Footer = ({fetchAllPrograms, programsList}) => {
-
-    const body = [
-        
-    ]
-    
+const Footer = ({fetchAllPrograms, programsList}) => {    
     useEffect(() => {
         fetchAllPrograms();
     }, []);
+
+    const currentUser = JSON.parse(localStorage.getItem('user'));
     
     return (
         <div className="footer_wrapper bg-dark mt-auto">
@@ -48,7 +45,7 @@ const Footer = ({fetchAllPrograms, programsList}) => {
                                 </a>
                             </Tippy>
                             
-                            <Tippy content="Vk">
+                            <Tippy content="ВКонтакте">
                                 <a className="socialNetwork-link me-2" href="https://vk.com/arti_chember_one" target="_blank">
                                     <img src={vk} alt="" width="35" height="35"/>
                                 </a>
@@ -60,7 +57,7 @@ const Footer = ({fetchAllPrograms, programsList}) => {
                                 </a>
                             </Tippy>
                             
-                            <Tippy content="Telegram">
+                            <Tippy content="Телеграм">
                                 <a className="socialNetwork-link me-2" href="https://t.me/Artem4ekK" target="_blank">
                                     <img src={telegram} alt="" width="35" height="35"/>
                                 </a>
@@ -77,10 +74,13 @@ const Footer = ({fetchAllPrograms, programsList}) => {
                     <div className="center_block col-5 d-flex justify-content-center">
                         <div className="links_content col-4 d-flex flex-column">
                             <h6 className="title fw-bold">Навигация</h6>
-                            <Link to="" onClick={interfaceFunctions.scrollToTop}>О нас</Link>
                             <Link to="" onClick={interfaceFunctions.scrollToTop}>Поддержка</Link>
-                            <Link to={ACCOUNT_ROUTE} onClick={interfaceFunctions.scrollToTop}>Профиль</Link>
-                            <Link to={MAIN_ROUTE} onClick={interfaceFunctions.scrollToTop}>Главная</Link>
+                            {
+                                currentUser !== null ?
+                                    <Link to={ACCOUNT_ROUTE} onClick={interfaceFunctions.scrollToTop}>Профиль</Link> :
+                                    null
+                            }
+                            <Link to={PROGRAMS_LISTENING_ROUTE} onClick={interfaceFunctions.scrollToTop}>Главная</Link>
                         </div>
                         
                         <div className="links_content col-4 d-flex flex-column">
