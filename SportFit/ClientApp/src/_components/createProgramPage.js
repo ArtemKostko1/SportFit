@@ -67,7 +67,7 @@ const CreateProgramPage = ({...props}) => {
                 resetForm();
                 
             } else {
-                props.updateProgram(currentProgram.id, values, () => addToast("Неудачное редактирование", {appearance: 'success'}));
+                props.updateProgram(currentProgram.id, values, () => addToast("Успешное редактирование", {appearance: 'success'}));
             }
         } else {
             addToast("Неудачное создание", {appearance: 'warning'});
