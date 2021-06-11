@@ -19,6 +19,7 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoadin
     }, []);
 
     const currentUser = JSON.parse(localStorage.getItem('user'));
+    let filterProgramsList = programsList.reverse();
     
     return (
         <>
@@ -48,7 +49,7 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoadin
                         </div>
                     ) :
                             
-                    programsList.map((program, index) => {
+                        filterProgramsList.map((program, index) => {
                         const { id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate } = program;
                         return (
                             <ProgramItem

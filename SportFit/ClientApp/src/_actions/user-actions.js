@@ -70,7 +70,7 @@ export const updateUser = (id, data, onSuccess) => dispatch => {
             });
             onSuccess();
         })
-        .catch(err => console.log(err));
+            .catch(err => console.log(err));
 }
 
 export const logout = () => dispatch => {

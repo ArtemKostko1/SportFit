@@ -1,13 +1,13 @@
 ﻿import React from 'react';
 import {connect} from "react-redux";
-import useForm from "./utils/useForm";
+import {useToasts} from "react-toast-notifications";
 import {Link} from "react-router-dom";
 import * as userActions from "../_actions/user-actions";
 import * as alertActions from "../_actions/alert-actions";
-import {REGISTER_ROUTE, MAIN_ROUTE} from "../_routing/routerConsts";
 import * as validators from "./utils/validators/validators";
 import * as interfaceFunc from "./utils/interface";
-import {useToasts} from "react-toast-notifications";
+import useForm from "./utils/useForm";
+import {REGISTER_ROUTE} from "../_routing/routerConsts";
 
 const SignInPage = ({statusCode, ...props}) => {
     const { addToast } = useToasts();
@@ -58,7 +58,7 @@ const SignInPage = ({statusCode, ...props}) => {
             <div className="row">
                 <div className="left col-6 bg-dark">
                     <div className="photo_wrapper w-100">
-                        {/*<img src={signInBackground} alt="background" width="auto" height="100%"/>*/}
+                        
                     </div>
                 </div>
                 <div className="right col-6 d-flex justify-content-center align-items-center">

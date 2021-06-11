@@ -16,10 +16,10 @@ export const user = (url = baseUrl + 'users') => {
             .then(userData => {
                 localStorage.setItem('user', JSON.stringify(userData.data));
                 return userData;
-            })
-            .catch(responseStatus => {
-                return responseStatus.response.data;
             }),
+            /*.catch(responseStatus => {
+                return responseStatus.response.data;
+            }),*/
         
         updateUser: async (id, updatedRecord) => await axios.put(`${url}/${id}`, updatedRecord)
             .then(() => {

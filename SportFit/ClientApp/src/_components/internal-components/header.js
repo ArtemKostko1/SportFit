@@ -28,7 +28,7 @@ const Header = ({userAuthenticated, logout, authUser}) => {
             <nav className="navbar navbar-expand-md container-xxl navbar-dark bg-dark p-0">
                 <div className="navbar_wrapper container-fluid">
                     <div className="brand">
-                        <NavLink to={PROGRAMS_LISTENING_ROUTE} onClick={interfaceFunc.scrollToTop}>
+                        <NavLink to={MAIN_ROUTE} onClick={interfaceFunc.scrollToTop}>
                             <div className="brand_wrapper d-flex align-items-center h-100">
                                 <img src={logo} alt="" width="50" height="50"/>
                                 <span className="navbar-brand fw-bold ms-2 p-0">SportFit</span>
@@ -58,7 +58,7 @@ const Header = ({userAuthenticated, logout, authUser}) => {
                                     <div className="avatar_wrapper rounded-circle d-flex justify-content-center align-items-center">
                                         <img src=
                                                  {
-                                                     authUser === null ?
+                                                     authUser === null || authUser === undefined ?
                                                          profiler :
                                                          (authUser.avatar === null || authUser.avatar === '' ? 
                                                              profiler :
@@ -122,7 +122,7 @@ const Header = ({userAuthenticated, logout, authUser}) => {
                                                 </NavLink>
                                             </> :
 
-                                            <NavLink className="routeLink" to={PROGRAMS_LISTENING_ROUTE} onClick={interfaceFunc.scrollToTop}>
+                                            <NavLink className="routeLink" to={MAIN_ROUTE} onClick={interfaceFunc.scrollToTop}>
                                                 <li
                                                     className="dropdown-item"
                                                     onClick={() => onLogout()}>

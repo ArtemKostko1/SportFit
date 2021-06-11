@@ -214,11 +214,11 @@ const EditAccountPage = ({...props}) => {
                                     </div>
                                 </div>
     
-                                <button
+                                {/*<button
                                     type="button"
                                     className="changePassword btn btn-outline-primary fw-bold">
                                     Изменить пароль
-                                </button>
+                                </button>*/}
     
                                 {/*<div className="input_wrapper p-0">
                                     <div className="form-floating">

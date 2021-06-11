@@ -1,3 +1,35 @@
 ﻿.home_wrapper {
-  padding: 50px 0;
+  .home_background {
+    width: 100%;
+    height: calc(100vh - 60px);
+
+    background-image: url("https://wallpapershome.ru/images/pages/pic_h/11090.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    .darkened_background {
+      width: 100%;
+      height: calc(100vh - 60px);
+      
+      background-color: rgba(0, 0, 0, 0.4);
+      
+      .title {
+        margin-bottom: 50px;
+        
+        font-size: 56pt;
+        font-weight: bold;
+      }
+      
+      .content {
+          text-align: center;
+          font-size: 40px;
+          font-weight: bold;
+      }
+    }
+  }
+  
+  .home_content {
+    padding: 50px 0;
+  }
 }
