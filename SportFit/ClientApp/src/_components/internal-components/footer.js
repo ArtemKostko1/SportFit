@@ -1,7 +1,7 @@
 ﻿import React, { useEffect } from 'react';
 import {Link} from "react-router-dom";
 import { connect } from "react-redux";
-import {MAIN_ROUTE, ACCOUNT_ROUTE, PROGRAMS_LISTENING_ROUTE, SUPPORT_ROUTE} from "../../_routing/routerConsts";
+import {MAIN_ROUTE, ACCOUNT_ROUTE, PROGRAMS_LISTENING_ROUTE, SUPPORT_ROUTE, USER_PROGRAMS_ROUTE, USER_SELECTED_ROUTE} from "../../_routing/routerConsts";
 import * as programActions from '../../_actions/program-actions';
 import * as interfaceFunctions from "../utils/interface";
 
@@ -74,12 +74,16 @@ const Footer = ({fetchAllPrograms, programsList}) => {
                     <div className="center_block col-5 d-flex justify-content-center">
                         <div className="links_content col-4 d-flex flex-column">
                             <h6 className="title fw-bold">Навигация</h6>
-                            <Link to={SUPPORT_ROUTE} onClick={interfaceFunctions.scrollToTop}>Поддержка</Link>
                             {
                                 currentUser !== null ?
-                                    <Link to={ACCOUNT_ROUTE} onClick={interfaceFunctions.scrollToTop}>Профиль</Link> :
+                                    <>
+                                        <Link to={ACCOUNT_ROUTE} onClick={interfaceFunctions.scrollToTop}>Профиль</Link>
+                                        <Link to={USER_PROGRAMS_ROUTE} onClick={interfaceFunctions.scrollToTop}>Мои программы</Link>
+                                        <Link to={USER_SELECTED_ROUTE} onClick={interfaceFunctions.scrollToTop}>Избранное</Link>
+                                    </> :
                                     null
                             }
+                            <Link to={SUPPORT_ROUTE} onClick={interfaceFunctions.scrollToTop}>Поддержка</Link>
                             <Link to={MAIN_ROUTE} onClick={interfaceFunctions.scrollToTop}>Главная</Link>
                         </div>
                         

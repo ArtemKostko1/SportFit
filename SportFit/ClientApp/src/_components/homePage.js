@@ -5,6 +5,8 @@ import yoga from "./images/yoga.svg";
 import Footer from "./internal-components/footer";
 
 const HomePage = () => {
+    const currentUser = JSON.parse(localStorage.getItem('user'));
+
     return (
         <>            
             <div className="home_wrapper">
@@ -19,11 +21,15 @@ const HomePage = () => {
                         </div>
                     </div>
                 </div>
-                
-                <div className="home_content container-xxl">
-                    <Separator image={yoga}/>
-                    <Banner/>
-                </div>
+
+                {
+                    currentUser !== null ?
+                        <div className="home_content container-xxl">
+                            <Separator image={yoga}/>
+                            <Banner/>
+                        </div> :
+                        null
+                }
             </div>
 
             <Footer/>

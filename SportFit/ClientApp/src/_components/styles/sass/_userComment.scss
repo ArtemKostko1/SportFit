@@ -2,10 +2,14 @@
   padding: 50px;
 
   .userAvatar_wrapper {
-    
+
     .avatar_wrapper {
+      overflow: hidden;
+
       height: 75px;
       width: 75px;
+
+      background-color: #e0e0e0;
     }
   }
   

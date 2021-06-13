@@ -54,9 +54,9 @@ const UserComment = ({ programId, ...props }) => {
     return (
         <div className="userComment_wrapper row shadow-sm">
             <div className="userAvatar_wrapper col-1">
-                <div className="avatar_wrapper">
+                <div className="avatar_wrapper rounded-circle d-flex justify-content-center align-items-center">
                     <img 
-                        className="avatar rounded-circle" 
+                        className="avatar" 
                         src=
                             { 
                                 currentUser.avatar === null || currentUser.avatar === '' ? 

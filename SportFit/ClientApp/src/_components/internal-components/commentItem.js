@@ -24,9 +24,9 @@ const CommentItem = ({ id, program, user, nickname, avatar, content, creationDat
     return (
         <div className="commentItem_wrapper row">
             <div className="userAvatar_wrapper col-1">
-                <div className="avatar_wrapper">
+                <div className="avatar_wrapper rounded-circle d-flex justify-content-center align-items-center">
                     <img 
-                        className="avatar rounded-circle" 
+                        className="avatar" 
                         src=
                             { 
                                 avatar === null || avatar === '' ? 
