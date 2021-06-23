@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4b33946f.chunk.css",
+    "main.js": "/static/js/main.163e03ab.chunk.js",
+    "main.js.map": "/static/js/main.163e03ab.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.a3e1f5c3.js",
+    "runtime-main.js.map": "/static/js/runtime-main.a3e1f5c3.js.map",
+    "static/css/2.fddaa3a5.chunk.css": "/static/css/2.fddaa3a5.chunk.css",
+    "static/js/2.134dc145.chunk.js": "/static/js/2.134dc145.chunk.js",
+    "static/js/2.134dc145.chunk.js.map": "/static/js/2.134dc145.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.4e844aa3024d34bc0b93ec99d7f39f5f.js": "/precache-manifest.4e844aa3024d34bc0b93ec99d7f39f5f.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.fddaa3a5.chunk.css.map": "/static/css/2.fddaa3a5.chunk.css.map",
+    "static/css/main.4b33946f.chunk.css.map": "/static/css/main.4b33946f.chunk.css.map",
+    "static/js/2.134dc145.chunk.js.LICENSE.txt": "/static/js/2.134dc145.chunk.js.LICENSE.txt",
+    "static/media/bookmark.svg": "/static/media/bookmark.35b495cc.svg",
+    "static/media/bookmark_solid.svg": "/static/media/bookmark_solid.4c0c61b9.svg",
+    "static/media/camera.svg": "/static/media/camera.0c199edf.svg",
+    "static/media/dumbbell.svg": "/static/media/dumbbell.f0a6b172.svg",
+    "static/media/email.svg": "/static/media/email.a177e68c.svg",
+    "static/media/empty.svg": "/static/media/empty.0aff6f8a.svg",
+    "static/media/facebook.svg": "/static/media/facebook.e14ada2e.svg",
+    "static/media/instagram.svg": "/static/media/instagram.555566b3.svg",
+    "static/media/like.svg": "/static/media/like.b427d4d2.svg",
+    "static/media/like_solid.svg": "/static/media/like_solid.b5bfe30d.svg",
+    "static/media/logo.svg": "/static/media/logo.cd370853.svg",
+    "static/media/meal.svg": "/static/media/meal.a7885f41.svg",
+    "static/media/meditation.svg": "/static/media/meditation.021cca60.svg",
+    "static/media/profile.svg": "/static/media/profile.cd3014db.svg",
+    "static/media/telegram.svg": "/static/media/telegram.dbd0d1a9.svg",
+    "static/media/twitter.svg": "/static/media/twitter.242d48ae.svg",
+    "static/media/vk.svg": "/static/media/vk.f566acd2.svg",
+    "static/media/yoga.svg": "/static/media/yoga.f4bd25b2.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a3e1f5c3.js",
+    "static/css/2.fddaa3a5.chunk.css",
+    "static/js/2.134dc145.chunk.js",
+    "static/css/main.4b33946f.chunk.css",
+    "static/js/main.163e03ab.chunk.js"
+  ]
+}
