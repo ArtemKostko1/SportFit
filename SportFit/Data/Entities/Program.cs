@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SportFit.Data.Entities
 {
-    public class Program : BaseModificationTracking
+    public class  Program : BaseModificationTracking
     {        
         public Guid UserId { get; set; }
 
@@ -13,13 +13,13 @@ namespace SportFit.Data.Entities
         
         public Guid ComplexityLevelId { get; set; }
         
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(60)")]
         public string Name { get; set; }
 
         [Column(TypeName = "nvarchar(300)")]
         public string Description { get; set; }
         
-        [Column(TypeName = "nvarchar(max)")]
+        [Column(TypeName = "nvarchar(MAX)")]
         public string Content { get; set; }
 
         public string PreView { get; set; }

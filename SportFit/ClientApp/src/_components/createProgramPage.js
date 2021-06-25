@@ -112,6 +112,7 @@ const CreateProgramPage = ({...props}) => {
                                             className="form-control"
                                             id="validationCustomName"
                                             placeholder="Enter the name"
+                                            maxLength="60"
                                             value={values.Name}
                                             onChange={handleInputChange}
                                             required
@@ -198,6 +199,7 @@ const CreateProgramPage = ({...props}) => {
                                             className="form-control"
                                             id="validationCustomDescription"
                                             placeholder="Enter description"
+                                            maxLength="300"
                                             value={values.Description}
                                             onChange={handleInputChange}
                                             required

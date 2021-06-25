@@ -129,11 +129,12 @@ const EditAccountPage = ({...props}) => {
                                                 className="form-control"
                                                 id="validationCustomEmail"
                                                 placeholder="Enter the email"
+                                                maxLength="100"
                                                 value={values.Email}
                                                 onChange={handleInputChange}
                                                 {...errors.Email && {error: "true"}}/>
         
-                                            <label htmlFor="validationCustomEmail" className="form-label fw-bold">Email</label>
+                                            <label htmlFor="validationCustomEmail" className="form-label text-secondary fw-bold">Email</label>
                                         </div>
                                     </div>
                                 </div>
@@ -154,7 +155,7 @@ const EditAccountPage = ({...props}) => {
                                                 value={values.Vk}
                                                 onChange={handleInputChange}/>
         
-                                            <label htmlFor="validationCustomVk" className="form-label fw-bold">ВКонтакте</label>
+                                            <label htmlFor="validationCustomVk" className="form-label text-secondary fw-bold">ВКонтакте</label>
                                         </div>
                                     </div>
                                 </div>
@@ -175,7 +176,7 @@ const EditAccountPage = ({...props}) => {
                                                 value={values.Instagram}
                                                 onChange={handleInputChange}/>
         
-                                            <label htmlFor="validationCustomInstagram" className="form-label fw-bold">Инстаграм</label>
+                                            <label htmlFor="validationCustomInstagram" className="form-label text-secondary fw-bold">Инстаграм</label>
                                         </div>
                                     </div>
                                 </div>
@@ -192,11 +193,12 @@ const EditAccountPage = ({...props}) => {
                                             className="form-control"
                                             id="validationCustomNickname"
                                             placeholder="Enter the nickname"
+                                            maxLength="30"
                                             value={values.Nickname}
                                             onChange={handleInputChange}
                                             {...(errors.Nickname && { error: "true" })}/>
             
-                                        <label htmlFor="validationCustomNickname" className="form-label fw-bold">Имя пользователя</label>
+                                        <label htmlFor="validationCustomNickname" className="form-label text-secondary fw-bold">Имя пользователя</label>
                                         <div className="invalid-feedback">{errors.Nickname}</div>
                                     </div>
                                 </div>
@@ -275,10 +277,11 @@ const EditAccountPage = ({...props}) => {
                                             className="form-control"
                                             id="validationCustomFullName"
                                             placeholder="Enter the fullName"
+                                            maxLength="100"
                                             value={values.FullName}
                                             onChange={handleInputChange}/>
     
-                                        <label htmlFor="validationCustomFullName" className="form-label fw-bold">ФИО</label>
+                                        <label htmlFor="validationCustomFullName" className="form-label text-secondary fw-bold">ФИО</label>
                                     </div>
                                 </div>
     
@@ -293,7 +296,7 @@ const EditAccountPage = ({...props}) => {
                                             value={values.BirthDate}
                                             onChange={handleInputChange}/>
     
-                                        <label htmlFor="validationCustomBirthDate" className="form-label fw-bold text-secondary">День рождения</label>
+                                        <label htmlFor="validationCustomBirthDate" className="form-label text-secondary fw-bold text-secondary">День рождения</label>
                                     </div>
                                 </div>
     
@@ -305,10 +308,11 @@ const EditAccountPage = ({...props}) => {
                                             className="form-control"
                                             id="validationCustomMobilePhone"
                                             placeholder="Enter the mobilePhone"
+                                            maxLength="16"
                                             value={values.MobilePhone}
                                             onChange={handleInputChange}/>
     
-                                        <label htmlFor="validationCustomMobilePhone" className="form-label fw-bold">Телефон</label>
+                                        <label htmlFor="validationCustomMobilePhone" className="form-label text-secondary fw-bold">Телефон</label>
                                     </div>
                                 </div>
                             </div>

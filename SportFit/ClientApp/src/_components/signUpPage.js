@@ -69,7 +69,7 @@ const SignUpPage = ({...props}) => {
                             <h3 className="title fw-bold p-0">Регистрация</h3>
                             
                             <div className="input_wrapper p-0">
-                                <label htmlFor="formGroupExampleInput" className="form-label fw-bold">Имя пользователя</label>
+                                <label htmlFor="formGroupExampleInput" className="form-label text-secondary fw-bold">Имя пользователя</label>
                                 <input
                                     name="Nickname"
                                     type="text" 
@@ -84,7 +84,7 @@ const SignUpPage = ({...props}) => {
                             </div>
                             
                             <div className="input_wrapper p-0">
-                                <label htmlFor="formGroupExampleInput2" className="form-label fw-bold">Логин</label>
+                                <label htmlFor="formGroupExampleInput2" className="form-label text-secondary fw-bold">Логин</label>
                                 <input
                                     name="Login"
                                     type="text" 
@@ -99,7 +99,8 @@ const SignUpPage = ({...props}) => {
                             </div>
                             
                             <div className="input_wrapper p-0">
-                                <label htmlFor="validationCustomPassword" className="form-label fw-bold">Пароль</label>
+                                <label htmlFor="validationCustomPassword" className="form-label text-secondary fw-bold">Пароль&#160;</label>
+                                <label htmlFor="validationCustomPassword" className="form-label info">(Не менее 6 знаков)</label>
                                 <input
                                     name="Password"
                                     type="password" 
