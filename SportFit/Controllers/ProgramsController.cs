@@ -44,7 +44,8 @@ namespace SportFit.Controllers
                     Content = p.Content,
                     PreView = p.PreView,
                     CreationDate = p.CreationDate,
-                    ModificationDate = p.ModificationDate
+                    ModificationDate = p.ModificationDate,
+                    Likes = p.Likes
                 })
                 .ToListAsync();
         }

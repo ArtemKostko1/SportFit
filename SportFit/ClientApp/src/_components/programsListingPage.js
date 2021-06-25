@@ -50,7 +50,7 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoadin
                     ) :
                             
                         filterProgramsList.map((program, index) => {
-                        const { id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate } = program;
+                        const { id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate, likes } = program;
                         return (
                             <ProgramItem
                                 id={id}
@@ -64,6 +64,7 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoadin
                                 description={description}
                                 preView={preView}
                                 creationDate={creationDate}
+                                likes={likes}
                             />
                         );
                     })

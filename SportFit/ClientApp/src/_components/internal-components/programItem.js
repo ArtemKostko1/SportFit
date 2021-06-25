@@ -1,6 +1,8 @@
-﻿import React from 'react';
+﻿import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 import * as interfaceFunc from "../utils/interface";
+import * as likeActions from "../../_actions/like-actions";
 import dateFormat from "../utils/dateFormat";
 import {PROGRAM_DETAIL_ROUTE, ACCOUNT_ROUTE} from "../../_routing/routerConsts";
 
@@ -14,9 +16,16 @@ import muscles_easy from "../images/muscles_easy.png";
 import muscles_medium from "../images/muscles_medium.png";
 import muscles_hard from "../images/muscles_hard.png";
 import muscles_professional from "../images/muscles_professional.png";
+import like_solid from "../images/like_solid.svg";
+import like from "../images/like.svg";
 
 
-const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate}) => {
+const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate, likes, fetchAllLikes, likesList}) => {
+    useEffect(() => {
+        debugger
+        fetchAllLikes(id);
+    }, []);
+    
     return (
         <div className="programItem_wrapper container-xxl shadow">
             <div className="programItem_content container-xxl row">
@@ -99,14 +108,23 @@ const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType,
                     <div className="actions_block d-flex justify-content-between">
                         <div className="creationDate d-flex align-items-center text-secondary">{dateFormat(creationDate)}</div>
 
-                        <div className="actionsButtons_wrapper d-flex">
-                            <Link to={`${PROGRAM_DETAIL_ROUTE}/${id}`}>
-                                <Tippy content="Посмотреть полное описание">
-                                    <button type="button" className="btn btn-outline-primary ms-3" onClick={interfaceFunc.scrollToTop}>
-                                        Открыть
-                                    </button>
-                                </Tippy>
-                            </Link>
+                        <div className="d-flex">
+                            <div className="actionsButtons_wrapper col-2 d-flex justify-content-end">
+                                <div className="likes_wrapper d-flex align-items-center">
+                                    <span className="likesCount fw-bold me-1">{likes.length}</span>
+                                    <img id="like_button" src={ likes.length === 0 ? like : like_solid} alt="ava" width="25" height="25"/>
+                                </div>
+                            </div>
+    
+                            <div className="actionsButtons_wrapper d-flex">
+                                <Link to={`${PROGRAM_DETAIL_ROUTE}/${id}`}>
+                                    <Tippy content="Посмотреть полное описание">
+                                        <button type="button" className="btn btn-outline-primary ms-3" onClick={interfaceFunc.scrollToTop}>
+                                            Открыть
+                                        </button>
+                                    </Tippy>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -115,4 +133,12 @@ const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType,
     );
 }
 
-export default ProgramItem;
+const mapStateToProps = state => ({
+    likesList: state.likeReducer.likesList
+});
+
+const mapActionToProps = {
+    fetchAllLikes: likeActions.fetchAllLikes
+}
+
+export default connect(mapStateToProps, mapActionToProps)(ProgramItem);

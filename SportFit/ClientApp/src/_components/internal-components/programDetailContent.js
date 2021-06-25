@@ -1,9 +1,10 @@
 ﻿import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
-import {ACCOUNT_ROUTE} from "../../_routing/routerConsts";
+import {connect} from "react-redux";
 import * as interfaceFunc from "../utils/interface";
 import * as likeActions from "../../_actions/like-actions";
 import * as selectedProgramActions from "../../_actions/selectedProgram-actions";
+import {ACCOUNT_ROUTE} from "../../_routing/routerConsts";
 
 import CommentsBlock from "./commentsBlock";
 
@@ -20,7 +21,6 @@ import bookmark from "../images/bookmark.svg";
 import bookmark_solid from "../images/bookmark_solid.svg";
 import like from "../images/like.svg";
 import like_solid from "../images/like_solid.svg";
-import {connect} from "react-redux";
 
 
 const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, content, 
@@ -187,7 +187,6 @@ const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, prog
 
 const mapStateToProps = state => ({
     likesList: state.likeReducer.likesList,
-    likesListLenght: state.likeReducer.likesListLenght,
     selectedProgramsList: state.selectedProgramReducer.selectedProgramsList
 });
 
