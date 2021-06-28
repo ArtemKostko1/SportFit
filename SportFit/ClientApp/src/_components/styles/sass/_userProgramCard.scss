@@ -30,18 +30,32 @@
     .actions_block {
       .btn {
         width: 88px;
+        height: 42.5px;
       }
       
       .specialButtons_wrapper {
         .btn{
-          width: 40px;
-          height: 100%;
+          width: 42.5px;
+          height: 42.5px;
 
           .fa{
             font-size: 1.25rem;
           }
         }
       }
+    }
+  }
+  
+  .statistics_block {
+    border-radius: 0 0 15px 15px;
+    background-color: #e0e0e0;
+    
+    hr {
+      width: 2px;
+      height: 20px;
+
+      border: none;
+      background-color: rgba(0, 0, 0, 1) !important;
     }
   }
 }

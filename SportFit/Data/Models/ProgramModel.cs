@@ -19,5 +19,7 @@ namespace SportFit.Data.Models
         public string Content { get; set; }
         public string PreView { get; set; }
         public ICollection<Like> Likes { get; set; }
+        public ICollection<Comment> Comments { get; set; }
+        public ICollection<SelectedProgram> SelectedPrograms { get; set; }
     }
 }

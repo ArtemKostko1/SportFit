@@ -53,7 +53,7 @@ const UserProgramsListingPage = ({fetchAllMyPrograms, myProgramsList, myPrograms
                                 <div className="programCardsListing_content row d-flex">
                                     {
                                         myProgramsList.map((program, index) => {
-                                            const {id, name, preView, creationDate} = program;
+                                            const {id, name, preView, creationDate, likes, comments, selectedPrograms} = program;
                                             return (
                                                 <UserProgramCard
                                                     id={id}
@@ -61,6 +61,9 @@ const UserProgramsListingPage = ({fetchAllMyPrograms, myProgramsList, myPrograms
                                                     name={name}
                                                     preView={preView}
                                                     creationDate={creationDate}
+                                                    likes={likes}
+                                                    comments={comments}
+                                                    selectedPrograms={selectedPrograms}
                                                 />
                                             );
                                         })

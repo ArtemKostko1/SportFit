@@ -18,11 +18,12 @@ import muscles_hard from "../images/muscles_hard.png";
 import muscles_professional from "../images/muscles_professional.png";
 import like_solid from "../images/like_solid.svg";
 import like from "../images/like.svg";
+import comment from "../images/comment.svg";
+import comment_solid from "../images/comment_solid.svg";
 
 
-const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate, likes, fetchAllLikes, likesList}) => {
+const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate, likes, comments, fetchAllLikes}) => {
     useEffect(() => {
-        debugger
         fetchAllLikes(id);
     }, []);
     
@@ -109,10 +110,15 @@ const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType,
                         <div className="creationDate d-flex align-items-center text-secondary">{dateFormat(creationDate)}</div>
 
                         <div className="d-flex">
-                            <div className="actionsButtons_wrapper col-2 d-flex justify-content-end">
-                                <div className="likes_wrapper d-flex align-items-center">
+                            <div className="statistics_block d-flex">
+                                <div className="likes_wrapper d-flex align-items-center px-1">
                                     <span className="likesCount fw-bold me-1">{likes.length}</span>
                                     <img id="like_button" src={ likes.length === 0 ? like : like_solid} alt="ava" width="25" height="25"/>
+                                </div>
+
+                                <div className="likes_wrapper d-flex align-items-center px-1">
+                                    <span className="likesCount fw-bold me-1">{comments.length}</span>
+                                    <img id="like_button" src={ comments.length === 0 ? comment : comment_solid} alt="ava" width="25" height="25"/>
                                 </div>
                             </div>
     

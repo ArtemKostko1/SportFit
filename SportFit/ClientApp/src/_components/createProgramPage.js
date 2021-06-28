@@ -16,13 +16,16 @@ const CreateProgramPage = ({...props}) => {
     const currentUserId = JSON.parse(localStorage.getItem('user')).id;
     
     const initialInputValues = {
+        UserId: currentUserId,
         Name: '',
         ProgramTypeId: '',
         ComplexityLevelId: '',
         Description: '',
         PreView: '',
         Content: '',
-        UserId: currentUserId
+        Likes: [],
+        Comments: [],
+        SelectedPrograms: []
     }
 
     const validate = (fieldValues = values) => {

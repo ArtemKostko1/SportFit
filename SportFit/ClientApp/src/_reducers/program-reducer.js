@@ -36,19 +36,22 @@ export const programReducer = (state = programInitialState, {type, payload}) => 
         case programActionTypes.CREATE_PROGRAM:
             return {
                 ...state,
-                programsList: [...state.programsList, payload]
+                programsList: [...state.programsList, payload],
+                myProgramsList: [...state.myProgramsList, payload]
             }
 
         case programActionTypes.UPDATE_PROGRAM:
             return {
                 ...state,
-                programsList: state.programsList.map(x => x.id === payload.id ? payload: x)
+                programsList: state.programsList.map(x => x.id === payload.id ? payload: x),
+                myProgramsList: state.myProgramsList.map(x => x.id === payload.id ? payload: x)
             }
 
         case programActionTypes.DELETE_PROGRAM:
             return {
                 ...state,
-                programsList: state.programsList.filter(x => x.id !== payload)
+                programsList: state.programsList.filter(x => x.id !== payload),
+                myProgramsList: state.myProgramsList.filter(x => x.id !== payload)
             }
 
         case programActionTypes.PROGRAM_ITEM_REQUESTED:

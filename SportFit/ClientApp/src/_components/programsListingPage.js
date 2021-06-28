@@ -14,6 +14,7 @@ import Footer from "./internal-components/footer";
 
 
 const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoading}) => {
+    debugger
     useEffect(() => {
         fetchAllPrograms();
     }, []);
@@ -50,7 +51,7 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoadin
                     ) :
                             
                         filterProgramsList.map((program, index) => {
-                        const { id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate, likes } = program;
+                        const { id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate, likes, comments } = program;
                         return (
                             <ProgramItem
                                 id={id}
@@ -65,6 +66,7 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoadin
                                 preView={preView}
                                 creationDate={creationDate}
                                 likes={likes}
+                                comments={comments}
                             />
                         );
                     })

@@ -13,9 +13,15 @@ import dateFormat from "../utils/dateFormat";
 import Tippy from "@tippy.js/react";
 import 'tippy.js/dist/tippy.css';
 import camera from "../images/camera.svg";
+import like from "../images/like.svg";
+import like_solid from "../images/like_solid.svg";
+import bookmark from "../images/bookmark.svg";
+import bookmark_solid from "../images/bookmark_solid.svg";
+import comment from "../images/comment.svg";
+import comment_solid from "../images/comment_solid.svg";
 
 
-const UserProgramCard = ({ id, name, preView, creationDate, deleteProgram }) => {
+const UserProgramCard = ({ id, name, preView, creationDate, likes, comments, selectedPrograms, deleteProgram }) => {
     const { addToast } = useToasts();
     
     const onDelete = id => {
@@ -73,6 +79,27 @@ const UserProgramCard = ({ id, name, preView, creationDate, deleteProgram }) => 
                             </button>
                         </Tippy>
                     </div>
+                </div>
+            </div>
+            
+            <div className="statistics_block d-flex justify-content-center align-items-center p-1">
+                <div className="likes_wrapper d-flex align-items-center px-1">
+                    <span className="likesCount fw-bold me-1">{likes.length}</span>
+                    <img id="like_button" src={ likes.length === 0 ? like : like_solid} alt="ava" width="20" height="20"/>
+                </div>
+                
+                <hr className="m-0"/>
+                
+                <div className="likes_wrapper d-flex align-items-center px-1">
+                    <span className="likesCount fw-bold me-1">{comments.length}</span>
+                    <img id="like_button" src={ comments.length === 0 ? comment : comment_solid} alt="ava" width="20" height="20"/>
+                </div>
+                
+                <hr className="my-0"/>
+                
+                <div className="likes_wrapper d-flex align-items-center px-1">
+                    <span className="likesCount fw-bold me-1">{selectedPrograms.length}</span>
+                    <img id="like_button" src={ selectedPrograms.length === 0 ? bookmark : bookmark_solid} alt="ava" width="20" height="20"/>
                 </div>
             </div>
         </div>
