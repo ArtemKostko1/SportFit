@@ -63,12 +63,7 @@ namespace SportFit.Data.Entities
                 }
             );
 
-            modelBuilder.Entity<ComplexityLevel>().HasData(
-                new ComplexityLevel
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "Легко"
-                },
+            modelBuilder.Entity<ComplexityLevel>().HasData(  
                 new ComplexityLevel
                 {
                     Id = Guid.NewGuid(),
@@ -77,12 +72,17 @@ namespace SportFit.Data.Entities
                 new ComplexityLevel
                 {
                     Id = Guid.NewGuid(),
-                    Name = "Сложно"
+                    Name = "Легко"
                 },
                 new ComplexityLevel
                 {
                     Id = Guid.NewGuid(),
                     Name = "Профессионально"
+                },
+                new ComplexityLevel
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Сложно"
                 }
             );
         }

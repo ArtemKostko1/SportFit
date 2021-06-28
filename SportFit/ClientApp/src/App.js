@@ -9,7 +9,7 @@ import './_components/styles/css/mainStyles.css';
 const App = () => {
     return (
         <BrowserRouter>
-            <ToastProvider autoDismiss={true}>
+            <ToastProvider>
                 <Header/>
                 
                 <div className="content">

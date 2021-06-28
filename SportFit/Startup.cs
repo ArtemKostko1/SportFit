@@ -47,7 +47,7 @@ namespace SportFit
 		{
             app.UseRouting();
             app.UseHttpsRedirection();
-			//app.UseDefaultFiles();
+			app.UseDefaultFiles();
 			app.UseStaticFiles();
 			app.UseSpaStaticFiles();
             app.UseDeveloperExceptionPage();

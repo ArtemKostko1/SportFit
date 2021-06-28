@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d128b03b57e912f7ec136cedb8313976",
+    "revision": "a080d70b4552ed866ec142d842ec0266",
     "url": "/index.html"
   },
   {
-    "revision": "5894c9ce527cbd4869e0",
+    "revision": "0fed22ebe236d87b7bc8",
     "url": "/static/css/2.fddaa3a5.chunk.css"
   },
   {
-    "revision": "cc9d08493cdf138018ff",
-    "url": "/static/css/main.4b33946f.chunk.css"
+    "revision": "0ea545d751298c5e857e",
+    "url": "/static/css/main.5cf0e680.chunk.css"
   },
   {
-    "revision": "5894c9ce527cbd4869e0",
-    "url": "/static/js/2.134dc145.chunk.js"
+    "revision": "0fed22ebe236d87b7bc8",
+    "url": "/static/js/2.68fb8d53.chunk.js"
   },
   {
     "revision": "c29eaaf6d52d8cb059d6217b193e5c41",
-    "url": "/static/js/2.134dc145.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.68fb8d53.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "cc9d08493cdf138018ff",
-    "url": "/static/js/main.163e03ab.chunk.js"
+    "revision": "0ea545d751298c5e857e",
+    "url": "/static/js/main.42a12d70.chunk.js"
   },
   {
     "revision": "e765d6591bfac6ca55a9",
@@ -32,12 +32,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/bookmark.35b495cc.svg"
   },
   {
-    "revision": "4c0c61b92d3fd7169bb65459f84fe961",
-    "url": "/static/media/bookmark_solid.4c0c61b9.svg"
+    "revision": "890d60f681ba66b03277fae1f18aeeef",
+    "url": "/static/media/bookmark_solid.890d60f6.svg"
   },
   {
     "revision": "0c199edf36cdfd8b347e414824e0c04d",
     "url": "/static/media/camera.0c199edf.svg"
+  },
+  {
+    "revision": "a93a5733b7f42fafa37d05e4f7e8aeb0",
+    "url": "/static/media/comment.a93a5733.svg"
+  },
+  {
+    "revision": "f17c7b9c30b2f3a210c1a21747dd15ba",
+    "url": "/static/media/comment_solid.f17c7b9c.svg"
   },
   {
     "revision": "f0a6b1726f4dde353af4be1eeac2712e",
@@ -64,8 +72,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/like.b427d4d2.svg"
   },
   {
-    "revision": "b5bfe30d05fedf181b632a865e7120d4",
-    "url": "/static/media/like_solid.b5bfe30d.svg"
+    "revision": "ff5023e6a4b16f6b91fdb98fa4c9dccd",
+    "url": "/static/media/like_solid.ff5023e6.svg"
   },
   {
     "revision": "cd37085369706f31be5c37c10026b4fd",

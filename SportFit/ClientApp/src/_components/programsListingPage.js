@@ -31,16 +31,10 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoadin
                         null
                 }
                 
-            <Separator image={meditation}/>
+                <Separator image={meditation}/>
             
-            {/*{
-                Object.keys(programsList).length !== 0 ?
-                    <ProgramsFilterPanel/> :
-                    null
-            }*/}
-            
-            <div className="programsListing_content d-flex flex-column align-items-center">
-                {programsListLoading === true ? (<Spinner/>) : (
+                <div className="programsListing_content d-flex flex-column align-items-center">
+                    {programsListLoading === true ? (<Spinner/>) : (
                     
                     (Object.keys(programsList).length === 0 ? (
                         <div className="empty_wrapper row container-xxl">
@@ -50,7 +44,7 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoadin
                         </div>
                     ) :
                             
-                        filterProgramsList.map((program, index) => {
+                    filterProgramsList.map((program, index) => {
                         const { id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate, likes, comments } = program;
                         return (
                             <ProgramItem
@@ -66,13 +60,12 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoadin
                                 preView={preView}
                                 creationDate={creationDate}
                                 likes={likes}
-                                comments={comments}
-                            />
+                                comments={comments}/>
                         );
                     })
-                ))}
-            </div> 
-        </div>
+                    ))}
+                </div> 
+            </div>
 
             <Footer/>
         </>
