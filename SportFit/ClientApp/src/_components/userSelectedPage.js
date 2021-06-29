@@ -4,13 +4,12 @@ import * as selectedProgramActions from "../_actions/selectedProgram-actions";
 
 import UserSelectedProgramCard from "./internal-components/userSelectedProgramCard";
 import Footer from "./internal-components/footer";
-import ProgramsFilterPanel from "./internal-components/programsFilterPanel";
 import Spinner from "./special-components/spinner/spinner";
 
 import empty from "./images/empty.svg";
 
 
-const UserSelectedPage = ({fetchAllSelectedPrograms, selectedProgramsList, selectedProgramsListLoading, ...props}) => {    
+const UserSelectedPage = ({fetchAllSelectedPrograms, selectedProgramsList, selectedProgramsListLoading}) => {    
     useEffect(() => {
         fetchAllSelectedPrograms(currentUser.id);
     }, [selectedProgramsList]);
@@ -24,12 +23,6 @@ const UserSelectedPage = ({fetchAllSelectedPrograms, selectedProgramsList, selec
                     <div className="title_wrapper d-flex justify-content-center">
                         <h1 className="title fw-bold m-0">ИЗБРАННЫЕ</h1>
                     </div>
-
-                    {/*{
-                        Object.keys(selectedProgramsList).length !== 0 ?
-                            <ProgramsFilterPanel/> :
-                            null
-                    }*/}
 
                     <div className="selectedProgramCardsListing_wrapper">
                         {
@@ -52,7 +45,7 @@ const UserSelectedPage = ({fetchAllSelectedPrograms, selectedProgramsList, selec
                                     <div className="selectedProgramCardsListing_content row d-flex">
                                         {
                                             selectedProgramsList.map((program, index) => {
-                                                const {id, programId, name, preView, creationDate} = program;
+                                                const {id, programId, name, preView, creationDate, likes, comments} = program;
                                                 return (
                                                     <UserSelectedProgramCard
                                                         id={id}
@@ -61,6 +54,8 @@ const UserSelectedPage = ({fetchAllSelectedPrograms, selectedProgramsList, selec
                                                         name={name}
                                                         preView={preView}
                                                         creationDate={creationDate}
+                                                        likes={likes}
+                                                        comments={comments}
                                                     />
                                                 );
                                             })

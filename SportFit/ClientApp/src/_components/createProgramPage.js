@@ -69,6 +69,7 @@ const CreateProgramPage = ({...props}) => {
                 resetForm();
                 
             } else {
+                debugger
                 props.updateProgram(currentProgram.id, values, () => addToast("Успешное редактирование", {appearance: 'success'}));
             }
         } else {
@@ -82,14 +83,19 @@ const CreateProgramPage = ({...props}) => {
         
         if (currentProgram.id !== undefined) {
             const editableProgram = props.programsList.find(x => x.id === currentProgram.id);
+            debugger
             const tempProgram = {
+                UserId: currentUserId,
                 Name: editableProgram.name,
                 ProgramTypeId: editableProgram.programTypeId,
                 ComplexityLevelId: editableProgram.complexityLevelId,
                 Description: editableProgram.description,
                 Content: editableProgram.content,
                 PreView: editableProgram.preView,
-                UserId: currentUserId
+                CreationDate: editableProgram.creationDate,
+                Likes: editableProgram.likes,
+                Comments: editableProgram.comments,
+                SelectedPrograms: editableProgram.selectedPrograms
             }
             
             setValues({

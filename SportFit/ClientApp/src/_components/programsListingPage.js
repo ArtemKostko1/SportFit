@@ -6,7 +6,6 @@ import Banner from "./internal-components/banner";
 import Separator from "./internal-components/separator";
 import ProgramItem from "./internal-components/programItem";
 import Spinner from "./special-components/spinner/spinner";
-import ProgramsFilterPanel from "./internal-components/programsFilterPanel";
 
 import meditation from "./images/meditation.svg";
 import empty from "./images/empty.svg";
@@ -14,7 +13,6 @@ import Footer from "./internal-components/footer";
 
 
 const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoading}) => {
-    debugger
     useEffect(() => {
         fetchAllPrograms();
     }, []);
@@ -46,6 +44,7 @@ const ProgramsListingPage = ({fetchAllPrograms, programsList, programsListLoadin
                             
                     filterProgramsList.map((program, index) => {
                         const { id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate, likes, comments } = program;
+                        debugger
                         return (
                             <ProgramItem
                                 id={id}

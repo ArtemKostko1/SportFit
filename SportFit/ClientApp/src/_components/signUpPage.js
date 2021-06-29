@@ -98,8 +98,7 @@ const SignUpPage = ({...props}) => {
                             </div>
                             
                             <div className="input_wrapper p-0">
-                                <label htmlFor="validationCustomPassword" className="form-label text-secondary fw-bold">Пароль&#160;</label>
-                                <label htmlFor="validationCustomPassword" className="form-label info">(Не менее 6 знаков)</label>
+                                <label htmlFor="validationCustomPassword" className="form-label text-secondary fw-bold">Пароль;</label>
                                 <input
                                     name="Password"
                                     type="password" 

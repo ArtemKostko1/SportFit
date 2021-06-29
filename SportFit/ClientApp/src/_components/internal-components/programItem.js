@@ -1,8 +1,6 @@
-﻿import React, {useEffect} from 'react';
+﻿import React from 'react';
 import {Link} from "react-router-dom";
-import {connect} from "react-redux";
 import * as interfaceFunc from "../utils/interface";
-import * as likeActions from "../../_actions/like-actions";
 import dateFormat from "../utils/dateFormat";
 import {PROGRAM_DETAIL_ROUTE, ACCOUNT_ROUTE} from "../../_routing/routerConsts";
 
@@ -22,10 +20,8 @@ import comment from "../images/comment.svg";
 import comment_solid from "../images/comment_solid.svg";
 
 
-const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate, likes, comments, fetchAllLikes}) => {
-    useEffect(() => {
-        fetchAllLikes(id);
-    }, []);
+const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType, complexityLevel, description, preView, creationDate, likes, comments}) => {
+    debugger
     
     return (
         <div className="programItem_wrapper container-xxl shadow">
@@ -112,13 +108,13 @@ const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType,
                         <div className="d-flex">
                             <div className="statistics_block d-flex">
                                 <div className="likes_wrapper d-flex align-items-center px-1">
-                                    <span className="likesCount fw-bold me-1">{likes.length}</span>
-                                    <img id="like_button" src={ likes.length === 0 ? like : like_solid} alt="ava" width="25" height="25"/>
+                                    <span className="likesCount fw-bold me-1">{likes !== undefined ? likes.length : null}</span>
+                                    <img id="like_button" src={ likes !== undefined ? (likes.length === 0 ? like : like_solid) : null} alt="ava" width="25" height="25"/>
                                 </div>
 
                                 <div className="likes_wrapper d-flex align-items-center px-1">
-                                    <span className="likesCount fw-bold me-1">{comments.length}</span>
-                                    <img id="like_button" src={ comments.length === 0 ? comment : comment_solid} alt="ava" width="25" height="25"/>
+                                    <span className="likesCount fw-bold me-1">{comments !== undefined ? comments.length : null}</span>
+                                    <img id="like_button" src={ comments !== undefined ? (comments.length === 0 ? comment : comment_solid) : null} alt="ava" width="25" height="25"/>
                                 </div>
                             </div>
     
@@ -139,12 +135,4 @@ const ProgramItem = ({  id, userId, userNickname, userAvatar, name, programType,
     );
 }
 
-const mapStateToProps = state => ({
-    likesList: state.likeReducer.likesList
-});
-
-const mapActionToProps = {
-    fetchAllLikes: likeActions.fetchAllLikes
-}
-
-export default connect(mapStateToProps, mapActionToProps)(ProgramItem);
+export default ProgramItem;

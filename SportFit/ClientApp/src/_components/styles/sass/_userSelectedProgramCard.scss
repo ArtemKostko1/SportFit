@@ -59,4 +59,17 @@
       }
     }
   }
+
+  .statistics_block {
+    border-radius: 0 0 15px 15px;
+    background-color: #e0e0e0;
+
+    hr {
+      width: 2px;
+      height: 20px;
+
+      border: none;
+      background-color: rgba(0, 0, 0, 1) !important;
+    }
+  }
 }

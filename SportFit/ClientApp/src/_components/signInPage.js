@@ -1,16 +1,19 @@
-﻿import React from 'react';
+﻿import React, {useEffect} from 'react';
 import {connect} from "react-redux";
 import {useToasts} from "react-toast-notifications";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import * as userActions from "../_actions/user-actions";
 import * as alertActions from "../_actions/alert-actions";
 import * as validators from "./utils/validators/validators";
 import * as interfaceFunc from "./utils/interface";
 import useForm from "./utils/useForm";
-import {REGISTER_ROUTE} from "../_routing/routerConsts";
+import {MAIN_ROUTE, REGISTER_ROUTE} from "../_routing/routerConsts";
 
 const SignInPage = ({statusCode, ...props}) => {
     const { addToast } = useToasts();
+    useEffect(() => {
+        
+    }, []);
     
     const initialInputValues = {
         Login: '',
@@ -45,6 +48,7 @@ const SignInPage = ({statusCode, ...props}) => {
     const handleSubmit = e => {
         e.preventDefault();
         
+        debugger
         if (validate()) {
             props.authenticate(values, () => addToast("Успешная аутентификация", {appearance: 'success'}));
             resetForm();
@@ -83,8 +87,8 @@ const SignInPage = ({statusCode, ...props}) => {
                             </div>
                             
                             <div className="input_wrapper p-0">
-                                <label htmlFor="validationCustomPassword" className="form-label text-secondary fw-bold">Пароль&#160;</label>
-                                <label htmlFor="validationCustomPassword" className="form-label info">(Не менее 6 знаков)</label>
+                                <label htmlFor="validationCustomPassword" className="form-label text-secondary fw-bold">Пароль</label>
+
                                 <input
                                     name="Password"
                                     type="password" 

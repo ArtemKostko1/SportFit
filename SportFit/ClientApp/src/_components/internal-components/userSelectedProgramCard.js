@@ -11,13 +11,15 @@ import {PROGRAM_DETAIL_ROUTE} from "../../_routing/routerConsts";
 import Tippy from "@tippy.js/react";
 import 'tippy.js/dist/tippy.css';
 import camera from "../images/camera.svg";
-import bookmark_solid from "../images/bookmark_solid.svg";
 import bookmark from "../images/bookmark.svg";
+import bookmark_solid from "../images/bookmark_solid.svg";
+import like from "../images/like.svg";
+import like_solid from "../images/like_solid.svg";
+import comment from "../images/comment.svg";
+import comment_solid from "../images/comment_solid.svg";
 
 
-const UserSelectedProgramCard = ({   id, programId, name, preView, creationDate,
-                                     createLike, deleteLike, likesList, fetchAllSelectedPrograms,
-                                     addSelectedProgram, deleteSelectedProgram, selectedProgramsList}) => {
+const UserSelectedProgramCard = ({   id, programId, name, preView, creationDate, fetchAllSelectedPrograms, deleteSelectedProgram, selectedProgramsList, likes, comments}) => {
 
     useEffect(() => {
         fetchAllSelectedPrograms(currentUserId);
@@ -81,6 +83,20 @@ const UserSelectedProgramCard = ({   id, programId, name, preView, creationDate,
                             </Tippy>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div className="statistics_block d-flex justify-content-center align-items-center p-1">
+                <div className="likes_wrapper d-flex align-items-center px-1">
+                    <span className="likesCount fw-bold me-1">{likes !== undefined ? likes.length : null}</span>
+                    <img id="like_button" src={ likes !== undefined ? (likes.length === 0 ? like : like_solid) : null} alt="ico" width="20" height="20"/>
+                </div>
+
+                <hr className="m-0"/>
+
+                <div className="likes_wrapper d-flex align-items-center px-1">
+                    <span className="likesCount fw-bold me-1">{comments !== undefined ? comments.length : null}</span>
+                    <img id="like_button" src={ comments !== undefined ? (comments.length === 0 ? comment : comment_solid) : null} alt="ico" width="20" height="20"/>
                 </div>
             </div>
         </div>

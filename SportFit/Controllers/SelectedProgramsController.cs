@@ -47,7 +47,10 @@ namespace SportFit.Controllers
                     Content = s.Program.Content,
                     PreView = s.Program.PreView,
                     CreationDate = s.Program.CreationDate,
-                    ModificationDate = s.Program.ModificationDate
+                    ModificationDate = s.Program.ModificationDate,
+                    Likes = s.Program.Likes,
+                    Comments = s.Program.Comments,
+                    SelectedPrograms = s.Program.SelectedPrograms
                 })
                 .ToListAsync();
         }
@@ -80,7 +83,10 @@ namespace SportFit.Controllers
                     Content = s.Program.Content,
                     PreView = s.Program.PreView,
                     CreationDate = s.Program.CreationDate,
-                    ModificationDate = s.Program.ModificationDate
+                    ModificationDate = s.Program.ModificationDate,
+                    Likes = s.Program.Likes,
+                    Comments = s.Program.Comments,
+                    SelectedPrograms = s.Program.SelectedPrograms
                 })
                 .ToListAsync();
         }

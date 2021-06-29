@@ -53,11 +53,11 @@ export const routerComponents = [
         Component: EditAccountPage
     },
     {
-        path: USER_SELECTED_ROUTE/* + '/:id'*/,
+        path: USER_SELECTED_ROUTE,
         Component: UserSelectedPage
     },
     {
-        path: USER_PROGRAMS_ROUTE/* + '/:id'*/,
+        path: USER_PROGRAMS_ROUTE,
         Component: UserProgramsListingPage
     },
     {

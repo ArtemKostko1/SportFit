@@ -53,7 +53,6 @@ namespace SportFit
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             
-            //http://localhost:5000
 			app.UseCors(options =>
 				options.WithOrigins("https://sportfitapi.azurewebsites.net")
 					.AllowAnyHeader()
@@ -71,16 +70,6 @@ namespace SportFit
 			}
 
             app.UseEndpoints(x => x.MapControllers());
-
-			/*app.UseSpa(spa =>
-			{
-				spa.Options.SourcePath = "ClientApp";
-
-				if (env.IsDevelopment())
-				{
-					spa.UseReactDevelopmentServer(npmScript: "start");
-				}
-			});*/
-		}
+        }
 	}
 }
