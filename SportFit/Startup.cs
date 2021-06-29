@@ -53,6 +53,7 @@ namespace SportFit
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             
+            //http://localhost:5000
 			app.UseCors(options =>
 				options.WithOrigins("https://sportfitapi.azurewebsites.net")
 					.AllowAnyHeader()

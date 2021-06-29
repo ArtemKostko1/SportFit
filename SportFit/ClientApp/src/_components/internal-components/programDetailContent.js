@@ -101,7 +101,7 @@ const ProgramDetailContent = ({ id, userId, userNickname, userAvatar, name, prog
                                 {
                                     userId !== currentUser.id ?
                                         <div className="addToSelected_wrapper ms-2">
-                                            <Tippy content="Add to selected">
+                                            <Tippy content="Добавить в избранные">
                                                 <button
                                                     className="addToSelected rounded-circle shadow-sm rounded ms-2"
                                                     onClick={onSelected}>

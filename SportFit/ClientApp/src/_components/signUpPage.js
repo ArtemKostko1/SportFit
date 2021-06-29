@@ -18,26 +18,25 @@ const SignUpPage = ({...props}) => {
     }
     
     const validate = (fieldValues = values) => {
-        let temp = {};
+        let temp = {...errors};
 
         if('Nickname' in fieldValues)
-            temp.Nickname = fieldValues.Nickname ? "" : "Пожалуйста введите имя пользователя";
+            temp.Nickname = fieldValues.Nickname ? '' : "Пожалуйста введите имя пользователя";
         if('Login' in fieldValues)
-            temp.Login = fieldValues.Login ? "" : "Пожалуйста введите логин";
+            temp.Login = fieldValues.Login ? '' : "Пожалуйста введите логин";
         if('Password' in fieldValues)
-            temp.Password = fieldValues.Password ? "" : "Пожалуйста введите пароль";
+            temp.Password = fieldValues.Password ? '' : "Пожалуйста введите пароль";
 
         setErrors({
             ...temp
         });
 
         if (fieldValues === values)
-            return Object.values(temp).every(x => x === "");
+            return Object.values(temp).every(x => x === '');
     }
 
     const {
         values,
-        setValues,
         errors,
         setErrors,
         handleInputChange,
@@ -114,7 +113,7 @@ const SignUpPage = ({...props}) => {
                                 <div className="invalid-feedback">{errors.Password}</div>
                             </div>
                             
-                            <div className="button_wrapper p-0" onClick={interfaceFunc.scrollToTop}>
+                            <div className="button_wrapper p-0">
                                 <button 
                                     type="submit" 
                                     className="btn btn-primary w-100 fw-bold"

@@ -12,6 +12,7 @@ import Footer from "./internal-components/footer";
 
 
 const CreateProgramPage = ({...props}) => {
+    const { addToast } = useToasts();
     const currentProgram = props.match.params;
     const currentUserId = JSON.parse(localStorage.getItem('user')).id;
     
@@ -58,8 +59,6 @@ const CreateProgramPage = ({...props}) => {
         handleInputChange,
         resetForm
     } = useForm(initialInputValues, validate);
-
-    const { addToast } = useToasts();
 
     const handleSubmit = e => {
         e.preventDefault();

@@ -38,6 +38,10 @@ const EditAccountPage = ({...props}) => {
             temp.Email = (/^$|.+@.+../).test(fieldValues.Email) || 
                 fieldValues.Email === '' || fieldValues.Email === null ? '' : 'Введите корректную почту';
         }
+        if('MobilePhone' in fieldValues){
+            temp.MobilePhone = (/^(\+375|80)(29|25|44|33|17)(\d{3})(\d{2})(\d{2})$/).test(fieldValues.MobilePhone) ||
+            fieldValues.MobilePhone === '' || fieldValues.MobilePhone === null ? '' : 'Введите корректный номер телефона';
+        }
 
         setErrors({
             ...temp
@@ -61,9 +65,15 @@ const EditAccountPage = ({...props}) => {
         e.preventDefault();
         
         if (validate()) {
+            debugger
             props.updateUser(currentUser.id, values, () =>  addToast("Редактирование успешно", {appearance: 'success'}));
         } else {
-            addToast(errors.Email, {appearance: 'warning'});
+            debugger
+            if (errors.Email !== undefined && errors.Email !== "")
+                addToast(errors.Email, {appearance: 'warning'});
+
+            if (errors.MobilePhone !== undefined && errors.MobilePhone !== "")
+                addToast(errors.MobilePhone, {appearance: 'warning'});
         }
     }
 
@@ -111,7 +121,8 @@ const EditAccountPage = ({...props}) => {
                                         type="text"
                                         id="validationCustomAvatar"
                                         value={values.Avatar}
-                                        onChange={handleInputChange}/>
+                                        onChange={handleInputChange}
+                                        {...errors.Avatar && {error: "true"}}/>
                                 </div>
                             </div>
         
