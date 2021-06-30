@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "16aaa1540dd79c124a098306db9e793b",
+    "revision": "ed092302249df924a8e9cc7cd7042aff",
     "url": "/index.html"
   },
   {
-    "revision": "7115b2cde5ecf6187992",
+    "revision": "4742281f0d6168899dd9",
     "url": "/static/css/2.fddaa3a5.chunk.css"
   },
   {
-    "revision": "d2d61ddd3cd8813cc13d",
-    "url": "/static/css/main.677d4ea2.chunk.css"
+    "revision": "8ea62cea7e1d47d79b27",
+    "url": "/static/css/main.c274384b.chunk.css"
   },
   {
-    "revision": "7115b2cde5ecf6187992",
-    "url": "/static/js/2.fe6d4c05.chunk.js"
+    "revision": "4742281f0d6168899dd9",
+    "url": "/static/js/2.9b859276.chunk.js"
   },
   {
     "revision": "c29eaaf6d52d8cb059d6217b193e5c41",
-    "url": "/static/js/2.fe6d4c05.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.9b859276.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d2d61ddd3cd8813cc13d",
-    "url": "/static/js/main.13be4de3.chunk.js"
+    "revision": "8ea62cea7e1d47d79b27",
+    "url": "/static/js/main.cca9297a.chunk.js"
   },
   {
     "revision": "e765d6591bfac6ca55a9",
@@ -36,8 +36,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/bookmark_solid.890d60f6.svg"
   },
   {
-    "revision": "0c199edf36cdfd8b347e414824e0c04d",
-    "url": "/static/media/camera.0c199edf.svg"
+    "revision": "0bf047f9fa4e194bc800f3dd9d5240c0",
+    "url": "/static/media/camera.0bf047f9.svg"
   },
   {
     "revision": "a93a5733b7f42fafa37d05e4f7e8aeb0",
@@ -48,8 +48,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/comment_solid.f17c7b9c.svg"
   },
   {
-    "revision": "f0a6b1726f4dde353af4be1eeac2712e",
-    "url": "/static/media/dumbbell.f0a6b172.svg"
+    "revision": "f59566683d3539af4e4fb5d892846de5",
+    "url": "/static/media/dumbbell.f5956668.svg"
   },
   {
     "revision": "a177e68c6d08810218acdc4c3eb39095",
@@ -60,12 +60,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/empty.0aff6f8a.svg"
   },
   {
-    "revision": "e14ada2ecb98ebc6aa58338a21c0ea92",
-    "url": "/static/media/facebook.e14ada2e.svg"
+    "revision": "d8d9e2893e70d52738d2568ca490d5b8",
+    "url": "/static/media/facebook.d8d9e289.svg"
   },
   {
-    "revision": "555566b36e0d3ad3412c7783815c3f3f",
-    "url": "/static/media/instagram.555566b3.svg"
+    "revision": "eac3273b7603345676d33a84383b4a51",
+    "url": "/static/media/instagram.eac3273b.svg"
   },
   {
     "revision": "b427d4d27f4ef7077633ab487555d923",
@@ -84,27 +84,27 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/meal.a7885f41.svg"
   },
   {
-    "revision": "021cca601c802d504183bde4fd7bb304",
-    "url": "/static/media/meditation.021cca60.svg"
+    "revision": "87268b4dc354a6ce59863200e32c12de",
+    "url": "/static/media/meditation.87268b4d.svg"
   },
   {
     "revision": "cd3014db9f7a85ab58c79bd568b460da",
     "url": "/static/media/profile.cd3014db.svg"
   },
   {
-    "revision": "dbd0d1a9b5de1182e93aef722ac8063a",
-    "url": "/static/media/telegram.dbd0d1a9.svg"
+    "revision": "03a2d777c73254c048cf92107e7fd770",
+    "url": "/static/media/telegram.03a2d777.svg"
   },
   {
-    "revision": "242d48ae19ec489fd4be5af8fcd0b59a",
-    "url": "/static/media/twitter.242d48ae.svg"
+    "revision": "6d9e80a30590a175e70a8d36460753b8",
+    "url": "/static/media/twitter.6d9e80a3.svg"
   },
   {
-    "revision": "f566acd2f12affaee6b89cd969a9d4c2",
-    "url": "/static/media/vk.f566acd2.svg"
+    "revision": "f645c34381351620608024a8f5b5b2e0",
+    "url": "/static/media/vk.f645c343.svg"
   },
   {
-    "revision": "f4bd25b21e85fc7eb94fa6b24b7925ee",
-    "url": "/static/media/yoga.f4bd25b2.svg"
+    "revision": "78b701b2eaba5dd13fa4e8467a462cef",
+    "url": "/static/media/yoga.78b701b2.svg"
   }
 ]);

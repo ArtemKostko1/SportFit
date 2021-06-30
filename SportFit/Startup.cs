@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using SportFit.Data.Entities;
 using SportFit.Helpers;
 using SportFit.Services;
+using System.IO;
 
 namespace SportFit
 {
@@ -70,6 +72,12 @@ namespace SportFit
 			}
 
             app.UseEndpoints(x => x.MapControllers());
-        }
+
+			app.Run(async (context) =>
+			{
+				context.Response.ContentType = "text/html";
+				await context.Response.SendFileAsync(Path.Combine(env.WebRootPath, "index.html"));
+			});
+		}
 	}
 }
