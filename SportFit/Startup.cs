@@ -49,14 +49,14 @@ namespace SportFit
 		{
             app.UseRouting();
             app.UseHttpsRedirection();
-			app.UseDefaultFiles();
+			//app.UseDefaultFiles();
 			app.UseStaticFiles();
 			app.UseSpaStaticFiles();
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             
 			app.UseCors(options =>
-				options.WithOrigins("https://sportfitapi.azurewebsites.net")
+				options.WithOrigins("http://localhost:5000")
 					.AllowAnyHeader()
 					.AllowAnyMethod());
             
@@ -73,10 +73,19 @@ namespace SportFit
 
             app.UseEndpoints(x => x.MapControllers());
 
-			app.Run(async (context) =>
+			/*app.Run(async (context) =>
 			{
 				context.Response.ContentType = "text/html";
 				await context.Response.SendFileAsync(Path.Combine(env.WebRootPath, "index.html"));
+			});*/
+			app.UseSpa(spa =>
+			{
+			    spa.Options.SourcePath = "ClientApp";
+
+			    if (env.IsDevelopment())
+			    {
+			        spa.UseReactDevelopmentServer(npmScript: "start");
+			    }
 			});
 		}
 	}

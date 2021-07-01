@@ -1,6 +1,6 @@
 ﻿import axios from 'axios';
 
-const baseUrl = "https://sportfitapi.azurewebsites.net/api/";
+const baseUrl = "http://localhost:5000/api/";
 
 export const user = (url = baseUrl + 'users') => {
     return {
